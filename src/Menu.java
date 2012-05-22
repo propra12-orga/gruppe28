@@ -28,10 +28,14 @@ public class Menu extends JFrame {
        panel.add(startButton);
        startButton.addActionListener(new ActionListener() {
     	   public void actionPerformed(ActionEvent event) {
-    		   Mainframe ad = new Mainframe();
-    		   ad.setVisible(true);
+    		  Mainframe mf = new Mainframe();
+    		  Board board = new Board();
+    		  mf.add(board);
+    		  mf.setVisible(true);
+    		  dispose();
     	   }
        });
+
        		
        JButton extrasButton = new JButton("Extras");
        extrasButton.setBounds(325, 150,150,30);
@@ -65,7 +69,7 @@ public class Menu extends JFrame {
 
        panel.add(quitButton);
 
-       setTitle("Spiel verlassen");
+       setTitle("Menu");
        setSize(800, 500);
        setLocationRelativeTo(null);
        setDefaultCloseOperation(EXIT_ON_CLOSE);
