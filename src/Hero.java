@@ -51,7 +51,7 @@ public class Hero {
 	public static void drawHero(Graphics hero){
 		//hero.drawImage(img, xPixelPosition, yPixelPosition, (ImageObserver) this);
 		hero.setColor(new Color(250, 0, 0));
-        hero.drawOval(xPixelPosition, yPixelPosition, 70, 70);
+        hero.fillOval(xPixelPosition, yPixelPosition, 70, 70);
 	}
 	
 	//Image gmi = Toolkit.getDefaultToolkit().getImage("nohero.png");
@@ -59,7 +59,7 @@ public class Hero {
 	public static void eraseHero(Graphics nohero){
 		//nohero.drawImage(gmi, xPixelPosition, yPixelPosition, (ImageObserver) this);
 		nohero.setColor(new Color(0, 0, 0));
-        nohero.drawOval(xPixelPosition, yPixelPosition, 70, 70);
+        nohero.fillOval(xPixelPosition, yPixelPosition, 70, 70);
 	}
 		
 }

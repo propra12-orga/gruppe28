@@ -25,7 +25,11 @@ public class Board extends JPanel {
 	}
 	public void startPosition(Graphics hero){
 		hero.setColor(new Color(250, 0, 0));
-        hero.drawOval(120, 120, 70, 70);
+        hero.fillOval(77, 77, 70, 70);
+        if(InputController.moveRight == true || InputController.moveLeft == true || InputController.moveUp == true || InputController.moveDown == true){
+        	hero.setColor(new Color(0, 0, 0));
+            hero.drawOval(120, 120, 70, 70);
+        }
 	}
 	public void movementRight(Graphics hero, Graphics nohero){
 		if(map[Hero.getxCoord()+1][Hero.getyCoord()].getTileId() != 0){
