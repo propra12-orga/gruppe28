@@ -1,6 +1,8 @@
 import java.awt.*;
+	
 import java.lang.Object;
 import java.awt.Graphics;
+import java.awt.geom.Rectangle2D;
 
 
 import javax.swing.JPanel;
@@ -11,7 +13,13 @@ public class Board extends JPanel {
 		map = new Tile[14][12];
 		for (int col=0; col <=11; col++) {
 			for (int row=0; row <=13; row++) {
-				this.map[row][col]=(new Tile(1));
+				if ((col==0) || (row==0) || (col==11) || (row==13)) {
+					this.map[row][col]=(new Tile(2));
+				}
+				else {
+					this.map[row][col]=(new Tile(1));
+				}
+				
 			}
 		}
 	}
@@ -111,6 +119,11 @@ public class Board extends JPanel {
 			for (int row=0; row <=13; row++) {
 				if (col==10&&row==10) {
 					g.drawOval(row*75, col*75, 75, 75);
+				}
+				else if ((col==0) || (row==0) || (col==11) || (row==13)) {
+					Graphics2D g2d = (Graphics2D) g;
+					g2d.setPaint(Color.black);
+				    g2d.fill(new Rectangle2D.Double(row*75, col*75, 75, 75));
 				}
 				g.drawRect(row*75, col*75, 75, 75);
 				

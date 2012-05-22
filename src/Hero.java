@@ -6,17 +6,11 @@ import java.awt.image.ImageObserver;
 
 
 public class Hero {
-	static int Hp;
 	static int xCoord;
 	static int yCoord;
 	static int xPixelPosition;
 	static int yPixelPosition;
-	public static int getHp() {
-		return Hp;
-	}
-	public static void setHp(int hp) {
-		Hp = hp;
-	}
+
 	public static int getxCoord() {
 		return xCoord;
 	}
