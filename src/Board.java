@@ -25,11 +25,16 @@ public class Board extends JPanel {
 	public void paint(Graphics g) {
 		for (int col=0; col <=11; col++) {
 			for (int row=0; row <=13; row++) {
+				if (col==10&&row==10) {
+					g.drawOval(row*75, col*75, 75, 75);
+				}
 				g.drawRect(row*75, col*75, 75, 75);
+				
+				
 			}
 		}
 	}
-	public  void createLevel(int a) {
+	public void createLevel(int a) {
 		this.map[0][0].setTileId(1);
 		for (int col=0; col <=11; col++) {
 			for (int row=0; row <=13; row++) {
@@ -40,5 +45,10 @@ public class Board extends JPanel {
 				//TODO Level aus Textdateien einlesen lassen (dafuer int a als id benutzen).
 			}
 			}
+		
+	}
+	public void setExit(int x, int y) {
+		this.map[x][y].setTileId(3);
+		
 	}
 }
