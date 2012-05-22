@@ -30,8 +30,10 @@ public class Mainframe extends JFrame{
 		Mainframe mf = new Mainframe();
 		Board board = new Board();
 		mf.add(board);
-		board.map[0][0].setTileId(1);
 		mf.setVisible(true);
+		Hero.setxPixelPosition(100);
+		Hero.setyPixelPosition(100);
+		
 		
 	}
 }

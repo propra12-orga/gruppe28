@@ -1,5 +1,7 @@
 import java.awt.Color;
+
 //import java.awt.Image;
+
 //import java.awt.Toolkit;
 import java.awt.Graphics;
 //import java.awt.image.ImageObserver;
@@ -33,14 +35,14 @@ public class Hero {
 	public static int getxPixelPosition() {
 		return xPixelPosition;
 	}
-	public void setxPixelPosition(int xPixelPosition) {
+	public static void setxPixelPosition(int xPixelPosition) {
 		xPixelPosition=xPixelPosition+45;
 		Hero.xPixelPosition = xPixelPosition;
 	}
 	public static int getyPixelPosition() {
 		return yPixelPosition;
 	}
-	public void setyPixelPosition(int yPixelPosition) {
+	public static void setyPixelPosition(int yPixelPosition) {
 		yPixelPosition=yPixelPosition+45;
 		Hero.yPixelPosition = yPixelPosition;
 	}
