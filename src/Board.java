@@ -15,6 +15,21 @@ public class Board extends JPanel {
 			}
 		}
 	}
+	public void movementRight(){
+		if(map[Hero.getxCoord()+1][Hero.getyCoord()].getTileId() != 0){//ungerade
+			do{
+			//x koordinate vom hero 1 pixel erhöhen
+			//draw hero
+			//warten
+			//erase hero
+			}while(InputController.moveRight == true);
+		}
+		else if(map[Hero.getxCoord()+1][Hero.getyCoord()].getTileId() == 0){
+			do{
+				//draw hero
+			}while(InputController.moveRight == true);
+		}
+	}
 	
 	/*public void paint(Graphics g, int a, int b) {
 		super.paint(g);
