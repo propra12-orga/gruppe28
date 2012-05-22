@@ -23,90 +23,94 @@ public class Board extends JPanel {
 			}
 		}
 	}
-	public void movementRight(){
+	public void startPosition(Graphics hero){
+		hero.setColor(new Color(250, 0, 0));
+        hero.drawOval(120, 120, 70, 70);
+	}
+	public void movementRight(Graphics hero, Graphics nohero){
 		if(map[Hero.getxCoord()+1][Hero.getyCoord()].getTileId() != 0){
 			do{
 			Hero.xPixelPosition=Hero.getxCoord()+1;
-			Hero.drawHero(Hero.hero);
+			Hero.drawHero(hero);
 			try{
 				Thread.sleep(500);
 			}catch(InterruptedException e){
 				e.printStackTrace();
 			}
-			Hero.eraseHero(Hero.nohero);
+			Hero.eraseHero(nohero);
 			}while(InputController.moveRight == true);
 		}
 		else if(map[Hero.getxCoord()+1][Hero.getyCoord()].getTileId() == 0){
-				Hero.drawHero();
+				Hero.drawHero(nohero);
 			}
 			else if(map[Hero.getxCoord()+1][Hero.getyCoord()].getTileId() == 3){
 				Menu m = new Menu();
 				m.setVisible(true);
 			}
 		}
-	public void movementLeft(){
+	public void movementLeft(Graphics hero, Graphics nohero){
 		if(map[Hero.getxCoord()-1][Hero.getyCoord()].getTileId() != 0){
 			do{
 			Hero.xPixelPosition=Hero.getxCoord()-1;
-			Hero.drawHero(Hero.hero);
+			Hero.drawHero(hero);
 			try{
 				Thread.sleep(500);
 			}catch(InterruptedException e){
 				e.printStackTrace();
 			}
-			Hero.eraseHero(Hero.nohero);
+			Hero.eraseHero(nohero);
 			}while(InputController.moveLeft == true);
 		}
 		else if(map[Hero.getxCoord()-1][Hero.getyCoord()].getTileId() == 0){
-			Hero.drawHero();
+			Hero.drawHero(hero);
 			}
 			else if(map[Hero.getxCoord()-1][Hero.getyCoord()].getTileId() == 3){
 				Menu m = new Menu();
 				m.setVisible(true);
 			}
 		}
-	public void movementUp(){
+	public void movementUp(Graphics hero, Graphics nohero){
 		if(map[Hero.getxCoord()][Hero.getyCoord()-1].getTileId() != 0){
 				do{
 			Hero.xPixelPosition=Hero.getyCoord()-1;
-			Hero.drawHero(Hero.hero);
+			Hero.drawHero(hero);
 			try{
 				Thread.sleep(500);
 			}catch(InterruptedException e){
 				e.printStackTrace();
 			}
-			Hero.eraseHero(Hero.nohero);
+			Hero.eraseHero(nohero);
 			}while(InputController.moveUp == true);
 		}
 		else if(map[Hero.getxCoord()][Hero.getyCoord()-1].getTileId() == 0){
-				Hero.drawHero();
+				Hero.drawHero(hero);
 			}
 			else if(map[Hero.getxCoord()][Hero.getyCoord()-1].getTileId() == 3){
 				Menu m = new Menu();
 				m.setVisible(true);
 			}
 		}
-	public void movementDown(){
+	public void movementDown(Graphics hero, Graphics nohero){
 		if(map[Hero.getxCoord()][Hero.getyCoord()+1].getTileId() != 0){
 			do{
 			Hero.xPixelPosition=Hero.getyCoord()+1;
-			Hero.drawHero(Hero.hero);
+			Hero.drawHero(hero);
 			try{
 				Thread.sleep(500);
 			}catch(InterruptedException e){
 				e.printStackTrace();
 			}
-			Hero.eraseHero(Hero.nohero);
+			Hero.eraseHero(nohero);
 			}while(InputController.moveDown == true);
 		}
 		else if(map[Hero.getxCoord()][Hero.getyCoord()+1].getTileId() == 0){
-				Hero.drawHero();
+				Hero.drawHero(hero);
 			}
 			else if(map[Hero.getxCoord()][Hero.getyCoord()+1].getTileId() == 3){
 				Menu m = new Menu();
 				m.setVisible(true);
-			}
 		}
+	}
 	
 	public void paint(Graphics g, int a, int b) {
 		super.paint(g);

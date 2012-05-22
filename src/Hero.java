@@ -1,16 +1,23 @@
-import java.awt.Image;
-import java.awt.Toolkit;
+import java.awt.Color;
+//import java.awt.Image;
+//import java.awt.Toolkit;
 import java.awt.Graphics;
-import java.awt.image.ImageObserver;
+//import java.awt.image.ImageObserver;
 
 
 
 public class Hero {
+	static int Hp;
 	static int xCoord;
 	static int yCoord;
 	static int xPixelPosition;
 	static int yPixelPosition;
-
+	public static int getHp() {
+		return Hp;
+	}
+	public static void setHp(int hp) {
+		Hp = hp;
+	}
 	public static int getxCoord() {
 		return xCoord;
 	}
@@ -27,24 +34,30 @@ public class Hero {
 		return xPixelPosition;
 	}
 	public void setxPixelPosition(int xPixelPosition) {
+		xPixelPosition=xPixelPosition+45;
 		Hero.xPixelPosition = xPixelPosition;
 	}
 	public static int getyPixelPosition() {
 		return yPixelPosition;
 	}
 	public void setyPixelPosition(int yPixelPosition) {
+		yPixelPosition=yPixelPosition+45;
 		Hero.yPixelPosition = yPixelPosition;
 	}
-	static Image img = Toolkit.getDefaultToolkit().getImage("hero.png");
-	Graphics hero;
-	public void drawHero(Graphics hero){
-		hero.drawImage(img, xPixelPosition, yPixelPosition, (ImageObserver) this);
+	//Image img = Toolkit.getDefaultToolkit().getImage("hero.png");
+	//Graphics hero;
+	public static void drawHero(Graphics hero){
+		//hero.drawImage(img, xPixelPosition, yPixelPosition, (ImageObserver) this);
+		hero.setColor(new Color(250, 0, 0));
+        hero.drawOval(xPixelPosition, yPixelPosition, 70, 70);
 	}
 	
-	Image gmi = Toolkit.getDefaultToolkit().getImage("nohero.png");
-	Graphics nohero;
-	public void eraseHero(Graphics nohero){
-		nohero.drawImage(gmi, xPixelPosition, yPixelPosition, (ImageObserver) this);
+	//Image gmi = Toolkit.getDefaultToolkit().getImage("nohero.png");
+	//Graphics nohero;
+	public static void eraseHero(Graphics nohero){
+		//nohero.drawImage(gmi, xPixelPosition, yPixelPosition, (ImageObserver) this);
+		nohero.setColor(new Color(0, 0, 0));
+        nohero.drawOval(xPixelPosition, yPixelPosition, 70, 70);
 	}
 		
 }
