@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.image.ImageObserver;
 
 
+
 public class Hero {
 	static int Hp;
 	static int xCoord;
@@ -20,13 +21,13 @@ public class Hero {
 		return xCoord;
 	}
 	public void setxCoord() {
-		Hero.xCoord = Hero.xPixelPosition/75;
+		Hero.xCoord = Hero.xPixelPosition;
 	}
 	public static int getyCoord() {
 		return yCoord;
 	}
 	public void setyCoord() {
-		Hero.yCoord = Hero.yPixelPosition/75;
+		Hero.yCoord = Hero.yPixelPosition;
 	}
 	public static int getxPixelPosition() {
 		return xPixelPosition;
@@ -40,9 +41,16 @@ public class Hero {
 	public void setyPixelPosition(int yPixelPosition) {
 		Hero.yPixelPosition = yPixelPosition;
 	}
-	Image img = Toolkit.getDefaultToolkit().getImage("hero.png");
+	static Image img = Toolkit.getDefaultToolkit().getImage("hero.png");
+	Graphics hero;
 	public void drawHero(Graphics hero){
 		hero.drawImage(img, xPixelPosition, yPixelPosition, (ImageObserver) this);
 	}
 	
+	Image gmi = Toolkit.getDefaultToolkit().getImage("nohero.png");
+	Graphics nohero;
+	public void eraseHero(Graphics nohero){
+		nohero.drawImage(gmi, xPixelPosition, yPixelPosition, (ImageObserver) this);
+	}
+		
 }

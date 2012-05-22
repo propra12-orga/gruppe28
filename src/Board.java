@@ -20,8 +20,11 @@ public class Board extends JPanel {
 			do{
 			Hero.xPixelPosition=Hero.getxCoord()+1;
 			Hero.drawHero(Hero.hero);
-			Hero.sleep(500);
-			//warten
+			try{
+				Thread.sleep(500);
+			}catch(InterruptedException e){
+				e.printStackTrace();
+			}
 			Hero.eraseHero(Hero.nohero);
 			}while(InputController.moveRight == true);
 		}
@@ -29,6 +32,9 @@ public class Board extends JPanel {
 			do{
 				//draw hero
 			}while(InputController.moveRight == true);
+			else if(map[Hero.getxCoord()+1][Hero.getyCoord()].getTileId() == 3){
+				//öffne menü
+			}
 		}
 	}
 	
