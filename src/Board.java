@@ -1,5 +1,5 @@
 import java.awt.*;
-
+import java.lang.Object;
 import java.awt.Graphics;
 
 
@@ -16,12 +16,13 @@ public class Board extends JPanel {
 		}
 	}
 	public void movementRight(){
-		if(map[Hero.getxCoord()+1][Hero.getyCoord()].getTileId() != 0){//ungerade
+		if(map[Hero.getxCoord()+1][Hero.getyCoord()].getTileId() != 0){
 			do{
-			//x koordinate vom hero 1 pixel erhöhen
-			//draw hero
+			Hero.xPixelPosition=Hero.getxCoord()+1;
+			Hero.drawHero(Hero.hero);
+			Hero.sleep(500);
 			//warten
-			//erase hero
+			Hero.eraseHero(Hero.nohero);
 			}while(InputController.moveRight == true);
 		}
 		else if(map[Hero.getxCoord()+1][Hero.getyCoord()].getTileId() == 0){

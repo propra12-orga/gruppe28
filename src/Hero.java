@@ -1,3 +1,8 @@
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.Graphics;
+import java.awt.image.ImageObserver;
+
 
 public class Hero {
 	static int Hp;
@@ -34,6 +39,10 @@ public class Hero {
 	}
 	public void setyPixelPosition(int yPixelPosition) {
 		Hero.yPixelPosition = yPixelPosition;
+	}
+	Image img = Toolkit.getDefaultToolkit().getImage("hero.png");
+	public void drawHero(Graphics hero){
+		hero.drawImage(img, xPixelPosition, yPixelPosition, (ImageObserver) this);
 	}
 	
 }
