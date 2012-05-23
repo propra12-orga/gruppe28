@@ -16,6 +16,9 @@ public class Board extends JPanel {
 				if ((col==0) || (row==0) || (col==11) || (row==13)) {
 					this.map[row][col]=(new Tile(2));
 				}
+				else if ((col==5 && row==5)) {
+					this.map[row][col]=(new Tile(3));
+				}
 				else {
 					this.map[row][col]=(new Tile(1));
 				}
@@ -35,13 +38,14 @@ public class Board extends JPanel {
 		if(map[Hero.getxCoord()+1][Hero.getyCoord()].getTileId() != 0){
 			do{
 			Hero.xPixelPosition=Hero.getxCoord()+1;
-			Hero.drawHero(hero);
+			Hero.eraseHero(nohero);
+			
 			try{
 				Thread.sleep(500);
 			}catch(InterruptedException e){
 				e.printStackTrace();
 			}
-			Hero.eraseHero(nohero);
+			Hero.drawHero(hero);
 			}while(InputController.moveRight == true);
 		}
 		else if(map[Hero.getxCoord()+1][Hero.getyCoord()].getTileId() == 0){
@@ -56,13 +60,14 @@ public class Board extends JPanel {
 		if(map[Hero.getxCoord()-1][Hero.getyCoord()].getTileId() != 0){
 			do{
 			Hero.xPixelPosition=Hero.getxCoord()-1;
-			Hero.drawHero(hero);
+			
+			Hero.eraseHero(nohero);
 			try{
 				Thread.sleep(500);
 			}catch(InterruptedException e){
 				e.printStackTrace();
 			}
-			Hero.eraseHero(nohero);
+			Hero.drawHero(hero);
 			}while(InputController.moveLeft == true);
 		}
 		else if(map[Hero.getxCoord()-1][Hero.getyCoord()].getTileId() == 0){
@@ -77,13 +82,13 @@ public class Board extends JPanel {
 		if(map[Hero.getxCoord()][Hero.getyCoord()-1].getTileId() != 0){
 				do{
 			Hero.xPixelPosition=Hero.getyCoord()-1;
-			Hero.drawHero(hero);
+			Hero.eraseHero(nohero);
 			try{
 				Thread.sleep(500);
 			}catch(InterruptedException e){
 				e.printStackTrace();
 			}
-			Hero.eraseHero(nohero);
+			Hero.drawHero(hero);
 			}while(InputController.moveUp == true);
 		}
 		else if(map[Hero.getxCoord()][Hero.getyCoord()-1].getTileId() == 0){
@@ -98,13 +103,13 @@ public class Board extends JPanel {
 		if(map[Hero.getxCoord()][Hero.getyCoord()+1].getTileId() != 0){
 			do{
 			Hero.xPixelPosition=Hero.getyCoord()+1;
-			Hero.drawHero(hero);
+			Hero.eraseHero(nohero);
 			try{
 				Thread.sleep(500);
 			}catch(InterruptedException e){
 				e.printStackTrace();
 			}
-			Hero.eraseHero(nohero);
+			Hero.drawHero(hero);
 			}while(InputController.moveDown == true);
 		}
 		else if(map[Hero.getxCoord()][Hero.getyCoord()+1].getTileId() == 0){
@@ -116,16 +121,16 @@ public class Board extends JPanel {
 		}
 	}
 	
-	public void paint(Graphics g, int a, int b) {
+	/*public void paint(Graphics g, int a, int b) {
 		super.paint(g);
 		Graphics2D g2d=(Graphics2D)g;
 		g2d.drawImage(map[a][b].getImg(), a*75, b*75, null);
 		g.dispose();
-		}
+		}*/
 	public void paint(Graphics g) {
 		for (int col=0; col <=11; col++) {
 			for (int row=0; row <=13; row++) {
-				if (col==10&&row==10) {
+				if (col==5&&row==5) {
 					g.drawOval(row*75, col*75, 75, 75);
 				}
 				else if ((col==0) || (row==0) || (col==11) || (row==13)) {
