@@ -1,4 +1,5 @@
 import java.awt.*;
+
 	
 import java.lang.Object;
 import java.awt.Graphics;
@@ -26,14 +27,7 @@ public class Board extends JPanel {
 			}
 		}
 	}
-	public void startPosition(Graphics firsthero){
-		firsthero.setColor(new Color(250, 0, 0));
-		firsthero.fillOval(77, 77, 70, 70);
-        if(InputController.moveRight == true || InputController.moveLeft == true || InputController.moveUp == true || InputController.moveDown == true){
-        	firsthero.setColor(new Color(0, 0, 0));
-        	firsthero.drawOval(120, 120, 70, 70);
-        }
-	}
+	
 	public void movementRight(Graphics hero, Graphics nohero){
 		if(map[Hero.getxCoord()+1][Hero.getyCoord()].getTileId() != 0){
 			do{
@@ -140,6 +134,8 @@ public class Board extends JPanel {
 				}
 				g.drawRect(row*75, col*75, 75, 75);
 				
+				g.setColor(new Color(250, 0, 0));
+		        g.fillOval(Hero.getxPixelPosition(), Hero.getyPixelPosition(), 70, 70);
 				
 			}
 		}

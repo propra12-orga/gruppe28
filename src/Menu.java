@@ -84,5 +84,6 @@ public class Menu extends JFrame {
                 ex.setVisible(true);
             }
         });
+        
     }
 }

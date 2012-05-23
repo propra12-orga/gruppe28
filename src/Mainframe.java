@@ -33,6 +33,9 @@ public class Mainframe extends JFrame{
 		mf.setVisible(true);
 		Hero.setxPixelPosition(100);
 		Hero.setyPixelPosition(100);
+		while(true) {
+			board.repaint();
+		}
 		
 		
 	}
