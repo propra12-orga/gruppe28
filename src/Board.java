@@ -132,13 +132,14 @@ public class Board extends JPanel {
 					g2d.setPaint(Color.black);
 				    g2d.fill(new Rectangle2D.Double(row*75, col*75, 75, 75));
 				}
-				g.drawRect(row*75, col*75, 75, 75);
-				
-				g.setColor(new Color(250, 0, 0));
-		        g.fillOval(Hero.getxPixelPosition(), Hero.getyPixelPosition(), 70, 70);
+				else {
+					g.drawImage(map[row][col].getImg(),row*75, col*75,  null);
+				}
 				
 			}
 		}
+		g.setColor(new Color(250, 0, 0));
+        g.fillOval(Hero.getxPixelPosition(), Hero.getyPixelPosition(), 70, 70);
 	}
 	public void createLevel(int a) {
 		this.map[0][0].setTileId(1);
