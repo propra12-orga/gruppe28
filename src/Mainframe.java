@@ -3,6 +3,7 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 
+
 public class Mainframe extends JFrame{
 	/**
 	 * 
@@ -21,7 +22,7 @@ public class Mainframe extends JFrame{
 		//board.createLevel(1);
 		
 	}
-	public static void main (String[] args) {
+	public static void main (String[] args) throws InterruptedException {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				
@@ -33,8 +34,11 @@ public class Mainframe extends JFrame{
 		mf.setVisible(true);
 		Hero.setxPixelPosition(100);
 		Hero.setyPixelPosition(100);
+		
 		while(true) {
 			board.repaint();
+			Thread.sleep(1234);
+			Hero.setyPixelPosition(Hero.getyPixelPosition()+1);
 		}
 		
 		

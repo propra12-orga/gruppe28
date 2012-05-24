@@ -1,3 +1,4 @@
+
 import java.awt.image.BufferedImage;
 
 import java.io.File;
@@ -14,7 +15,7 @@ public class Tileset {
 	static BufferedImage[][] tile = new BufferedImage[rows][cols];
 	
 	public Tileset() throws IOException {
-		BufferedImage bigImg = ImageIO.read(new File("tiletest.png"));
+		BufferedImage bigImg = ImageIO.read(new File("/tiletest.png"));
 
 		
 

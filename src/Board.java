@@ -1,3 +1,6 @@
+
+
+
 import java.awt.*;
 
 	
@@ -6,6 +9,9 @@ import java.awt.Graphics;
 import java.awt.geom.Rectangle2D;
 
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Board extends JPanel {
@@ -116,25 +122,27 @@ public class Board extends JPanel {
 	}
 	
 	/*public void paint(Graphics g, int a, int b) {
-		super.paint(g);
-		Graphics2D g2d=(Graphics2D)g;
-		g2d.drawImage(map[a][b].getImg(), a*75, b*75, null);
-		g.dispose();
+		
 		}*/
 	public void paint(Graphics g) {
+		
+		Graphics2D g2d = (Graphics2D) g;
 		for (int col=0; col <=11; col++) {
 			for (int row=0; row <=13; row++) {
 				if (col==5&&row==5) {
 					g.drawOval(row*75, col*75, 75, 75);
 				}
 				else if ((col==0) || (row==0) || (col==11) || (row==13)) {
-					Graphics2D g2d = (Graphics2D) g;
+					
 					g2d.setPaint(Color.black);
 				    g2d.fill(new Rectangle2D.Double(row*75, col*75, 75, 75));
 				}
 				else {
-					g.drawImage(map[row][col].getImg(),row*75, col*75,  null);
+					
+					g2d.drawImage(map[row][col].getImg(), row*75, col*75, null);
+					
 				}
+				
 				
 			}
 		}
