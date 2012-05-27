@@ -1,4 +1,6 @@
 
+import java.io.IOException;
+
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
@@ -22,7 +24,7 @@ public class Mainframe extends JFrame{
 		//board.createLevel(1);
 		
 	}
-	public static void main (String[] args) throws InterruptedException {
+	public static void main (String[] args) throws InterruptedException, IOException {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				
@@ -31,6 +33,7 @@ public class Mainframe extends JFrame{
 		Mainframe mf = new Mainframe();
 		Board board = new Board();
 		mf.add(board);
+		Tileset.initTileset();
 		mf.setVisible(true);
 		Hero.setxPixelPosition(100);
 		Hero.setyPixelPosition(100);

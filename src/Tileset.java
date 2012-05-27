@@ -1,10 +1,13 @@
 
 import java.awt.image.BufferedImage;
 
-import java.io.File;
+
+
 import java.io.IOException;
+import java.net.URL;
 
 import javax.imageio.ImageIO;
+
 
 
 public class Tileset {
@@ -14,14 +17,16 @@ public class Tileset {
 	final static int cols = 2;
 	static BufferedImage[][] tile = new BufferedImage[rows][cols];
 	
-	public Tileset() throws IOException {
-		BufferedImage bigImg = ImageIO.read(new File("/tiletest.png"));
+	public static void initTileset() throws IOException {
+		URL url = Tileset.class.getResource("tiletest.png");
+		BufferedImage bigImg = ImageIO.read(url);
 
 		
 
-		for (int i = 0; i < rows; i++)	{
-		    for (int j = 0; j < cols; j++) {
-		        tile[(i * rows)][j * cols] = bigImg.getSubimage(i * width, j * height, width, height);
+		
+		 for (int j = 0; j < rows; j++) {
+			 for (int i = 0; i < cols; i++)	{
+		        tile[(i * cols)][(j * rows)] = bigImg.getSubimage(i * width, j * height, width, height);
 		    }
 		}
 	}
