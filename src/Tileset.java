@@ -15,7 +15,7 @@ public class Tileset {
 	final static int height = 75;
 	final static int rows = 1;
 	final static int cols = 2;
-	static BufferedImage[][] tile = new BufferedImage[rows][cols];
+	static BufferedImage[][] tile = new BufferedImage[cols][rows];
 	
 	public static void initTileset() throws IOException {
 		URL url = Tileset.class.getResource("tiletest.png");
@@ -26,7 +26,7 @@ public class Tileset {
 		
 		 for (int j = 0; j < rows; j++) {
 			 for (int i = 0; i < cols; i++)	{
-		        tile[(i * cols)][(j * rows)] = bigImg.getSubimage(i * width, j * height, width, height);
+		        tile[i][(j] = bigImg.getSubimage(i * width, j * height, width, height);
 		    }
 		}
 	}
