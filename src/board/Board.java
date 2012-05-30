@@ -31,7 +31,7 @@ public class Board extends JPanel {
 	}
 	
 	public void paint(Graphics g) {
-		
+		//Spielfeld
 		Graphics2D g2d = (Graphics2D) g;
 		for (int col=0; col <=11; col++) {
 			for (int row=0; row <=13; row++) {
@@ -40,7 +40,7 @@ public class Board extends JPanel {
 				
 			}
 		}
-		
+		g2d.drawImage(Tileset.getExit(), 5*75, 5*75, null);
 		
 		//Bombe zeichnen
 		if (Bombe.bombenliste.isEmpty()==false) {

@@ -2,16 +2,14 @@ package controlling;
 
 import main.Bombe;
 import main.Hero;
-
 import java.awt.event.KeyEvent;
-
-
-
 import java.awt.event.KeyListener;
 import java.util.Timer;
 
 public class InputController implements KeyListener
 	{
+	public static boolean moveUp = false;
+	
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
 			Controller.movementUp();

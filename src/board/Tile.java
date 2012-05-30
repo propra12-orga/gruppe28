@@ -33,7 +33,6 @@ public class Tile {
 		}
 		public void setExit() {
 			this.setTileId(3);
-			this.setImg(Tileset.getExit());
-		}
+			}
 		
 }

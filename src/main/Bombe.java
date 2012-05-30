@@ -1,6 +1,7 @@
 package main;
 
 import java.util.LinkedList;
+import java.util.ListIterator;
 import java.util.TimerTask;
 import board.Board;
 
@@ -43,17 +44,35 @@ public void setExplodiert(boolean explodiert) {
 }
 
 public void run() {
+	int i=0;
 	this.setExplodiert(true);
  while (reichweitel <= bombenreichweite && Board.map[bombex-reichweitel][bombey].getTileId()%2 == 1)
  	{
+	 /*ListIterator<Bombe> it = Bombe.bombenliste.listIterator();
+	 if (bombenliste.isEmpty()!=true) {
+		 while(it.hasNext()) {
+			 
+			 if(bombenliste.get(i).isExplodiert()==false){
+				 if((this.getBombex()-reichweitel==bombenliste.get(i).getBombex()) && (this.getBombey()==bombenliste.get(i).getBombey())) {
+					 bombenliste.get(i).run();
+					 System.out.println("Doppel!");
+					 }
+			 }
+			 it.next();
+			 i++;
+		 }
+	 }*/
 	 reichweitel+=1;
+	 i=0;
 	}
+ 	
  while (reichweiter <= bombenreichweite && Board.map[bombex+reichweiter][bombey].getTileId()%2 == 1)
 	{
 	 reichweiter+=1;
 	}
  while (reichweiteu <= bombenreichweite && Board.map[bombex][bombey+reichweiteu].getTileId()%2 == 1)
 	{
+	 
 	 reichweiteu+=1;
 	}
  while (reichweiteo <= bombenreichweite && Board.map[bombex][bombey-reichweiteo].getTileId()%2 == 1)
@@ -71,10 +90,10 @@ public void run() {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
+ bombenliste.remove(this);
  this.setSichtbar(false);
  this.setExplodiert(false);
- bombenliste.remove(this);
-}
+ }
 
 public int[] getExplosionsvektor() {
 	return explosionsvektor;

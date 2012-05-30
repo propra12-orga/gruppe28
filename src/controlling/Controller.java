@@ -9,7 +9,7 @@ public class Controller {
 			Hero.setxPixelPosition(Hero.getxPixelPosition()+5);
 			Hero.setxCoord();
 		}
-		else if(Board.map[Hero.getxCoord()+1][Hero.getyCoord()].getTileId()%2 == 0){
+		else if(Board.map[Hero.getxCoord()+1][Hero.getyCoord()].getTileId()%2 == 0) {
 				if (Hero.getxPixelPosition()<Hero.getxCoord()*75 + 75/2) {
 					Hero.setxPixelPosition(Hero.getxPixelPosition()+5);
 					Hero.setxCoord();
@@ -45,8 +45,7 @@ public class Controller {
 
 	public static void movementUp(){
 		if (Board.map[(Hero.getxCoord())][Hero.getyCoord()-1].getTileId()%2 != 0) {
-				
-			Hero.setyPixelPosition(Hero.getyPixelPosition()-5);
+				Hero.setyPixelPosition(Hero.getyPixelPosition()-5);
 				Hero.setyCoord();
 		}
 		else if(Board.map[Hero.getxCoord()][Hero.getyCoord()-1].getTileId()%2 == 0) {
@@ -61,7 +60,7 @@ public class Controller {
 			Hero.setxCoord();
 			Hero.setyCoord();
 			Bombe.bombenliste.clear();
-		}
+		}		
 	}
 	public static void movementDown(){
 		if (Board.map[Hero.getxCoord()][Hero.getyCoord()+1].getTileId()%2 != 0) {

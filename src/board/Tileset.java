@@ -18,8 +18,8 @@ public class Tileset {
 
 	
 	public static void initTileset() throws IOException {
-		bomb = ImageIO.read(Tileset.class.getResource("Bombe.png"));
-		exit = ImageIO.read(Tileset.class.getResource("exit.png"));
+		bomb = ImageIO.read(Tileset.class.getResource("Bombe.gif"));
+		exit = ImageIO.read(Tileset.class.getResource("exit.gif"));
 		BufferedImage bigImg = ImageIO.read(Tileset.class.getResource("tiletest.png"));
 
 		
