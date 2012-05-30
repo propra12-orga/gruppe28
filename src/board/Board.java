@@ -1,7 +1,6 @@
 package board;
 import main.Bombe;
 import main.Hero;
-
 import java.awt.*;
 import java.util.ListIterator;
 
@@ -18,16 +17,10 @@ public class Board extends JPanel {
 		map = new Tile[14][12];
 		for (int col=0; col <=11; col++) {
 			for (int row=0; row <=13; row++) {
-				if ((col==0) || (row==0) || (col==11) || (row==13)) {
-					map[row][col]=(new Tile(2));
-				}
-				else {
-					map[row][col]=(new Tile(1));
-				}
+				map[row][col]=new Tile(1);
 				
 			}
 		}
-		map[5][5].setExit();
 	}
 	
 	public void paint(Graphics g) {
@@ -36,11 +29,13 @@ public class Board extends JPanel {
 		for (int col=0; col <=11; col++) {
 			for (int row=0; row <=13; row++) {
 				g2d.drawImage(map[row][col].getImg(), row*75, col*75, null);
-				
+				if (map[row][col].getTileId()==3) {
+					g2d.drawImage(Tileset.getExit(), 5*75, 5*75, null);
+				}
 				
 			}
 		}
-		g2d.drawImage(Tileset.getExit(), 5*75, 5*75, null);
+		
 		
 		//Bombe zeichnen
 		if (Bombe.bombenliste.isEmpty()==false) {
@@ -85,18 +80,20 @@ public class Board extends JPanel {
         
         
 	}
-	public void createLevel(int a) {
-		map[0][0].setTileId(1);
+	public void createLevel(String name) {
+		
 		for (int col=0; col <=11; col++) {
 			for (int row=0; row <=13; row++) {
-				map[row][col].setTileId(1);
+				if ((col==0) || (row==0) || (col==11) || (row==13)) {
+					map[row][col]=(new Tile(2));
+				}
+				else {
+					map[row][col]=(new Tile(1));
+				}
 				
-				
-				//TODO die drawImage methode implementieren
-				//TODO Level aus Textdateien einlesen lassen (dafuer int a als id benutzen).
 			}
 		}
-		
+		map[5][5].setExit();
 	}
 	public void setExit(int x, int y) {
 		map[x][y].setTileId(3);
