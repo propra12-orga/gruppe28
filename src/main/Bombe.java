@@ -1,22 +1,21 @@
 package main;
 
+import java.util.TimerTask;
+
 import board.Board;
 
-import java.util.*;
-
-public class Bombe {
+public class Bombe extends TimerTask {
 public static Bombe bombenarray[] = { new Bombe(), new Bombe()};
 int bombenreichweite = 3;
 int reichweitel = 0;
 int reichweiter = 0;
 int reichweiteo = 0;
 int reichweiteu = 0;
-int explosion[][];
 private int bombex = 0;
 private int bombey = 0;
 private boolean sichtbar = false;
-
-
+private boolean explodiert = false;
+private int[] explosionsvektor = new int[4];
 
 public int getBombex() {
 	return bombex;
@@ -36,48 +35,50 @@ public boolean istSichtbar() {
 public void setSichtbar(boolean sichtbar) {
 	this.sichtbar = sichtbar;
 }
+public boolean isExplodiert() {
+	return explodiert;
+}
+public void setExplodiert(boolean explodiert) {
+	this.explodiert = explodiert;
+}
 
-public void explosion() {
-	
-	for (int i=-bombenreichweite; i< bombenreichweite; i++) {
-		for (int j=-bombenreichweite; j< bombenreichweite; j++) {
-			explosion[i][j] = 0;
-		}
-	}
-    explosion[0][0] = 1;
+public void run() {
+	this.setExplodiert(true);
  while (reichweitel <= bombenreichweite && Board.map[bombex-reichweitel][bombey].getTileId()%2 == 1)
  	{
-	 explosion[reichweitel][0]=1;
 	 reichweitel+=1;
 	}
  while (reichweiter <= bombenreichweite && Board.map[bombex+reichweiter][bombey].getTileId()%2 == 1)
 	{
-	 explosion[reichweiter][0]=1;
 	 reichweiter+=1;
 	}
  while (reichweiteu <= bombenreichweite && Board.map[bombex][bombey+reichweiteu].getTileId()%2 == 1)
 	{
-	 explosion[0][reichweiteu]=1;
 	 reichweiteu+=1;
 	}
  while (reichweiteo <= bombenreichweite && Board.map[bombex][bombey-reichweiteo].getTileId()%2 == 1)
 	{
-	 explosion[0][reichweiteo]=1;
 	 reichweiteo+=1;
 	}
-
+ this.getExplosionsvektor()[0] = reichweiteo;
+ this.getExplosionsvektor()[1] = reichweiter;
+ this.getExplosionsvektor()[2] = reichweiteu;
+ this.getExplosionsvektor()[3] = reichweitel;
+ reichweiteo=reichweiter=reichweiteu=reichweitel=0;
+ try {
+		Thread.sleep(1000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+ this.setSichtbar(false);
+ this.setExplodiert(false);
 }
 
-public void legeBombe() {
-	this.setBombex(Hero.getxCoord());
-	this.setBombey(Hero.getyCoord());
-	this.setSichtbar(true);
-	/*Date date = new Date();
-	long gelegt = date.getTime();
-	while(date.getTime() < gelegt+3) {
-		//Wartet bis
-	}
-	Bombe.explosion();
-	*/
+public int[] getExplosionsvektor() {
+	return explosionsvektor;
+}
+public void setExplosionsvektor(int[] explosionsvektor) {
+	this.explosionsvektor = explosionsvektor;
 }
 }

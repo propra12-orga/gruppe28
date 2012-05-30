@@ -1,11 +1,14 @@
 package controlling;
 
 import main.Bombe;
+import main.Hero;
+
 import java.awt.event.KeyEvent;
 
 
 
 import java.awt.event.KeyListener;
+import java.util.Timer;
 
 public class InputController implements KeyListener
 	{
@@ -25,7 +28,13 @@ public class InputController implements KeyListener
 		else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 			Bombe b = new Bombe();
 			Bombe.bombenarray[0]=b;
-			b.legeBombe();
+			b.setBombex(Hero.getxCoord());
+			b.setBombey(Hero.getyCoord());
+			b.setSichtbar(true);
+			Timer timer = new Timer();
+			timer.schedule(b, 3000);
+			
+			
 		}
 	}
 	

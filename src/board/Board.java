@@ -2,11 +2,7 @@ package board;
 import main.Bombe;
 import main.Hero;
 
-
-
-
 import java.awt.*;
-
 import java.awt.Graphics;
 import javax.swing.JPanel;
 
@@ -48,7 +44,27 @@ public class Board extends JPanel {
 		//Bombe zeichnen
 		for (int i=0; i<2; i++)  {
 			if (Bombe.bombenarray[i].istSichtbar() == true) {
-	        	g2d.drawImage(Tileset.getBomb(), Bombe.bombenarray[i].getBombex()*75, Bombe.bombenarray[i].getBombey()*75, null);
+				if (Bombe.bombenarray[i].isExplodiert() == true) {
+					//Explosion zeichnen
+					g.setColor(new Color(250, 0, 0));
+			        g.fillOval(Bombe.bombenarray[i].getBombex()*75+7, Bombe.bombenarray[i].getBombey()*75+7, 60, 60);
+			        for (int u=0; u< Bombe.bombenarray[i].getExplosionsvektor()[0]; u++) {
+			        	g.fillOval(Bombe.bombenarray[i].getBombex()*75+7, (Bombe.bombenarray[i].getBombey()-u)*75+7, 60, 60);
+			        }
+			        for (int d=0; d< Bombe.bombenarray[i].getExplosionsvektor()[2]; d++) {
+			        	g.fillOval(Bombe.bombenarray[i].getBombex()*75+7, (Bombe.bombenarray[i].getBombey()+d)*75+7, 60, 60);
+			        }
+			        for (int r=0; r< Bombe.bombenarray[i].getExplosionsvektor()[1]; r++) {
+			        	g.fillOval((Bombe.bombenarray[i].getBombex()+r)*75+7, (Bombe.bombenarray[i].getBombey())*75+7, 60, 60);
+			        }
+			        for (int l=0; l< Bombe.bombenarray[i].getExplosionsvektor()[3]; l++) {
+			        	g.fillOval((Bombe.bombenarray[i].getBombex()-l)*75+7, Bombe.bombenarray[i].getBombey()*75+7, 60, 60);
+			        }
+			        
+				}
+				else {
+					g2d.drawImage(Tileset.getBomb(), Bombe.bombenarray[i].getBombex()*75, Bombe.bombenarray[i].getBombey()*75, null);
+				}
 	        }
 		}
         
