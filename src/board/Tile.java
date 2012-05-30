@@ -31,5 +31,9 @@ public class Tile {
 		public void setImg(BufferedImage a) {
 			this.img=a;
 		}
+		public void setExit() {
+			this.setTileId(3);
+			this.setImg(Tileset.getExit());
+		}
 		
 }

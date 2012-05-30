@@ -1,5 +1,6 @@
 package board;
 
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -7,17 +8,18 @@ import javax.imageio.ImageIO;
 
 
 public class Tileset {
-	final static int width = 75;
-	final static int height = 75;
-	final static int x = 2;
-	final static int y = 1;
-	static BufferedImage[][] tile = new BufferedImage[x][y];
+	private final static int width = 75;
+	private final static int height = 75;
+	private final static int x = 2;
+	private final static int y = 1;
+	private static BufferedImage[][] tile = new BufferedImage[x][y];
+	private static BufferedImage bomb;
+	private static BufferedImage exit;
+
 	
 	public static void initTileset() throws IOException {
-		
-		//BufferedImage bigImg = ImageIO.read(url);
-		//tile[0][0] = ImageIO.read(Tileset.class.getResource("gras.png"));
-		//tile[0][1] = ImageIO.read(Tileset.class.getResource("wall.png"));
+		bomb = ImageIO.read(Tileset.class.getResource("Bombe.png"));
+		exit = ImageIO.read(Tileset.class.getResource("exit.png"));
 		BufferedImage bigImg = ImageIO.read(Tileset.class.getResource("tiletest.png"));
 
 		
@@ -29,5 +31,11 @@ public class Tileset {
 	}
 	public static BufferedImage getTile(int a, int b) {
 		return tile[a][b];
+	}
+	public static Image getBomb() {
+		return bomb;
+	}
+	public static BufferedImage getExit() {
+		return exit;
 	}
 }

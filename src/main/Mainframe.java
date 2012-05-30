@@ -1,7 +1,6 @@
 package main;
 
 import java.io.IOException;
-
 import javax.swing.JFrame;
 
 import board.Board;
@@ -25,23 +24,20 @@ public class Mainframe extends JFrame{
 		
 	}
 	public static void main (String[] args) throws InterruptedException, IOException {
-		
 		board.Tileset.initTileset();
 		Mainframe mf = new Mainframe();
 		Board board = new Board();
 		mf.add(board);
-		mf.addKeyListener(new InputController());
+		mf.addKeyListener(new controlling.InputController());
 		mf.setVisible(true);
-		Hero.setxPixelPosition(100);
-		Hero.setyPixelPosition(100);
+		Hero.setxPixelPosition(116);
+		Hero.setyPixelPosition(116);
 		Hero.setxCoord();
 		Hero.setyCoord();
-		
 		
 		while(true) {
 			board.repaint();
 			Thread.sleep(25);
-			
 			}
 		
 		

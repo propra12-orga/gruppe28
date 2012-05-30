@@ -1,15 +1,17 @@
-package main;
+package controlling;
 import board.Board;
+import main.Bombe;
+import main.Hero;
 
 public class Controller {
 	public static void movementRight(){
 		if (Board.map[(Hero.getxCoord()+1)][Hero.getyCoord()].getTileId()%2 != 0) {
-			Hero.xPixelPosition+=5;
+			Hero.setxPixelPosition(Hero.getxPixelPosition()+5);
 			Hero.setxCoord();
 		}
 		else if(Board.map[Hero.getxCoord()+1][Hero.getyCoord()].getTileId()%2 == 0){
 				if (Hero.getxPixelPosition()<Hero.getxCoord()*75 + 75/2) {
-					Hero.xPixelPosition+=5;
+					Hero.setxPixelPosition(Hero.getxPixelPosition()+5);
 					Hero.setxCoord();
 				}
 			}
@@ -18,16 +20,18 @@ public class Controller {
 			Hero.setyPixelPosition(100);
 			Hero.setxCoord();
 			Hero.setyCoord();
+			Bombe.bombenarray[0].setSichtbar(false);
+			Bombe.bombenarray[1].setSichtbar(false);
 			}
 		}
 	public static void movementLeft(){
 		if (Board.map[(Hero.getxCoord()-1)][Hero.getyCoord()].getTileId()%2 != 0) {
-			Hero.xPixelPosition-=5;
+			Hero.setxPixelPosition(Hero.getxPixelPosition()-5);
 			Hero.setxCoord();
 		}
 		else if(Board.map[Hero.getxCoord()-1][Hero.getyCoord()].getTileId()%2 == 0) {
 			if (Hero.getxPixelPosition()>Hero.getxCoord()*75 + 75/2) {
-				Hero.xPixelPosition-=5;
+				Hero.setxPixelPosition(Hero.getxPixelPosition()-5);
 				Hero.setxCoord();
 			}
 		}
@@ -36,18 +40,20 @@ public class Controller {
 			Hero.setyPixelPosition(100);
 			Hero.setxCoord();
 			Hero.setyCoord();
+			Bombe.bombenarray[0].setSichtbar(false);
+			Bombe.bombenarray[1].setSichtbar(false);
 		}
 	}
 
 	public static void movementUp(){
 		if (Board.map[(Hero.getxCoord())][Hero.getyCoord()-1].getTileId()%2 != 0) {
 				
-				Hero.yPixelPosition-=5;
+			Hero.setyPixelPosition(Hero.getyPixelPosition()-5);
 				Hero.setyCoord();
 		}
 		else if(Board.map[Hero.getxCoord()][Hero.getyCoord()-1].getTileId()%2 == 0) {
 			if (Hero.getyPixelPosition()>Hero.getyCoord()*75 + 75/2) {
-				Hero.yPixelPosition-=5;
+				Hero.setyPixelPosition(Hero.getyPixelPosition()-5);
 				Hero.setyCoord();
 			}
 		}
@@ -56,16 +62,18 @@ public class Controller {
 			Hero.setyPixelPosition(100);
 			Hero.setxCoord();
 			Hero.setyCoord();
+			Bombe.bombenarray[0].setSichtbar(false);
+			Bombe.bombenarray[1].setSichtbar(false);
 		}
 	}
 	public static void movementDown(){
 		if (Board.map[Hero.getxCoord()][Hero.getyCoord()+1].getTileId()%2 != 0) {
-			Hero.yPixelPosition+=5;
+			Hero.setyPixelPosition(Hero.getyPixelPosition()+5);
 			Hero.setyCoord();
 		}
 		else if (Board.map[Hero.getxCoord()][Hero.getyCoord()+1].getTileId()%2 == 0) {
 			if (Hero.getyPixelPosition()<Hero.getyCoord()*75 + 75/2) {
-				Hero.yPixelPosition+=5;
+				Hero.setyPixelPosition(Hero.getyPixelPosition()+5);
 				Hero.setyCoord();
 			}
 		}
@@ -76,6 +84,8 @@ public class Controller {
 				Hero.setyPixelPosition(100);
 				Hero.setxCoord();
 				Hero.setyCoord();
+				Bombe.bombenarray[0].setSichtbar(false);
+				Bombe.bombenarray[1].setSichtbar(false);
 		}
 	}
 }

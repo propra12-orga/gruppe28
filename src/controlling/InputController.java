@@ -1,5 +1,9 @@
-package main;
+package controlling;
+
+import main.Bombe;
 import java.awt.event.KeyEvent;
+
+
 
 import java.awt.event.KeyListener;
 
@@ -18,14 +22,11 @@ public class InputController implements KeyListener
 		else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			Controller.movementRight();
 		}
-		/*else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-			try {
-				Bombe.legeBombe();
-			} catch (InterruptedException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		}*/
+		else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+			Bombe b = new Bombe();
+			Bombe.bombenarray[0]=b;
+			b.legeBombe();
+		}
 	}
 	
 	public void keyReleased(KeyEvent e)	{
