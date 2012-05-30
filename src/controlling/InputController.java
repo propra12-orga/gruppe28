@@ -27,10 +27,13 @@ public class InputController implements KeyListener
 		}
 		else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 			Bombe b = new Bombe();
-			Bombe.bombenarray[0]=b;
 			b.setBombex(Hero.getxCoord());
 			b.setBombey(Hero.getyCoord());
 			b.setSichtbar(true);
+			Bombe.bombenliste.add(b);
+			if (Bombe.bombenliste.isEmpty()==false) {
+				System.out.println("Eine Bombe wurde gesetzt:" + Bombe.bombenliste.get(0).getBombex() + ", " + Bombe.bombenliste.get(0).getBombey());
+			}
 			Timer timer = new Timer();
 			timer.schedule(b, 3000);
 			

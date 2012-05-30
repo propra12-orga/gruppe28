@@ -20,8 +20,7 @@ public class Controller {
 			Hero.setyPixelPosition(100);
 			Hero.setxCoord();
 			Hero.setyCoord();
-			Bombe.bombenarray[0].setSichtbar(false);
-			Bombe.bombenarray[1].setSichtbar(false);
+			Bombe.bombenliste.clear();
 			}
 		}
 	public static void movementLeft(){
@@ -40,8 +39,7 @@ public class Controller {
 			Hero.setyPixelPosition(100);
 			Hero.setxCoord();
 			Hero.setyCoord();
-			Bombe.bombenarray[0].setSichtbar(false);
-			Bombe.bombenarray[1].setSichtbar(false);
+			Bombe.bombenliste.clear();
 		}
 	}
 
@@ -62,8 +60,7 @@ public class Controller {
 			Hero.setyPixelPosition(100);
 			Hero.setxCoord();
 			Hero.setyCoord();
-			Bombe.bombenarray[0].setSichtbar(false);
-			Bombe.bombenarray[1].setSichtbar(false);
+			Bombe.bombenliste.clear();
 		}
 	}
 	public static void movementDown(){
@@ -84,8 +81,7 @@ public class Controller {
 				Hero.setyPixelPosition(100);
 				Hero.setxCoord();
 				Hero.setyCoord();
-				Bombe.bombenarray[0].setSichtbar(false);
-				Bombe.bombenarray[1].setSichtbar(false);
+				Bombe.bombenliste.clear();
 		}
 	}
 }

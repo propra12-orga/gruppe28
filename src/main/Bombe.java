@@ -1,11 +1,11 @@
 package main;
 
+import java.util.LinkedList;
 import java.util.TimerTask;
-
 import board.Board;
 
 public class Bombe extends TimerTask {
-public static Bombe bombenarray[] = { new Bombe(), new Bombe()};
+public static LinkedList<Bombe> bombenliste = new LinkedList<Bombe>();
 int bombenreichweite = 3;
 int reichweitel = 0;
 int reichweiter = 0;
@@ -73,12 +73,13 @@ public void run() {
 	}
  this.setSichtbar(false);
  this.setExplodiert(false);
+ bombenliste.remove(this);
 }
 
 public int[] getExplosionsvektor() {
 	return explosionsvektor;
-}
+	}
 public void setExplosionsvektor(int[] explosionsvektor) {
 	this.explosionsvektor = explosionsvektor;
-}
+	}
 }
