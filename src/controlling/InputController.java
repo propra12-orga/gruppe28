@@ -25,7 +25,7 @@ public class InputController implements KeyListener
 			Controller.movementRight();
 		}
 		else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-			boolean blocked=false;
+			/*boolean blocked=false;
 			ListIterator<Bombe> it = Bombe.bombenliste.listIterator();
 			
 			while(it.hasNext()) {
@@ -33,7 +33,7 @@ public class InputController implements KeyListener
 					blocked=true;
 				}
 			}
-			if (blocked!=true) {
+			if (blocked!=true) {*/
 				Bombe b = new Bombe();
 				b.setBombex(Hero.getxCoord());
 				b.setBombey(Hero.getyCoord());
@@ -44,7 +44,7 @@ public class InputController implements KeyListener
 				}
 				Timer timer = new Timer();
 				timer.schedule(b, 3000);
-			}
+			//}
 		}
 	}
 	
