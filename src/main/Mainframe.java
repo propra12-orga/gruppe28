@@ -27,7 +27,7 @@ public class Mainframe extends JFrame{
 		board.Tileset.initTileset();
 		Mainframe mf = new Mainframe();
 		Board board = new Board();
-		//board.createLevel(1);
+		board.createLevel("1");
 		mf.add(board);
 		mf.addKeyListener(new controlling.InputController());
 		mf.setVisible(true);

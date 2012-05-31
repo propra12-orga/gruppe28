@@ -4,6 +4,7 @@ import main.Bombe;
 import main.Hero;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ListIterator;
 import java.util.Timer;
 
 public class InputController implements KeyListener
@@ -24,18 +25,26 @@ public class InputController implements KeyListener
 			Controller.movementRight();
 		}
 		else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-			Bombe b = new Bombe();
-			b.setBombex(Hero.getxCoord());
-			b.setBombey(Hero.getyCoord());
-			b.setSichtbar(true);
-			Bombe.bombenliste.add(b);
-			if (Bombe.bombenliste.isEmpty()==false) {
-				System.out.println("Eine Bombe wurde gesetzt:" + Bombe.bombenliste.get(0).getBombex() + ", " + Bombe.bombenliste.get(0).getBombey());
+			boolean blocked=false;
+			ListIterator<Bombe> it = Bombe.bombenliste.listIterator();
+			
+			while(it.hasNext()) {
+				if (it.next().getBombex() == Hero.getxCoord() && it.next().getBombey() == Hero.getyCoord()) {
+					blocked=true;
+				}
 			}
-			Timer timer = new Timer();
-			timer.schedule(b, 3000);
-			
-			
+			if (blocked!=true) {
+				Bombe b = new Bombe();
+				b.setBombex(Hero.getxCoord());
+				b.setBombey(Hero.getyCoord());
+				b.setSichtbar(true);
+				Bombe.bombenliste.add(b);
+				if (Bombe.bombenliste.isEmpty()==false) {
+					System.out.println("Eine Bombe wurde gesetzt:" + Bombe.bombenliste.get(0).getBombex() + ", " + Bombe.bombenliste.get(0).getBombey());
+				}
+				Timer timer = new Timer();
+				timer.schedule(b, 3000);
+			}
 		}
 	}
 	

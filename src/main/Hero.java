@@ -5,6 +5,7 @@ public class Hero {
 	static int yCoord;
 	static int xPixelPosition;
 	static int yPixelPosition;
+	private static int speed=10;
 	public static int getHp() {
 		return Hp;
 	}
@@ -34,6 +35,9 @@ public class Hero {
 	}
 	public static void setyPixelPosition(int yPixelPosition) {
 		Hero.yPixelPosition = yPixelPosition;
+	}
+	public static int getSpeed() {
+		return speed;
 	}
 	
 		
