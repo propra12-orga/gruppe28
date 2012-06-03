@@ -80,7 +80,7 @@ public class Board extends JPanel {
         
         
 	}
-	public void createLevel(String name) {
+	public void createLevel(int[][] level) {
 		
 		for (int col=0; col <=11; col++) {
 			for (int row=0; row <=13; row++) {
