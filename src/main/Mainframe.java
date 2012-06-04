@@ -41,12 +41,13 @@ public class Mainframe extends JFrame{
 		Hero.setyPixelPosition(116);
 		Hero.setxCoord();
 		Hero.setyCoord();
-		JFileChooser chooser = new JFileChooser();
+		/*JFileChooser chooser = new JFileChooser();
 		int returnVal = chooser.showOpenDialog(mf);//rückgabewert speichern
 		if(returnVal == JFileChooser.APPROVE_OPTION) {//überprüfen ob rückgabewert dem Zustand entspricht, den der chooser haben müsste wenn der Benutzer auf den öffnen knopf geklickt hat.
 		File test = new File(chooser.getSelectedFile().getAbsolutePath());
 		LevelReader.ausgabe(LevelReader.readLevel(test));
-		
+		}
+		*/
 		while(true) {
 			board.repaint();
 			Thread.sleep(45);
@@ -54,4 +55,3 @@ public class Mainframe extends JFrame{
 		}
 		
 	}
-}
