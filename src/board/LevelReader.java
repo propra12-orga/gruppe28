@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 
 public class LevelReader {
 	
-	public static int[][] readLevel(File file) throws IOException {
+	public static int[][] readLevel() throws IOException {
 		BufferedReader in = new BufferedReader(new FileReader("1.txt"));
 		int level[][] = new int[14][12];
 		String line;
