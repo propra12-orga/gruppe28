@@ -9,16 +9,16 @@ import java.util.regex.Pattern;
 
 public class LevelReader {
 	
-	public static int[][] readLevel() throws IOException {
-		BufferedReader in = new BufferedReader(new FileReader("1.txt"));
+	public static int[][] readLevel(File file) throws IOException {
+		BufferedReader in = new BufferedReader(new FileReader(file));
 		int level[][] = new int[14][12];
 		String line;
 		Pattern p = Pattern.compile("(\\d)");
 		Matcher m; 
-			for(int y=1;(line = in.readLine()) != null; y++){
+			for(int y=0;(line = in.readLine()) != null; y++){
 				m = p.matcher(line);
-				for(int x=1; m.find();x++){
-					level[y][x]=Integer.parseInt(m.group());
+				for(int x=0; m.find();x++){
+					level[x][y]=Integer.parseInt(m.group());
 				}
 			}
 
@@ -26,6 +26,11 @@ public class LevelReader {
 	}
 	
 	public static void ausgabe(int[][] a) {
-		System.out.println(a.toString());
+		for (int j=0; j<12; j++) {
+			for (int i=0; i<14; i++) {
+				System.out.print(a[i][j]);
+			}
+			System.out.println();
+		}
 	}
 }

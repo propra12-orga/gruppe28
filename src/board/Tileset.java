@@ -2,6 +2,7 @@ package board;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
@@ -18,9 +19,10 @@ public class Tileset {
 
 	
 	public static void initTileset() throws IOException {
-		bomb = ImageIO.read(Tileset.class.getResource("Bombe.gif"));
-		exit = ImageIO.read(Tileset.class.getResource("exit.gif"));
-		BufferedImage bigImg = ImageIO.read(Tileset.class.getResource("tiletest.png"));
+		//bomb = ImageIO.read(Tileset.class.getResource("Bombe.gif"));
+		bomb = ImageIO.read(new File("res/Bombe.gif"));
+		exit = ImageIO.read(new File("res/exit.gif"));
+		BufferedImage bigImg = ImageIO.read(new File("res/tiletest.png"));
 
 		
 		 for (int j = 0; j < y; j++) {
