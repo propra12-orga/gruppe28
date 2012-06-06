@@ -72,10 +72,11 @@ public class Board extends JPanel {
 		}
         
 		//Hero zeichnen
+		Hero bm = new Hero();
 		g.setColor(new Color(250, 0, 0));
-        g.fillOval(Hero.getxPixelPosition()-34, Hero.getyPixelPosition()-34, 70, 70);
+        g.fillOval(bm.getxPixelPosition()-34, bm.getyPixelPosition()-34, 70, 70);
         g2d.setPaint(Color.black);
-        g2d.drawOval(Hero.getxPixelPosition(), Hero.getyPixelPosition(), 2, 2);
+        g2d.drawOval(bm.getxPixelPosition(), bm.getyPixelPosition(), 2, 2);
         
         
         
