@@ -29,9 +29,7 @@ public class Board extends JPanel {
 		for (int col=0; col <=11; col++) {
 			for (int row=0; row <=13; row++) {
 				g2d.drawImage(map[row][col].getImg(), row*75, col*75, null);
-				if (map[row][col].getTileId()==3) {
-					g2d.drawImage(Tileset.getExit(), 5*75, 5*75, null);
-				}
+				
 				
 			}
 		}
@@ -73,11 +71,12 @@ public class Board extends JPanel {
         
 		//Hero zeichnen
 		Hero bm = new Hero();
-		g.setColor(new Color(250, 0, 0));
+		g2d.drawImage(Tileset.getHero(), bm.getxPixelPosition()-34, bm.getyPixelPosition()-34, null);
+		/*g.setColor(new Color(250, 0, 0));
         g.fillOval(bm.getxPixelPosition()-34, bm.getyPixelPosition()-34, 70, 70);
         g2d.setPaint(Color.black);
         g2d.drawOval(bm.getxPixelPosition(), bm.getyPixelPosition(), 2, 2);
-        
+        */
         
         
 	}

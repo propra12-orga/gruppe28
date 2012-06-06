@@ -15,7 +15,9 @@ public class Tile {
 						break;
 			case 2 : this.img=Tileset.getTile(1, 0);
 						break;
-			case 3 : this.img=Tileset.getExit();
+			case 3 : this.img=Tileset.getTile(2, 0);
+						break;
+			case 4 : this.img=Tileset.getTile(3, 0);
 						break;
 			default: break;
 			}

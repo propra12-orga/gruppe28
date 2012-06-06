@@ -1,7 +1,9 @@
 package controlling;
 import board.Board;
+
 import main.Bombe;
 import main.Hero;
+
 
 public class Controller {
 	public static void movementRight(){
@@ -10,7 +12,7 @@ public class Controller {
 			Hero.setxCoord();
 		}
 		else if(Board.map[Hero.getxCoord()+1][Hero.getyCoord()].getTileId()%2 == 0) {
-				if (Hero.getxPixelPosition()<Hero.getxCoord()*75 + 75/2) {
+				if (Hero.getxPixelPosition()<(Hero.getxCoord()+1)*75 - 75/2) {
 					Hero.setxPixelPosition(Hero.getxPixelPosition()+Hero.getSpeed());
 					Hero.setxCoord();
 				}
@@ -68,7 +70,7 @@ public class Controller {
 			Hero.setyCoord();
 		}
 		else if (Board.map[Hero.getxCoord()][Hero.getyCoord()+1].getTileId()%2 == 0) {
-			if (Hero.getyPixelPosition()<Hero.getyCoord()*75 + 75/2) {
+			if (Hero.getyPixelPosition()<(Hero.getyCoord()+1)*75 - 75/2) {
 				Hero.setyPixelPosition(Hero.getyPixelPosition()+Hero.getSpeed());
 				Hero.setyCoord();
 			}

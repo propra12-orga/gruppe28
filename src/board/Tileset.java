@@ -11,18 +11,19 @@ import javax.imageio.ImageIO;
 public class Tileset {
 	private final static int width = 75;
 	private final static int height = 75;
-	private final static int x = 2;
+	private final static int x = 4;
 	private final static int y = 1;
 	private static BufferedImage[][] tile = new BufferedImage[x][y];
 	private static BufferedImage bomb;
 	private static BufferedImage exit;
+	private static BufferedImage hero;
 
 	
 	public static void initTileset() throws IOException {
 		//bomb = ImageIO.read(Tileset.class.getResource("Bombe.gif"));
 		bomb = ImageIO.read(new File("res/Bombe.gif"));
-		exit = ImageIO.read(new File("res/exit.gif"));
-		BufferedImage bigImg = ImageIO.read(new File("res/tiletest.png"));
+		hero = ImageIO.read(new File("res/hero.gif"));
+		BufferedImage bigImg = ImageIO.read(new File("res/tileset.gif"));
 
 		
 		 for (int j = 0; j < y; j++) {
@@ -37,7 +38,8 @@ public class Tileset {
 	public static Image getBomb() {
 		return bomb;
 	}
-	public static BufferedImage getExit() {
-		return exit;
+	
+	public static Image getHero() {
+		return hero;
 	}
 }
