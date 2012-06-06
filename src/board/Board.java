@@ -83,21 +83,11 @@ public class Board extends JPanel {
 	}
 	public void createLevel(int[][] level) {
 		
-		for (int col=0; col <=11; col++) {
-			for (int row=0; row <=13; row++) {
-				if ((col==0) || (row==0) || (col==11) || (row==13)) {
-					map[row][col]=(new Tile(2));
-				}
-				else {
-					map[row][col]=(new Tile(1));
-				}
-				
+		for (int j=0; j<12; j++) {
+			for (int i=0; i<14; i++) {
+				map[i][j]= new Tile(level[i][j]);
 			}
 		}
-		map[5][5].setExit();
 	}
-	public void setExit(int x, int y) {
-		map[x][y].setTileId(3);
-		
-	}
+	
 }
