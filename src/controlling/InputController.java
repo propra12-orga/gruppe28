@@ -12,19 +12,19 @@ public class InputController implements KeyListener
 	public static boolean moveUp = false;
 	
 	public void keyPressed(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_UP) {
+		if (e.getKeyCode() == KeyEvent.VK_W) {
 			Controller.movementUp(0);
 		}
-		else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+		else if (e.getKeyCode() == KeyEvent.VK_S) {
 			Controller.movementDown(0);
 		}
-		else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+		else if (e.getKeyCode() == KeyEvent.VK_A) {
 			Controller.movementLeft(0);
 		}
-		else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+		else if (e.getKeyCode() == KeyEvent.VK_D) {
 			Controller.movementRight(0);
 		}
-		else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+		else if (e.getKeyCode() == KeyEvent.VK_X) {
 			/*boolean blocked=false;
 			ListIterator<Bombe> it = Bombe.bombenliste.listIterator();
 			
@@ -47,19 +47,19 @@ public class InputController implements KeyListener
 				timer.schedule(b, 3000);
 			//}
 		}
-		if (e.getKeyCode() == KeyEvent.VK_W) {
+		if (e.getKeyCode() == KeyEvent.VK_UP) {
 			Controller.movementUp(1);
 		}
-		else if (e.getKeyCode() == KeyEvent.VK_S) {
+		else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 			Controller.movementDown(1);
 		}
-		else if (e.getKeyCode() == KeyEvent.VK_A) {
+		else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 			Controller.movementLeft(1);
 		}
-		else if (e.getKeyCode() == KeyEvent.VK_D) {
+		else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			Controller.movementRight(1);
 		}
-		else if (e.getKeyCode() == KeyEvent.VK_X) {
+		else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 			/*boolean blocked=false;
 			ListIterator<Bombe> it = Bombe.bombenliste.listIterator();
 			

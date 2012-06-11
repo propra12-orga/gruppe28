@@ -20,10 +20,14 @@ public class Controller {
 				}
 			}
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
-			Hero.heroliste.get(i).setxPixelPosition(100);
-			Hero.heroliste.get(i).setyPixelPosition(100);
-			Hero.heroliste.get(i).setxCoord();
-			Hero.heroliste.get(i).setyCoord();
+			Hero.heroliste.get(0).setxPixelPosition(116);
+			Hero.heroliste.get(0).setyPixelPosition(116);
+			Hero.heroliste.get(0).setxCoord();
+			Hero.heroliste.get(0).setyCoord();
+			Hero.heroliste.get(1).setxPixelPosition(941);
+			Hero.heroliste.get(1).setyPixelPosition(116);
+			Hero.heroliste.get(1).setxCoord();
+			Hero.heroliste.get(1).setyCoord();
 			Bombe.bombenliste.clear();
 			}
 		}
@@ -40,10 +44,14 @@ public class Controller {
 			}
 		}
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
-			Hero.heroliste.get(i).setxPixelPosition(100);
-			Hero.heroliste.get(i).setyPixelPosition(100);
-			Hero.heroliste.get(i).setxCoord();
-			Hero.heroliste.get(i).setyCoord();
+			Hero.heroliste.get(0).setxPixelPosition(116);
+			Hero.heroliste.get(0).setyPixelPosition(116);
+			Hero.heroliste.get(0).setxCoord();
+			Hero.heroliste.get(0).setyCoord();
+			Hero.heroliste.get(1).setxPixelPosition(941);
+			Hero.heroliste.get(1).setyPixelPosition(116);
+			Hero.heroliste.get(1).setxCoord();
+			Hero.heroliste.get(1).setyCoord();
 			Bombe.bombenliste.clear();
 		}
 	}
@@ -61,10 +69,14 @@ public class Controller {
 			}
 		}
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
-			Hero.heroliste.get(i).setxPixelPosition(100);
-			Hero.heroliste.get(i).setyPixelPosition(100);
-			Hero.heroliste.get(i).setxCoord();
-			Hero.heroliste.get(i).setyCoord();
+			Hero.heroliste.get(0).setxPixelPosition(116);
+			Hero.heroliste.get(0).setyPixelPosition(116);
+			Hero.heroliste.get(0).setxCoord();
+			Hero.heroliste.get(0).setyCoord();
+			Hero.heroliste.get(1).setxPixelPosition(941);
+			Hero.heroliste.get(1).setyPixelPosition(116);
+			Hero.heroliste.get(1).setxCoord();
+			Hero.heroliste.get(1).setyCoord();
 			Bombe.bombenliste.clear();
 		}		
 	}
@@ -83,10 +95,14 @@ public class Controller {
 		else if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()+1].getTileId() == 0){
 				}
 			if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
-				Hero.heroliste.get(i).setxPixelPosition(100);
-				Hero.heroliste.get(i).setyPixelPosition(100);
-				Hero.heroliste.get(i).setxCoord();
-				Hero.heroliste.get(i).setyCoord();
+				Hero.heroliste.get(0).setxPixelPosition(116);
+				Hero.heroliste.get(0).setyPixelPosition(116);
+				Hero.heroliste.get(0).setxCoord();
+				Hero.heroliste.get(0).setyCoord();
+				Hero.heroliste.get(1).setxPixelPosition(941);
+				Hero.heroliste.get(1).setyPixelPosition(116);
+				Hero.heroliste.get(1).setxCoord();
+				Hero.heroliste.get(1).setyCoord();
 				Bombe.bombenliste.clear();
 		}
 	}

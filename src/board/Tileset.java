@@ -17,12 +17,14 @@ public class Tileset {
 	private static BufferedImage bomb;
 	private static BufferedImage exit;
 	private static BufferedImage hero;
+	private static BufferedImage hero2;
 
 	
 	public static void initTileset() throws IOException {
 		//bomb = ImageIO.read(Tileset.class.getResource("Bombe.gif"));
 		bomb = ImageIO.read(new File("res/Bombe.gif"));
 		hero = ImageIO.read(new File("res/hero.gif"));
+		hero2 = ImageIO.read(new File("res/hero2.gif"));
 		BufferedImage bigImg = ImageIO.read(new File("res/tileset.gif"));
 
 		
@@ -41,5 +43,8 @@ public class Tileset {
 	
 	public static Image getHero() {
 		return hero;
+	}
+	public static Image getHero2() {
+		return hero2;
 	}
 }
