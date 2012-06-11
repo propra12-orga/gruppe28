@@ -6,82 +6,87 @@ import main.Hero;
 
 
 public class Controller {
-	public static void movementRight(){
-		if (Board.map[(Hero.getxCoord()+1)][Hero.getyCoord()].getTileId()%2 != 0) {
-			Hero.setxPixelPosition(Hero.getxPixelPosition()+Hero.getSpeed());
-			Hero.setxCoord();
+
+	public static void movementRight(int i){
+		//int i=0;
+		if (Board.map[(Hero.heroliste.get(i).getxCoord()+1)][Hero.heroliste.get(i).getyCoord()].getTileId()%2 != 0) {
+			Hero.heroliste.get(i).setxPixelPosition(Hero.heroliste.get(i).getxPixelPosition()+Hero.heroliste.get(i).getSpeed());
+			Hero.heroliste.get(i).setxCoord();
 		}
-		else if(Board.map[Hero.getxCoord()+1][Hero.getyCoord()].getTileId()%2 == 0) {
-				if (Hero.getxPixelPosition()<(Hero.getxCoord()+1)*75 - 75/2) {
-					Hero.setxPixelPosition(Hero.getxPixelPosition()+Hero.getSpeed());
-					Hero.setxCoord();
+		else if(Board.map[Hero.heroliste.get(i).getxCoord()+1][Hero.heroliste.get(i).getyCoord()].getTileId()%2 == 0) {
+				if (Hero.heroliste.get(i).getxPixelPosition()<(Hero.heroliste.get(i).getxCoord()+1)*75 - 75/2) {
+					Hero.heroliste.get(i).setxPixelPosition(Hero.heroliste.get(i).getxPixelPosition()+Hero.heroliste.get(i).getSpeed());
+					Hero.heroliste.get(i).setxCoord();
 				}
 			}
-		if(Board.map[Hero.getxCoord()][Hero.getyCoord()].getTileId() == 3){
-			Hero.setxPixelPosition(100);
-			Hero.setyPixelPosition(100);
-			Hero.setxCoord();
-			Hero.setyCoord();
+		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
+			Hero.heroliste.get(i).setxPixelPosition(100);
+			Hero.heroliste.get(i).setyPixelPosition(100);
+			Hero.heroliste.get(i).setxCoord();
+			Hero.heroliste.get(i).setyCoord();
 			Bombe.bombenliste.clear();
 			}
 		}
-	public static void movementLeft(){
-		if (Board.map[(Hero.getxCoord()-1)][Hero.getyCoord()].getTileId()%2 != 0) {
-			Hero.setxPixelPosition(Hero.getxPixelPosition()-Hero.getSpeed());
-			Hero.setxCoord();
+	public static void movementLeft(int i){
+		//int i=0;
+		if (Board.map[(Hero.heroliste.get(i).getxCoord()-1)][Hero.heroliste.get(i).getyCoord()].getTileId()%2 != 0) {
+			Hero.heroliste.get(i).setxPixelPosition(Hero.heroliste.get(i).getxPixelPosition()-Hero.heroliste.get(i).getSpeed());
+			Hero.heroliste.get(i).setxCoord();
 		}
-		else if(Board.map[Hero.getxCoord()-1][Hero.getyCoord()].getTileId()%2 == 0) {
-			if (Hero.getxPixelPosition()>Hero.getxCoord()*75 + 75/2) {
-				Hero.setxPixelPosition(Hero.getxPixelPosition()-Hero.getSpeed());
-				Hero.setxCoord();
+		else if(Board.map[Hero.heroliste.get(i).getxCoord()-1][Hero.heroliste.get(i).getyCoord()].getTileId()%2 == 0) {
+			if (Hero.heroliste.get(i).getxPixelPosition()>Hero.heroliste.get(i).getxCoord()*75 + 75/2) {
+				Hero.heroliste.get(i).setxPixelPosition(Hero.heroliste.get(i).getxPixelPosition()-Hero.heroliste.get(i).getSpeed());
+				Hero.heroliste.get(i).setxCoord();
 			}
 		}
-		if(Board.map[Hero.getxCoord()][Hero.getyCoord()].getTileId() == 3){
-			Hero.setxPixelPosition(100);
-			Hero.setyPixelPosition(100);
-			Hero.setxCoord();
-			Hero.setyCoord();
+		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
+			Hero.heroliste.get(i).setxPixelPosition(100);
+			Hero.heroliste.get(i).setyPixelPosition(100);
+			Hero.heroliste.get(i).setxCoord();
+			Hero.heroliste.get(i).setyCoord();
 			Bombe.bombenliste.clear();
 		}
 	}
 
-	public static void movementUp(){
-		if (Board.map[(Hero.getxCoord())][Hero.getyCoord()-1].getTileId()%2 != 0) {
-				Hero.setyPixelPosition(Hero.getyPixelPosition()-Hero.getSpeed());
-				Hero.setyCoord();
+	public static void movementUp(int i){
+		//int i=0;
+		if (Board.map[(Hero.heroliste.get(i).getxCoord())][Hero.heroliste.get(i).getyCoord()-1].getTileId()%2 != 0) {
+				Hero.heroliste.get(i).setyPixelPosition(Hero.heroliste.get(i).getyPixelPosition()-Hero.heroliste.get(i).getSpeed());
+				Hero.heroliste.get(i).setyCoord();
 		}
-		else if(Board.map[Hero.getxCoord()][Hero.getyCoord()-1].getTileId()%2 == 0) {
-			if (Hero.getyPixelPosition()>Hero.getyCoord()*75 + 75/2) {
-				Hero.setyPixelPosition(Hero.getyPixelPosition()-Hero.getSpeed());
-				Hero.setyCoord();
+		else if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()-1].getTileId()%2 == 0) {
+			if (Hero.heroliste.get(i).getyPixelPosition()>Hero.heroliste.get(i).getyCoord()*75 + 75/2) {
+				Hero.heroliste.get(i).setyPixelPosition(Hero.heroliste.get(i).getyPixelPosition()-Hero.heroliste.get(i).getSpeed());
+				Hero.heroliste.get(i).setyCoord();
 			}
 		}
-		if(Board.map[Hero.getxCoord()][Hero.getyCoord()].getTileId() == 3){
-			Hero.setxPixelPosition(100);
-			Hero.setyPixelPosition(100);
-			Hero.setxCoord();
-			Hero.setyCoord();
+		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
+			Hero.heroliste.get(i).setxPixelPosition(100);
+			Hero.heroliste.get(i).setyPixelPosition(100);
+			Hero.heroliste.get(i).setxCoord();
+			Hero.heroliste.get(i).setyCoord();
 			Bombe.bombenliste.clear();
 		}		
 	}
-	public static void movementDown(){
-		if (Board.map[Hero.getxCoord()][Hero.getyCoord()+1].getTileId()%2 != 0) {
-			Hero.setyPixelPosition(Hero.getyPixelPosition()+Hero.getSpeed());
-			Hero.setyCoord();
+	public static void movementDown(int i){
+		//int i=0;
+		if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()+1].getTileId()%2 != 0) {
+			Hero.heroliste.get(i).setyPixelPosition(Hero.heroliste.get(i).getyPixelPosition()+Hero.heroliste.get(i).getSpeed());
+			Hero.heroliste.get(i).setyCoord();
 		}
-		else if (Board.map[Hero.getxCoord()][Hero.getyCoord()+1].getTileId()%2 == 0) {
-			if (Hero.getyPixelPosition()<(Hero.getyCoord()+1)*75 - 75/2) {
-				Hero.setyPixelPosition(Hero.getyPixelPosition()+Hero.getSpeed());
-				Hero.setyCoord();
+		else if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()+1].getTileId()%2 == 0) {
+			if (Hero.heroliste.get(i).getyPixelPosition()<(Hero.heroliste.get(i).getyCoord()+1)*75 - 75/2) {
+				Hero.heroliste.get(i).setyPixelPosition(Hero.heroliste.get(i).getyPixelPosition()+Hero.heroliste.get(i).getSpeed());
+				Hero.heroliste.get(i).setyCoord();
 			}
 		}
-		else if(Board.map[Hero.getxCoord()][Hero.getyCoord()+1].getTileId() == 0){
+		else if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()+1].getTileId() == 0){
 				}
-			if(Board.map[Hero.getxCoord()][Hero.getyCoord()].getTileId() == 3){
-				Hero.setxPixelPosition(100);
-				Hero.setyPixelPosition(100);
-				Hero.setxCoord();
-				Hero.setyCoord();
+			if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
+				Hero.heroliste.get(i).setxPixelPosition(100);
+				Hero.heroliste.get(i).setyPixelPosition(100);
+				Hero.heroliste.get(i).setxCoord();
+				Hero.heroliste.get(i).setyCoord();
 				Bombe.bombenliste.clear();
 		}
 	}

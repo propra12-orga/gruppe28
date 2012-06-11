@@ -1,42 +1,46 @@
 package main;
+
+import java.util.LinkedList;
+
 public class Hero {
-	static int Hp;
-	static int xCoord;
-	static int yCoord;
-	static int xPixelPosition;
-	static int yPixelPosition;
-	private static int speed=10;
-	public static int getHp() {
+	public static LinkedList<Hero> heroliste = new LinkedList<Hero>();
+	int Hp;
+	private int xCoord;
+	private int yCoord;
+	private int xPixelPosition;
+	private int yPixelPosition;
+	private int speed=10;
+	public  int getHp() {
 		return Hp;
 	}
-	public static void setHp(int hp) {
+	public  void setHp(int hp) {
 		Hp = hp;
 	}
-	public static int getxCoord() {
+	public int getxCoord() {
 		return xCoord;
 	}
-	public static void setxCoord() {
-		Hero.xCoord = Hero.xPixelPosition/75;
+	public void setxCoord() {
+		this.xCoord = this.xPixelPosition/75;
 	}
-	public static int getyCoord() {
+	public int getyCoord() {
 		return yCoord;
 	}
-	public static void setyCoord() {
-		Hero.yCoord = Hero.yPixelPosition/75;
+	public void setyCoord() {
+		this.yCoord = this.yPixelPosition/75;
 	}
-	public static int getxPixelPosition() {
+	public int getxPixelPosition() {
 		return xPixelPosition;
 	}
-	public static void setxPixelPosition(int xPixelPosition) {
-		Hero.xPixelPosition = xPixelPosition;
+	public void setxPixelPosition(int xPixelPosition) {
+		this.xPixelPosition = xPixelPosition;
 	}
-	public static int getyPixelPosition() {
+	public int getyPixelPosition() {
 		return yPixelPosition;
 	}
-	public static void setyPixelPosition(int yPixelPosition) {
-		Hero.yPixelPosition = yPixelPosition;
+	public void setyPixelPosition(int yPixelPosition) {
+		this.yPixelPosition = yPixelPosition;
 	}
-	public static int getSpeed() {
+	public int getSpeed() {
 		return speed;
 	}
 	

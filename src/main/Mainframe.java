@@ -36,15 +36,25 @@ public class Mainframe extends JFrame{
 		Mainframe mf = new Mainframe();
 		Board board = new Board();
 		File test = new File("res/1.txt");
+		Hero bm1 = new Hero();
+		Hero.heroliste.add(bm1);
+		Hero bm2 = new Hero();
+		Hero.heroliste.add(bm2);
 		
 		board.createLevel(LevelReader.readLevel(test));
 		mf.add(board);
 		mf.addKeyListener(new controlling.InputController());
 		mf.setVisible(true);
-		Hero.setxPixelPosition(116);
-		Hero.setyPixelPosition(116);
-		Hero.setxCoord();
-		Hero.setyCoord();
+		int i=0;
+		Hero.heroliste.get(i).setxPixelPosition(116);
+		Hero.heroliste.get(i).setyPixelPosition(116);
+		Hero.heroliste.get(i).setxCoord();
+		Hero.heroliste.get(i).setyCoord();
+		i++;
+		Hero.heroliste.get(i).setxPixelPosition(941);
+		Hero.heroliste.get(i).setyPixelPosition(116);
+		Hero.heroliste.get(i).setxCoord();
+		Hero.heroliste.get(i).setyCoord();
 		
 		LevelReader.ausgabe(LevelReader.readLevel(test));
 				
