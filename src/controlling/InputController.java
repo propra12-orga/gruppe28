@@ -13,15 +13,19 @@ public class InputController implements KeyListener
 	
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_W) {
+			//Controller.controllerliste.get(0);
 			Controller.movementUp(0);
 		}
 		else if (e.getKeyCode() == KeyEvent.VK_S) {
+			//Controller.controllerliste.get(0);
 			Controller.movementDown(0);
 		}
 		else if (e.getKeyCode() == KeyEvent.VK_A) {
+			//Controller.controllerliste.get(0);
 			Controller.movementLeft(0);
 		}
 		else if (e.getKeyCode() == KeyEvent.VK_D) {
+			//Controller.controllerliste.get(0).movementRight(0);;
 			Controller.movementRight(0);
 		}
 		else if (e.getKeyCode() == KeyEvent.VK_X) {
@@ -34,10 +38,9 @@ public class InputController implements KeyListener
 				}
 			}
 			if (blocked!=true) {*/
-				int i=0;
 				Bombe b = new Bombe();
-				b.setBombex(Hero.heroliste.get(i).getxCoord());
-				b.setBombey(Hero.heroliste.get(i).getyCoord());
+				b.setBombex(Hero.heroliste.get(0).getxCoord());
+				b.setBombey(Hero.heroliste.get(0).getyCoord());
 				b.setSichtbar(true);
 				Bombe.bombenliste.add(b);
 				if (Bombe.bombenliste.isEmpty()==false) {
@@ -48,15 +51,19 @@ public class InputController implements KeyListener
 			//}
 		}
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
+			//Controller.controllerliste.get(1);
 			Controller.movementUp(1);
 		}
 		else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+			//Controller.controllerliste.get(1);
 			Controller.movementDown(1);
 		}
 		else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+			//Controller.controllerliste.get(1);
 			Controller.movementLeft(1);
 		}
 		else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			//Controller.controllerliste.get(1).movementRight(0);;
 			Controller.movementRight(1);
 		}
 		else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
@@ -69,10 +76,9 @@ public class InputController implements KeyListener
 				}
 			}
 			if (blocked!=true) {*/
-				int i=1;
 				Bombe b = new Bombe();
-				b.setBombex(Hero.heroliste.get(i).getxCoord());
-				b.setBombey(Hero.heroliste.get(i).getyCoord());
+				b.setBombex(Hero.heroliste.get(1).getxCoord());
+				b.setBombey(Hero.heroliste.get(1).getyCoord());
 				b.setSichtbar(true);
 				Bombe.bombenliste.add(b);
 				if (Bombe.bombenliste.isEmpty()==false) {

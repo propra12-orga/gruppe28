@@ -1,4 +1,6 @@
 package controlling;
+import java.util.LinkedList;
+
 import board.Board;
 
 import main.Bombe;
@@ -6,9 +8,8 @@ import main.Hero;
 
 
 public class Controller {
-
+	//public static LinkedList<Controller> controllerliste = new LinkedList<Controller>();
 	public static void movementRight(int i){
-		//int i=0;
 		if (Board.map[(Hero.heroliste.get(i).getxCoord()+1)][Hero.heroliste.get(i).getyCoord()].getTileId()%2 != 0) {
 			Hero.heroliste.get(i).setxPixelPosition(Hero.heroliste.get(i).getxPixelPosition()+Hero.heroliste.get(i).getSpeed());
 			Hero.heroliste.get(i).setxCoord();
@@ -24,7 +25,7 @@ public class Controller {
 			Hero.heroliste.get(0).setyPixelPosition(116);
 			Hero.heroliste.get(0).setxCoord();
 			Hero.heroliste.get(0).setyCoord();
-			Hero.heroliste.get(1).setxPixelPosition(941);
+			Hero.heroliste.get(1).setxPixelPosition(926);
 			Hero.heroliste.get(1).setyPixelPosition(116);
 			Hero.heroliste.get(1).setxCoord();
 			Hero.heroliste.get(1).setyCoord();
@@ -48,7 +49,7 @@ public class Controller {
 			Hero.heroliste.get(0).setyPixelPosition(116);
 			Hero.heroliste.get(0).setxCoord();
 			Hero.heroliste.get(0).setyCoord();
-			Hero.heroliste.get(1).setxPixelPosition(941);
+			Hero.heroliste.get(1).setxPixelPosition(931);
 			Hero.heroliste.get(1).setyPixelPosition(116);
 			Hero.heroliste.get(1).setxCoord();
 			Hero.heroliste.get(1).setyCoord();
@@ -73,7 +74,7 @@ public class Controller {
 			Hero.heroliste.get(0).setyPixelPosition(116);
 			Hero.heroliste.get(0).setxCoord();
 			Hero.heroliste.get(0).setyCoord();
-			Hero.heroliste.get(1).setxPixelPosition(941);
+			Hero.heroliste.get(1).setxPixelPosition(931);
 			Hero.heroliste.get(1).setyPixelPosition(116);
 			Hero.heroliste.get(1).setxCoord();
 			Hero.heroliste.get(1).setyCoord();

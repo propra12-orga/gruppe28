@@ -9,6 +9,8 @@ import java.io.IOException;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
+import controlling.Controller;
+
 import board.Board;
 import board.LevelReader;
 import board.Tileset;
@@ -40,6 +42,10 @@ public class Mainframe extends JFrame{
 		Hero.heroliste.add(bm1);
 		Hero bm2 = new Hero();
 		Hero.heroliste.add(bm2);
+		//Controller ctrl1 = new Controller();
+		//Controller.controllerliste.add(ctrl1);
+		//Controller ctrl2 = new Controller();
+		//Controller.controllerliste.add(ctrl2);
 		
 		board.createLevel(LevelReader.readLevel(test));
 		mf.add(board);
@@ -51,7 +57,7 @@ public class Mainframe extends JFrame{
 		Hero.heroliste.get(i).setxCoord();
 		Hero.heroliste.get(i).setyCoord();
 		i++;
-		Hero.heroliste.get(i).setxPixelPosition(941);
+		Hero.heroliste.get(i).setxPixelPosition(936);
 		Hero.heroliste.get(i).setyPixelPosition(116);
 		Hero.heroliste.get(i).setxCoord();
 		Hero.heroliste.get(i).setyCoord();
