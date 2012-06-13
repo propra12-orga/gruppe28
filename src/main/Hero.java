@@ -18,6 +18,7 @@ public class Hero {
 	private int xPixelPosition;
 	private int yPixelPosition;
 	private int speed=10;
+	boolean isalive;
 	public  int getHp() {
 		return Hp;
 	}
@@ -50,6 +51,12 @@ public class Hero {
 	}
 	public int getSpeed() {
 		return speed;
+	}
+	public boolean getisalive() {
+		return isalive;
+	}
+	public void setisalive(boolean isalive) {
+		this.isalive = isalive;
 	}
 	
 		
