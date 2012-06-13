@@ -6,6 +6,13 @@ import board.Board;
 import main.Bombe;
 import main.Hero;
 
+/**
+ * Die Controller-Klasse enthält den Bewegungslogarithmus der Spielfigur.
+ * Den Bewegungs-methoden wird ein int Wert übergeben um zu bestimmen, welche Spielfigur bewegt werden soll.
+ * 
+ * @author Sebastian
+ *
+ */
 
 public class Controller {
 	//public static LinkedList<Controller> controllerliste = new LinkedList<Controller>();

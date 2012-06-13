@@ -7,6 +7,14 @@ import java.awt.event.KeyListener;
 import java.util.ListIterator;
 import java.util.Timer;
 
+/**
+ * Die InputController-Klasse regelt die Tastenbelegung zur Steuerung der Spielfiguren.
+ * Den verschiedenen Richtungsmethoden wird ein int Wert übergeben um zu bestimmen welche Figur bewegt werden soll.
+ * 
+ * @author Sebastian
+ *
+ */
+
 public class InputController implements KeyListener
 	{
 	public static boolean moveUp = false;

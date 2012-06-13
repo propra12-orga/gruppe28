@@ -74,11 +74,6 @@ public class Board extends JPanel {
 		g2d.drawImage(Tileset.getHero(), Hero.heroliste.get(i).getxPixelPosition()-34, Hero.heroliste.get(i).getyPixelPosition()-34, null);
 		i++;
 		g2d.drawImage(Tileset.getHero2(), Hero.heroliste.get(i).getxPixelPosition()-34, Hero.heroliste.get(i).getyPixelPosition()-34, null);
-		/*g.setColor(new Color(250, 0, 0));
-        g.fillOval(bm.getxPixelPosition()-34, bm.getyPixelPosition()-34, 70, 70);
-        g2d.setPaint(Color.black);
-        g2d.drawOval(bm.getxPixelPosition(), bm.getyPixelPosition(), 2, 2);
-        */
         
         
 	}

@@ -2,6 +2,14 @@ package main;
 
 import java.util.LinkedList;
 
+/**
+ * Instanzierbare Klasse um unsere Spielfiguren zu erschaffen.
+ * Sie enthält die Koordinaten und Geschwindigkeit einer Figur.
+ * 
+ * @author Sebastian
+ *
+ */
+
 public class Hero {
 	public static LinkedList<Hero> heroliste = new LinkedList<Hero>();
 	int Hp;
