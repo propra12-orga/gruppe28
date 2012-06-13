@@ -7,8 +7,14 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 
-
+/**
+ * Die Klasse Tileset verwaltet alle Graphiken. Dabei gibt es Einzelgraphiken, wie den Hero oder die Bombe und Graphiktemplates, aus 
+ * welchen die einzelnen Tilegraphiken herausgeschnitten werden.
+ * 
+ * @author Dustin
+ */
 public class Tileset {
+	
 	private final static int width = 75;
 	private final static int height = 75;
 	private final static int x = 4;
@@ -20,6 +26,11 @@ public class Tileset {
 	private static BufferedImage hero2;
 
 	
+	/**
+	 * initialisiret die ensprechenden Images. Die for-Schleife zerlegt das Tileset in einzelne Graphiken für die Tiles und speichert sie
+	 * in einem Array, wodurch sie leicht abrufbar sind.
+	 * @throws IOException
+	 */
 	public static void initTileset() throws IOException {
 		//bomb = ImageIO.read(Tileset.class.getResource("Bombe.gif"));
 		bomb = ImageIO.read(new File("res/Bombe.gif"));
@@ -34,6 +45,13 @@ public class Tileset {
 		    }
 		}
 	}
+	
+	/**
+	 * Diese Funktionen geben die entsprechenden Bilder zurück.
+	 * @param a
+	 * @param b
+	 * @return
+	 */
 	public static BufferedImage getTile(int a, int b) {
 		return tile[a][b];
 	}

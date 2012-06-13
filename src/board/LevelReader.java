@@ -7,9 +7,24 @@ import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Die Klasse liest mittels regulären Ausdrucks ein Textdokument ein, extrahiert die durch Kommate getrennten Zahlen
+ * und speichert die Zahlen als int-Array. Aus diesem Array wird dann in Board das Spielfeld erzeugt.
+ * @author Dustin
+ */
 public class LevelReader {
+	/**
+	 * Liest Zeile für Zeile das Dokument ein und fischt die Zahlen heraus, bis keine mehr gefunden werden. Dabei wird jeweils iteriert und 
+	 * die gefundene Zahl im level-Array abgespeichert.
+	 * @param file
+	 * @return
+	 * @throws IOException
+	 */
+	
+	
 	
 	public static int[][] readLevel(File file) throws IOException {
+		
 		BufferedReader in = new BufferedReader(new FileReader(file));
 		int level[][] = new int[14][12];
 		String line;
@@ -17,7 +32,7 @@ public class LevelReader {
 		Matcher m; 
 			for(int y=0;(line = in.readLine()) != null; y++){
 				m = p.matcher(line);
-				for(int x=0; m.find();x++){
+				for(int x=0; m.find(); x++){
 					level[x][y]=Integer.parseInt(m.group());
 				}
 			}
@@ -25,6 +40,10 @@ public class LevelReader {
 		return level;
 	}
 	
+	/**
+	 * Testfunktion zur Ausgabe des Arrays.
+	 * @param a
+	 */
 	public static void ausgabe(int[][] a) {
 		for (int j=0; j<12; j++) {
 			for (int i=0; i<14; i++) {

@@ -1,13 +1,20 @@
 package board;
 
 import java.awt.image.BufferedImage;
-
+/**
+ * Die Graphik jedes Tiles wird nach seiner TileId bestimmt. Die entsprechende Graphik wird aus der Klasse Tileset genommen.
+ * 
+ * @author Dustin
+ */
 public class Tile {
 	
 	
 		private BufferedImage img;
 		private int TileId; 
-		
+		/**
+		 * der Construcor setzt je nach TileId sofort das entsprechende Img.
+		 * @param a
+		 */
 		public Tile (int a) {
 			this.TileId=a;
 			switch (this.TileId) {
@@ -34,8 +41,13 @@ public class Tile {
 		public void setImg(BufferedImage a) {
 			this.img=a;
 		}
+		
+		/**
+		 * Macht ein Tile zum Exit. Die Funktion findet Anwendung in der zufälligen Bestimmung des Exits.
+		 */
 		public void setExit() {
 			this.setTileId(3);
+			this.setImg(Tileset.getTile(2, 0));
 			}
 		
 }

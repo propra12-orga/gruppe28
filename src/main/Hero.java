@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 /**
  * Instanzierbare Klasse um unsere Spielfiguren zu erschaffen.
+ * (Figuren kommen in die "heroliste" und können von da aus abgerufen werden)
  * Sie enthält die Koordinaten und Geschwindigkeit einer Figur.
  * 
  * @author Sebastian

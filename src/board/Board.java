@@ -8,7 +8,8 @@ import javax.swing.JPanel;
 
 public class Board extends JPanel {
 	/**
-	 * 
+	 * Die Klasse Board stellt das Spielfeld dar. Sie initialisiert es und ist auch für das Zeichnen zuständig.
+	 * @author Dustin
 	 */
 	private static final long serialVersionUID = 1L;
 	
@@ -22,7 +23,10 @@ public class Board extends JPanel {
 			}
 		}
 	}
-	
+	/**
+	 * Zeichenfunktion, iteriert durch das Spielfeld und zeichnet die Felder nach ihrer TileId. 
+	 * Dann wird die Bombe und zuletzt die Heros gezeichnet.
+	 */
 	public void paint(Graphics g) {
 		//Spielfeld
 		Graphics2D g2d = (Graphics2D) g;
@@ -68,8 +72,8 @@ public class Board extends JPanel {
 			i++;
 	        }while(it.hasNext());
 		}
-        
-		//Hero zeichnen
+		//Heros zeichnen
+
 		int i=0;
 		g2d.drawImage(Tileset.getHero(), Hero.heroliste.get(i).getxPixelPosition()-34, Hero.heroliste.get(i).getyPixelPosition()-34, null);
 		i++;

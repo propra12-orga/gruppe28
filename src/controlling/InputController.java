@@ -18,7 +18,9 @@ import java.util.Timer;
 public class InputController implements KeyListener
 	{
 	public static boolean moveUp = false;
-	
+	/**
+	 * Tastenbelegung für Spieler 1.
+	 */
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_W) {
 			//Controller.controllerliste.get(0);
@@ -58,6 +60,9 @@ public class InputController implements KeyListener
 				timer.schedule(b, 3000);
 			//}
 		}
+		/**
+		 * Tastenbelegung für Spieler 2.
+		 */
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
 			//Controller.controllerliste.get(1);
 			Controller.movementUp(1);
