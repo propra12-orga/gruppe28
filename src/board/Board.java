@@ -49,18 +49,18 @@ public class Board extends JPanel {
 					if (Bombe.bombenliste.get(i).isExplodiert() == true) {
 						//Explosion zeichnen
 						g.setColor(new Color(250, 0, 0));
-				        g.fillOval(Bombe.bombenliste.get(i).getBombex()*50+7, Bombe.bombenliste.get(i).getBombey()*50+7, 50, 50);
+				        g.fillOval(Bombe.bombenliste.get(i).getBombex()*50, Bombe.bombenliste.get(i).getBombey()*50, 50, 50);
 				        for (int u=0; u < Bombe.bombenliste.get(i).getExplosionsvektor()[0]; u++) {
-				        	g.fillOval(Bombe.bombenliste.get(i).getBombex()*50+7, (Bombe.bombenliste.get(i).getBombey()-u)*50+7, 50, 50);
+				        	g.fillOval(Bombe.bombenliste.get(i).getBombex()*50, (Bombe.bombenliste.get(i).getBombey()-u)*50, 50, 50);
 				        }
 				        for (int d=0; d < Bombe.bombenliste.get(i).getExplosionsvektor()[2]; d++) {
-				        	g.fillOval(Bombe.bombenliste.get(i).getBombex()*50+7, (Bombe.bombenliste.get(i).getBombey()+d)*50+7, 50, 50);
+				        	g.fillOval(Bombe.bombenliste.get(i).getBombex()*50, (Bombe.bombenliste.get(i).getBombey()+d)*50, 50, 50);
 				        }
 				        for (int r=0; r < Bombe.bombenliste.get(i).getExplosionsvektor()[1]; r++) {
-				        	g.fillOval((Bombe.bombenliste.get(i).getBombex()+r)*50+7, (Bombe.bombenliste.get(i).getBombey())*50+7, 50, 50);
+				        	g.fillOval((Bombe.bombenliste.get(i).getBombex()+r)*50, (Bombe.bombenliste.get(i).getBombey())*50, 50, 50);
 				        }
 				        for (int l=0; l < Bombe.bombenliste.get(i).getExplosionsvektor()[3]; l++) {
-				        	g.fillOval((Bombe.bombenliste.get(i).getBombex()-l)*50+7, Bombe.bombenliste.get(i).getBombey()*50+7, 50, 50);
+				        	g.fillOval((Bombe.bombenliste.get(i).getBombex()-l)*50, Bombe.bombenliste.get(i).getBombey()*50, 50, 50);
 				        }
 				        
 					}

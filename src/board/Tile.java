@@ -26,6 +26,14 @@ public class Tile {
 						break;
 			case 4 : this.img=Tileset.getTile(3, 0);
 						break;
+			/*case 5 : this.img=Tileset.getTile(4, 0);
+						break;
+			case 6 : this.img=Tileset.getTile(5, 0);
+						break;
+			case 7 : this.img=Tileset.getTile(6, 0);
+						break;
+			case 8 : this.img=Tileset.getTile(7, 0);
+			break;*/
 			default: break;
 			}
 		}
