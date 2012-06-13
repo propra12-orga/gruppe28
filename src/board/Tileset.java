@@ -36,7 +36,7 @@ public class Tileset {
 		bomb = ImageIO.read(new File("res/Bombe.gif"));
 		hero = ImageIO.read(new File("res/dolan.gif"));
 		hero2 = ImageIO.read(new File("res/dolan2.gif"));
-		BufferedImage bigImg = ImageIO.read(new File("res/tileset.gif"));
+		BufferedImage bigImg = ImageIO.read(new File("res/tileset-new.gif"));
 
 		
 		 for (int j = 0; j < y; j++) {
