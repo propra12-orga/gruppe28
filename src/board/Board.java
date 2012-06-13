@@ -15,9 +15,9 @@ public class Board extends JPanel {
 	
 	public static Tile[][] map;
 	public Board() {
-		map = new Tile[14][12];
-		for (int col=0; col <=11; col++) {
-			for (int row=0; row <=13; row++) {
+		map = new Tile[13][13];
+		for (int col=0; col <=12; col++) {
+			for (int row=0; row <=12; row++) {
 				map[row][col]=new Tile(1);
 				
 			}
@@ -30,9 +30,9 @@ public class Board extends JPanel {
 	public void paint(Graphics g) {
 		//Spielfeld
 		Graphics2D g2d = (Graphics2D) g;
-		for (int col=0; col <=11; col++) {
-			for (int row=0; row <=13; row++) {
-				g2d.drawImage(map[row][col].getImg(), row*75, col*75, null);
+		for (int col=0; col <=12; col++) {
+			for (int row=0; row <=12; row++) {
+				g2d.drawImage(map[row][col].getImg(), row*50, col*50, null);
 				
 				
 			}
@@ -49,24 +49,24 @@ public class Board extends JPanel {
 					if (Bombe.bombenliste.get(i).isExplodiert() == true) {
 						//Explosion zeichnen
 						g.setColor(new Color(250, 0, 0));
-				        g.fillOval(Bombe.bombenliste.get(i).getBombex()*75+7, Bombe.bombenliste.get(i).getBombey()*75+7, 60, 60);
+				        g.fillOval(Bombe.bombenliste.get(i).getBombex()*50+7, Bombe.bombenliste.get(i).getBombey()*50+7, 50, 50);
 				        for (int u=0; u < Bombe.bombenliste.get(i).getExplosionsvektor()[0]; u++) {
-				        	g.fillOval(Bombe.bombenliste.get(i).getBombex()*75+7, (Bombe.bombenliste.get(i).getBombey()-u)*75+7, 60, 60);
+				        	g.fillOval(Bombe.bombenliste.get(i).getBombex()*50+7, (Bombe.bombenliste.get(i).getBombey()-u)*50+7, 50, 50);
 				        }
 				        for (int d=0; d < Bombe.bombenliste.get(i).getExplosionsvektor()[2]; d++) {
-				        	g.fillOval(Bombe.bombenliste.get(i).getBombex()*75+7, (Bombe.bombenliste.get(i).getBombey()+d)*75+7, 60, 60);
+				        	g.fillOval(Bombe.bombenliste.get(i).getBombex()*50+7, (Bombe.bombenliste.get(i).getBombey()+d)*50+7, 50, 50);
 				        }
 				        for (int r=0; r < Bombe.bombenliste.get(i).getExplosionsvektor()[1]; r++) {
-				        	g.fillOval((Bombe.bombenliste.get(i).getBombex()+r)*75+7, (Bombe.bombenliste.get(i).getBombey())*75+7, 60, 60);
+				        	g.fillOval((Bombe.bombenliste.get(i).getBombex()+r)*50+7, (Bombe.bombenliste.get(i).getBombey())*50+7, 50, 50);
 				        }
 				        for (int l=0; l < Bombe.bombenliste.get(i).getExplosionsvektor()[3]; l++) {
-				        	g.fillOval((Bombe.bombenliste.get(i).getBombex()-l)*75+7, Bombe.bombenliste.get(i).getBombey()*75+7, 60, 60);
+				        	g.fillOval((Bombe.bombenliste.get(i).getBombex()-l)*50+7, Bombe.bombenliste.get(i).getBombey()*50+7, 50, 50);
 				        }
 				        
 					}
 					else {
 						//Mittelpunkt der Bombe
-						g2d.drawImage(Tileset.getBomb(), Bombe.bombenliste.get(i).getBombex()*75, Bombe.bombenliste.get(i).getBombey()*75, null);
+						g2d.drawImage(Tileset.getBomb(), Bombe.bombenliste.get(i).getBombex()*50, Bombe.bombenliste.get(i).getBombey()*50, null);
 					}
 				}
 			i++;
@@ -75,16 +75,16 @@ public class Board extends JPanel {
 		//Heros zeichnen
 
 		int i=0;
-		g2d.drawImage(Tileset.getHero(), Hero.heroliste.get(i).getxPixelPosition()-34, Hero.heroliste.get(i).getyPixelPosition()-34, null);
+		g2d.drawImage(Tileset.getHero(), Hero.heroliste.get(i).getxPixelPosition()-9, Hero.heroliste.get(i).getyPixelPosition()-9, null);
 		i++;
-		g2d.drawImage(Tileset.getHero2(), Hero.heroliste.get(i).getxPixelPosition()-34, Hero.heroliste.get(i).getyPixelPosition()-34, null);
+		g2d.drawImage(Tileset.getHero2(), Hero.heroliste.get(i).getxPixelPosition()-9, Hero.heroliste.get(i).getyPixelPosition()-9, null);
         
         
 	}
 	public void createLevel(int[][] level) {
 		
-		for (int j=0; j<12; j++) {
-			for (int i=0; i<14; i++) {
+		for (int j=0; j<13; j++) {
+			for (int i=0; i<13; i++) {
 				map[i][j]= new Tile(level[i][j]);
 			}
 		}

@@ -27,7 +27,7 @@ public class Mainframe extends JFrame{
 	
 	public Mainframe() {
 		
-		setSize(1050,926);
+		setSize(665,688);
 		setLocationRelativeTo(null);
 		setTitle("Bomberman");
 		
@@ -52,13 +52,13 @@ public class Mainframe extends JFrame{
 		mf.addKeyListener(new controlling.InputController());
 		mf.setVisible(true);
 		int i=0;
-		Hero.heroliste.get(i).setxPixelPosition(116);
-		Hero.heroliste.get(i).setyPixelPosition(116);
+		Hero.heroliste.get(i).setxPixelPosition(55);
+		Hero.heroliste.get(i).setyPixelPosition(55);
 		Hero.heroliste.get(i).setxCoord();
 		Hero.heroliste.get(i).setyCoord();
 		i++;
-		Hero.heroliste.get(i).setxPixelPosition(936);
-		Hero.heroliste.get(i).setyPixelPosition(116);
+		Hero.heroliste.get(i).setxPixelPosition(561);
+		Hero.heroliste.get(i).setyPixelPosition(55);
 		Hero.heroliste.get(i).setxCoord();
 		Hero.heroliste.get(i).setyCoord();
 		

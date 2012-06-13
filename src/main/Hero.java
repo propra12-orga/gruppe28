@@ -30,13 +30,13 @@ public class Hero {
 		return xCoord;
 	}
 	public void setxCoord() {
-		this.xCoord = this.xPixelPosition/75;
+		this.xCoord = this.xPixelPosition/50;
 	}
 	public int getyCoord() {
 		return yCoord;
 	}
 	public void setyCoord() {
-		this.yCoord = this.yPixelPosition/75;
+		this.yCoord = this.yPixelPosition/50;
 	}
 	public int getxPixelPosition() {
 		return xPixelPosition;

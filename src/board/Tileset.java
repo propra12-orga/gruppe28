@@ -15,8 +15,8 @@ import javax.imageio.ImageIO;
  */
 public class Tileset {
 	
-	private final static int width = 75;
-	private final static int height = 75;
+	private final static int width = 50;
+	private final static int height = 50;
 	private final static int x = 4;
 	private final static int y = 1;
 	private static BufferedImage[][] tile = new BufferedImage[x][y];
@@ -34,8 +34,8 @@ public class Tileset {
 	public static void initTileset() throws IOException {
 		//bomb = ImageIO.read(Tileset.class.getResource("Bombe.gif"));
 		bomb = ImageIO.read(new File("res/Bombe.gif"));
-		hero = ImageIO.read(new File("res/hero.gif"));
-		hero2 = ImageIO.read(new File("res/hero2.gif"));
+		hero = ImageIO.read(new File("res/dolan.gif"));
+		hero2 = ImageIO.read(new File("res/dolan2.gif"));
 		BufferedImage bigImg = ImageIO.read(new File("res/tileset.gif"));
 
 		
