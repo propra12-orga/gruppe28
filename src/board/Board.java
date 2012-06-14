@@ -25,7 +25,7 @@ public class Board extends JPanel {
 	}
 	/**
 	 * Zeichenfunktion, iteriert durch das Spielfeld und zeichnet die Felder nach ihrer TileId. 
-	 * Dann wird die Bombe und zuletzt die Heros gezeichnet.
+	 * Dann wird die Bombe und zuletzt die Heroes gezeichnet.
 	 */
 	public void paint(Graphics g) {
 		//Spielfeld
@@ -56,7 +56,7 @@ public class Board extends JPanel {
 							}
 							if(u==(Bombe.bombenliste.get(i).getExplosionsvektor()[0]-1)) {
 								g2d.drawImage(Tileset.getBomb(4), Bombe.bombenliste.get(i).getBombex()*50, (Bombe.bombenliste.get(i).getBombey()-u)*50, null);
-							}
+							}							
 				        }
 				        for (int d=1; d <= (Bombe.bombenliste.get(i).getExplosionsvektor()[2]-1); d++) {
 				        	if(d!=(Bombe.bombenliste.get(i).getExplosionsvektor()[2]-1)) {
