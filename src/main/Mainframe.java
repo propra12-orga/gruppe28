@@ -1,19 +1,19 @@
 package main;
 
 import java.io.File;
-import java.io.FileWriter;
-import java.io.Writer;
+//import java.io.FileWriter;
+//import java.io.Writer;
 
 import java.io.IOException;
 
-import javax.swing.JFileChooser;
+//import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
-import controlling.Controller;
+//import controlling.Controller;
 
 import board.Board;
 import board.LevelReader;
-import board.Tileset;
+//import board.Tileset;
 
 
 public class Mainframe extends JFrame{

@@ -24,7 +24,7 @@ public class Tileset {
 	private static BufferedImage[][] tile = new BufferedImage[x][y];
 	private static BufferedImage[][] bomb = new BufferedImage[m][n];
 	//private static BufferedImage bomb;
-	private static BufferedImage exit;
+	//private static BufferedImage exit;
 	private static BufferedImage hero;
 	private static BufferedImage hero2;
 
