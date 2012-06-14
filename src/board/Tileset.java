@@ -19,10 +19,10 @@ public class Tileset {
 	private final static int height = 50;
 	private final static int x = 4;
 	private final static int y = 1;
-	private final static int m = 6;
+	private final static int m = 10;
 	private final static int n = 1;
 	private static BufferedImage[][] tile = new BufferedImage[x][y];
-	private static BufferedImage[][] bomb = new BufferedImage[x][y];
+	private static BufferedImage[][] bomb = new BufferedImage[m][n];
 	//private static BufferedImage bomb;
 	private static BufferedImage exit;
 	private static BufferedImage hero;
@@ -41,7 +41,6 @@ public class Tileset {
 		hero2 = ImageIO.read(new File("res/dolan2.gif"));
 
 		BufferedImage bigImg = ImageIO.read(new File("res/tileset-new.gif"));
-		BufferedImage bombImg = ImageIO.read(new File("res/tileset-fire-2.gif"));
 
 		
 		 for (int j = 0; j < y; j++) {
@@ -49,11 +48,16 @@ public class Tileset {
 		        tile[i][j] = bigImg.getSubimage(i * width, j * height, width, height);
 		    }
 		}
-		 for (int k = 0; k < n; k++) {
-			 for (int l = 0; l < m; l++)	{
-		        tile[l][k] = bombImg.getSubimage(l * width, k * height, width, height);
+		 
+	}
+	public static void initBombset() throws IOException {
+		BufferedImage bombImg = ImageIO.read(new File("res/tileset-fire-2.gif"));
+		for (int l = 0; l < n; l++) {
+			 for (int k = 0; k < m; k++)	{
+		        bomb[k][l] = bombImg.getSubimage(k * width, l * height, width, height);
 		    }
 		}
+		
 	}
 	
 	/**
@@ -68,12 +72,10 @@ public class Tileset {
 	public static BufferedImage getBomb(int a) {
 		return bomb[a][0];
 	}
-	
 	public static Image getHero() {
 		return hero;
 	}
 	public static Image getHero2() {
 		return hero2;
 	}
-
 }

@@ -49,24 +49,44 @@ public class Board extends JPanel {
 					if (Bombe.bombenliste.get(i).isExplodiert() == true) {
 						//Explosion zeichnen
 						g.setColor(new Color(250, 0, 0));
-				        g.fillOval(Bombe.bombenliste.get(i).getBombex()*50, Bombe.bombenliste.get(i).getBombey()*50, 50, 50);
-				        for (int u=0; u < Bombe.bombenliste.get(i).getExplosionsvektor()[0]; u++) {
-				        	g.fillOval(Bombe.bombenliste.get(i).getBombex()*50, (Bombe.bombenliste.get(i).getBombey()-u)*50, 50, 50);
+						g2d.drawImage(Tileset.getBomb(8), Bombe.bombenliste.get(i).getBombex()*50, Bombe.bombenliste.get(i).getBombey()*50, null);
+						for (int u=1; u <= (Bombe.bombenliste.get(i).getExplosionsvektor()[0]-1); u++) {
+							if(u!=(Bombe.bombenliste.get(i).getExplosionsvektor()[0]-1)) {
+								g2d.drawImage(Tileset.getBomb(0), Bombe.bombenliste.get(i).getBombex()*50, (Bombe.bombenliste.get(i).getBombey()-u)*50, null);
+							}
+							if(u==(Bombe.bombenliste.get(i).getExplosionsvektor()[0]-1)) {
+								g2d.drawImage(Tileset.getBomb(4), Bombe.bombenliste.get(i).getBombex()*50, (Bombe.bombenliste.get(i).getBombey()-u)*50, null);
+							}
 				        }
-				        for (int d=0; d < Bombe.bombenliste.get(i).getExplosionsvektor()[2]; d++) {
-				        	g.fillOval(Bombe.bombenliste.get(i).getBombex()*50, (Bombe.bombenliste.get(i).getBombey()+d)*50, 50, 50);
+				        for (int d=1; d <= (Bombe.bombenliste.get(i).getExplosionsvektor()[2]-1); d++) {
+				        	if(d!=(Bombe.bombenliste.get(i).getExplosionsvektor()[2]-1)) {
+				        		g2d.drawImage(Tileset.getBomb(3), Bombe.bombenliste.get(i).getBombex()*50, (Bombe.bombenliste.get(i).getBombey()+d)*50, null);
+				        	}
+				        	if(d==(Bombe.bombenliste.get(i).getExplosionsvektor()[2]-1)) {
+				        		g2d.drawImage(Tileset.getBomb(7), Bombe.bombenliste.get(i).getBombex()*50, (Bombe.bombenliste.get(i).getBombey()+d)*50, null);
+							}
 				        }
-				        for (int r=0; r < Bombe.bombenliste.get(i).getExplosionsvektor()[1]; r++) {
-				        	g.fillOval((Bombe.bombenliste.get(i).getBombex()+r)*50, (Bombe.bombenliste.get(i).getBombey())*50, 50, 50);
+				        for (int r=1; r <= (Bombe.bombenliste.get(i).getExplosionsvektor()[1]-1); r++) {
+				        	if(r!=(Bombe.bombenliste.get(i).getExplosionsvektor()[1]-1)) {
+				        		g2d.drawImage(Tileset.getBomb(1), (Bombe.bombenliste.get(i).getBombex()+r)*50, Bombe.bombenliste.get(i).getBombey()*50, null);
+				        	}
+				        	if(r==(Bombe.bombenliste.get(i).getExplosionsvektor()[1]-1)) {
+				        		g2d.drawImage(Tileset.getBomb(5), (Bombe.bombenliste.get(i).getBombex()+r)*50, Bombe.bombenliste.get(i).getBombey()*50, null);
+							}
 				        }
-				        for (int l=0; l < Bombe.bombenliste.get(i).getExplosionsvektor()[3]; l++) {
-				        	g.fillOval((Bombe.bombenliste.get(i).getBombex()-l)*50, Bombe.bombenliste.get(i).getBombey()*50, 50, 50);
+				        for (int l=1; l <= (Bombe.bombenliste.get(i).getExplosionsvektor()[3]-1); l++) {
+				        	if(l!=(Bombe.bombenliste.get(i).getExplosionsvektor()[3]-1)) {
+				        		g2d.drawImage(Tileset.getBomb(2), (Bombe.bombenliste.get(i).getBombex()-l)*50, Bombe.bombenliste.get(i).getBombey()*50, null);
+				        	}
+				        	if(l==(Bombe.bombenliste.get(i).getExplosionsvektor()[3]-1)) {
+				        		g2d.drawImage(Tileset.getBomb(6), (Bombe.bombenliste.get(i).getBombex()-l)*50, Bombe.bombenliste.get(i).getBombey()*50, null);
+							}
 				        }
 				        
 					}
 					else {
 						//Mittelpunkt der Bombe
-						g2d.drawImage(Tileset.getBomb(), Bombe.bombenliste.get(i).getBombex()*50, Bombe.bombenliste.get(i).getBombey()*50, null);
+						g2d.drawImage(Tileset.getBomb(9), Bombe.bombenliste.get(i).getBombex()*50, Bombe.bombenliste.get(i).getBombey()*50, null);
 					}
 				}
 			i++;

@@ -35,6 +35,7 @@ public class Mainframe extends JFrame{
 	}
 	public static void main (String[] args) throws InterruptedException, IOException {
 		board.Tileset.initTileset();
+		board.Tileset.initBombset();
 		Mainframe mf = new Mainframe();
 		Board board = new Board();
 		File test = new File("res/1.txt");
