@@ -61,15 +61,18 @@ public class Hero {
 	public int getkillcount() {
 		return killcount;
 	}
-	public void setkillcount(int killcount) {
+	public void setkillcount(int i, int killcount) {
 		for(j=0; j < Bombe.bombenliste.size(); j++) {
-		if(Bombe.bombenliste.get(j).isDroppedbyone()==true && Hero.heroliste.get(1).getisalive() == false) {
-			Hero.heroliste.get(0).killcount++;
-		}
-		else if(Bombe.bombenliste.get(j).isDroppedbytwo()==true && Hero.heroliste.get(0).getisalive() == false) {
-			Hero.heroliste.get(1).killcount++;
-		}
-			
+			if(i==0) {
+				if(Bombe.bombenliste.get(j).isDroppedbyone()==true && Hero.heroliste.get(1).getisalive() == false) {
+					Hero.heroliste.get(0).killcount++;
+				}
+			}
+			if(i==1) {
+				if(Bombe.bombenliste.get(j).isDroppedbytwo()==true && Hero.heroliste.get(0).getisalive() == false) {
+					Hero.heroliste.get(1).killcount++;
+				}
+			}
 		}
 	}
 	public int getdeathcount() {
@@ -90,20 +93,24 @@ public class Hero {
 	public int getscorecount() {
 		return scorecount;
 	}
-	public void setscorecount(int scorecount) {
-		for(j=0; j < 2; j++)
-		Hero.heroliste.get(j).scorecount=Hero.heroliste.get(j).tilecount+(Hero.heroliste.get(j).killcount*5);
+	public void setscorecount(int i, int scorecount) {
+		Hero.heroliste.get(i).scorecount=Hero.heroliste.get(i).tilecount+Hero.heroliste.get(i).killcount;
 	}
 	public int gettilecount() {
 		return tilecount;
 	}
-	public void settilecount(int tilecount) {
+	public void settilecount(int i, int tilecount) {
 		for(j=0; j < Bombe.bombenliste.size(); j++) {
-			if(Bombe.bombenliste.get(j).isDroppedbyone()==true && Bombe.bombenliste.get(j).isTiledestroyed() == true) {
-				Hero.heroliste.get(0).tilecount++;
+			if(i==0){
+				if(Bombe.bombenliste.get(j).isDroppedbyone()==true && Bombe.bombenliste.get(j).isTiledestroyed() == true) {
+					Hero.heroliste.get(0).tilecount++;
+				}
 			}
-			else if(Bombe.bombenliste.get(j).isDroppedbytwo()==true && Bombe.bombenliste.get(j).isTiledestroyed() == true) {
-				Hero.heroliste.get(1).tilecount++;
+			if(i==1)
+			{
+				if(Bombe.bombenliste.get(j).isDroppedbytwo()==true && Bombe.bombenliste.get(j).isTiledestroyed() == true) {
+					Hero.heroliste.get(1).tilecount++;
+				}
 			}
 		}
 	}		

@@ -56,7 +56,7 @@ public class InputController implements KeyListener
 				if (Bombe.bombenliste.isEmpty()==false) {
 					System.out.println("Eine Bombe wurde gesetzt:" + Bombe.bombenliste.get(0).getBombex() + ", " + Bombe.bombenliste.get(0).getBombey());
 				}
-				Bombe.bombenliste.getLast().setDroppedbyone(true);
+				Bombe.bombenliste.get(0).setDroppedbyone(true);
 				Timer timer = new Timer();
 				timer.schedule(b, 3000);
 			//}
@@ -98,7 +98,7 @@ public class InputController implements KeyListener
 				if (Bombe.bombenliste.isEmpty()==false) {
 					System.out.println("Eine Bombe wurde gesetzt:" + Bombe.bombenliste.get(0).getBombex() + ", " + Bombe.bombenliste.get(0).getBombey());
 				}
-				Bombe.bombenliste.getLast().setDroppedbytwo(true);
+				Bombe.bombenliste.get(0).setDroppedbytwo(true);
 				Timer timer = new Timer();
 				timer.schedule(b, 3000);
 			//}

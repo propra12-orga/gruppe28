@@ -101,7 +101,7 @@ public void run() {
 			 ausbreiten = false;
 			 tiledestroyed=true;
 			 for (i=0; i<2; i++) {
-				 Hero.heroliste.get(i).settilecount(Hero.heroliste.get(i).gettilecount());
+				 Hero.heroliste.get(i).settilecount(i, Hero.heroliste.get(i).gettilecount());
 			 }
 		 }		 
 		 reichweitel ++;
@@ -132,7 +132,7 @@ public void run() {
 			 ausbreiten = false;
 			 tiledestroyed=true;
 			 for (i=0; i<2; i++) {
-				 Hero.heroliste.get(i).settilecount(Hero.heroliste.get(i).gettilecount());
+				 Hero.heroliste.get(i).settilecount(i, Hero.heroliste.get(i).gettilecount());
 			 }
 		 }		 
 		 reichweiter ++;
@@ -162,7 +162,7 @@ public void run() {
 			 ausbreiten=false;
 			 tiledestroyed=true;
 			 for (i=0; i<2; i++) {
-				 Hero.heroliste.get(i).settilecount(Hero.heroliste.get(i).gettilecount());
+				 Hero.heroliste.get(i).settilecount(i, Hero.heroliste.get(i).gettilecount());
 			 }
 		 }		 
 		 reichweiteu ++;
@@ -181,6 +181,7 @@ public void run() {
 		 {
 			 Hero.heroliste.get(i).setisalive(false);
 			 Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
+			 Hero.heroliste.get(i).setkillcount(i, Hero.heroliste.get(i).getkillcount());
 		 }
 	 }
 	 if (ausbreiten == true)
@@ -192,7 +193,7 @@ public void run() {
 			 ausbreiten=false;
 			 tiledestroyed=true;
 			 for (i=0; i<2; i++) {
-				 Hero.heroliste.get(i).settilecount(Hero.heroliste.get(i).gettilecount());
+				 Hero.heroliste.get(i).settilecount(i, Hero.heroliste.get(i).gettilecount());
 			 }
 		 }		 
 		 reichweiteo ++;
