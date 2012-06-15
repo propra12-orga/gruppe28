@@ -2,13 +2,16 @@ package main;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+//import java.io.File;
+//import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-import board.Board;
+//import board.Board;
+//import board.LevelReader;
 
 
 public class Menu extends JFrame {
@@ -32,14 +35,10 @@ public class Menu extends JFrame {
        startButton.setBounds(325, 50, 150, 30);
        panel.add(startButton);
        startButton.addActionListener(new ActionListener() {
-    	   public void actionPerformed(ActionEvent event) {
-    		  Mainframe mf = new Mainframe();
-    		  Board board = new Board();
-    		  mf.add(board);
-    		  mf.setVisible(true);
-    		  dispose();
-    	   }
-       });
+    	   public void actionPerformed(ActionEvent event){
+    		   
+    	   }}
+       );
 
        		
        JButton extrasButton = new JButton("Extras");

@@ -39,6 +39,16 @@ public class Controller {
 			Hero.heroliste.get(1).setyCoord();
 			Hero.heroliste.get(1).setisalive(true);
 			Bombe.bombenliste.clear();
+			Hero.heroliste.get(0).setscorecount(Hero.heroliste.get(0).getscorecount());
+			Hero.heroliste.get(1).setscorecount(Hero.heroliste.get(1).getscorecount());
+			System.out.println("Spieler 1 Punkte = " + Hero.heroliste.get(0).getscorecount());
+			System.out.println("Spieler 2 Punkte = " + Hero.heroliste.get(1).getscorecount());
+			for(int k=0; k<2; k++) {
+				Hero.heroliste.get(k).tilecount = 0;
+				Hero.heroliste.get(k).killcount = 0;
+				Hero.heroliste.get(k).scorecount = 0;
+			}		
+			
 		}
 		if(Hero.heroliste.get(i).getisalive() == false){
 			if(i==0){
@@ -81,6 +91,15 @@ public class Controller {
 			Hero.heroliste.get(1).setyCoord();
 			Hero.heroliste.get(1).setisalive(true);
 			Bombe.bombenliste.clear();
+			Hero.heroliste.get(0).setscorecount(Hero.heroliste.get(0).getscorecount());
+			Hero.heroliste.get(1).setscorecount(Hero.heroliste.get(1).getscorecount());
+			System.out.println("Spieler 1 Punkte = " + Hero.heroliste.get(0).getscorecount());
+			System.out.println("Spieler 2 Punkte = " + Hero.heroliste.get(1).getscorecount());
+			for(int k=0; k<2; k++) {
+				Hero.heroliste.get(k).tilecount = 0;
+				Hero.heroliste.get(k).killcount = 0;
+				Hero.heroliste.get(k).scorecount = 0;
+			}
 		}
 		if(Hero.heroliste.get(i).getisalive() == false){
 			if(i==0){
@@ -124,6 +143,15 @@ public class Controller {
 			Hero.heroliste.get(1).setyCoord();			
 			Hero.heroliste.get(1).setisalive(true);
 			Bombe.bombenliste.clear();
+			Hero.heroliste.get(0).setscorecount(Hero.heroliste.get(0).getscorecount());
+			Hero.heroliste.get(1).setscorecount(Hero.heroliste.get(1).getscorecount());
+			System.out.println("Spieler 1 Punkte = " + Hero.heroliste.get(0).getscorecount());
+			System.out.println("Spieler 2 Punkte = " + Hero.heroliste.get(1).getscorecount());
+			for(int k=0; k<2; k++) {
+				Hero.heroliste.get(k).tilecount = 0;
+				Hero.heroliste.get(k).killcount = 0;
+				Hero.heroliste.get(k).scorecount = 0;
+			}
 		}	
 		if(Hero.heroliste.get(i).getisalive() == false){
 			if(i==0){
@@ -168,6 +196,15 @@ public class Controller {
 			Hero.heroliste.get(1).setyCoord();
 			Hero.heroliste.get(1).setisalive(true);
 			Bombe.bombenliste.clear();
+			Hero.heroliste.get(0).setscorecount(Hero.heroliste.get(0).getscorecount());
+			Hero.heroliste.get(1).setscorecount(Hero.heroliste.get(1).getscorecount());
+			System.out.println("Spieler 1 Punkte = " + Hero.heroliste.get(0).getscorecount());
+			System.out.println("Spieler 2 Punkte = " + Hero.heroliste.get(1).getscorecount());
+			for(int k=0; k<2; k++) {
+				Hero.heroliste.get(k).tilecount = 0;
+				Hero.heroliste.get(k).killcount = 0;
+				Hero.heroliste.get(k).scorecount = 0;
+			}
 	}
 		if(Hero.heroliste.get(i).getisalive() == false){
 			if(i==0){

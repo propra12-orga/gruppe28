@@ -4,7 +4,7 @@ import main.Bombe;
 import main.Hero;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ListIterator;
+//import java.util.ListIterator;
 import java.util.Timer;
 
 /**
@@ -56,6 +56,7 @@ public class InputController implements KeyListener
 				if (Bombe.bombenliste.isEmpty()==false) {
 					System.out.println("Eine Bombe wurde gesetzt:" + Bombe.bombenliste.get(0).getBombex() + ", " + Bombe.bombenliste.get(0).getBombey());
 				}
+				Bombe.bombenliste.getLast().setDroppedbyone(true);
 				Timer timer = new Timer();
 				timer.schedule(b, 3000);
 			//}
@@ -97,6 +98,7 @@ public class InputController implements KeyListener
 				if (Bombe.bombenliste.isEmpty()==false) {
 					System.out.println("Eine Bombe wurde gesetzt:" + Bombe.bombenliste.get(0).getBombex() + ", " + Bombe.bombenliste.get(0).getBombey());
 				}
+				Bombe.bombenliste.getLast().setDroppedbytwo(true);
 				Timer timer = new Timer();
 				timer.schedule(b, 3000);
 			//}
