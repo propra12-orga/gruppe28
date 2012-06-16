@@ -11,6 +11,20 @@ public class Board extends JPanel {
 	 * Die Klasse Board stellt das Spielfeld dar. Sie initialisiert es und ist auch für das Zeichnen zuständig.
 	 * @author Dustin
 	 */
+	static int gelegtebomben =0;
+	
+	public int getgelegteBomben()
+	{
+		return gelegtebomben;
+	}
+	public void addBombe(int s)
+	{
+		this.gelegtebomben += s;
+	}
+	public void minBombe(int s)
+	{
+		this.gelegtebomben -=s;
+	}
 	private static final long serialVersionUID = 1L;
 	
 	public static Tile[][] map;
@@ -109,5 +123,4 @@ public class Board extends JPanel {
 			}
 		}
 	}
-	
-}
+	}

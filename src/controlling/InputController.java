@@ -56,9 +56,10 @@ public class InputController implements KeyListener
 				if (Bombe.bombenliste.isEmpty()==false) {
 					System.out.println("Eine Bombe wurde gesetzt:" + Bombe.bombenliste.get(0).getBombex() + ", " + Bombe.bombenliste.get(0).getBombey());
 				}
-				Bombe.bombenliste.get(0).setDroppedbyone(true);
+				Bombe.bombenliste.get(Bombe.bombenliste.size()-1).setDroppedbyone(true);
+				Bombe.bombenliste.get(Bombe.bombenliste.size()-1).setExplodiert(false);
 				Timer timer = new Timer();
-				timer.schedule(b, 3000);
+				timer.schedule(b, 1);				
 			//}
 		}
 		/**
@@ -96,11 +97,12 @@ public class InputController implements KeyListener
 				b.setSichtbar(true);
 				Bombe.bombenliste.add(b);
 				if (Bombe.bombenliste.isEmpty()==false) {
-					System.out.println("Eine Bombe wurde gesetzt:" + Bombe.bombenliste.get(0).getBombex() + ", " + Bombe.bombenliste.get(0).getBombey());
+					System.out.println("Eine Bombe wurde gesetzt:" + Bombe.bombenliste.get(Bombe.bombenliste.size()-1).getBombex() + ", " + Bombe.bombenliste.get(Bombe.bombenliste.size()-1).getBombey());
 				}
-				Bombe.bombenliste.get(0).setDroppedbytwo(true);
+				Bombe.bombenliste.get(Bombe.bombenliste.size()-1).setDroppedbytwo(true);
+				Bombe.bombenliste.get(Bombe.bombenliste.size()-1).setExplodiert(false);
 				Timer timer = new Timer();
-				timer.schedule(b, 3000);
+				timer.schedule(b, 1);
 			//}
 		}
 	}

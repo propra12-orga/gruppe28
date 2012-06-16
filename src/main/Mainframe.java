@@ -23,8 +23,7 @@ public class Mainframe extends JFrame{
 	
 
 	private static final long serialVersionUID = 1L;
-	
-	
+		
 	public Mainframe() {
 		
 		setSize(665,688);

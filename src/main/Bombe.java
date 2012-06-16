@@ -1,8 +1,11 @@
 package main;
 
 import java.util.LinkedList;
+import java.util.ListIterator;
 //import java.util.ListIterator;
 import java.util.TimerTask;
+
+import controlling.InputController;
 
 //import controlling.InputController;
 import board.Board;
@@ -17,7 +20,7 @@ int reichweitel = 0;
 int reichweiter = 0;
 int reichweiteo = 0;
 int reichweiteu = 0;
-int d=0;
+int s=0;
 boolean ausbreiten = true;
 private boolean wartend = true;
 private int bombex = 0;
@@ -64,26 +67,37 @@ public void setExplodiert(boolean explodiert) {
 
 public void run() {
 	int i=0;
+	while (s <=10 && this.isExplodiert() ==  false)
+	{
+	 try {
+		Thread.sleep(300);
+	 } catch (InterruptedException e1) {
+		// TODO Auto-generated catch block
+		//e1.printStackTrace();
+	 }	
+	 s++;
+	}
 	this.setExplodiert(true);
  while (ausbreitung <= bombenreichweite && Board.map[bombex-reichweitel][bombey].getTileId() == 1)
  	{
-	// ListIterator<Bombe> it = Bombe.bombenliste.listIterator();
-	 /*for (d=0; d<=InputController.Bombenzahl(); d++)
-	 {
-	 if (bombenliste.isEmpty()!=true) {
+	 ListIterator<Bombe> it = Bombe.bombenliste.listIterator();	
+	 	 if (bombenliste.size()!=0) {
 		 while(it.hasNext()) {
-			 if(bombenliste.get(d).isExplodiert()==false){
-				 if(Board.map[this.getBombex()-reichweitel][this.getBombey()] == Board.map[bombenliste.get(d).getBombex()][bombenliste.get(d).getBombey()]) {
-					 bombenliste.get(i).run();
-					 System.out.println("Doppel!");
+			 if (Bombe.bombenliste.size()!=1) {
+				 for (int f=1; f<bombenliste.size(); f++)
+				 {
+			 if(bombenliste.get(f).isExplodiert()==false){
+				 
+				 if(Board.map[this.getBombex()-reichweitel][this.getBombey()] == Board.map[bombenliste.get(f).getBombex()][bombenliste.get(f).getBombey()]) {
+					 bombenliste.get(f).setExplodiert(true);
+					 System.out.println("Doppel!");				 
 					 }
 			 }
-			 it.next();
-		 }
-			 
-			 
-		 }*/
-	 //}
+			 }
+			 }
+			 it.next();			 		 	
+	  }
+	 }
 	 for (i=0; i<2; i++) 
 	 {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex-reichweitel][bombey])
@@ -115,6 +129,24 @@ public void run() {
  
  while (ausbreitung <= bombenreichweite && Board.map[bombex+reichweiter][bombey].getTileId() == 1)
 	{
+	 ListIterator<Bombe> it = Bombe.bombenliste.listIterator();	
+ 	 if (bombenliste.size()!=0) {
+	 while(it.hasNext()) {
+		 if (Bombe.bombenliste.size()!=1) {
+			 for (int f=1; f<bombenliste.size(); f++)
+			 {
+		 if(bombenliste.get(f).isExplodiert()==false){
+			 
+			 if(Board.map[this.getBombex()+reichweiter][this.getBombey()] == Board.map[bombenliste.get(f).getBombex()][bombenliste.get(f).getBombey()]) {
+				 bombenliste.get(f).setExplodiert(true);
+				 System.out.println("Doppel!");				 
+				 }
+		 }
+		 }
+		 }
+		 it.next();			 		 	
+  }
+ }
 	 for (i=0; i<2; i++)
 	 {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex+reichweiter][bombey])
@@ -145,6 +177,24 @@ public void run() {
  
  while (ausbreitung <= bombenreichweite && Board.map[bombex][bombey+reichweiteu].getTileId() == 1)
 	{
+	 ListIterator<Bombe> it = Bombe.bombenliste.listIterator();	
+ 	 if (bombenliste.size()!=0) {
+	 while(it.hasNext()) {
+		 if (Bombe.bombenliste.size()!=1) {
+			 for (int f=1; f<bombenliste.size(); f++)
+			 {
+		 if(bombenliste.get(f).isExplodiert()==false){
+			 
+			 if(Board.map[this.getBombex()][this.getBombey()+reichweiteu] == Board.map[bombenliste.get(f).getBombex()][bombenliste.get(f).getBombey()]) {
+				 bombenliste.get(f).setExplodiert(true);
+				 System.out.println("Doppel!");				 
+				 }
+		 }
+		 }
+		 }
+		 it.next();			 		 	
+  }
+ }
 	 for (i=0; i<2; i++)
 	 {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex][bombey+reichweiteu])
@@ -175,6 +225,24 @@ public void run() {
  
  while (ausbreitung <= bombenreichweite && Board.map[bombex][bombey-reichweiteo].getTileId() == 1)
 	{
+	 ListIterator<Bombe> it = Bombe.bombenliste.listIterator();	
+ 	 if (bombenliste.size()!=0) {
+	 while(it.hasNext()) {
+		 if (Bombe.bombenliste.size()!=1) {
+			 for (int f=1; f<bombenliste.size(); f++)
+			 {
+		 if(bombenliste.get(f).isExplodiert()==false){
+			 
+			 if(Board.map[this.getBombex()][this.getBombey()-reichweiteo] == Board.map[bombenliste.get(f).getBombex()][bombenliste.get(f).getBombey()]) {
+				 bombenliste.get(f).setExplodiert(true);
+				 System.out.println("Doppel!");				 
+				 }
+		 }
+		 }
+		 }
+		 it.next();			 		 	
+  }
+ }
 	 for (i=0; i<2; i++)
 	 {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex][bombey-reichweiteo])
@@ -213,7 +281,7 @@ public void run() {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
- bombenliste.remove(this);
+ bombenliste.remove();
  this.setSichtbar(false);
  this.setExplodiert(false);
  }
