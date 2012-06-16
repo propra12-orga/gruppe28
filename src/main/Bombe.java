@@ -110,8 +110,23 @@ public void run() {
 	 {
 		 if (Board.map[bombex-(reichweitel+1)][bombey].getTileId() ==4)
 		 {
-			 Board.map[bombex-(reichweitel+1)][bombey].setTileId(1);
-			 Board.map[bombex-(reichweitel+1)][bombey].setImg(Tileset.getTile(0, 0));
+			 if (Board.getHasExit()==false) {
+				 double z=Math.random();
+				 if (z<(double)1/Board.getDestructableCounter()) {
+					 Board.map[bombex-(reichweitel+1)][bombey].setTileId(3);
+					 Board.map[bombex-(reichweitel+1)][bombey].setImg(Tileset.getTile(2, 0));
+					 Board.setHasExit(true);
+				 }
+				 else {
+					 Board.map[bombex-(reichweitel+1)][bombey].setTileId(1);
+					 Board.map[bombex-(reichweitel+1)][bombey].setImg(Tileset.getTile(0, 0));
+				 }
+			 }
+			 else {
+				 Board.map[bombex-(reichweitel+1)][bombey].setTileId(1);
+				 Board.map[bombex-(reichweitel+1)][bombey].setImg(Tileset.getTile(0, 0));
+			 }
+			 Board.decDestructableCounter();
 			 ausbreiten = false;
 			 tiledestroyed=true;
 			 for (i=0; i<2; i++) {
@@ -159,8 +174,23 @@ public void run() {
 	 {
 		 if (Board.map[bombex+(reichweiter+1)][bombey].getTileId() ==4)
 		 {
-			 Board.map[bombex+(reichweiter+1)][bombey].setTileId(1);
-			 Board.map[bombex+(reichweiter+1)][bombey].setImg(Tileset.getTile(0, 0));
+			 if (Board.getHasExit()==false) {
+				 double z=Math.random();
+				 if (z<(double)1/Board.getDestructableCounter()) {
+					 Board.map[bombex+(reichweiter+1)][bombey].setTileId(3);
+					 Board.map[bombex+(reichweiter+1)][bombey].setImg(Tileset.getTile(2, 0));
+					 Board.setHasExit(true);
+				 }
+				 else {
+					 Board.map[bombex+(reichweiter+1)][bombey].setTileId(1);
+					 Board.map[bombex+(reichweiter+1)][bombey].setImg(Tileset.getTile(0, 0));
+				 }
+			 }
+			 else {
+				 Board.map[bombex+(reichweiter+1)][bombey].setTileId(1);
+				 Board.map[bombex+(reichweiter+1)][bombey].setImg(Tileset.getTile(0, 0));
+			 }
+			 Board.decDestructableCounter();
 			 ausbreiten = false;
 			 tiledestroyed=true;
 			 for (i=0; i<2; i++) {
@@ -207,8 +237,23 @@ public void run() {
 	 {
 		 if (Board.map[bombex][bombey+(reichweiteu+1)].getTileId() == 4)
 		 {
-			 Board.map[bombex][bombey+(reichweiteu+1)].setTileId(1);
-			 Board.map[bombex][bombey+(reichweiteu+1)].setImg(Tileset.getTile(0, 0));
+			 if (Board.getHasExit()==false) {
+				 double z=Math.random();
+				 if (z<(double)1/Board.getDestructableCounter()) {
+					 Board.map[bombex][bombey+(reichweiteu+1)].setTileId(3);
+					 Board.map[bombex][bombey+(reichweiteu+1)].setImg(Tileset.getTile(2, 0));
+					 Board.setHasExit(true);
+				 }
+				 else {
+					 Board.map[bombex][bombey+(reichweiteu+1)].setTileId(1);
+					 Board.map[bombex][bombey+(reichweiteu+1)].setImg(Tileset.getTile(0, 0));
+				 }
+			 }
+			 else {
+				 Board.map[bombex][bombey+(reichweiteu+1)].setTileId(1);
+				 Board.map[bombex][bombey+(reichweiteu+1)].setImg(Tileset.getTile(0, 0));
+			 }
+			 Board.decDestructableCounter();
 			 ausbreiten=false;
 			 tiledestroyed=true;
 			 for (i=0; i<2; i++) {
@@ -256,8 +301,24 @@ public void run() {
 	 {
 		 if (Board.map[bombex][bombey-(reichweiteo+1)].getTileId() == 4)
 		 {
-			 Board.map[bombex][bombey-(reichweiteo+1)].setTileId(1);
-			 Board.map[bombex][bombey-(reichweiteo+1)].setImg(Tileset.getTile(0, 0));
+			 if (Board.getHasExit()==false) {
+				 double z=Math.random();
+				 if (z<(double)1/Board.getDestructableCounter()) {
+					 Board.map[bombex][bombey-(reichweiteo+1)].setTileId(3);
+					 Board.map[bombex][bombey-(reichweiteo+1)].setImg(Tileset.getTile(2, 0));
+					 Board.setHasExit(true);
+				 }
+				 else {
+					 Board.map[bombex][bombey-(reichweiteo+1)].setTileId(1);
+					 Board.map[bombex][bombey-(reichweiteo+1)].setImg(Tileset.getTile(0, 0));
+				 }
+			 }
+			 else {
+
+				 Board.map[bombex][bombey-(reichweiteo+1)].setTileId(1);
+				 Board.map[bombex][bombey-(reichweiteo+1)].setImg(Tileset.getTile(0, 0));
+			 }
+			 Board.decDestructableCounter();
 			 ausbreiten=false;
 			 tiledestroyed=true;
 			 for (i=0; i<2; i++) {

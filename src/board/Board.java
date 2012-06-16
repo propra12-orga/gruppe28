@@ -8,10 +8,20 @@ import javax.swing.JPanel;
 
 public class Board extends JPanel {
 	/**
-	 * Die Klasse Board stellt das Spielfeld dar. Sie initialisiert es und ist auch für das Zeichnen zuständig.
+	 * Die Klasse Board stellt das Spielfeld dar. Sie initialisiert es und ist auch fï¿½r das Zeichnen zustï¿½ndig.
 	 * @author Dustin
 	 */
+	
+	private static int destructableCounter=0;
+	private static boolean hasExit=false;
 	static int gelegtebomben =0;
+	
+	public static void setHasExit(boolean b) {
+		hasExit=b;
+	}
+	public static boolean getHasExit() {
+		return hasExit;
+	}
 	
 	public int getgelegteBomben()
 	{
@@ -25,6 +35,19 @@ public class Board extends JPanel {
 	{
 		this.gelegtebomben -=s;
 	}
+	public static void incDestructableCounter() {
+		destructableCounter++;
+	}
+	public static void decDestructableCounter() {
+		destructableCounter--;
+	}
+	public static int getDestructableCounter() {
+		return destructableCounter;
+	}
+	private void clearDestructableCounter() {
+		destructableCounter=0;
+	}
+	
 	private static final long serialVersionUID = 1L;
 	
 	public static Tile[][] map;
@@ -117,10 +140,20 @@ public class Board extends JPanel {
 	}
 	public void createLevel(int[][] level) {
 		
+		clearDestructableCounter();
 		for (int j=0; j<13; j++) {
 			for (int i=0; i<13; i++) {
 				map[i][j]= new Tile(level[i][j]);
+				if (level[i][j] == 4) {
+					Board.incDestructableCounter();
+				}
+				if (level[i][j] == 3) {
+					setHasExit(true);
+				}
 			}
 		}
 	}
+	
+	
+	
 	}

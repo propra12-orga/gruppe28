@@ -30,7 +30,7 @@ public class Tileset {
 
 	
 	/**
-	 * initialisiret die ensprechenden Images. Die for-Schleife zerlegt das Tileset in einzelne Graphiken für die Tiles und speichert sie
+	 * initialisiert die ensprechenden Images. Die for-Schleife zerlegt das Tileset in einzelne Graphiken fï¿½r die Tiles und speichert sie
 	 * in einem Array, wodurch sie leicht abrufbar sind.
 	 * @throws IOException
 	 */
@@ -61,7 +61,7 @@ public class Tileset {
 	}
 	
 	/**
-	 * Diese Funktionen geben die entsprechenden Bilder zurück.
+	 * Diese Funktionen geben die entsprechenden Bilder zurï¿½ck.
 	 * @param a
 	 * @param b
 	 * @return
