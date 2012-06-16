@@ -21,11 +21,12 @@ public class Hero {
 	private int yPixelPosition;
 	private int speed=10;
 	private int startPosition;
-	public int killcount;
-	public int deathcount;
-	public int tilecount;
-	public int scorecount;
-	boolean isalive;
+	private int killcount;
+	private int deathcount;
+	private int tilecount;
+	private int scorecount;
+	private int suicidecount;
+	private boolean isalive;
 	public  int getHp() {
 		return Hp;
 	}
@@ -66,12 +67,13 @@ public class Hero {
 		for(j=0; j < Bombe.bombenliste.size(); j++) {
 			if(i==0) {
 				if(Bombe.bombenliste.get(j).isDroppedbyone()==true && Hero.heroliste.get(1).getisalive() == false) {
-					Hero.heroliste.get(0).killcount++;
+					Hero.heroliste.get(0).killcount=++killcount;
+
 				}
 			}
 			if(i==1) {
 				if(Bombe.bombenliste.get(j).isDroppedbytwo()==true && Hero.heroliste.get(0).getisalive() == false) {
-					Hero.heroliste.get(1).killcount++;
+					Hero.heroliste.get(1).killcount=++killcount;
 				}
 			}
 		}
@@ -103,13 +105,13 @@ public class Hero {
 		for(j=0; j < Bombe.bombenliste.size(); j++) {
 			if(i==0){
 				if(Bombe.bombenliste.get(j).isDroppedbyone()==true && Bombe.bombenliste.get(j).isTiledestroyed() == true) {
-					Hero.heroliste.get(0).tilecount++;
+					Hero.heroliste.get(0).tilecount=++tilecount;
 				}
 			}
 			if(i==1)
 			{
 				if(Bombe.bombenliste.get(j).isDroppedbytwo()==true && Bombe.bombenliste.get(j).isTiledestroyed() == true) {
-					Hero.heroliste.get(1).tilecount++;
+					Hero.heroliste.get(1).tilecount=++tilecount;
 				}
 			}
 		}
@@ -132,5 +134,30 @@ public class Hero {
 			Hero.heroliste.get(1).setyCoord();
 			Hero.heroliste.get(1).setisalive(true);
 		}
-	}		
+	}
+	public int getSuicidecount() {
+		return suicidecount;
+	}
+	public void setSuicidecount(int suicidecount) {
+		for(j=0; j < Bombe.bombenliste.size(); j++) {
+			if(Bombe.bombenliste.get(j).isDroppedbyone()==true && Hero.heroliste.get(j).getisalive() == false) {
+					Hero.heroliste.get(j).suicidecount=++suicidecount;
+			}
+		}
+	}
+	public int resetdeathcount() {
+		return deathcount=0;
+	}
+	public int resettilecount() {
+		return tilecount=0;
+	}
+	public int resetsuicidecount() {
+		return suicidecount=0;
+	}
+	public int resetkillcount() {
+		return killcount=0;
+	}
+	public int resetscorecount() {
+		return scorecount=0;
+	}
 }

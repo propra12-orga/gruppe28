@@ -33,13 +33,14 @@ public class Controller {
 				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
 			}
 			Bombe.bombenliste.clear();
-			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + " Kills = " + Hero.heroliste.get(0).getkillcount() + " Deaths = " + Hero.heroliste.get(0).getdeathcount() + " Tiles = " + Hero.heroliste.get(0).gettilecount());
-			System.out.println("Spieler 2: Punkte = " + Hero.heroliste.get(1).getscorecount() + " Kills = " + Hero.heroliste.get(1).getkillcount() + " Deaths = " + Hero.heroliste.get(1).getdeathcount() + " Tiles = " + Hero.heroliste.get(1).gettilecount());
+			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + " Gegner erwischt = " + Hero.heroliste.get(0).getkillcount() + " Tode = " + Hero.heroliste.get(0).getdeathcount() + " Wände zerstört = " + Hero.heroliste.get(0).gettilecount() + " Selbstmorde = " + Hero.heroliste.get(0).getSuicidecount());
+			System.out.println("Spieler 2: Punkte = " + Hero.heroliste.get(1).getscorecount() + " Gegner erwischt = " + Hero.heroliste.get(1).getkillcount() + " Tode = " + Hero.heroliste.get(1).getdeathcount() + " Wände zerstört = " + Hero.heroliste.get(1).gettilecount() + " Selbstmorde = " + Hero.heroliste.get(1).getSuicidecount());
 			for(int k=0; k<Hero.heroliste.size(); k++) {
-				Hero.heroliste.get(k).tilecount = 0;
-				Hero.heroliste.get(k).killcount = 0;
-				Hero.heroliste.get(k).scorecount = 0;
-				Hero.heroliste.get(k).deathcount = 0;
+				Hero.heroliste.get(k).resettilecount();
+				Hero.heroliste.get(k).resetkillcount();
+				Hero.heroliste.get(k).resetscorecount();
+				Hero.heroliste.get(k).resetdeathcount();
+				Hero.heroliste.get(k).resetsuicidecount();
 			}		
 			
 		}
@@ -65,13 +66,14 @@ public class Controller {
 				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
 			}
 			Bombe.bombenliste.clear();
-			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + " Kills = " + Hero.heroliste.get(0).getkillcount() + " Deaths = " + Hero.heroliste.get(0).getdeathcount() + " Tiles = " + Hero.heroliste.get(0).gettilecount());
-			System.out.println("Spieler 2: Punkte = " + Hero.heroliste.get(1).getscorecount() + " Kills = " + Hero.heroliste.get(1).getkillcount() + " Deaths = " + Hero.heroliste.get(1).getdeathcount() + " Tiles = " + Hero.heroliste.get(1).gettilecount());
+			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + " Gegner erwischt = " + Hero.heroliste.get(0).getkillcount() + " Tode = " + Hero.heroliste.get(0).getdeathcount() + " Wände zerstört = " + Hero.heroliste.get(0).gettilecount() + " Selbstmorde = " + Hero.heroliste.get(0).getSuicidecount());
+			System.out.println("Spieler 2: Punkte = " + Hero.heroliste.get(1).getscorecount() + " Gegner erwischt = " + Hero.heroliste.get(1).getkillcount() + " Tode = " + Hero.heroliste.get(1).getdeathcount() + " Wände zerstört = " + Hero.heroliste.get(1).gettilecount() + " Selbstmorde = " + Hero.heroliste.get(1).getSuicidecount());
 			for(int k=0; k<Hero.heroliste.size(); k++) {
-				Hero.heroliste.get(k).tilecount = 0;
-				Hero.heroliste.get(k).killcount = 0;
-				Hero.heroliste.get(k).scorecount = 0;
-				Hero.heroliste.get(k).deathcount = 0;
+				Hero.heroliste.get(k).resettilecount();
+				Hero.heroliste.get(k).resetkillcount();
+				Hero.heroliste.get(k).resetscorecount();
+				Hero.heroliste.get(k).resetdeathcount();
+				Hero.heroliste.get(k).resetsuicidecount();
 			}
 		}
 		if(Hero.heroliste.get(i).getisalive() == false){
@@ -97,13 +99,14 @@ public class Controller {
 				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
 			}
 			Bombe.bombenliste.clear();
-			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + " Kills = " + Hero.heroliste.get(0).getkillcount() + " Deaths = " + Hero.heroliste.get(0).getdeathcount() + " Tiles = " + Hero.heroliste.get(0).gettilecount());
-			System.out.println("Spieler 2: Punkte = " + Hero.heroliste.get(1).getscorecount() + " Kills = " + Hero.heroliste.get(1).getkillcount() + " Deaths = " + Hero.heroliste.get(1).getdeathcount() + " Tiles = " + Hero.heroliste.get(1).gettilecount());
+			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + " Gegner erwischt = " + Hero.heroliste.get(0).getkillcount() + " Tode = " + Hero.heroliste.get(0).getdeathcount() + " Wände zerstört = " + Hero.heroliste.get(0).gettilecount() + " Selbstmorde = " + Hero.heroliste.get(0).getSuicidecount());
+			System.out.println("Spieler 2: Punkte = " + Hero.heroliste.get(1).getscorecount() + " Gegner erwischt = " + Hero.heroliste.get(1).getkillcount() + " Tode = " + Hero.heroliste.get(1).getdeathcount() + " Wände zerstört = " + Hero.heroliste.get(1).gettilecount() + " Selbstmorde = " + Hero.heroliste.get(1).getSuicidecount());
 			for(int k=0; k<Hero.heroliste.size(); k++) {
-				Hero.heroliste.get(k).tilecount = 0;
-				Hero.heroliste.get(k).killcount = 0;
-				Hero.heroliste.get(k).scorecount = 0;
-				Hero.heroliste.get(k).deathcount = 0;
+				Hero.heroliste.get(k).resettilecount();
+				Hero.heroliste.get(k).resetkillcount();
+				Hero.heroliste.get(k).resetscorecount();
+				Hero.heroliste.get(k).resetdeathcount();
+				Hero.heroliste.get(k).resetsuicidecount();
 			}
 		}	
 		if(Hero.heroliste.get(i).getisalive() == false){
@@ -130,13 +133,14 @@ public class Controller {
 				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
 			}
 			Bombe.bombenliste.clear();
-			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + " Kills = " + Hero.heroliste.get(0).getkillcount() + " Deaths = " + Hero.heroliste.get(0).getdeathcount() + " Tiles = " + Hero.heroliste.get(0).gettilecount());
-			System.out.println("Spieler 2: Punkte = " + Hero.heroliste.get(1).getscorecount() + " Kills = " + Hero.heroliste.get(1).getkillcount() + " Deaths = " + Hero.heroliste.get(1).getdeathcount() + " Tiles = " + Hero.heroliste.get(1).gettilecount());
+			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + " Gegner erwischt = " + Hero.heroliste.get(0).getkillcount() + " Tode = " + Hero.heroliste.get(0).getdeathcount() + " Wände zerstört = " + Hero.heroliste.get(0).gettilecount() + " Selbstmorde = " + Hero.heroliste.get(0).getSuicidecount());
+			System.out.println("Spieler 2: Punkte = " + Hero.heroliste.get(1).getscorecount() + " Gegner erwischt = " + Hero.heroliste.get(1).getkillcount() + " Tode = " + Hero.heroliste.get(1).getdeathcount() + " Wände zerstört = " + Hero.heroliste.get(1).gettilecount() + " Selbstmorde = " + Hero.heroliste.get(1).getSuicidecount());
 			for(int k=0; k<Hero.heroliste.size(); k++) {
-				Hero.heroliste.get(k).tilecount = 0;
-				Hero.heroliste.get(k).killcount = 0;
-				Hero.heroliste.get(k).scorecount = 0;
-				Hero.heroliste.get(k).deathcount = 0;
+				Hero.heroliste.get(k).resettilecount();
+				Hero.heroliste.get(k).resetkillcount();
+				Hero.heroliste.get(k).resetscorecount();
+				Hero.heroliste.get(k).resetdeathcount();
+				Hero.heroliste.get(k).resetsuicidecount();
 			}
 	}
 		if(Hero.heroliste.get(i).getisalive() == false){
