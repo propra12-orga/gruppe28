@@ -20,7 +20,7 @@ public class Mainframe extends JFrame{
 	/**
 	 * 
 	 */
-	
+	public static boolean twoplayer=true;
 
 	private static final long serialVersionUID = 1L;
 		
@@ -40,8 +40,10 @@ public class Mainframe extends JFrame{
 		File test = new File("res/1.txt");
 		Hero bm1 = new Hero();
 		Hero.heroliste.add(bm1);
+		if(twoplayer==true){
 		Hero bm2 = new Hero();
 		Hero.heroliste.add(bm2);
+		}
 		//Controller ctrl1 = new Controller();
 		//Controller.controllerliste.add(ctrl1);
 		//Controller ctrl2 = new Controller();
@@ -51,16 +53,9 @@ public class Mainframe extends JFrame{
 		mf.add(board);
 		mf.addKeyListener(new controlling.InputController());
 		mf.setVisible(true);
-		int i=0;
-		Hero.heroliste.get(i).setxPixelPosition(55);
-		Hero.heroliste.get(i).setyPixelPosition(55);
-		Hero.heroliste.get(i).setxCoord();
-		Hero.heroliste.get(i).setyCoord();
-		i++;
-		Hero.heroliste.get(i).setxPixelPosition(561);
-		Hero.heroliste.get(i).setyPixelPosition(55);
-		Hero.heroliste.get(i).setxCoord();
-		Hero.heroliste.get(i).setyCoord();
+		for(int i=0; i<(Hero.heroliste.size()-1); i++) {
+			Hero.heroliste.get(i).setStartPosition(i);
+		}
 		
 		LevelReader.ausgabe(LevelReader.readLevel(test));
 				

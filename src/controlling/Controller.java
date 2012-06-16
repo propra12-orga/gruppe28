@@ -28,43 +28,23 @@ public class Controller {
 				}
 			}
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
-			Hero.heroliste.get(0).setxPixelPosition(55);
-			Hero.heroliste.get(0).setyPixelPosition(55);
-			Hero.heroliste.get(0).setxCoord();
-			Hero.heroliste.get(0).setyCoord();
-			Hero.heroliste.get(0).setisalive(true);
-			Hero.heroliste.get(1).setxPixelPosition(561);
-			Hero.heroliste.get(1).setyPixelPosition(55);
-			Hero.heroliste.get(1).setxCoord();
-			Hero.heroliste.get(1).setyCoord();
-			Hero.heroliste.get(1).setisalive(true);
+			for(int n=0; n<(Hero.heroliste.size()-1); n++) {
+				Hero.heroliste.get(n).setStartPosition(n);
+				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
+			}
 			Bombe.bombenliste.clear();
-			Hero.heroliste.get(0).setscorecount(0, Hero.heroliste.get(0).getscorecount());
-			Hero.heroliste.get(1).setscorecount(1, Hero.heroliste.get(1).getscorecount());
 			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + " Kills = " + Hero.heroliste.get(0).getkillcount() + " Deaths = " + Hero.heroliste.get(0).getdeathcount() + " Tiles = " + Hero.heroliste.get(0).gettilecount());
 			System.out.println("Spieler 2: Punkte = " + Hero.heroliste.get(1).getscorecount() + " Kills = " + Hero.heroliste.get(1).getkillcount() + " Deaths = " + Hero.heroliste.get(1).getdeathcount() + " Tiles = " + Hero.heroliste.get(1).gettilecount());
-			for(int k=0; k<2; k++) {
+			for(int k=0; k<(Hero.heroliste.size()-1); k++) {
 				Hero.heroliste.get(k).tilecount = 0;
 				Hero.heroliste.get(k).killcount = 0;
 				Hero.heroliste.get(k).scorecount = 0;
+				Hero.heroliste.get(k).deathcount = 0;
 			}		
 			
 		}
 		if(Hero.heroliste.get(i).getisalive() == false){
-			if(i==0){
-				Hero.heroliste.get(0).setxPixelPosition(55);
-				Hero.heroliste.get(0).setyPixelPosition(55);
-				Hero.heroliste.get(0).setxCoord();
-				Hero.heroliste.get(0).setyCoord();
-				Hero.heroliste.get(0).setisalive(true);
-			}
-			if(i==1){
-				Hero.heroliste.get(1).setxPixelPosition(561);
-				Hero.heroliste.get(1).setyPixelPosition(55);
-				Hero.heroliste.get(1).setxCoord();
-				Hero.heroliste.get(1).setyCoord();
-				Hero.heroliste.get(1).setisalive(true);
-			}
+			Hero.heroliste.get(i).setStartPosition(i);
 		}
 		}
 	public static void movementLeft(int i){
@@ -80,42 +60,22 @@ public class Controller {
 			}
 		}
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
-			Hero.heroliste.get(0).setxPixelPosition(55);
-			Hero.heroliste.get(0).setyPixelPosition(55);
-			Hero.heroliste.get(0).setxCoord();
-			Hero.heroliste.get(0).setyCoord();
-			Hero.heroliste.get(0).setisalive(true);
-			Hero.heroliste.get(1).setxPixelPosition(561);
-			Hero.heroliste.get(1).setyPixelPosition(55);
-			Hero.heroliste.get(1).setxCoord();
-			Hero.heroliste.get(1).setyCoord();
-			Hero.heroliste.get(1).setisalive(true);
+			for(int n=0; n<(Hero.heroliste.size()-1); n++) {
+				Hero.heroliste.get(n).setStartPosition(n);
+				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
+			}
 			Bombe.bombenliste.clear();
-			Hero.heroliste.get(0).setscorecount(0, Hero.heroliste.get(0).getscorecount());
-			Hero.heroliste.get(1).setscorecount(1, Hero.heroliste.get(1).getscorecount());
 			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + " Kills = " + Hero.heroliste.get(0).getkillcount() + " Deaths = " + Hero.heroliste.get(0).getdeathcount() + " Tiles = " + Hero.heroliste.get(0).gettilecount());
 			System.out.println("Spieler 2: Punkte = " + Hero.heroliste.get(1).getscorecount() + " Kills = " + Hero.heroliste.get(1).getkillcount() + " Deaths = " + Hero.heroliste.get(1).getdeathcount() + " Tiles = " + Hero.heroliste.get(1).gettilecount());
 			for(int k=0; k<2; k++) {
 				Hero.heroliste.get(k).tilecount = 0;
 				Hero.heroliste.get(k).killcount = 0;
 				Hero.heroliste.get(k).scorecount = 0;
+				Hero.heroliste.get(k).deathcount = 0;
 			}
 		}
 		if(Hero.heroliste.get(i).getisalive() == false){
-			if(i==0){
-				Hero.heroliste.get(0).setxPixelPosition(55);
-				Hero.heroliste.get(0).setyPixelPosition(55);
-				Hero.heroliste.get(0).setxCoord();
-				Hero.heroliste.get(0).setyCoord();
-				Hero.heroliste.get(0).setisalive(true);
-			}
-			if(i==1){
-				Hero.heroliste.get(1).setxPixelPosition(561);
-				Hero.heroliste.get(1).setyPixelPosition(55);
-				Hero.heroliste.get(1).setxCoord();
-				Hero.heroliste.get(1).setyCoord();
-				Hero.heroliste.get(1).setisalive(true);
-			}
+			Hero.heroliste.get(i).setStartPosition(i);
 		}
 	}
 
@@ -132,42 +92,22 @@ public class Controller {
 			}
 		}
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
-			Hero.heroliste.get(0).setxPixelPosition(55);
-			Hero.heroliste.get(0).setyPixelPosition(55);
-			Hero.heroliste.get(0).setxCoord();
-			Hero.heroliste.get(0).setyCoord();
-			Hero.heroliste.get(0).setisalive(true);
-			Hero.heroliste.get(1).setxPixelPosition(561);
-			Hero.heroliste.get(1).setyPixelPosition(55);
-			Hero.heroliste.get(1).setxCoord();
-			Hero.heroliste.get(1).setyCoord();			
-			Hero.heroliste.get(1).setisalive(true);
+			for(int n=0; n<(Hero.heroliste.size()-1); n++) {
+				Hero.heroliste.get(n).setStartPosition(n);
+				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
+			}
 			Bombe.bombenliste.clear();
-			Hero.heroliste.get(0).setscorecount(0, Hero.heroliste.get(0).getscorecount());
-			Hero.heroliste.get(1).setscorecount(1, Hero.heroliste.get(1).getscorecount());
 			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + " Kills = " + Hero.heroliste.get(0).getkillcount() + " Deaths = " + Hero.heroliste.get(0).getdeathcount() + " Tiles = " + Hero.heroliste.get(0).gettilecount());
 			System.out.println("Spieler 2: Punkte = " + Hero.heroliste.get(1).getscorecount() + " Kills = " + Hero.heroliste.get(1).getkillcount() + " Deaths = " + Hero.heroliste.get(1).getdeathcount() + " Tiles = " + Hero.heroliste.get(1).gettilecount());
 			for(int k=0; k<2; k++) {
 				Hero.heroliste.get(k).tilecount = 0;
 				Hero.heroliste.get(k).killcount = 0;
 				Hero.heroliste.get(k).scorecount = 0;
+				Hero.heroliste.get(k).deathcount = 0;
 			}
 		}	
 		if(Hero.heroliste.get(i).getisalive() == false){
-			if(i==0){
-				Hero.heroliste.get(0).setxPixelPosition(55);
-				Hero.heroliste.get(0).setyPixelPosition(55);
-				Hero.heroliste.get(0).setxCoord();
-				Hero.heroliste.get(0).setyCoord();
-				Hero.heroliste.get(0).setisalive(true);
-			}
-			if(i==1){
-				Hero.heroliste.get(1).setxPixelPosition(561);
-				Hero.heroliste.get(1).setyPixelPosition(55);
-				Hero.heroliste.get(1).setxCoord();
-				Hero.heroliste.get(1).setyCoord();
-				Hero.heroliste.get(1).setisalive(true);
-			}
+			Hero.heroliste.get(i).setStartPosition(i);
 		}
 	}
 	public static void movementDown(int i){
@@ -185,42 +125,22 @@ public class Controller {
 		else if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()+1].getTileId() == 0){
 				}
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
-			Hero.heroliste.get(0).setxPixelPosition(55);
-			Hero.heroliste.get(0).setyPixelPosition(55);
-			Hero.heroliste.get(0).setxCoord();
-			Hero.heroliste.get(0).setyCoord();
-			Hero.heroliste.get(0).setisalive(true);
-			Hero.heroliste.get(1).setxPixelPosition(561);
-			Hero.heroliste.get(1).setyPixelPosition(55);
-			Hero.heroliste.get(1).setxCoord();
-			Hero.heroliste.get(1).setyCoord();
-			Hero.heroliste.get(1).setisalive(true);
+			for(int n=0; n<(Hero.heroliste.size()-1); n++) {
+				Hero.heroliste.get(n).setStartPosition(n);
+				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
+			}
 			Bombe.bombenliste.clear();
-			Hero.heroliste.get(0).setscorecount(0, Hero.heroliste.get(0).getscorecount());
-			Hero.heroliste.get(1).setscorecount(1, Hero.heroliste.get(1).getscorecount());
 			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + " Kills = " + Hero.heroliste.get(0).getkillcount() + " Deaths = " + Hero.heroliste.get(0).getdeathcount() + " Tiles = " + Hero.heroliste.get(0).gettilecount());
 			System.out.println("Spieler 2: Punkte = " + Hero.heroliste.get(1).getscorecount() + " Kills = " + Hero.heroliste.get(1).getkillcount() + " Deaths = " + Hero.heroliste.get(1).getdeathcount() + " Tiles = " + Hero.heroliste.get(1).gettilecount());
 			for(int k=0; k<2; k++) {
 				Hero.heroliste.get(k).tilecount = 0;
 				Hero.heroliste.get(k).killcount = 0;
 				Hero.heroliste.get(k).scorecount = 0;
+				Hero.heroliste.get(k).deathcount = 0;
 			}
 	}
 		if(Hero.heroliste.get(i).getisalive() == false){
-			if(i==0){
-				Hero.heroliste.get(0).setxPixelPosition(55);
-				Hero.heroliste.get(0).setyPixelPosition(55);
-				Hero.heroliste.get(0).setxCoord();
-				Hero.heroliste.get(0).setyCoord();
-				Hero.heroliste.get(0).setisalive(true);
-			}
-			if(i==1){
-				Hero.heroliste.get(1).setxPixelPosition(561);
-				Hero.heroliste.get(1).setyPixelPosition(55);
-				Hero.heroliste.get(1).setxCoord();
-				Hero.heroliste.get(1).setyCoord();
-				Hero.heroliste.get(1).setisalive(true);
-			}
-		}
+			Hero.heroliste.get(i).setStartPosition(i);
 		}
 	}
+}

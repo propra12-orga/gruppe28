@@ -1,6 +1,8 @@
 package board;
 import main.Bombe;
 import main.Hero;
+import main.Mainframe;
+
 import java.awt.*;
 import java.util.ListIterator;
 
@@ -11,20 +13,7 @@ public class Board extends JPanel {
 	 * Die Klasse Board stellt das Spielfeld dar. Sie initialisiert es und ist auch für das Zeichnen zuständig.
 	 * @author Dustin
 	 */
-	static int gelegtebomben =0;
 	
-	public int getgelegteBomben()
-	{
-		return gelegtebomben;
-	}
-	public void addBombe(int s)
-	{
-		this.gelegtebomben += s;
-	}
-	public void minBombe(int s)
-	{
-		this.gelegtebomben -=s;
-	}
 	private static final long serialVersionUID = 1L;
 	
 	public static Tile[][] map;
@@ -107,11 +96,12 @@ public class Board extends JPanel {
 	        }while(it.hasNext());
 		}
 		//Heros zeichnen
+		g2d.drawImage(Tileset.getHero(), Hero.heroliste.get(0).getxPixelPosition()-9, Hero.heroliste.get(0).getyPixelPosition()-9, null);
+		if(Mainframe.twoplayer==true) {
+			g2d.drawImage(Tileset.getHero2(), Hero.heroliste.get(1).getxPixelPosition()-9, Hero.heroliste.get(1).getyPixelPosition()-9, null);
+		}
 
-		int i=0;
-		g2d.drawImage(Tileset.getHero(), Hero.heroliste.get(i).getxPixelPosition()-9, Hero.heroliste.get(i).getyPixelPosition()-9, null);
-		i++;
-		g2d.drawImage(Tileset.getHero2(), Hero.heroliste.get(i).getxPixelPosition()-9, Hero.heroliste.get(i).getyPixelPosition()-9, null);
+		
         
         
 	}

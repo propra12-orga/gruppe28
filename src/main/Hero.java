@@ -20,6 +20,7 @@ public class Hero {
 	private int xPixelPosition;
 	private int yPixelPosition;
 	private int speed=10;
+	private int startPosition;
 	public int killcount;
 	public int deathcount;
 	public int tilecount;
@@ -62,7 +63,7 @@ public class Hero {
 		return killcount;
 	}
 	public void setkillcount(int i, int killcount) {
-		for(j=0; j < Bombe.bombenliste.size(); j++) {
+		for(j=0; j < (Bombe.bombenliste.size()-1); j++) {
 			if(i==0) {
 				if(Bombe.bombenliste.get(j).isDroppedbyone()==true && Hero.heroliste.get(1).getisalive() == false) {
 					Hero.heroliste.get(0).killcount++;
@@ -80,8 +81,7 @@ public class Hero {
 	}
 	public void setdeathcount(int deathcount) {
 		if(isalive == false) {
-			deathcount++;
-			this.deathcount=deathcount;
+			this.deathcount=++deathcount;
 		}
 	}	
 	public boolean getisalive() {
@@ -100,7 +100,7 @@ public class Hero {
 		return tilecount;
 	}
 	public void settilecount(int i, int tilecount) {
-		for(j=0; j < Bombe.bombenliste.size(); j++) {
+		for(j=0; j < (Bombe.bombenliste.size()-1); j++) {
 			if(i==0){
 				if(Bombe.bombenliste.get(j).isDroppedbyone()==true && Bombe.bombenliste.get(j).isTiledestroyed() == true) {
 					Hero.heroliste.get(0).tilecount++;
@@ -112,6 +112,25 @@ public class Hero {
 					Hero.heroliste.get(1).tilecount++;
 				}
 			}
+		}
+	}
+	public int getStartPosition() {
+		return startPosition;
+	}
+	public void setStartPosition(int n) {
+		if(n==0) {
+			Hero.heroliste.get(0).setxPixelPosition(55);
+			Hero.heroliste.get(0).setyPixelPosition(55);
+			Hero.heroliste.get(0).setxCoord();
+			Hero.heroliste.get(0).setyCoord();
+			Hero.heroliste.get(0).setisalive(true);
+		}
+		if(n==1) {
+			Hero.heroliste.get(1).setxPixelPosition(561);
+			Hero.heroliste.get(1).setyPixelPosition(55);
+			Hero.heroliste.get(1).setxCoord();
+			Hero.heroliste.get(1).setyCoord();
+			Hero.heroliste.get(1).setisalive(true);
 		}
 	}		
 }

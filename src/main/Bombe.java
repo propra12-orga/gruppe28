@@ -5,7 +5,7 @@ import java.util.ListIterator;
 //import java.util.ListIterator;
 import java.util.TimerTask;
 
-import controlling.InputController;
+//import controlling.InputController;
 
 //import controlling.InputController;
 import board.Board;
@@ -98,7 +98,7 @@ public void run() {
 			 it.next();			 		 	
 	  }
 	 }
-	 for (i=0; i<2; i++) 
+	 for (i=0; i<(Hero.heroliste.size()-1); i++) 
 	 {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex-reichweitel][bombey])
 		 {
@@ -147,7 +147,7 @@ public void run() {
 		 it.next();			 		 	
   }
  }
-	 for (i=0; i<2; i++)
+	 for (i=0; i<(Hero.heroliste.size()-1); i++)
 	 {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex+reichweiter][bombey])
 		 {
@@ -195,7 +195,7 @@ public void run() {
 		 it.next();			 		 	
   }
  }
-	 for (i=0; i<2; i++)
+	 for (i=0; i<(Hero.heroliste.size()-1); i++)
 	 {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex][bombey+reichweiteu])
 		 {
@@ -243,7 +243,7 @@ public void run() {
 		 it.next();			 		 	
   }
  }
-	 for (i=0; i<2; i++)
+	 for (i=0; i<(Hero.heroliste.size()-1); i++)
 	 {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex][bombey-reichweiteo])
 		 {
