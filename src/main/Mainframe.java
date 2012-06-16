@@ -41,8 +41,8 @@ public class Mainframe extends JFrame{
 		Hero bm1 = new Hero();
 		Hero.heroliste.add(bm1);
 		if(twoplayer==true){
-		Hero bm2 = new Hero();
-		Hero.heroliste.add(bm2);
+			Hero bm2 = new Hero();
+			Hero.heroliste.add(bm2);
 		}
 		//Controller ctrl1 = new Controller();
 		//Controller.controllerliste.add(ctrl1);
@@ -53,7 +53,7 @@ public class Mainframe extends JFrame{
 		mf.add(board);
 		mf.addKeyListener(new controlling.InputController());
 		mf.setVisible(true);
-		for(int i=0; i<(Hero.heroliste.size()-1); i++) {
+		for(int i=0; i<(Hero.heroliste.size()); i++) {
 			Hero.heroliste.get(i).setStartPosition(i);
 		}
 		

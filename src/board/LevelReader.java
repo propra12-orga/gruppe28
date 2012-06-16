@@ -8,13 +8,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Die Klasse liest mittels regulären Ausdrucks ein Textdokument ein, extrahiert die durch Kommate getrennten Zahlen
+ * Die Klasse liest mittels regulï¿½ren Ausdrucks ein Textdokument ein, extrahiert die durch Kommate getrennten Zahlen
  * und speichert die Zahlen als int-Array. Aus diesem Array wird dann in Board das Spielfeld erzeugt.
  * @author Dustin
  */
 public class LevelReader {
 	/**
-	 * Liest Zeile für Zeile das Dokument ein und fischt die Zahlen heraus, bis keine mehr gefunden werden. Dabei wird jeweils iteriert und 
+	 * Liest Zeile fï¿½r Zeile das Dokument ein und fischt die Zahlen heraus, bis keine mehr gefunden werden. Dabei wird jeweils iteriert und 
 	 * die gefundene Zahl im level-Array abgespeichert.
 	 * @param file
 	 * @return
@@ -34,6 +34,7 @@ public class LevelReader {
 				m = p.matcher(line);
 				for(int x=0; m.find(); x++){
 					level[x][y]=Integer.parseInt(m.group());
+					
 				}
 			}
 
@@ -51,5 +52,6 @@ public class LevelReader {
 			}
 			System.out.println();
 		}
+		System.out.println("Number of destructables: " + Board.getDestructableCounter());
 	}
 }

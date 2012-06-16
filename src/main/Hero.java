@@ -63,7 +63,7 @@ public class Hero {
 		return killcount;
 	}
 	public void setkillcount(int i, int killcount) {
-		for(j=0; j < (Bombe.bombenliste.size()-1); j++) {
+		for(j=0; j < Bombe.bombenliste.size(); j++) {
 			if(i==0) {
 				if(Bombe.bombenliste.get(j).isDroppedbyone()==true && Hero.heroliste.get(1).getisalive() == false) {
 					Hero.heroliste.get(0).killcount++;
@@ -100,7 +100,7 @@ public class Hero {
 		return tilecount;
 	}
 	public void settilecount(int i, int tilecount) {
-		for(j=0; j < (Bombe.bombenliste.size()-1); j++) {
+		for(j=0; j < Bombe.bombenliste.size(); j++) {
 			if(i==0){
 				if(Bombe.bombenliste.get(j).isDroppedbyone()==true && Bombe.bombenliste.get(j).isTiledestroyed() == true) {
 					Hero.heroliste.get(0).tilecount++;

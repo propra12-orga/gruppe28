@@ -28,14 +28,14 @@ public class Controller {
 				}
 			}
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
-			for(int n=0; n<(Hero.heroliste.size()-1); n++) {
+			for(int n=0; n<Hero.heroliste.size(); n++) {
 				Hero.heroliste.get(n).setStartPosition(n);
 				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
 			}
 			Bombe.bombenliste.clear();
 			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + " Kills = " + Hero.heroliste.get(0).getkillcount() + " Deaths = " + Hero.heroliste.get(0).getdeathcount() + " Tiles = " + Hero.heroliste.get(0).gettilecount());
 			System.out.println("Spieler 2: Punkte = " + Hero.heroliste.get(1).getscorecount() + " Kills = " + Hero.heroliste.get(1).getkillcount() + " Deaths = " + Hero.heroliste.get(1).getdeathcount() + " Tiles = " + Hero.heroliste.get(1).gettilecount());
-			for(int k=0; k<(Hero.heroliste.size()-1); k++) {
+			for(int k=0; k<Hero.heroliste.size(); k++) {
 				Hero.heroliste.get(k).tilecount = 0;
 				Hero.heroliste.get(k).killcount = 0;
 				Hero.heroliste.get(k).scorecount = 0;
@@ -60,14 +60,14 @@ public class Controller {
 			}
 		}
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
-			for(int n=0; n<(Hero.heroliste.size()-1); n++) {
+			for(int n=0; n<Hero.heroliste.size(); n++) {
 				Hero.heroliste.get(n).setStartPosition(n);
 				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
 			}
 			Bombe.bombenliste.clear();
 			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + " Kills = " + Hero.heroliste.get(0).getkillcount() + " Deaths = " + Hero.heroliste.get(0).getdeathcount() + " Tiles = " + Hero.heroliste.get(0).gettilecount());
 			System.out.println("Spieler 2: Punkte = " + Hero.heroliste.get(1).getscorecount() + " Kills = " + Hero.heroliste.get(1).getkillcount() + " Deaths = " + Hero.heroliste.get(1).getdeathcount() + " Tiles = " + Hero.heroliste.get(1).gettilecount());
-			for(int k=0; k<2; k++) {
+			for(int k=0; k<Hero.heroliste.size(); k++) {
 				Hero.heroliste.get(k).tilecount = 0;
 				Hero.heroliste.get(k).killcount = 0;
 				Hero.heroliste.get(k).scorecount = 0;
@@ -92,14 +92,14 @@ public class Controller {
 			}
 		}
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
-			for(int n=0; n<(Hero.heroliste.size()-1); n++) {
+			for(int n=0; n<Hero.heroliste.size(); n++) {
 				Hero.heroliste.get(n).setStartPosition(n);
 				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
 			}
 			Bombe.bombenliste.clear();
 			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + " Kills = " + Hero.heroliste.get(0).getkillcount() + " Deaths = " + Hero.heroliste.get(0).getdeathcount() + " Tiles = " + Hero.heroliste.get(0).gettilecount());
 			System.out.println("Spieler 2: Punkte = " + Hero.heroliste.get(1).getscorecount() + " Kills = " + Hero.heroliste.get(1).getkillcount() + " Deaths = " + Hero.heroliste.get(1).getdeathcount() + " Tiles = " + Hero.heroliste.get(1).gettilecount());
-			for(int k=0; k<2; k++) {
+			for(int k=0; k<Hero.heroliste.size(); k++) {
 				Hero.heroliste.get(k).tilecount = 0;
 				Hero.heroliste.get(k).killcount = 0;
 				Hero.heroliste.get(k).scorecount = 0;
@@ -125,14 +125,14 @@ public class Controller {
 		else if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()+1].getTileId() == 0){
 				}
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
-			for(int n=0; n<(Hero.heroliste.size()-1); n++) {
+			for(int n=0; n<Hero.heroliste.size(); n++) {
 				Hero.heroliste.get(n).setStartPosition(n);
 				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
 			}
 			Bombe.bombenliste.clear();
 			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + " Kills = " + Hero.heroliste.get(0).getkillcount() + " Deaths = " + Hero.heroliste.get(0).getdeathcount() + " Tiles = " + Hero.heroliste.get(0).gettilecount());
 			System.out.println("Spieler 2: Punkte = " + Hero.heroliste.get(1).getscorecount() + " Kills = " + Hero.heroliste.get(1).getkillcount() + " Deaths = " + Hero.heroliste.get(1).getdeathcount() + " Tiles = " + Hero.heroliste.get(1).gettilecount());
-			for(int k=0; k<2; k++) {
+			for(int k=0; k<Hero.heroliste.size(); k++) {
 				Hero.heroliste.get(k).tilecount = 0;
 				Hero.heroliste.get(k).killcount = 0;
 				Hero.heroliste.get(k).scorecount = 0;
