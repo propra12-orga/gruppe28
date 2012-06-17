@@ -42,7 +42,6 @@ public class InputController extends Thread implements KeyListener
 			catch(InterruptedException e) {
 				
 			}
-			System.out.println(keys);
 		/**
 		 * Tastenbelegung für Spieler 1.
 		 */

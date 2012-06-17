@@ -31,7 +31,7 @@ public class Mainframe extends JFrame{
 		setSize(665,688);
 		setLocationRelativeTo(null);
 		setTitle("Bomberman");
-		
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 	}
 	public static void main (String[] args) throws InterruptedException, IOException {

@@ -82,18 +82,7 @@ public class Hero {
 		return deathcount;
 	}
 	public void setdeathcount(int i, int deathcount) {
-		for(j=0; j < Bombe.bombenliste.size(); j++) {
-			if(i==0) {
-				if(heroliste.get(0).getisalive() == false /*&& heroliste.get(1).getisalive() == true*/ && Bombe.bombenliste.get(j).isExplodiert()==true) {
-					heroliste.get(0).deathcount=++deathcount;
-				}
-			}
-			else if(i==1) {
-				if(heroliste.get(1).getisalive() == false/* && heroliste.get(0).getisalive() == true */&& Bombe.bombenliste.get(j).isExplodiert()==true) {
-					heroliste.get(1).deathcount=++deathcount;
-				}
-			}
-		}
+		heroliste.get(i).deathcount=++deathcount;
 	}	
 	public boolean getisalive() {
 		return isalive;
@@ -111,17 +100,10 @@ public class Hero {
 		return tilecount;
 	}
 	public void settilecount(int i, int tilecount) {
-		for(j=0; j < Bombe.bombenliste.size(); j++) {
-			if(i==0){
-				if(Bombe.bombenliste.get(j).getDroppedby()==0 && Bombe.bombenliste.get(j).isTiledestroyed() == true) {
-					heroliste.get(0).tilecount=++tilecount;
+		for(Bombe bombe : Bombe.bombenliste) {
+				if(bombe.getDroppedby()==i && Bombe.bombenliste.get(j).isTiledestroyed() == true) {
+					heroliste.get(i).tilecount=++tilecount;
 				}
-			}
-			else if(i==1) {
-				if(Bombe.bombenliste.get(j).getDroppedby()==1 && Bombe.bombenliste.get(j).isTiledestroyed() == true) {
-					heroliste.get(1).tilecount=++tilecount;
-				}
-			}
 		}
 	}
 	public int getStartPosition() {
@@ -147,17 +129,10 @@ public class Hero {
 		return suicidecount;
 	}
 	public void setSuicidecount(int i, int suicidecount) {
-		for(j=0; j < Bombe.bombenliste.size(); j++) {
-			if(i==0) {
-				if(Bombe.bombenliste.get(j).getDroppedby()==0 && Bombe.bombenliste.get(j).isExplodiert()==true&& heroliste.get(0).getisalive() == false) {
-					heroliste.get(0).suicidecount=++suicidecount;
+		for(Bombe bombe : Bombe.bombenliste) {
+				if(bombe.getDroppedby()==i/* && heroliste.get(i).getisalive() == false*/) {
+					heroliste.get(i).suicidecount=++suicidecount;
 				}
-			}
-			else if(i==1) {
-				if(Bombe.bombenliste.get(j).getDroppedby()==1 && Bombe.bombenliste.get(j).isExplodiert()==true && heroliste.get(1).getisalive() == false) {
-					heroliste.get(1).suicidecount=++suicidecount;
-				}
-			}
 		}
 	}
 	public int resetdeathcount() {
