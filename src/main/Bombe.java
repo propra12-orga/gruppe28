@@ -77,6 +77,14 @@ public void run() {
 	 s++;
 	}
 	this.setExplodiert(true);
+	for(int k=0; k<Hero.heroliste.size();k++) {
+		if(droppedby==k && explodiert==true)
+		{
+			Hero.heroliste.get(k).reducebombcount(Hero.heroliste.get(k).getBombcount()); 
+			System.out.println(Hero.heroliste.get(k).getBombcount());
+		}
+	}
+	
  while (ausbreitung <= bombenreichweite && Board.map[bombex-reichweitel][bombey].getTileId() == 1)
  	{
 	 ListIterator<Bombe> it = Bombe.bombenliste.listIterator();	
@@ -102,7 +110,7 @@ public void run() {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex-reichweitel][bombey])
 		 {
 			 Hero.heroliste.get(i).setisalive(false);
-			// Hero.heroliste.get(i).setkillcount(i, Hero.heroliste.get(i).getkillcount());
+			 Hero.heroliste.get(i).setkillcount(i, getDroppedby());
 			// Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
 		 }
 	 }
@@ -167,7 +175,7 @@ public void run() {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex+reichweiter][bombey])
 		 {
 			 Hero.heroliste.get(i).setisalive(false);
-			// Hero.heroliste.get(i).setkillcount(i, Hero.heroliste.get(i).getkillcount());
+			 Hero.heroliste.get(i).setkillcount(i, getDroppedby());
 			// Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
 		 }
 	 }
@@ -231,7 +239,7 @@ public void run() {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex][bombey+reichweiteu])
 		 {
 			 Hero.heroliste.get(i).setisalive(false);
-			// Hero.heroliste.get(i).setkillcount(i, Hero.heroliste.get(i).getkillcount());
+			 Hero.heroliste.get(i).setkillcount(i, getDroppedby());
 			// Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
 		 }
 	 }
@@ -295,7 +303,7 @@ public void run() {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex][bombey-reichweiteo])
 		 {
 			 Hero.heroliste.get(i).setisalive(false);
-			// Hero.heroliste.get(i).setkillcount(i, Hero.heroliste.get(i).getkillcount());
+			 Hero.heroliste.get(i).setkillcount(i, getDroppedby());
 			// Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
 		 }
 	 }
@@ -344,9 +352,18 @@ public void run() {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
+ /*for(Bombe bombe : bombenliste) {
+	 for(int k=0; k<Hero.heroliste.size();k++) {
+		 if(bombe.getDroppedby()==k && bombe.isExplodiert()==true)
+		 {
+			Hero.heroliste.get(k).reducebombcount(); 
+		 }
+	 }
+ }*/
  if(bombenliste.size()!=0) {
 	 bombenliste.remove();
  }
+ 
  this.setSichtbar(false);
  this.setExplodiert(false);
  }

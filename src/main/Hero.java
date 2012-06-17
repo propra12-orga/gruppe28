@@ -26,6 +26,7 @@ public class Hero {
 	private int tilecount=0;
 	private int scorecount=0;
 	private int suicidecount=0;
+	private int bombcount=0;
 	private boolean isalive;
 	public  int getHp() {
 		return Hp;
@@ -63,20 +64,19 @@ public class Hero {
 	public int getkillcount() {
 		return killcount;
 	}
-	public void setkillcount(int i, int killcount) {
-		for(j=0; j < Bombe.bombenliste.size(); j++) {
-			if(i==0) {
-				if(Bombe.bombenliste.get(j).getDroppedby()==0 /* && Bombe.bombenliste.get(j).isExplodiert()==true */&& heroliste.get(1).getisalive() == false) {
-					heroliste.get(0).killcount=++killcount;
-
+	public void setkillcount(int i, int j) {
+		for(Bombe bombe : Bombe.bombenliste) {
+			//for(int k=0;k<heroliste.size();k++) {
+				if(bombe.getDroppedby()==j && heroliste.get(i).getisalive() == false) {
+					heroliste.get(j).killcount=1+heroliste.get(j).getkillcount();
 				}
 			}
-			else if(i==1) {
-				if(Bombe.bombenliste.get(j).getDroppedby()==1/* && Bombe.bombenliste.get(j).isExplodiert()==true */&& heroliste.get(0).getisalive() == false) {
-					heroliste.get(1).killcount=++killcount;
-				}
-			}
-		}
+			//else if(i==1) {
+			//	if(Bombe.bombenliste.get(j).getDroppedby()==1 && heroliste.get(0).getisalive() == false) {
+			//		heroliste.get(1).killcount=++killcount;
+			//	}
+			//}
+		//}
 	}
 	public int getdeathcount() {
 		return deathcount;
@@ -149,5 +149,15 @@ public class Hero {
 	}
 	public int resetscorecount() {
 		return scorecount=0;
+	}
+	public int getBombcount() {
+		return bombcount;
+	}
+	public void setBombcount(int bombcount) {
+		this.bombcount = ++bombcount;
+	}
+	public int reducebombcount(int bombcount) {
+		this.bombcount=--bombcount;
+		return this.bombcount;
 	}
 }
