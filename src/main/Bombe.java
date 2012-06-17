@@ -27,8 +27,7 @@ private int bombex = 0;
 private int bombey = 0;
 private boolean sichtbar = false;
 public boolean explodiert = false;
-private boolean droppedbyone = false;
-private boolean droppedbytwo = false;
+private int droppedby;
 private boolean tiledestroyed = false;
 private int[] explosionsvektor = new int[4];
 public int getBombenreichweite() {	
@@ -103,7 +102,8 @@ public void run() {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex-reichweitel][bombey])
 		 {
 			 Hero.heroliste.get(i).setisalive(false);
-			 Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
+			// Hero.heroliste.get(i).setkillcount(i, Hero.heroliste.get(i).getkillcount());
+			// Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
 		 }
 	 }
 	 if (ausbreiten == true)
@@ -167,7 +167,8 @@ public void run() {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex+reichweiter][bombey])
 		 {
 			 Hero.heroliste.get(i).setisalive(false);
-			 Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
+			// Hero.heroliste.get(i).setkillcount(i, Hero.heroliste.get(i).getkillcount());
+			// Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
 		 }
 	 }
 	 if (ausbreiten == true)
@@ -230,7 +231,8 @@ public void run() {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex][bombey+reichweiteu])
 		 {
 			 Hero.heroliste.get(i).setisalive(false);
-			 Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
+			// Hero.heroliste.get(i).setkillcount(i, Hero.heroliste.get(i).getkillcount());
+			// Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
 		 }
 	 }
 	 if (ausbreiten == true)
@@ -293,8 +295,8 @@ public void run() {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex][bombey-reichweiteo])
 		 {
 			 Hero.heroliste.get(i).setisalive(false);
-			 Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
-			 Hero.heroliste.get(i).setkillcount(i, Hero.heroliste.get(i).getkillcount());
+			// Hero.heroliste.get(i).setkillcount(i, Hero.heroliste.get(i).getkillcount());
+			// Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
 		 }
 	 }
 	 if (ausbreiten == true)
@@ -342,7 +344,9 @@ public void run() {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
- bombenliste.remove();
+ if(bombenliste.size()!=0) {
+	 bombenliste.remove();
+ }
  this.setSichtbar(false);
  this.setExplodiert(false);
  }
@@ -359,17 +363,11 @@ public boolean isTiledestroyed() {
 public void setTiledestroyed(boolean tiledestroyed) {
 	this.tiledestroyed = tiledestroyed;
 }
-public boolean isDroppedbyone() {
-	return droppedbyone;
+public int getDroppedby() {
+	return droppedby;
 }
-public void setDroppedbyone(boolean droppedbyone) {
-	this.droppedbyone = droppedbyone;
-}
-public boolean isDroppedbytwo() {
-	return droppedbytwo;
-}
-public void setDroppedbytwo(boolean droppedbytwo) {
-	this.droppedbytwo = droppedbytwo;
+public void setDroppedby(int droppedby) {
+	this.droppedby = droppedby;
 }
 
 }  

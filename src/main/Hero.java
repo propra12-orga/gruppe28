@@ -21,11 +21,11 @@ public class Hero {
 	private int yPixelPosition;
 	private int speed=10;
 	private int startPosition;
-	private int killcount;
-	private int deathcount;
-	private int tilecount;
-	private int scorecount;
-	private int suicidecount;
+	private int killcount=0;
+	private int deathcount=0;
+	private int tilecount=0;
+	private int scorecount=0;
+	private int suicidecount=0;
 	private boolean isalive;
 	public  int getHp() {
 		return Hp;
@@ -66,14 +66,14 @@ public class Hero {
 	public void setkillcount(int i, int killcount) {
 		for(j=0; j < Bombe.bombenliste.size(); j++) {
 			if(i==0) {
-				if(Bombe.bombenliste.get(j).isDroppedbyone()==true && Hero.heroliste.get(1).getisalive() == false) {
-					Hero.heroliste.get(0).killcount=++killcount;
+				if(Bombe.bombenliste.get(j).getDroppedby()==0 /* && Bombe.bombenliste.get(j).isExplodiert()==true */&& heroliste.get(1).getisalive() == false) {
+					heroliste.get(0).killcount=++killcount;
 
 				}
 			}
-			if(i==1) {
-				if(Bombe.bombenliste.get(j).isDroppedbytwo()==true && Hero.heroliste.get(0).getisalive() == false) {
-					Hero.heroliste.get(1).killcount=++killcount;
+			else if(i==1) {
+				if(Bombe.bombenliste.get(j).getDroppedby()==1/* && Bombe.bombenliste.get(j).isExplodiert()==true */&& heroliste.get(0).getisalive() == false) {
+					heroliste.get(1).killcount=++killcount;
 				}
 			}
 		}
@@ -81,9 +81,18 @@ public class Hero {
 	public int getdeathcount() {
 		return deathcount;
 	}
-	public void setdeathcount(int deathcount) {
-		if(isalive == false) {
-			this.deathcount=++deathcount;
+	public void setdeathcount(int i, int deathcount) {
+		for(j=0; j < Bombe.bombenliste.size(); j++) {
+			if(i==0) {
+				if(heroliste.get(0).getisalive() == false /*&& heroliste.get(1).getisalive() == true*/ && Bombe.bombenliste.get(j).isExplodiert()==true) {
+					heroliste.get(0).deathcount=++deathcount;
+				}
+			}
+			else if(i==1) {
+				if(heroliste.get(1).getisalive() == false/* && heroliste.get(0).getisalive() == true */&& Bombe.bombenliste.get(j).isExplodiert()==true) {
+					heroliste.get(1).deathcount=++deathcount;
+				}
+			}
 		}
 	}	
 	public boolean getisalive() {
@@ -96,7 +105,7 @@ public class Hero {
 		return scorecount;
 	}
 	public void setscorecount(int i, int scorecount) {
-		Hero.heroliste.get(i).scorecount=Hero.heroliste.get(i).tilecount+Hero.heroliste.get(i).killcount;
+		heroliste.get(i).scorecount=heroliste.get(i).gettilecount()+(heroliste.get(i).getkillcount()*5)-(heroliste.get(i).getSuicidecount()*3);
 	}
 	public int gettilecount() {
 		return tilecount;
@@ -104,14 +113,13 @@ public class Hero {
 	public void settilecount(int i, int tilecount) {
 		for(j=0; j < Bombe.bombenliste.size(); j++) {
 			if(i==0){
-				if(Bombe.bombenliste.get(j).isDroppedbyone()==true && Bombe.bombenliste.get(j).isTiledestroyed() == true) {
-					Hero.heroliste.get(0).tilecount=++tilecount;
+				if(Bombe.bombenliste.get(j).getDroppedby()==0 && Bombe.bombenliste.get(j).isTiledestroyed() == true) {
+					heroliste.get(0).tilecount=++tilecount;
 				}
 			}
-			if(i==1)
-			{
-				if(Bombe.bombenliste.get(j).isDroppedbytwo()==true && Bombe.bombenliste.get(j).isTiledestroyed() == true) {
-					Hero.heroliste.get(1).tilecount=++tilecount;
+			else if(i==1) {
+				if(Bombe.bombenliste.get(j).getDroppedby()==1 && Bombe.bombenliste.get(j).isTiledestroyed() == true) {
+					heroliste.get(1).tilecount=++tilecount;
 				}
 			}
 		}
@@ -121,27 +129,34 @@ public class Hero {
 	}
 	public void setStartPosition(int n) {
 		if(n==0) {
-			Hero.heroliste.get(0).setxPixelPosition(55);
-			Hero.heroliste.get(0).setyPixelPosition(55);
-			Hero.heroliste.get(0).setxCoord();
-			Hero.heroliste.get(0).setyCoord();
-			Hero.heroliste.get(0).setisalive(true);
+			heroliste.get(0).setxPixelPosition(55);
+			heroliste.get(0).setyPixelPosition(55);
+			heroliste.get(0).setxCoord();
+			heroliste.get(0).setyCoord();
+			heroliste.get(0).setisalive(true);
 		}
 		if(n==1) {
-			Hero.heroliste.get(1).setxPixelPosition(561);
-			Hero.heroliste.get(1).setyPixelPosition(55);
-			Hero.heroliste.get(1).setxCoord();
-			Hero.heroliste.get(1).setyCoord();
-			Hero.heroliste.get(1).setisalive(true);
+			heroliste.get(1).setxPixelPosition(561);
+			heroliste.get(1).setyPixelPosition(55);
+			heroliste.get(1).setxCoord();
+			heroliste.get(1).setyCoord();
+			heroliste.get(1).setisalive(true);
 		}
 	}
 	public int getSuicidecount() {
 		return suicidecount;
 	}
-	public void setSuicidecount(int suicidecount) {
+	public void setSuicidecount(int i, int suicidecount) {
 		for(j=0; j < Bombe.bombenliste.size(); j++) {
-			if(Bombe.bombenliste.get(j).isDroppedbyone()==true && Hero.heroliste.get(j).getisalive() == false) {
-					Hero.heroliste.get(j).suicidecount=++suicidecount;
+			if(i==0) {
+				if(Bombe.bombenliste.get(j).getDroppedby()==0 && Bombe.bombenliste.get(j).isExplodiert()==true&& heroliste.get(0).getisalive() == false) {
+					heroliste.get(0).suicidecount=++suicidecount;
+				}
+			}
+			else if(i==1) {
+				if(Bombe.bombenliste.get(j).getDroppedby()==1 && Bombe.bombenliste.get(j).isExplodiert()==true && heroliste.get(1).getisalive() == false) {
+					heroliste.get(1).suicidecount=++suicidecount;
+				}
 			}
 		}
 	}

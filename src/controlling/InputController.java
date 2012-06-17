@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 //import java.util.ListIterator;
 import java.util.Timer;
+import java.util.Vector;
 
 /**
  * Die InputController-Klasse regelt die Tastenbelegung zur Steuerung der Spielfiguren.
@@ -15,30 +16,53 @@ import java.util.Timer;
  *
  */
 
-public class InputController implements KeyListener
+public class InputController extends Thread implements KeyListener
 	{
+	Vector<Integer> keys = new Vector<Integer>();
+	
 	public static boolean moveUp = false;
-	/**
-	 * Tastenbelegung für Spieler 1.
-	 */
+	
 	public void keyPressed(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_W) {
+		if (!keys.contains(e.getKeyCode()))
+			keys.add(e.getKeyCode());
+		
+	}
+	public void keyReleased(KeyEvent e)	{
+		keys.removeElement(e.getKeyCode());
+		}
+
+	public void keyTyped(KeyEvent e) {
+				
+	}
+	public void run() {
+		while(true) {
+			try{
+				sleep(50);
+			}
+			catch(InterruptedException e) {
+				
+			}
+			System.out.println(keys);
+		/**
+		 * Tastenbelegung für Spieler 1.
+		 */
+		if (keys.contains(KeyEvent.VK_W)) {
 			//Controller.controllerliste.get(0);
 			Controller.movementUp(0);
 		}
-		else if (e.getKeyCode() == KeyEvent.VK_S) {
+		else if (keys.contains(KeyEvent.VK_S)) {
 			//Controller.controllerliste.get(0);
 			Controller.movementDown(0);
 		}
-		else if (e.getKeyCode() == KeyEvent.VK_A) {
+		if (keys.contains(KeyEvent.VK_A)) {
 			//Controller.controllerliste.get(0);
 			Controller.movementLeft(0);
 		}
-		else if (e.getKeyCode() == KeyEvent.VK_D) {
+		else if (keys.contains(KeyEvent.VK_D)) {
 			//Controller.controllerliste.get(0).movementRight(0);;
 			Controller.movementRight(0);
 		}
-		else if (e.getKeyCode() == KeyEvent.VK_X) {
+		if (keys.contains(KeyEvent.VK_X)) {
 			/*boolean blocked=false;
 			ListIterator<Bombe> it = Bombe.bombenliste.listIterator();
 			
@@ -52,12 +76,12 @@ public class InputController implements KeyListener
 				b.setBombex(Hero.heroliste.get(0).getxCoord());
 				b.setBombey(Hero.heroliste.get(0).getyCoord());
 				b.setSichtbar(true);
+				b.setDroppedby(0);
+				b.setExplodiert(false);
 				Bombe.bombenliste.add(b);
 				if (Bombe.bombenliste.isEmpty()==false) {
 					System.out.println("Eine Bombe wurde gesetzt:" + Bombe.bombenliste.get(0).getBombex() + ", " + Bombe.bombenliste.get(0).getBombey());
 				}
-				Bombe.bombenliste.get(Bombe.bombenliste.size()-1).setDroppedbyone(true);
-				Bombe.bombenliste.get(Bombe.bombenliste.size()-1).setExplodiert(false);
 				Timer timer = new Timer();
 				timer.schedule(b, 1);				
 			//}
@@ -65,23 +89,23 @@ public class InputController implements KeyListener
 		/**
 		 * Tastenbelegung für Spieler 2.
 		 */
-		if (e.getKeyCode() == KeyEvent.VK_UP) {
+		if (keys.contains(KeyEvent.VK_UP)) {
 			//Controller.controllerliste.get(1);
 			Controller.movementUp(1);
 		}
-		else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+		else if (keys.contains(KeyEvent.VK_DOWN)) {
 			//Controller.controllerliste.get(1);
 			Controller.movementDown(1);
 		}
-		else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+		if (keys.contains(KeyEvent.VK_LEFT)) {
 			//Controller.controllerliste.get(1);
 			Controller.movementLeft(1);
 		}
-		else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+		else if (keys.contains(KeyEvent.VK_RIGHT)) {
 			//Controller.controllerliste.get(1).movementRight(0);;
 			Controller.movementRight(1);
 		}
-		else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+		if (keys.contains(KeyEvent.VK_SPACE)) {
 			/*boolean blocked=false;
 			ListIterator<Bombe> it = Bombe.bombenliste.listIterator();
 			
@@ -95,24 +119,17 @@ public class InputController implements KeyListener
 				b.setBombex(Hero.heroliste.get(1).getxCoord());
 				b.setBombey(Hero.heroliste.get(1).getyCoord());
 				b.setSichtbar(true);
+				b.setDroppedby(1);
+				b.setExplodiert(false);
 				Bombe.bombenliste.add(b);
 				if (Bombe.bombenliste.isEmpty()==false) {
 					System.out.println("Eine Bombe wurde gesetzt:" + Bombe.bombenliste.get(Bombe.bombenliste.size()-1).getBombex() + ", " + Bombe.bombenliste.get(Bombe.bombenliste.size()-1).getBombey());
 				}
-				Bombe.bombenliste.get(Bombe.bombenliste.size()-1).setDroppedbytwo(true);
-				Bombe.bombenliste.get(Bombe.bombenliste.size()-1).setExplodiert(false);
 				Timer timer = new Timer();
 				timer.schedule(b, 1);
 			//}
 		}
 	}
-	
-	public void keyReleased(KeyEvent e)	{
-		
-		}
-
-	public void keyTyped(KeyEvent e) {
-				
 	}
 	
 }

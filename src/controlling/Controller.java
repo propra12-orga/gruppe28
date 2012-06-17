@@ -46,6 +46,7 @@ public class Controller {
 		}
 		if(Hero.heroliste.get(i).getisalive() == false){
 			Hero.heroliste.get(i).setStartPosition(i);
+			Hero.heroliste.get(i).setdeathcount(i, Hero.heroliste.get(i).getdeathcount());
 		}
 		}
 	public static void movementLeft(int i){
@@ -78,6 +79,9 @@ public class Controller {
 		}
 		if(Hero.heroliste.get(i).getisalive() == false){
 			Hero.heroliste.get(i).setStartPosition(i);
+			Hero.heroliste.get(i).setdeathcount(i, Hero.heroliste.get(i).getdeathcount());
+			Hero.heroliste.get(i).setkillcount(i, Hero.heroliste.get(i).getkillcount());
+			 Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
 		}
 	}
 
@@ -111,6 +115,7 @@ public class Controller {
 		}	
 		if(Hero.heroliste.get(i).getisalive() == false){
 			Hero.heroliste.get(i).setStartPosition(i);
+			Hero.heroliste.get(i).setdeathcount(i, Hero.heroliste.get(i).getdeathcount());
 		}
 	}
 	public static void movementDown(int i){
@@ -145,6 +150,9 @@ public class Controller {
 	}
 		if(Hero.heroliste.get(i).getisalive() == false){
 			Hero.heroliste.get(i).setStartPosition(i);
+			Hero.heroliste.get(i).setdeathcount(i, Hero.heroliste.get(i).getdeathcount());
+			Hero.heroliste.get(i).setkillcount(i, Hero.heroliste.get(i).getkillcount());
+			 Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
 		}
 	}
 }
