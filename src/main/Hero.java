@@ -5,7 +5,7 @@ import java.util.LinkedList;
 /**
  * Instanzierbare Klasse um unsere Spielfiguren zu erschaffen.
  * (Figuren kommen in die "heroliste" und können von da aus abgerufen werden)
- * Sie enthält die Koordinaten und Geschwindigkeit einer Figur.
+ * Sie enthält die Koordinaten, Geschwindigkeit und Zähler für die Statistik einer Figur.
  * 
  * @author Sebastian
  *
@@ -64,6 +64,11 @@ public class Hero {
 	public int getkillcount() {
 		return killcount;
 	}
+	/**
+	 * Zählt die erwischten Gegner für die Statistik (wenn es mal funktioniert).
+	 * @param i
+	 * @param j
+	 */
 	public void setkillcount(int i, int j) {
 		for(Bombe bombe : Bombe.bombenliste) {
 			//for(int k=0;k<heroliste.size();k++) {
@@ -81,6 +86,11 @@ public class Hero {
 	public int getdeathcount() {
 		return deathcount;
 	}
+	/**
+	 * Zählt die Tode des Helden für die Statistik.
+	 * @param i
+	 * @param deathcount
+	 */
 	public void setdeathcount(int i, int deathcount) {
 		heroliste.get(i).deathcount=++deathcount;
 	}	
@@ -93,12 +103,22 @@ public class Hero {
 	public int getscorecount() {
 		return scorecount;
 	}
+	/**
+	 * Berechnet die Punkte des Helden für die Statistik.
+	 * @param i
+	 * @param scorecount
+	 */
 	public void setscorecount(int i, int scorecount) {
 		heroliste.get(i).scorecount=heroliste.get(i).gettilecount()+(heroliste.get(i).getkillcount()*5)-(heroliste.get(i).getSuicidecount()*3);
 	}
 	public int gettilecount() {
 		return tilecount;
 	}
+	/**
+	 * Zählt die zerstörten Wände für die Statistik.
+	 * @param i
+	 * @param tilecount
+	 */
 	public void settilecount(int i, int tilecount) {
 		for(Bombe bombe : Bombe.bombenliste) {
 				if(bombe.getDroppedby()==i && Bombe.bombenliste.get(j).isTiledestroyed() == true) {
@@ -109,6 +129,10 @@ public class Hero {
 	public int getStartPosition() {
 		return startPosition;
 	}
+	/**
+	 * Startpositionen der Helden.
+	 * @param n
+	 */
 	public void setStartPosition(int n) {
 		if(n==0) {
 			heroliste.get(0).setxPixelPosition(55);
@@ -128,6 +152,11 @@ public class Hero {
 	public int getSuicidecount() {
 		return suicidecount;
 	}
+	/**
+	 * Zählt die Selbstmorde für die Statistik.
+	 * @param i
+	 * @param suicidecount
+	 */
 	public void setSuicidecount(int i, int suicidecount) {
 		for(Bombe bombe : Bombe.bombenliste) {
 				if(bombe.getDroppedby()==i/* && heroliste.get(i).getisalive() == false*/) {
@@ -153,6 +182,10 @@ public class Hero {
 	public int getBombcount() {
 		return bombcount;
 	}
+	/**
+	 * Zählt die gelegten Bomben des Helden, damit nicht zu viele auf dem Spielfeld sind.
+	 * @param bombcount
+	 */
 	public void setBombcount(int bombcount) {
 		this.bombcount = ++bombcount;
 	}

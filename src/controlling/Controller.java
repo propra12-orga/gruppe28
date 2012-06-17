@@ -15,6 +15,10 @@ import main.Hero;
  */
 
 public class Controller {
+	/**
+	 * Bewegung nach rechts.
+	 * @param i
+	 */
 	public static void movementRight(int i){
 		if (Board.map[(Hero.heroliste.get(i).getxCoord()+1)][Hero.heroliste.get(i).getyCoord()].getTileId()%2 != 0) {
 			Hero.heroliste.get(i).setxPixelPosition(Hero.heroliste.get(i).getxPixelPosition()+Hero.heroliste.get(i).getSpeed());
@@ -50,6 +54,10 @@ public class Controller {
 			Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
 		}
 		}
+	/**
+	 * Bewegung nach links.
+	 * @param i
+	 */
 	public static void movementLeft(int i){
 		//int i=0;
 		if (Board.map[(Hero.heroliste.get(i).getxCoord()-1)][Hero.heroliste.get(i).getyCoord()].getTileId()%2 != 0) {
@@ -85,7 +93,10 @@ public class Controller {
 			Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
 		}
 	}
-
+	/**
+	 * Bewegung nach oben.
+	 * @param i
+	 */
 	public static void movementUp(int i){
 		//int i=0;
 		if (Board.map[(Hero.heroliste.get(i).getxCoord())][Hero.heroliste.get(i).getyCoord()-1].getTileId()%2 != 0) {
@@ -121,6 +132,10 @@ public class Controller {
 			Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
 		}
 	}
+	/**
+	 * Bewegung nach unten.
+	 * @param i
+	 */
 	public static void movementDown(int i){
 		//int i=0;
 		if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()+1].getTileId()%2 != 0) {
