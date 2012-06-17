@@ -73,7 +73,6 @@ public class InputController extends Thread implements KeyListener
 				b.setDroppedby(0);
 				b.setExplodiert(false);
 				Hero.heroliste.get(0).setBombcount(Hero.heroliste.get(0).getBombcount());
-				System.out.println(Hero.heroliste.get(0).getBombcount());
 				Bombe.bombenliste.add(b);
 				if (Bombe.bombenliste.isEmpty()==false) {
 					System.out.println("Eine Bombe wurde gesetzt:" + Bombe.bombenliste.get(0).getBombex() + ", " + Bombe.bombenliste.get(0).getBombey());
@@ -115,7 +114,6 @@ public class InputController extends Thread implements KeyListener
 				b.setExplodiert(false);
 				Hero.heroliste.get(1).setBombcount(Hero.heroliste.get(1).getBombcount());
 				Bombe.bombenliste.add(b);
-				System.out.println(Hero.heroliste.get(1).getBombcount());
 				if (Bombe.bombenliste.isEmpty()==false) {
 					System.out.println("Eine Bombe wurde gesetzt:" + Bombe.bombenliste.get(Bombe.bombenliste.size()-1).getBombex() + ", " + Bombe.bombenliste.get(Bombe.bombenliste.size()-1).getBombey());
 				}

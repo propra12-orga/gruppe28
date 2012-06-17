@@ -81,7 +81,6 @@ public void run() {
 		if(droppedby==k && explodiert==true)
 		{
 			Hero.heroliste.get(k).reducebombcount(Hero.heroliste.get(k).getBombcount()); 
-			System.out.println(Hero.heroliste.get(k).getBombcount());
 		}
 	}
 	
