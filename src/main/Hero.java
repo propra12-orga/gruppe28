@@ -1,6 +1,5 @@
 package main;
-
-import java.util.LinkedList;
+import java.util.Vector;
 
 /**
  * Instanzierbare Klasse um unsere Spielfiguren zu erschaffen.
@@ -12,7 +11,7 @@ import java.util.LinkedList;
  */
 
 public class Hero {
-	public static LinkedList<Hero> heroliste = new LinkedList<Hero>();
+	public static Vector<Hero> heroliste = new Vector<Hero>();
 	int Hp;
 	private int xCoord;
 	private int yCoord;
@@ -69,18 +68,7 @@ public class Hero {
 	 * @param j
 	 */
 	public void setkillcount(int i, int killcount) {
-		//for(Bombe bombe : Bombe.bombenliste) {
-			//for(int k=0;k<heroliste.size();k++) {
-				//if(bombe.getDroppedby()==j && heroliste.get(i).getisalive() == false) {
 					heroliste.get(i).killcount=++killcount;
-				//}
-			//}
-			//else if(i==1) {
-			//	if(Bombe.bombenliste.get(j).getDroppedby()==1 && heroliste.get(0).getisalive() == false) {
-			//		heroliste.get(1).killcount=++killcount;
-			//	}
-			//}
-		//}
 	}
 	public int getdeathcount() {
 		return deathcount;
@@ -119,11 +107,7 @@ public class Hero {
 	 * @param tilecount
 	 */
 	public void settilecount(int i, int tilecount) {
-		//for(Bombe bombe : Bombe.bombenliste) {
-				//if(bombe.getDroppedby()==i && bombe.isTiledestroyed() == true) {
 					heroliste.get(i).tilecount=++tilecount;
-				//}
-		//}
 	}
 	public int getStartPosition() {
 		return startPosition;
@@ -157,11 +141,7 @@ public class Hero {
 	 * @param suicidecount
 	 */
 	public void setSuicidecount(int i, int suicidecount) {
-		//for(Bombe bombe : Bombe.bombenliste) {
-				//if(bombe.getDroppedby()==i && heroliste.get(i).getisalive() == false) {
 					heroliste.get(i).suicidecount=++suicidecount;
-				//}
-		//}
 	}
 	public int resetdeathcount() {
 		return deathcount=0;

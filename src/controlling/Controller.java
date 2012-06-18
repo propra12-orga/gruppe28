@@ -1,7 +1,10 @@
 package controlling;
 //import java.util.LinkedList;
 
+import java.awt.Rectangle;
+
 import board.Board;
+import board.Tileset;
 
 import main.Bombe;
 import main.Hero;
@@ -19,6 +22,9 @@ public class Controller {
 	 * Bewegung nach rechts.
 	 * @param i
 	 */
+	/*Rectangle h1 = Tileset.getBounds(0);
+	Rectangle h2 = Tileset.getBounds(1);*/
+	
 	public static void movementRight(int i){
 		if (Board.map[(Hero.heroliste.get(i).getxCoord()+1)][Hero.heroliste.get(i).getyCoord()].getTileId()%2 != 0) {
 			Hero.heroliste.get(i).setxPixelPosition(Hero.heroliste.get(i).getxPixelPosition()+Hero.heroliste.get(i).getSpeed());

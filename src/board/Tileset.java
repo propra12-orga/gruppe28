@@ -1,10 +1,13 @@
 package board;
 
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+
+import main.Hero;
 
 
 /**
@@ -78,4 +81,7 @@ public class Tileset {
 	public static Image getHero2() {
 		return hero2;
 	}
+	/*public static Rectangle getBounds(int i) {
+        return new Rectangle(Hero.heroliste.get(i).getxPixelPosition()-9, Hero.heroliste.get(i).getyPixelPosition()-9, hero.getWidth(null), hero.getHeight(null));
+    }*/
 }
