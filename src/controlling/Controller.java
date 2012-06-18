@@ -25,7 +25,7 @@ public class Controller {
 			Hero.heroliste.get(i).setxCoord();
 		}
 		else if(Board.map[Hero.heroliste.get(i).getxCoord()+1][Hero.heroliste.get(i).getyCoord()].getTileId()%2 == 0) {
-				if (Hero.heroliste.get(i).getxPixelPosition()<(Hero.heroliste.get(i).getxCoord()+1)*50 - (54- Hero.heroliste.get(i).getSpeed())) {
+				if (Hero.heroliste.get(i).getxPixelPosition()<(Hero.heroliste.get(i).getxCoord()+1)*50 - (40- Hero.heroliste.get(i).getSpeed())) {
 					Hero.heroliste.get(i).setxPixelPosition(Hero.heroliste.get(i).getxPixelPosition()+Hero.heroliste.get(i).getSpeed());
 					Hero.heroliste.get(i).setxCoord();
 				}
@@ -49,7 +49,7 @@ public class Controller {
 		}
 		if(Hero.heroliste.get(i).getisalive() == false){
 			Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
-			//Hero.heroliste.get(i).setkillcount(i);
+			//Hero.heroliste.get(i).setStartPosition(i);
 			
 			for(Bombe bombe : Bombe.bombenliste) {
 				if(bombe.getDroppedby()==i && Hero.heroliste.get(i).getisalive() == false) {
@@ -79,7 +79,7 @@ public class Controller {
 			Hero.heroliste.get(i).setxCoord();
 		}
 		else if(Board.map[Hero.heroliste.get(i).getxCoord()-1][Hero.heroliste.get(i).getyCoord()].getTileId()%2 == 0) {
-			if (Hero.heroliste.get(i).getxPixelPosition()>Hero.heroliste.get(i).getxCoord()*50 + (15- Hero.heroliste.get(i).getSpeed())) {
+			if (Hero.heroliste.get(i).getxPixelPosition()>Hero.heroliste.get(i).getxCoord()*50 + (Hero.heroliste.get(i).getSpeed())) {
 				Hero.heroliste.get(i).setxPixelPosition(Hero.heroliste.get(i).getxPixelPosition()-Hero.heroliste.get(i).getSpeed());
 				Hero.heroliste.get(i).setxCoord();
 			}
@@ -102,7 +102,7 @@ public class Controller {
 		}
 		if(Hero.heroliste.get(i).getisalive() == false){
 			Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
-			//Hero.heroliste.get(i).setkillcount(i);
+			//Hero.heroliste.get(i).setStartPosition(i);
 			
 			for(Bombe bombe : Bombe.bombenliste) {
 				if(bombe.getDroppedby()==i && Hero.heroliste.get(i).getisalive() == false) {
@@ -132,7 +132,7 @@ public class Controller {
 				Hero.heroliste.get(i).setyCoord();
 		}
 		else if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()-1].getTileId()%2 == 0) {
-			if (Hero.heroliste.get(i).getyPixelPosition()>Hero.heroliste.get(i).getyCoord()*50 + (15- Hero.heroliste.get(i).getSpeed())) {
+			if (Hero.heroliste.get(i).getyPixelPosition()>Hero.heroliste.get(i).getyCoord()*50 + (Hero.heroliste.get(i).getSpeed())) {
 				Hero.heroliste.get(i).setyPixelPosition(Hero.heroliste.get(i).getyPixelPosition()-Hero.heroliste.get(i).getSpeed());
 				Hero.heroliste.get(i).setyCoord();
 			}
@@ -155,7 +155,7 @@ public class Controller {
 		}	
 		if(Hero.heroliste.get(i).getisalive() == false){
 			Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
-			//Hero.heroliste.get(i).setkillcount(i);
+			//Hero.heroliste.get(i).setStartPosition(i);
 			
 			for(Bombe bombe : Bombe.bombenliste) {
 				if(bombe.getDroppedby()==i && Hero.heroliste.get(i).getisalive() == false) {
@@ -185,7 +185,7 @@ public class Controller {
 			Hero.heroliste.get(i).setyCoord();
 		}
 		else if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()+1].getTileId()%2 == 0) {
-			if (Hero.heroliste.get(i).getyPixelPosition()<(Hero.heroliste.get(i).getyCoord()+1)*50 - (54- Hero.heroliste.get(i).getSpeed())) {
+			if (Hero.heroliste.get(i).getyPixelPosition()<(Hero.heroliste.get(i).getyCoord()+1)*50 - (40- Hero.heroliste.get(i).getSpeed())) {
 				Hero.heroliste.get(i).setyPixelPosition(Hero.heroliste.get(i).getyPixelPosition()+Hero.heroliste.get(i).getSpeed());
 				Hero.heroliste.get(i).setyCoord();
 			}
@@ -210,7 +210,7 @@ public class Controller {
 	}
 		if(Hero.heroliste.get(i).getisalive() == false){
 			Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
-			//Hero.heroliste.get(i).setkillcount(i);
+			//Hero.heroliste.get(i).setStartPosition(i);
 			
 			
 			for(Bombe bombe : Bombe.bombenliste) {

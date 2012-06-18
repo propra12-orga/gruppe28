@@ -29,6 +29,7 @@ private boolean sichtbar = false;
 public boolean explodiert = false;
 private int droppedby;
 private boolean tiledestroyed = false;
+private int tiledestroyedscounter = 0;
 private int[] explosionsvektor = new int[4];
 public int getBombenreichweite() {	
 	return bombenreichweite;
@@ -134,6 +135,7 @@ public void run() {
 			 Board.decDestructableCounter();
 			 ausbreiten = false;
 			 tiledestroyed=true;
+			 this.setTiledestroyedscounter(this.getTiledestroyedscounter());
 		 }		 
 		 reichweitel ++;
 	 }
@@ -193,7 +195,8 @@ public void run() {
 			 }
 			 Board.decDestructableCounter();
 			 ausbreiten = false;
-			 tiledestroyed=true; 
+			 tiledestroyed=true;
+			 this.setTiledestroyedscounter(this.getTiledestroyedscounter());
 		 }		 
 		 reichweiter ++;
 	 }
@@ -253,6 +256,7 @@ public void run() {
 			 Board.decDestructableCounter();
 			 ausbreiten=false;
 			 tiledestroyed=true;
+			 this.setTiledestroyedscounter(this.getTiledestroyedscounter());
 		 }		 
 		 reichweiteu ++;
 	 }	
@@ -313,6 +317,7 @@ public void run() {
 			 Board.decDestructableCounter();
 			 ausbreiten=false;
 			 tiledestroyed=true;
+			 this.setTiledestroyedscounter(this.getTiledestroyedscounter());
 		 }		 
 		 reichweiteo ++;
 	 }	
@@ -326,7 +331,9 @@ public void run() {
  reichweiteo=reichweiter=reichweiteu=reichweitel=0;
  for (i=0; i<Hero.heroliste.size(); i++) {
 	 if(this.getDroppedby()==i && this.isTiledestroyed() == true) {
-		 Hero.heroliste.get(i).settilecount(i, Hero.heroliste.get(i).gettilecount());
+		 for(int j=0; j<this.getTiledestroyedscounter();j++) {
+			 Hero.heroliste.get(i).settilecount(i, Hero.heroliste.get(i).gettilecount());
+		 }
 	 }
 	 //Hero.heroliste.get(i).setkillcount(i, getDroppedby());
 	 /*if(this.getDroppedby()==i && Hero.heroliste.get(i).getisalive() == false) {
@@ -343,7 +350,7 @@ public void run() {
  if(bombenliste.size()!=0) {
 	 bombenliste.remove();
  }
- 
+ this.resetTiledestroyedscounter(this.getTiledestroyedscounter());
  this.setSichtbar(false);
  this.setExplodiert(false);
  }
@@ -365,6 +372,15 @@ public int getDroppedby() {
 }
 public void setDroppedby(int droppedby) {
 	this.droppedby = droppedby;
+}
+public int getTiledestroyedscounter() {
+	return tiledestroyedscounter;
+}
+public void setTiledestroyedscounter(int tiledestroyedscounter) {
+	this.tiledestroyedscounter = ++tiledestroyedscounter;
+}
+public void resetTiledestroyedscounter(int tiledestroyedscounter) {
+	this.tiledestroyedscounter = 0;
 }
 
 }  

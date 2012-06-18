@@ -134,15 +134,15 @@ public class Hero {
 	 */
 	public void setStartPosition(int n) {
 		if(n==0) {
-			heroliste.get(0).setxPixelPosition(55);
-			heroliste.get(0).setyPixelPosition(55);
+			heroliste.get(0).setxPixelPosition(60);
+			heroliste.get(0).setyPixelPosition(60);
 			heroliste.get(0).setxCoord();
 			heroliste.get(0).setyCoord();
 			heroliste.get(0).setisalive(true);
 		}
 		if(n==1) {
-			heroliste.get(1).setxPixelPosition(561);
-			heroliste.get(1).setyPixelPosition(55);
+			heroliste.get(1).setxPixelPosition(560);
+			heroliste.get(1).setyPixelPosition(60);
 			heroliste.get(1).setxCoord();
 			heroliste.get(1).setyCoord();
 			heroliste.get(1).setisalive(true);

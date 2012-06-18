@@ -37,8 +37,8 @@ public class Tileset {
 	public static void initTileset() throws IOException {
 		//bomb = ImageIO.read(Tileset.class.getResource("Bombe.gif"));
 		//bomb = ImageIO.read(new File("res/Bombe.gif"));
-		hero = ImageIO.read(new File("res/dolan.gif"));
-		hero2 = ImageIO.read(new File("res/dolan2.gif"));
+		hero = ImageIO.read(new File("res/Boba-Fett.gif"));
+		hero2 = ImageIO.read(new File("res/Darth-Vader.gif"));
 
 		BufferedImage bigImg = ImageIO.read(new File("res/tileset-new.gif"));
 
