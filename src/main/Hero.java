@@ -68,13 +68,13 @@ public class Hero {
 	 * @param i
 	 * @param j
 	 */
-	public void setkillcount(int i, int j) {
-		for(Bombe bombe : Bombe.bombenliste) {
+	public void setkillcount(int i, int killcount) {
+		//for(Bombe bombe : Bombe.bombenliste) {
 			//for(int k=0;k<heroliste.size();k++) {
-				if(bombe.getDroppedby()==j && heroliste.get(i).getisalive() == false) {
-					heroliste.get(j).killcount=1+heroliste.get(j).getkillcount();
-				}
-			}
+				//if(bombe.getDroppedby()==j && heroliste.get(i).getisalive() == false) {
+					heroliste.get(i).killcount=++killcount;
+				//}
+			//}
 			//else if(i==1) {
 			//	if(Bombe.bombenliste.get(j).getDroppedby()==1 && heroliste.get(0).getisalive() == false) {
 			//		heroliste.get(1).killcount=++killcount;

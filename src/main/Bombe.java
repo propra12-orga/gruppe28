@@ -328,7 +328,7 @@ public void run() {
 	 if(this.getDroppedby()==i && this.isTiledestroyed() == true) {
 		 Hero.heroliste.get(i).settilecount(i, Hero.heroliste.get(i).gettilecount());
 	 }
-	 Hero.heroliste.get(i).setkillcount(i, getDroppedby());
+	 //Hero.heroliste.get(i).setkillcount(i, getDroppedby());
 	 /*if(this.getDroppedby()==i && Hero.heroliste.get(i).getisalive() == false) {
 		 Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
 		 Hero.heroliste.get(i).setisalive(true);
