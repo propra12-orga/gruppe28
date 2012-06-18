@@ -109,8 +109,6 @@ public void run() {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex-reichweitel][bombey])
 		 {
 			 Hero.heroliste.get(i).setisalive(false);
-			 Hero.heroliste.get(i).setkillcount(i, getDroppedby());
-			// Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
 		 }
 	 }
 	 if (ausbreiten == true)
@@ -136,9 +134,6 @@ public void run() {
 			 Board.decDestructableCounter();
 			 ausbreiten = false;
 			 tiledestroyed=true;
-			 for (i=0; i<Hero.heroliste.size(); i++) {
-				 Hero.heroliste.get(i).settilecount(i, Hero.heroliste.get(i).gettilecount());
-			 }
 		 }		 
 		 reichweitel ++;
 	 }
@@ -174,8 +169,6 @@ public void run() {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex+reichweiter][bombey])
 		 {
 			 Hero.heroliste.get(i).setisalive(false);
-			 Hero.heroliste.get(i).setkillcount(i, getDroppedby());
-			// Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
 		 }
 	 }
 	 if (ausbreiten == true)
@@ -200,10 +193,7 @@ public void run() {
 			 }
 			 Board.decDestructableCounter();
 			 ausbreiten = false;
-			 tiledestroyed=true;
-			 for (i=0; i<Hero.heroliste.size(); i++) {
-				 Hero.heroliste.get(i).settilecount(i, Hero.heroliste.get(i).gettilecount());
-			 }
+			 tiledestroyed=true; 
 		 }		 
 		 reichweiter ++;
 	 }
@@ -238,8 +228,6 @@ public void run() {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex][bombey+reichweiteu])
 		 {
 			 Hero.heroliste.get(i).setisalive(false);
-			 Hero.heroliste.get(i).setkillcount(i, getDroppedby());
-			// Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
 		 }
 	 }
 	 if (ausbreiten == true)
@@ -265,9 +253,6 @@ public void run() {
 			 Board.decDestructableCounter();
 			 ausbreiten=false;
 			 tiledestroyed=true;
-			 for (i=0; i<Hero.heroliste.size(); i++) {
-				 Hero.heroliste.get(i).settilecount(i, Hero.heroliste.get(i).gettilecount());
-			 }
 		 }		 
 		 reichweiteu ++;
 	 }	
@@ -302,8 +287,6 @@ public void run() {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex][bombey-reichweiteo])
 		 {
 			 Hero.heroliste.get(i).setisalive(false);
-			 Hero.heroliste.get(i).setkillcount(i, getDroppedby());
-			// Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
 		 }
 	 }
 	 if (ausbreiten == true)
@@ -330,9 +313,6 @@ public void run() {
 			 Board.decDestructableCounter();
 			 ausbreiten=false;
 			 tiledestroyed=true;
-			 for (i=0; i<Hero.heroliste.size(); i++) {
-				 Hero.heroliste.get(i).settilecount(i, Hero.heroliste.get(i).gettilecount());
-			 }
 		 }		 
 		 reichweiteo ++;
 	 }	
@@ -344,21 +324,22 @@ public void run() {
  this.getExplosionsvektor()[2] = reichweiteu;
  this.getExplosionsvektor()[3] = reichweitel;
  reichweiteo=reichweiter=reichweiteu=reichweitel=0;
- 
+ for (i=0; i<Hero.heroliste.size(); i++) {
+	 if(this.getDroppedby()==i && this.isTiledestroyed() == true) {
+		 Hero.heroliste.get(i).settilecount(i, Hero.heroliste.get(i).gettilecount());
+	 }
+	 Hero.heroliste.get(i).setkillcount(i, getDroppedby());
+	 /*if(this.getDroppedby()==i && Hero.heroliste.get(i).getisalive() == false) {
+		 Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
+		 Hero.heroliste.get(i).setisalive(true);
+	 }*/
+ }
  try {
 		Thread.sleep(1000);
 	} catch (InterruptedException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
- /*for(Bombe bombe : bombenliste) {
-	 for(int k=0; k<Hero.heroliste.size();k++) {
-		 if(bombe.getDroppedby()==k && bombe.isExplodiert()==true)
-		 {
-			Hero.heroliste.get(k).reducebombcount(); 
-		 }
-	 }
- }*/
  if(bombenliste.size()!=0) {
 	 bombenliste.remove();
  }

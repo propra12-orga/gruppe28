@@ -14,7 +14,6 @@ import java.util.LinkedList;
 public class Hero {
 	public static LinkedList<Hero> heroliste = new LinkedList<Hero>();
 	int Hp;
-	private int j;
 	private int xCoord;
 	private int yCoord;
 	private int xPixelPosition;
@@ -91,8 +90,8 @@ public class Hero {
 	 * @param i
 	 * @param deathcount
 	 */
-	public void setdeathcount(int i, int deathcount) {
-		heroliste.get(i).deathcount=++deathcount;
+	public void setdeathcount(int deathcount) {
+		this.deathcount=++deathcount;
 	}	
 	public boolean getisalive() {
 		return isalive;
@@ -120,11 +119,11 @@ public class Hero {
 	 * @param tilecount
 	 */
 	public void settilecount(int i, int tilecount) {
-		for(Bombe bombe : Bombe.bombenliste) {
-				if(bombe.getDroppedby()==i && Bombe.bombenliste.get(j).isTiledestroyed() == true) {
+		//for(Bombe bombe : Bombe.bombenliste) {
+				//if(bombe.getDroppedby()==i && bombe.isTiledestroyed() == true) {
 					heroliste.get(i).tilecount=++tilecount;
-				}
-		}
+				//}
+		//}
 	}
 	public int getStartPosition() {
 		return startPosition;
@@ -158,11 +157,11 @@ public class Hero {
 	 * @param suicidecount
 	 */
 	public void setSuicidecount(int i, int suicidecount) {
-		for(Bombe bombe : Bombe.bombenliste) {
-				if(bombe.getDroppedby()==i/* && heroliste.get(i).getisalive() == false*/) {
+		//for(Bombe bombe : Bombe.bombenliste) {
+				//if(bombe.getDroppedby()==i && heroliste.get(i).getisalive() == false) {
 					heroliste.get(i).suicidecount=++suicidecount;
-				}
-		}
+				//}
+		//}
 	}
 	public int resetdeathcount() {
 		return deathcount=0;
