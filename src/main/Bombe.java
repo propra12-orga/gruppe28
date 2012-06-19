@@ -339,6 +339,9 @@ public void run() {
 			 Hero.heroliste.get(i).settilecount(i, Hero.heroliste.get(i).gettilecount());
 		 }
 	 }
+	 if(Hero.heroliste.get(i).getisalive() == false){
+		 Hero.heroliste.get(i).setStartPosition(i);
+	 }
  }
  try {
 		Thread.sleep(1000);

@@ -1,10 +1,9 @@
 package controlling;
 //import java.util.LinkedList;
 
-import java.awt.Rectangle;
+//import java.awt.Rectangle;
 
 import board.Board;
-import board.Tileset;
 
 import main.Bombe;
 import main.Hero;
@@ -54,23 +53,23 @@ public class Controller {
 			
 		}
 		if(Hero.heroliste.get(i).getisalive() == false){
-			Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
+			//Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
 			//Hero.heroliste.get(i).setStartPosition(i);
 			
-			for(Bombe bombe : Bombe.bombenliste) {
+			/*for(Bombe bombe : Bombe.bombenliste) {
 				if(bombe.getDroppedby()==i && Hero.heroliste.get(i).getisalive() == false) {
 					 Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
-					 Hero.heroliste.get(i).setStartPosition(i);
+					 //Hero.heroliste.get(i).setStartPosition(i);
 				 }
 				else{
 					for(int j=0; j<Hero.heroliste.size();j++){
 						if(bombe.getDroppedby()==j && Hero.heroliste.get(i).getisalive()==false) {
 							Hero.heroliste.get(j).setkillcount(j, Hero.heroliste.get(j).getkillcount());
-							Hero.heroliste.get(i).setStartPosition(i);
+							//Hero.heroliste.get(i).setStartPosition(i);
 						}
 					}
 				}
-			}
+			}*/
 			//Hero.heroliste.get(i).setStartPosition(i);
 		}
 		}
@@ -107,23 +106,23 @@ public class Controller {
 			}
 		}
 		if(Hero.heroliste.get(i).getisalive() == false){
-			Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
+			//Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
 			//Hero.heroliste.get(i).setStartPosition(i);
 			
-			for(Bombe bombe : Bombe.bombenliste) {
-				if(bombe.getDroppedby()==i && Hero.heroliste.get(i).getisalive() == false) {
-					 Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
-					 Hero.heroliste.get(i).setStartPosition(i);
-				 }
-				else{
-					for(int j=0; j<Hero.heroliste.size();j++){
-						if(bombe.getDroppedby()==j && Hero.heroliste.get(i).getisalive()==false) {
-							Hero.heroliste.get(j).setkillcount(j, Hero.heroliste.get(j).getkillcount());
-							Hero.heroliste.get(i).setStartPosition(i);
-						}
+			/*for(Bombe bombe : Bombe.bombenliste) {
+			if(bombe.getDroppedby()==i && Hero.heroliste.get(i).getisalive() == false) {
+				 Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
+				 //Hero.heroliste.get(i).setStartPosition(i);
+			 }
+			else{
+				for(int j=0; j<Hero.heroliste.size();j++){
+					if(bombe.getDroppedby()==j && Hero.heroliste.get(i).getisalive()==false) {
+						Hero.heroliste.get(j).setkillcount(j, Hero.heroliste.get(j).getkillcount());
+						//Hero.heroliste.get(i).setStartPosition(i);
 					}
 				}
 			}
+		}*/
 			//Hero.heroliste.get(i).setStartPosition(i);
 		}
 	}
@@ -160,23 +159,23 @@ public class Controller {
 			}
 		}	
 		if(Hero.heroliste.get(i).getisalive() == false){
-			Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
+			//Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
 			//Hero.heroliste.get(i).setStartPosition(i);
 			
-			for(Bombe bombe : Bombe.bombenliste) {
-				if(bombe.getDroppedby()==i && Hero.heroliste.get(i).getisalive() == false) {
-					 Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
-					 Hero.heroliste.get(i).setStartPosition(i);
-				 }
-				else{
-					for(int j=0; j<Hero.heroliste.size();j++){
-						if(bombe.getDroppedby()==j && Hero.heroliste.get(i).getisalive()==false) {
-							Hero.heroliste.get(j).setkillcount(j, Hero.heroliste.get(j).getkillcount());
-							Hero.heroliste.get(i).setStartPosition(i);
-						}
+			/*for(Bombe bombe : Bombe.bombenliste) {
+			if(bombe.getDroppedby()==i && Hero.heroliste.get(i).getisalive() == false) {
+				 Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
+				 //Hero.heroliste.get(i).setStartPosition(i);
+			 }
+			else{
+				for(int j=0; j<Hero.heroliste.size();j++){
+					if(bombe.getDroppedby()==j && Hero.heroliste.get(i).getisalive()==false) {
+						Hero.heroliste.get(j).setkillcount(j, Hero.heroliste.get(j).getkillcount());
+						//Hero.heroliste.get(i).setStartPosition(i);
 					}
 				}
 			}
+		}*/
 			//Hero.heroliste.get(i).setStartPosition(i);
 		}
 	}
@@ -215,24 +214,24 @@ public class Controller {
 			}
 	}
 		if(Hero.heroliste.get(i).getisalive() == false){
-			Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
+			//Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
 			//Hero.heroliste.get(i).setStartPosition(i);
 			
 			
-			for(Bombe bombe : Bombe.bombenliste) {
-				if(bombe.getDroppedby()==i && Hero.heroliste.get(i).getisalive() == false) {
-					 Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
-					 Hero.heroliste.get(i).setStartPosition(i);
-				 }
-				else{
-					for(int j=0; j<Hero.heroliste.size();j++){
-						if(bombe.getDroppedby()==j && Hero.heroliste.get(i).getisalive()==false) {
-							Hero.heroliste.get(j).setkillcount(j, Hero.heroliste.get(j).getkillcount());
-							Hero.heroliste.get(i).setStartPosition(i);
-						}
+			/*for(Bombe bombe : Bombe.bombenliste) {
+			if(bombe.getDroppedby()==i && Hero.heroliste.get(i).getisalive() == false) {
+				 Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
+				 //Hero.heroliste.get(i).setStartPosition(i);
+			 }
+			else{
+				for(int j=0; j<Hero.heroliste.size();j++){
+					if(bombe.getDroppedby()==j && Hero.heroliste.get(i).getisalive()==false) {
+						Hero.heroliste.get(j).setkillcount(j, Hero.heroliste.get(j).getkillcount());
+						//Hero.heroliste.get(i).setStartPosition(i);
 					}
 				}
 			}
+		}*/
 			//Hero.heroliste.get(i).setStartPosition(i);
 		}
 	}

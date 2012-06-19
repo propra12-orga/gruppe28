@@ -4,7 +4,7 @@ import main.Hero;
 import main.Mainframe;
 
 import java.awt.*;
-import java.util.ListIterator;
+//import java.util.ListIterator;
 
 import javax.swing.JPanel;
 
@@ -69,61 +69,62 @@ public class Board extends JPanel {
 		
 		//Bombe zeichnen
 		if (Bombe.bombenliste.isEmpty()==false) {
-			ListIterator<Bombe> it = Bombe.bombenliste.listIterator();
-			int i=0;
-			do {
-				it.next();
-				if (Bombe.bombenliste.get(i).istSichtbar() == true) {
-					if (Bombe.bombenliste.get(i).isExplodiert() == true) {
+			//ListIterator<Bombe> it = Bombe.bombenliste.listIterator();
+			for(Bombe bombe : Bombe.bombenliste) {
+			//int i=0;
+			//do {
+				//it.next();
+				if (bombe.istSichtbar() == true) {
+					if (bombe.isExplodiert() == true) {
 						//Explosion zeichnen
 						g.setColor(new Color(250, 0, 0));
-						g2d.drawImage(Tileset.getBomb(8), Bombe.bombenliste.get(i).getBombex()*50, Bombe.bombenliste.get(i).getBombey()*50, null);
-						for (int u=1; u <= (Bombe.bombenliste.get(i).getExplosionsvektor()[0]-1); u++) {
-							if(u!=(Bombe.bombenliste.get(i).getExplosionsvektor()[0]-1)) {
-								g2d.drawImage(Tileset.getBomb(0), Bombe.bombenliste.get(i).getBombex()*50, (Bombe.bombenliste.get(i).getBombey()-u)*50, null);
+						g2d.drawImage(Tileset.getBomb(8), bombe.getBombex()*50, bombe.getBombey()*50, null);
+						for (int u=1; u <= (bombe.getExplosionsvektor()[0]-1); u++) {
+							if(u!=(bombe.getExplosionsvektor()[0]-1)) {
+								g2d.drawImage(Tileset.getBomb(0), bombe.getBombex()*50, (bombe.getBombey()-u)*50, null);
 							}
-							if(u==(Bombe.bombenliste.get(i).getExplosionsvektor()[0]-1)) {
-								g2d.drawImage(Tileset.getBomb(4), Bombe.bombenliste.get(i).getBombex()*50, (Bombe.bombenliste.get(i).getBombey()-u)*50, null);
+							if(u==(bombe.getExplosionsvektor()[0]-1)) {
+								g2d.drawImage(Tileset.getBomb(4), bombe.getBombex()*50, (bombe.getBombey()-u)*50, null);
 							}							
 				        }
-				        for (int d=1; d <= (Bombe.bombenliste.get(i).getExplosionsvektor()[2]-1); d++) {
-				        	if(d!=(Bombe.bombenliste.get(i).getExplosionsvektor()[2]-1)) {
-				        		g2d.drawImage(Tileset.getBomb(3), Bombe.bombenliste.get(i).getBombex()*50, (Bombe.bombenliste.get(i).getBombey()+d)*50, null);
+				        for (int d=1; d <= (bombe.getExplosionsvektor()[2]-1); d++) {
+				        	if(d!=(bombe.getExplosionsvektor()[2]-1)) {
+				        		g2d.drawImage(Tileset.getBomb(3), bombe.getBombex()*50, (bombe.getBombey()+d)*50, null);
 				        	}
-				        	if(d==(Bombe.bombenliste.get(i).getExplosionsvektor()[2]-1)) {
-				        		g2d.drawImage(Tileset.getBomb(7), Bombe.bombenliste.get(i).getBombex()*50, (Bombe.bombenliste.get(i).getBombey()+d)*50, null);
+				        	if(d==(bombe.getExplosionsvektor()[2]-1)) {
+				        		g2d.drawImage(Tileset.getBomb(7), bombe.getBombex()*50, (bombe.getBombey()+d)*50, null);
 							}
 				        }
-				        for (int r=1; r <= (Bombe.bombenliste.get(i).getExplosionsvektor()[1]-1); r++) {
-				        	if(r!=(Bombe.bombenliste.get(i).getExplosionsvektor()[1]-1)) {
-				        		g2d.drawImage(Tileset.getBomb(1), (Bombe.bombenliste.get(i).getBombex()+r)*50, Bombe.bombenliste.get(i).getBombey()*50, null);
+				        for (int r=1; r <= (bombe.getExplosionsvektor()[1]-1); r++) {
+				        	if(r!=(bombe.getExplosionsvektor()[1]-1)) {
+				        		g2d.drawImage(Tileset.getBomb(1), (bombe.getBombex()+r)*50, bombe.getBombey()*50, null);
 				        	}
-				        	if(r==(Bombe.bombenliste.get(i).getExplosionsvektor()[1]-1)) {
-				        		g2d.drawImage(Tileset.getBomb(5), (Bombe.bombenliste.get(i).getBombex()+r)*50, Bombe.bombenliste.get(i).getBombey()*50, null);
+				        	if(r==(bombe.getExplosionsvektor()[1]-1)) {
+				        		g2d.drawImage(Tileset.getBomb(5), (bombe.getBombex()+r)*50, bombe.getBombey()*50, null);
 							}
 				        }
-				        for (int l=1; l <= (Bombe.bombenliste.get(i).getExplosionsvektor()[3]-1); l++) {
-				        	if(l!=(Bombe.bombenliste.get(i).getExplosionsvektor()[3]-1)) {
-				        		g2d.drawImage(Tileset.getBomb(2), (Bombe.bombenliste.get(i).getBombex()-l)*50, Bombe.bombenliste.get(i).getBombey()*50, null);
+				        for (int l=1; l <= (bombe.getExplosionsvektor()[3]-1); l++) {
+				        	if(l!=(bombe.getExplosionsvektor()[3]-1)) {
+				        		g2d.drawImage(Tileset.getBomb(2), (bombe.getBombex()-l)*50, bombe.getBombey()*50, null);
 				        	}
-				        	if(l==(Bombe.bombenliste.get(i).getExplosionsvektor()[3]-1)) {
-				        		g2d.drawImage(Tileset.getBomb(6), (Bombe.bombenliste.get(i).getBombex()-l)*50, Bombe.bombenliste.get(i).getBombey()*50, null);
+				        	if(l==(bombe.getExplosionsvektor()[3]-1)) {
+				        		g2d.drawImage(Tileset.getBomb(6), (bombe.getBombex()-l)*50, bombe.getBombey()*50, null);
 							}
 				        }
 				        
 					}
 					else {
 						//Mittelpunkt der Bombe
-						g2d.drawImage(Tileset.getBomb(9), Bombe.bombenliste.get(i).getBombex()*50, Bombe.bombenliste.get(i).getBombey()*50, null);
+						g2d.drawImage(Tileset.getBomb(9), bombe.getBombex()*50, bombe.getBombey()*50, null);
 					}
 				}
-			i++;
-	        }while(it.hasNext());
+			//i++;
+	        };//while(it.hasNext());
 		}
 		//Heros zeichnen
-		g2d.drawImage(Tileset.getHero(), Hero.heroliste.get(0).getxPixelPosition()-9, Hero.heroliste.get(0).getyPixelPosition()-9, null);
+		g2d.drawImage(Tileset.getHero(0, 2), Hero.heroliste.get(0).getxPixelPosition()-9, Hero.heroliste.get(0).getyPixelPosition()-9, null);
 		if(Mainframe.twoplayer==true) {
-			g2d.drawImage(Tileset.getHero2(), Hero.heroliste.get(1).getxPixelPosition()-9, Hero.heroliste.get(1).getyPixelPosition()-9, null);
+			g2d.drawImage(Tileset.getHero(3, 2), Hero.heroliste.get(1).getxPixelPosition()-9, Hero.heroliste.get(1).getyPixelPosition()-9, null);
 		}
 
 		

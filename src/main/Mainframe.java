@@ -37,6 +37,7 @@ public class Mainframe extends JFrame{
 	public static void main (String[] args) throws InterruptedException, IOException {
 		board.Tileset.initTileset();
 		board.Tileset.initBombset();
+		board.Tileset.initHeroset();
 		Mainframe mf = new Mainframe();
 		Board board = new Board();
 		File test = new File("res/1.txt");
@@ -60,7 +61,6 @@ public class Mainframe extends JFrame{
 		for(int i=0; i<(Hero.heroliste.size()); i++) {
 			Hero.heroliste.get(i).setStartPosition(i);
 		}
-		
 		LevelReader.ausgabe(LevelReader.readLevel(test));
 				
 		while(true) {
