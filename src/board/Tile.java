@@ -18,13 +18,13 @@ public class Tile {
 		public Tile (int a) {
 			this.TileId=a;
 			switch (this.TileId) {
-			case 1 : this.img=Tileset.getTile(0, 0);
+			case 1 : this.img=Tileset.getTile(0, 1);
 						break;
-			case 2 : this.img=Tileset.getTile(1, 0);
+			case 2 : this.img=Tileset.getTile(1, 1);
 						break;
-			case 3 : this.img=Tileset.getTile(2, 0);
+			case 3 : this.img=Tileset.getTile(2, 1);
 						break;
-			case 4 : this.img=Tileset.getTile(3, 0);
+			case 4 : this.img=Tileset.getTile(3, 1);
 						break;
 			default: break;
 			}

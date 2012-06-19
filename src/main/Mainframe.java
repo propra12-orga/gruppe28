@@ -28,7 +28,7 @@ public class Mainframe extends JFrame{
 		
 	public Mainframe() {
 		
-		setSize(665,688);
+		setSize(1065,688);
 		setLocationRelativeTo(null);
 		setTitle("Bomberman");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);

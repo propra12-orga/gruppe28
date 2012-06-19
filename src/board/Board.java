@@ -43,9 +43,9 @@ public class Board extends JPanel {
 	
 	public static Tile[][] map;
 	public Board() {
-		map = new Tile[13][13];
+		map = new Tile[21][13];
 		for (int col=0; col <=12; col++) {
-			for (int row=0; row <=12; row++) {
+			for (int row=0; row <=20; row++) {
 				map[row][col]=new Tile(1);
 				
 			}
@@ -59,7 +59,7 @@ public class Board extends JPanel {
 		//Spielfeld
 		Graphics2D g2d = (Graphics2D) g;
 		for (int col=0; col <=12; col++) {
-			for (int row=0; row <=12; row++) {
+			for (int row=0; row <=20; row++) {
 				g2d.drawImage(map[row][col].getImg(), row*50, col*50, null);
 				
 				
@@ -135,7 +135,7 @@ public class Board extends JPanel {
 		
 		clearDestructableCounter();
 		for (int j=0; j<13; j++) {
-			for (int i=0; i<13; i++) {
+			for (int i=0; i<21; i++) {
 				map[i][j]= new Tile(level[i][j]);
 				if (level[i][j] == 4) {
 					Board.incDestructableCounter();

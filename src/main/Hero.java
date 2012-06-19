@@ -156,7 +156,7 @@ public class Hero {
 				}
 			}
 			
-			heroliste.get(1).setxPixelPosition(560);
+			heroliste.get(1).setxPixelPosition(960);
 			heroliste.get(1).setyPixelPosition(60);
 			heroliste.get(1).setxCoord();
 			heroliste.get(1).setyCoord();
