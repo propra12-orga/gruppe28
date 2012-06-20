@@ -122,18 +122,18 @@ public class Board extends JPanel {
 	        };//while(it.hasNext());
 		}
 		//Heros zeichnen
-		g2d.drawImage(Tileset.getHero(0, 2), Hero.heroliste.get(0).getxPixelPosition()-9, Hero.heroliste.get(0).getyPixelPosition()-9, null);
+		g2d.drawImage(Tileset.getHero1(), Hero.heroliste.get(0).getxPixelPosition()-9, Hero.heroliste.get(0).getyPixelPosition()-9, null);
 		if(Mainframe.twoplayer==true) {
-			g2d.drawImage(Tileset.getHero(3, 2), Hero.heroliste.get(1).getxPixelPosition()-9, Hero.heroliste.get(1).getyPixelPosition()-9, null);
+			g2d.drawImage(Tileset.getHero2(), Hero.heroliste.get(1).getxPixelPosition()-9, Hero.heroliste.get(1).getyPixelPosition()-9, null);
 		}
 		if(Mainframe.threeplayer==true) {
-			g2d.drawImage(Tileset.getHero(3, 2), Hero.heroliste.get(1).getxPixelPosition()-9, Hero.heroliste.get(1).getyPixelPosition()-9, null);
-			g2d.drawImage(Tileset.getHero(1, 2), Hero.heroliste.get(2).getxPixelPosition()-9, Hero.heroliste.get(2).getyPixelPosition()-9, null);
+			g2d.drawImage(Tileset.getHero2(), Hero.heroliste.get(1).getxPixelPosition()-9, Hero.heroliste.get(1).getyPixelPosition()-9, null);
+			g2d.drawImage(Tileset.getHero3(), Hero.heroliste.get(2).getxPixelPosition()-9, Hero.heroliste.get(2).getyPixelPosition()-9, null);
 		}
 		if(Mainframe.fourplayer==true) {
-			g2d.drawImage(Tileset.getHero(3, 2), Hero.heroliste.get(1).getxPixelPosition()-9, Hero.heroliste.get(1).getyPixelPosition()-9, null);
-			g2d.drawImage(Tileset.getHero(1, 2), Hero.heroliste.get(2).getxPixelPosition()-9, Hero.heroliste.get(2).getyPixelPosition()-9, null);
-			g2d.drawImage(Tileset.getHero(2, 2), Hero.heroliste.get(3).getxPixelPosition()-9, Hero.heroliste.get(3).getyPixelPosition()-9, null);
+			g2d.drawImage(Tileset.getHero2(), Hero.heroliste.get(1).getxPixelPosition()-9, Hero.heroliste.get(1).getyPixelPosition()-9, null);
+			g2d.drawImage(Tileset.getHero3(), Hero.heroliste.get(2).getxPixelPosition()-9, Hero.heroliste.get(2).getyPixelPosition()-9, null);
+			g2d.drawImage(Tileset.getHero4(), Hero.heroliste.get(3).getxPixelPosition()-9, Hero.heroliste.get(3).getyPixelPosition()-9, null);
 		}
 
 		

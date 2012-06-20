@@ -22,7 +22,7 @@ public class Tileset {
 	private final static int width2 = 40;
 	private final static int height2 = 40;
 	private final static int x = 4;
-	private final static int y = 2;
+	private final static int y = 5;
 	private final static int m = 10;
 	private final static int n = 1;
 	private final static int a = 4;
@@ -81,9 +81,24 @@ public class Tileset {
 	public static BufferedImage getBomb(int a) {
 		return bomb[a][0];
 	}
-	public static BufferedImage getHero(int a, int b) {
-		return hero[a][b];
+	public static BufferedImage getHero1() {
+		return hero[0][1];
 	}
+	public static BufferedImage getHero2() {
+		return hero[2][1];
+	}
+	public static BufferedImage getHero3() {
+		return hero[1][1];
+	}
+	public static BufferedImage getHero4() {
+		return hero[3][1];
+	}
+	/* [0,0] Bomberman 1, [1,0] Bomberman 2, [2,0] Bomberman 3, [3,0] Bomberman 4 
+	 * [0,1] Darth Vader, [1,1] Yoda, [2,1] Boba Fett, [3,1] Stormtrooper
+	 * [0,2] James T. Kirk, [1,2] Spock, [2,2] Klingon, [3,2] Gorn
+	 * [0,3] Lucha Libre 1, [1,3] Lucha Libre 2, [2,3] Lucha Libre 3, [3,3] Lucha Libre 4
+	 */
+	
 	/*public static Rectangle getBounds(int i) {
         return new Rectangle(Hero.heroliste.get(i).getxPixelPosition()-9, Hero.heroliste.get(i).getyPixelPosition()-9, hero.getWidth(null), hero.getHeight(null));
     }*/
