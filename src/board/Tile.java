@@ -13,8 +13,10 @@ public class Tile {
 		private int TileId; 
 		public static int tileset=0;
 		/* 0=normal
-		 * 1=sand
+		 * 1=ice
 		 * 2=space
+		 * 3=lava
+		 * 4=sand
 		 */
 		/**
 		 * der Construcor setzt je nach TileId sofort das entsprechende Img.

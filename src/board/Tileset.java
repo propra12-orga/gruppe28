@@ -26,7 +26,7 @@ public class Tileset {
 	private final static int m = 10;
 	private final static int n = 1;
 	private final static int a = 4;
-	private final static int b = 4;
+	private final static int b = 5;
 	private static BufferedImage[][] tile = new BufferedImage[x][y];
 	private static BufferedImage[][] bomb = new BufferedImage[m][n];
 	private static BufferedImage[][] hero = new BufferedImage[a][b];

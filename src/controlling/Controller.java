@@ -1,11 +1,15 @@
 package controlling;
+
 //import java.util.LinkedList;
 
 //import java.awt.Rectangle;
 
+import javax.swing.JFrame;
+
 import board.Board;
 
 import main.Bombe;
+import main.EndGame;
 import main.Hero;
 
 /**
@@ -16,13 +20,15 @@ import main.Hero;
  *
  */
 
-public class Controller {
+public class Controller extends JFrame {
 	/**
 	 * Bewegung nach rechts.
 	 * @param i
 	 */
 	/*Rectangle h1 = Tileset.getBounds(0);
 	Rectangle h2 = Tileset.getBounds(1);*/
+	
+	private static final long serialVersionUID = 1L;
 	
 	public static void movementRight(int i){
 		if (Board.map[(Hero.heroliste.get(i).getxCoord()+1)][Hero.heroliste.get(i).getyCoord()].getTileId()%2 != 0) {
@@ -50,7 +56,8 @@ public class Controller {
 				hero.resetdeathcount();
 				hero.resetsuicidecount();
 			}		
-			
+			EndGame end = new EndGame();
+ 		   end.setVisible(true);
 		}
 		if(Hero.heroliste.get(i).getisalive() == false){
 			//Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
@@ -104,6 +111,8 @@ public class Controller {
 				hero.resetdeathcount();
 				hero.resetsuicidecount();
 			}
+			EndGame end = new EndGame();
+	 		   end.setVisible(true);
 		}
 		if(Hero.heroliste.get(i).getisalive() == false){
 			//Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
@@ -157,6 +166,8 @@ public class Controller {
 				hero.resetdeathcount();
 				hero.resetsuicidecount();
 			}
+			EndGame end = new EndGame();
+	 		   end.setVisible(true);
 		}	
 		if(Hero.heroliste.get(i).getisalive() == false){
 			//Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
@@ -212,6 +223,8 @@ public class Controller {
 				hero.resetdeathcount();
 				hero.resetsuicidecount();
 			}
+			EndGame end = new EndGame();
+	 		   end.setVisible(true);
 	}
 		if(Hero.heroliste.get(i).getisalive() == false){
 			//Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
