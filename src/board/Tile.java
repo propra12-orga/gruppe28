@@ -11,6 +11,10 @@ public class Tile {
 	
 		private BufferedImage img;
 		private int TileId; 
+		public static int tileset=1;
+		/* 0=normal
+		 * 1=sand
+		 */
 		/**
 		 * der Construcor setzt je nach TileId sofort das entsprechende Img.
 		 * @param a
@@ -18,13 +22,13 @@ public class Tile {
 		public Tile (int a) {
 			this.TileId=a;
 			switch (this.TileId) {
-			case 1 : this.img=Tileset.getTile(0, 1);
+			case 1 : this.img=Tileset.getTile(0, tileset);
 						break;
-			case 2 : this.img=Tileset.getTile(1, 1);
+			case 2 : this.img=Tileset.getTile(1, tileset);
 						break;
-			case 3 : this.img=Tileset.getTile(2, 1);
+			case 3 : this.img=Tileset.getTile(2, tileset);
 						break;
-			case 4 : this.img=Tileset.getTile(3, 1);
+			case 4 : this.img=Tileset.getTile(3, tileset);
 						break;
 			default: break;
 			}
@@ -34,6 +38,12 @@ public class Tile {
 		}
 		public void setTileId(int a) {
 			this.TileId=a;
+		}
+		public static int getTileset() {
+			return Tile.tileset;
+		}
+		public static void setTileset(int tileset) {
+			Tile.tileset=tileset;
 		}
 		public BufferedImage getImg() {
 			return this.img;

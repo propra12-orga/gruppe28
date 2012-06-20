@@ -9,6 +9,7 @@ import java.util.TimerTask;
 
 //import controlling.InputController;
 import board.Board;
+import board.Tile;
 import board.Tileset;
 
 
@@ -121,17 +122,17 @@ public void run() {
 				 double z=Math.random();
 				 if (z<(double)1/Board.getDestructableCounter()) {
 					 Board.map[bombex-(reichweitel+1)][bombey].setTileId(3);
-					 Board.map[bombex-(reichweitel+1)][bombey].setImg(Tileset.getTile(2, 0));
+					 Board.map[bombex-(reichweitel+1)][bombey].setImg(Tileset.getTile(2, Tile.getTileset()));
 					 Board.setHasExit(true);
 				 }
 				 else {
 					 Board.map[bombex-(reichweitel+1)][bombey].setTileId(1);
-					 Board.map[bombex-(reichweitel+1)][bombey].setImg(Tileset.getTile(0, 0));
+					 Board.map[bombex-(reichweitel+1)][bombey].setImg(Tileset.getTile(0, Tile.getTileset()));
 				 }
 			 }
 			 else {
 				 Board.map[bombex-(reichweitel+1)][bombey].setTileId(1);
-				 Board.map[bombex-(reichweitel+1)][bombey].setImg(Tileset.getTile(0, 0));
+				 Board.map[bombex-(reichweitel+1)][bombey].setImg(Tileset.getTile(0, Tile.getTileset()));
 			 }
 			 Board.decDestructableCounter();
 			 ausbreiten = false;
@@ -183,17 +184,17 @@ public void run() {
 				 double z=Math.random();
 				 if (z<(double)1/Board.getDestructableCounter()) {
 					 Board.map[bombex+(reichweiter+1)][bombey].setTileId(3);
-					 Board.map[bombex+(reichweiter+1)][bombey].setImg(Tileset.getTile(2, 0));
+					 Board.map[bombex+(reichweiter+1)][bombey].setImg(Tileset.getTile(2, Tile.getTileset()));
 					 Board.setHasExit(true);
 				 }
 				 else {
 					 Board.map[bombex+(reichweiter+1)][bombey].setTileId(1);
-					 Board.map[bombex+(reichweiter+1)][bombey].setImg(Tileset.getTile(0, 0));
+					 Board.map[bombex+(reichweiter+1)][bombey].setImg(Tileset.getTile(0, Tile.getTileset()));
 				 }
 			 }
 			 else {
 				 Board.map[bombex+(reichweiter+1)][bombey].setTileId(1);
-				 Board.map[bombex+(reichweiter+1)][bombey].setImg(Tileset.getTile(0, 0));
+				 Board.map[bombex+(reichweiter+1)][bombey].setImg(Tileset.getTile(0, Tile.getTileset()));
 			 }
 			 Board.decDestructableCounter();
 			 ausbreiten = false;
@@ -244,17 +245,17 @@ public void run() {
 				 double z=Math.random();
 				 if (z<(double)1/Board.getDestructableCounter()) {
 					 Board.map[bombex][bombey+(reichweiteu+1)].setTileId(3);
-					 Board.map[bombex][bombey+(reichweiteu+1)].setImg(Tileset.getTile(2, 0));
+					 Board.map[bombex][bombey+(reichweiteu+1)].setImg(Tileset.getTile(2, Tile.getTileset()));
 					 Board.setHasExit(true);
 				 }
 				 else {
 					 Board.map[bombex][bombey+(reichweiteu+1)].setTileId(1);
-					 Board.map[bombex][bombey+(reichweiteu+1)].setImg(Tileset.getTile(0, 0));
+					 Board.map[bombex][bombey+(reichweiteu+1)].setImg(Tileset.getTile(0, Tile.getTileset()));
 				 }
 			 }
 			 else {
 				 Board.map[bombex][bombey+(reichweiteu+1)].setTileId(1);
-				 Board.map[bombex][bombey+(reichweiteu+1)].setImg(Tileset.getTile(0, 0));
+				 Board.map[bombex][bombey+(reichweiteu+1)].setImg(Tileset.getTile(0, Tile.getTileset()));
 			 }
 			 Board.decDestructableCounter();
 			 ausbreiten=false;
@@ -305,18 +306,18 @@ public void run() {
 				 double z=Math.random();
 				 if (z<(double)1/Board.getDestructableCounter()) {
 					 Board.map[bombex][bombey-(reichweiteo+1)].setTileId(3);
-					 Board.map[bombex][bombey-(reichweiteo+1)].setImg(Tileset.getTile(2, 0));
+					 Board.map[bombex][bombey-(reichweiteo+1)].setImg(Tileset.getTile(2, Tile.getTileset()));
 					 Board.setHasExit(true);
 				 }
 				 else {
 					 Board.map[bombex][bombey-(reichweiteo+1)].setTileId(1);
-					 Board.map[bombex][bombey-(reichweiteo+1)].setImg(Tileset.getTile(0, 0));
+					 Board.map[bombex][bombey-(reichweiteo+1)].setImg(Tileset.getTile(0, Tile.getTileset()));
 				 }
 			 }
 			 else {
 
 				 Board.map[bombex][bombey-(reichweiteo+1)].setTileId(1);
-				 Board.map[bombex][bombey-(reichweiteo+1)].setImg(Tileset.getTile(0, 0));
+				 Board.map[bombex][bombey-(reichweiteo+1)].setImg(Tileset.getTile(0, Tile.getTileset()));
 			 }
 			 Board.decDestructableCounter();
 			 ausbreiten=false;
