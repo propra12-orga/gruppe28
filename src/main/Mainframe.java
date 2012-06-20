@@ -23,6 +23,8 @@ public class Mainframe extends JFrame{
 	 * 
 	 */
 	public static boolean twoplayer=true;
+	public static boolean threeplayer=false;
+	public static boolean fourplayer=false;
 
 	private static final long serialVersionUID = 1L;
 		
@@ -47,6 +49,20 @@ public class Mainframe extends JFrame{
 			Hero bm2 = new Hero();
 			Hero.heroliste.add(bm2);
 		}
+		if(twoplayer==false && threeplayer==true){
+			Hero bm2 = new Hero();
+			Hero.heroliste.add(bm2);
+			Hero bm3 = new Hero();
+			Hero.heroliste.add(bm3);
+		}
+		if(twoplayer==false && threeplayer==false && fourplayer==true){
+			Hero bm2 = new Hero();
+			Hero.heroliste.add(bm2);
+			Hero bm3 = new Hero();
+			Hero.heroliste.add(bm3);
+			Hero bm4 = new Hero();
+			Hero.heroliste.add(bm4);
+		}
 		//Controller ctrl1 = new Controller();
 		//Controller.controllerliste.add(ctrl1);
 		//Controller ctrl2 = new Controller();
@@ -62,7 +78,7 @@ public class Mainframe extends JFrame{
 			Hero.heroliste.get(i).setStartPosition(i);
 		}
 		LevelReader.ausgabe(LevelReader.readLevel(test));
-				
+		
 		while(true) {
 			board.repaint();
 			Thread.sleep(45);

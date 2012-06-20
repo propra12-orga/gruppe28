@@ -28,6 +28,7 @@ private int bombex = 0;
 private int bombey = 0;
 private boolean sichtbar = false;
 public boolean explodiert = false;
+public boolean doppel =false;
 private int droppedby;
 private boolean tiledestroyed = false;
 private int tiledestroyedscounter = 0;
@@ -99,6 +100,7 @@ public void run() {
 				 
 				 if(Board.map[this.getBombex()-reichweitel][this.getBombey()] == Board.map[bombe.getBombex()][bombe.getBombey()]) {
 					 bombe.setExplodiert(true);
+					 bombe.doppel=true;
 					 System.out.println("Doppel!");				 
 					 }
 			 }
@@ -161,6 +163,7 @@ public void run() {
 			 
 			 if(Board.map[this.getBombex()+reichweiter][this.getBombey()] == Board.map[bombe.getBombex()][bombe.getBombey()]) {
 				 bombe.setExplodiert(true);
+				 bombe.doppel=true;
 				 System.out.println("Doppel!");				 
 				 }
 		 }
@@ -222,6 +225,7 @@ public void run() {
 			 
 			 if(Board.map[this.getBombex()][this.getBombey()+reichweiteu] == Board.map[bombe.getBombex()][bombe.getBombey()]) {
 				 bombe.setExplodiert(true);
+				 bombe.doppel=true;
 				 System.out.println("Doppel!");				 
 				 }
 		 }
@@ -283,6 +287,7 @@ public void run() {
 			 
 			 if(Board.map[this.getBombex()][this.getBombey()-reichweiteo] == Board.map[bombe.getBombex()][bombe.getBombey()]) {
 				 bombe.setExplodiert(true);
+				 bombe.doppel=true;
 				 System.out.println("Doppel!");				 
 				 }
 		 }
@@ -341,6 +346,7 @@ public void run() {
 		 }
 	 }
 	 if(Hero.heroliste.get(i).getisalive() == false){
+		 Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
 		 Hero.heroliste.get(i).setStartPosition(i);
 	 }
  }

@@ -21,12 +21,13 @@ public class LevelReader {
 	 * @throws IOException
 	 */
 	
-	
+	public static int r=13;
+	public static int c=21;
 	
 	public static int[][] readLevel(File file) throws IOException {
 		
 		BufferedReader in = new BufferedReader(new FileReader(file));
-		int level[][] = new int[21][13];
+		int level[][] = new int[c][r];
 		String line;
 		Pattern p = Pattern.compile("(\\d)");
 		Matcher m; 
@@ -46,8 +47,8 @@ public class LevelReader {
 	 * @param a
 	 */
 	public static void ausgabe(int[][] a) {
-		for (int j=0; j<13; j++) {
-			for (int i=0; i<21; i++) {
+		for (int j=0; j<r; j++) {
+			for (int i=0; i<c; i++) {
 				System.out.print(a[i][j]);
 			}
 			System.out.println();

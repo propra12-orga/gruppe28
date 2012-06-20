@@ -1,6 +1,8 @@
 package main;
 import java.util.Vector;
 
+import board.LevelReader;
+
 /**
  * Instanzierbare Klasse um unsere Spielfiguren zu erschaffen.
  * (Figuren kommen in die "heroliste" und können von da aus abgerufen werden)
@@ -117,22 +119,23 @@ public class Hero {
 	 * @param n
 	 */
 	public void setStartPosition(int n) {
-		if(n==0) {
-			for(Bombe bombe : Bombe.bombenliste) {
-				Hero.heroliste.get(0).setdeathcount(Hero.heroliste.get(0).getdeathcount());
-			if(bombe.getDroppedby()==0 && Hero.heroliste.get(0).getisalive() == false) {
-				 Hero.heroliste.get(0).setSuicidecount(0, Hero.heroliste.get(0).getSuicidecount());
+		for(Bombe bombe : Bombe.bombenliste) {
+			if(bombe.getDroppedby()==n && Hero.heroliste.get(n).getisalive() == false) {
+				 Hero.heroliste.get(n).setSuicidecount(n, Hero.heroliste.get(n).getSuicidecount());
 				 //Hero.heroliste.get(i).setStartPosition(i);
 			 }
 			else{
-				for(int j=0; j<Hero.heroliste.size();j++){
-					if(bombe.getDroppedby()==j && Hero.heroliste.get(0).getisalive()==false) {
-						Hero.heroliste.get(j).setkillcount(j, Hero.heroliste.get(j).getkillcount());
-						//Hero.heroliste.get(i).setStartPosition(i);
+					for(int j=0; j<Hero.heroliste.size();j++){
+						if(bombe.getDroppedby()==j && Hero.heroliste.get(n).getisalive()==false && bombe.doppel==false) {
+							Hero.heroliste.get(j).setkillcount(j, Hero.heroliste.get(j).getkillcount());
+							//Hero.heroliste.get(i).setStartPosition(i);
+						}
 					}
-				}
 			}
 		}
+		if(n==0) {
+			//Hero.heroliste.get(0).setdeathcount(Hero.heroliste.get(0).getdeathcount());
+			
 			heroliste.get(0).setxPixelPosition(60);
 			heroliste.get(0).setyPixelPosition(60);
 			heroliste.get(0).setxCoord();
@@ -140,27 +143,31 @@ public class Hero {
 			heroliste.get(0).setisalive(true);
 		}
 		if(n==1) {
-			for(Bombe bombe : Bombe.bombenliste) {
-				Hero.heroliste.get(1).setdeathcount(Hero.heroliste.get(1).getdeathcount());
-				if(bombe.getDroppedby()==1 && Hero.heroliste.get(1).getisalive() == false) {
-					 Hero.heroliste.get(1).setSuicidecount(1, Hero.heroliste.get(1).getSuicidecount());
-					 //Hero.heroliste.get(i).setStartPosition(i);
-				 }
-				else{
-					for(int j=0; j<Hero.heroliste.size();j++){
-						if(bombe.getDroppedby()==j && Hero.heroliste.get(1).getisalive()==false) {
-							Hero.heroliste.get(j).setkillcount(j, Hero.heroliste.get(j).getkillcount());
-							//Hero.heroliste.get(i).setStartPosition(i);
-						}
-					}
-				}
-			}
+			//Hero.heroliste.get(1).setdeathcount(Hero.heroliste.get(1).getdeathcount());
 			
-			heroliste.get(1).setxPixelPosition(960);
+			heroliste.get(1).setxPixelPosition((LevelReader.c*50)-90);
 			heroliste.get(1).setyPixelPosition(60);
 			heroliste.get(1).setxCoord();
 			heroliste.get(1).setyCoord();
 			heroliste.get(1).setisalive(true);
+		}
+		if(n==2) {
+			//Hero.heroliste.get(0).setdeathcount(Hero.heroliste.get(0).getdeathcount());
+			
+			heroliste.get(2).setxPixelPosition(60);
+			heroliste.get(2).setyPixelPosition((LevelReader.r*50)-90);
+			heroliste.get(2).setxCoord();
+			heroliste.get(2).setyCoord();
+			heroliste.get(2).setisalive(true);
+		}
+		if(n==3) {
+			//Hero.heroliste.get(1).setdeathcount(Hero.heroliste.get(1).getdeathcount());
+			
+			heroliste.get(3).setxPixelPosition((LevelReader.c*50)-90);
+			heroliste.get(3).setyPixelPosition((LevelReader.r*50)-90);
+			heroliste.get(3).setxCoord();
+			heroliste.get(3).setyCoord();
+			heroliste.get(3).setisalive(true);
 		}
 	}
 	public int getSuicidecount() {

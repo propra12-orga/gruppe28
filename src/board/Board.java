@@ -44,9 +44,9 @@ public class Board extends JPanel {
 	public static Tile[][] map;
 	public Board() {
 		map = new Tile[21][13];
-		for (int col=0; col <=12; col++) {
-			for (int row=0; row <=20; row++) {
-				map[row][col]=new Tile(1);
+		for (int row=0; row <LevelReader.r; row++) {
+			for (int col=0; col <LevelReader.c; col++) {
+				map[col][row]=new Tile(1);
 				
 			}
 		}
@@ -58,9 +58,9 @@ public class Board extends JPanel {
 	public void paint(Graphics g) {
 		//Spielfeld
 		Graphics2D g2d = (Graphics2D) g;
-		for (int col=0; col <=12; col++) {
-			for (int row=0; row <=20; row++) {
-				g2d.drawImage(map[row][col].getImg(), row*50, col*50, null);
+		for (int row=0; row <LevelReader.r; row++) {
+			for (int col=0; col <LevelReader.c; col++) {
+				g2d.drawImage(map[col][row].getImg(), col*50, row*50, null);
 				
 				
 			}
@@ -126,6 +126,15 @@ public class Board extends JPanel {
 		if(Mainframe.twoplayer==true) {
 			g2d.drawImage(Tileset.getHero(3, 2), Hero.heroliste.get(1).getxPixelPosition()-9, Hero.heroliste.get(1).getyPixelPosition()-9, null);
 		}
+		if(Mainframe.threeplayer==true) {
+			g2d.drawImage(Tileset.getHero(3, 2), Hero.heroliste.get(1).getxPixelPosition()-9, Hero.heroliste.get(1).getyPixelPosition()-9, null);
+			g2d.drawImage(Tileset.getHero(1, 2), Hero.heroliste.get(2).getxPixelPosition()-9, Hero.heroliste.get(2).getyPixelPosition()-9, null);
+		}
+		if(Mainframe.fourplayer==true) {
+			g2d.drawImage(Tileset.getHero(3, 2), Hero.heroliste.get(1).getxPixelPosition()-9, Hero.heroliste.get(1).getyPixelPosition()-9, null);
+			g2d.drawImage(Tileset.getHero(1, 2), Hero.heroliste.get(2).getxPixelPosition()-9, Hero.heroliste.get(2).getyPixelPosition()-9, null);
+			g2d.drawImage(Tileset.getHero(2, 2), Hero.heroliste.get(3).getxPixelPosition()-9, Hero.heroliste.get(3).getyPixelPosition()-9, null);
+		}
 
 		
         
@@ -134,8 +143,8 @@ public class Board extends JPanel {
 	public void createLevel(int[][] level) {
 		
 		clearDestructableCounter();
-		for (int j=0; j<13; j++) {
-			for (int i=0; i<21; i++) {
+		for (int j=0; j<LevelReader.r; j++) {
+			for (int i=0; i<LevelReader.c; i++) {
 				map[i][j]= new Tile(level[i][j]);
 				if (level[i][j] == 4) {
 					Board.incDestructableCounter();
