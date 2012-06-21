@@ -87,7 +87,7 @@ public void run() {
 	}
 	this.setExplodiert(true);
 	try {
-		JukeBox.playBomb();
+		JukeBox.playSoundeffect("boom");
 	} catch (LineUnavailableException e1) {
 		// TODO Auto-generated catch block
 		e1.printStackTrace();
@@ -145,7 +145,7 @@ public void run() {
 					 Board.map[bombex-(reichweitel+1)][bombey].setImg(Tileset.getTile(2, Tile.getTileset()));
 					 Board.setHasExit(true);
 					 try {
-							JukeBox.playGate();
+							JukeBox.playSoundeffect("door");
 						} catch (LineUnavailableException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -220,7 +220,7 @@ public void run() {
 					 Board.map[bombex+(reichweiter+1)][bombey].setImg(Tileset.getTile(2, Tile.getTileset()));
 					 Board.setHasExit(true);
 					 try {
-							JukeBox.playGate();
+							JukeBox.playSoundeffect("door");
 						} catch (LineUnavailableException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -294,7 +294,7 @@ public void run() {
 					 Board.map[bombex][bombey+(reichweiteu+1)].setImg(Tileset.getTile(2, Tile.getTileset()));
 					 Board.setHasExit(true);
 					 try {
-							JukeBox.playGate();
+							JukeBox.playSoundeffect("door");
 						} catch (LineUnavailableException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -368,7 +368,7 @@ public void run() {
 					 Board.map[bombex][bombey-(reichweiteo+1)].setImg(Tileset.getTile(2, Tile.getTileset()));
 					 Board.setHasExit(true);
 					 try {
-						JukeBox.playGate();
+						JukeBox.playSoundeffect("door");
 					} catch (LineUnavailableException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -414,7 +414,7 @@ public void run() {
 	 if(Hero.heroliste.get(i).getisalive() == false){
 		 Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
 			try {
-				JukeBox.playScream();
+				JukeBox.playSoundeffect("scream");
 			} catch (LineUnavailableException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

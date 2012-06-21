@@ -4,9 +4,14 @@ package controlling;
 
 //import java.awt.Rectangle;
 
+import java.io.IOException;
+
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JFrame;
 
 import board.Board;
+import board.JukeBox;
 
 import main.Bombe;
 import main.EndGame;
@@ -43,6 +48,18 @@ public class Controller extends JFrame {
 			}
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
 			for(int n=0; n<Hero.heroliste.size(); n++) {
+				try {
+					JukeBox.playSoundeffect("gatewalk");
+				} catch (LineUnavailableException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (UnsupportedAudioFileException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				Hero.heroliste.get(n).setStartPosition(n);
 				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
 			}
@@ -83,6 +100,9 @@ public class Controller extends JFrame {
 	/**
 	 * Bewegung nach links.
 	 * @param i
+	 * @throws IOException 
+	 * @throws UnsupportedAudioFileException 
+	 * @throws LineUnavailableException 
 	 */
 	public static void movementLeft(int i){
 		//int i=0;
@@ -98,6 +118,18 @@ public class Controller extends JFrame {
 		}
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
 			for(int n=0; n<Hero.heroliste.size(); n++) {
+				try {
+					JukeBox.playSoundeffect("gatewalk");
+				} catch (LineUnavailableException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (UnsupportedAudioFileException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				Hero.heroliste.get(n).setStartPosition(n);
 				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
 			}
@@ -138,6 +170,9 @@ public class Controller extends JFrame {
 	/**
 	 * Bewegung nach oben.
 	 * @param i
+	 * @throws IOException 
+	 * @throws UnsupportedAudioFileException 
+	 * @throws LineUnavailableException 
 	 */
 	public static void movementUp(int i){
 		//int i=0;
@@ -153,6 +188,18 @@ public class Controller extends JFrame {
 		}
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
 			for(int n=0; n<Hero.heroliste.size(); n++) {
+				try {
+					JukeBox.playSoundeffect("gatewalk");
+				} catch (LineUnavailableException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (UnsupportedAudioFileException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				Hero.heroliste.get(n).setStartPosition(n);
 				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
 			}
@@ -193,8 +240,11 @@ public class Controller extends JFrame {
 	/**
 	 * Bewegung nach unten.
 	 * @param i
+	 * @throws IOException 
+	 * @throws UnsupportedAudioFileException 
+	 * @throws LineUnavailableException 
 	 */
-	public static void movementDown(int i){
+	public static void movementDown(int i) {
 		//int i=0;
 		if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()+1].getTileId()%2 != 0) {
 			Hero.heroliste.get(i).setyPixelPosition(Hero.heroliste.get(i).getyPixelPosition()+Hero.heroliste.get(i).getSpeed());
@@ -210,6 +260,18 @@ public class Controller extends JFrame {
 				}
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
 			for(int n=0; n<Hero.heroliste.size(); n++) {
+				try {
+					JukeBox.playSoundeffect("gatewalk");
+				} catch (LineUnavailableException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (UnsupportedAudioFileException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				Hero.heroliste.get(n).setStartPosition(n);
 				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
 			}

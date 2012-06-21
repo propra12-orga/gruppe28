@@ -8,7 +8,8 @@ import javax.sound.sampled.*;
 
 public class JukeBox
 {
-	public static void playScream() throws LineUnavailableException, UnsupportedAudioFileException, IOException
+	static String sound;
+	/*public static void playScream() throws LineUnavailableException, UnsupportedAudioFileException, IOException
 	{
 		File f = new File("./res/scream.wav");
 		
@@ -20,11 +21,23 @@ public class JukeBox
 				cl.open(ais);
 				cl.start();
 		
-	}
-	public static void playGate() throws LineUnavailableException, UnsupportedAudioFileException, IOException
+	}*/
+	public static void playSoundeffect(String effect) throws LineUnavailableException, UnsupportedAudioFileException, IOException
 	{
-		File f = new File("./res/door.wav");
-		
+		if(effect=="door"){
+			sound="./res/door.wav";
+		}
+		else if(effect=="scream"){
+			sound="./res/scream.wav";
+		}
+		else if(effect=="boom"){
+			sound="./res/boom.wav";
+		}
+		else if(effect=="gatewalk"){
+			sound="./res/gatewalk.wav";
+		}
+			
+		File f = new File(sound);
 			AudioInputStream ais = AudioSystem.getAudioInputStream(f);
 			AudioFormat format = ais.getFormat();
 			DataLine.Info info = new DataLine.Info(Clip.class, ais.getFormat(), ( (int)ais.getFrameLength() * format.getFrameSize()));
@@ -59,6 +72,7 @@ public class JukeBox
 				cl.start();
 		
 	}
+	/*
 	public static void playBomb() throws LineUnavailableException, UnsupportedAudioFileException, IOException
 	{
 		File f = new File("./res/boom.wav");
@@ -71,5 +85,5 @@ public class JukeBox
 				cl.open(ais);
 				cl.start();
 		
-	}
+	}*/
 }
