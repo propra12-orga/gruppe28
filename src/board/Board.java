@@ -41,6 +41,8 @@ public class Board extends JPanel {
 	
 	private static final long serialVersionUID = 1L;
 	
+	
+	
 	public static Tile[][] map;
 	public Board() {
 		map = new Tile[21][13];
@@ -155,6 +157,7 @@ public class Board extends JPanel {
 			}
 		}
 	}
+	
 	
 	
 	

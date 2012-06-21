@@ -82,10 +82,10 @@ public class Tileset {
 		return bomb[a][0];
 	}
 	public static BufferedImage getHero1() {
-		return hero[0][1];
+		return hero[0][4];
 	}
 	public static BufferedImage getHero2() {
-		return hero[2][1];
+		return hero[2][4];
 	}
 	public static BufferedImage getHero3() {
 		return hero[1][1];

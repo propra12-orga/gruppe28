@@ -7,6 +7,8 @@ import java.io.File;
 import java.io.IOException;
 
 //import javax.swing.JFileChooser;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JFrame;
 
 import controlling.InputController;
@@ -14,6 +16,8 @@ import controlling.InputController;
 //import controlling.Controller;
 
 import board.Board;
+import board.JukeBox;
+
 import board.LevelReader;
 //import board.Tileset;
 
@@ -36,13 +40,15 @@ public class Mainframe extends JFrame{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 	}
-	public static void main (String[] args) throws InterruptedException, IOException {
+	public static void main (String[] args) throws InterruptedException, IOException, LineUnavailableException, UnsupportedAudioFileException {
 		board.Tileset.initTileset();
 		board.Tileset.initBombset();
 		board.Tileset.initHeroset();
 		Mainframe mf = new Mainframe();
 		Board board = new Board();
 		File test = new File("res/1.txt");
+		//JukeBox.playGamemusic();
+		
 		Hero bm1 = new Hero();
 		Hero.heroliste.add(bm1);
 		if(twoplayer==true){
