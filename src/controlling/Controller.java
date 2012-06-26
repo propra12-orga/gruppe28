@@ -4,13 +4,19 @@ package controlling;
 
 //import java.awt.Rectangle;
 
+import java.io.IOException;
+
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JFrame;
 
 import board.Board;
+import board.JukeBox;
 
 import main.Bombe;
 import main.EndGame;
 import main.Hero;
+import main.Mainframe;
 
 /**
  * Die Controller-Klasse enthält den Bewegungslogarithmus der Spielfigur.
@@ -43,12 +49,32 @@ public class Controller extends JFrame {
 			}
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
 			for(int n=0; n<Hero.heroliste.size(); n++) {
-				Hero.heroliste.get(n).setStartPosition(n);
-				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
+				try {
+					JukeBox.playSoundeffect("gatewalk");
+				} catch (LineUnavailableException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (UnsupportedAudioFileException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Mainframe.setStartPosition(n);
+				Hero.heroliste.get(n).setscorecount(Hero.heroliste.get(n).getscorecount());
 			}
 			Bombe.bombenliste.clear();
-			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + " Gegner erwischt = " + Hero.heroliste.get(0).getkillcount() + " Tode = " + Hero.heroliste.get(0).getdeathcount() + " Wände zerstört = " + Hero.heroliste.get(0).gettilecount() + " Selbstmorde = " + Hero.heroliste.get(0).getSuicidecount());
-			System.out.println("Spieler 2: Punkte = " + Hero.heroliste.get(1).getscorecount() + " Gegner erwischt = " + Hero.heroliste.get(1).getkillcount() + " Tode = " + Hero.heroliste.get(1).getdeathcount() + " Wände zerstört = " + Hero.heroliste.get(1).gettilecount() + " Selbstmorde = " + Hero.heroliste.get(1).getSuicidecount());
+			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + 
+					" Gegner erwischt = " + Hero.heroliste.get(0).getkillcount() + 
+					" Tode = " + Hero.heroliste.get(0).getdeathcount() + 
+					" Wände zerstört = " + Hero.heroliste.get(0).gettilecount() + 
+					" Selbstmorde = " + Hero.heroliste.get(0).getSuicidecount());
+			System.out.println("Spieler 2: Punkte = " + Hero.heroliste.get(1).getscorecount() + 
+					" Gegner erwischt = " + Hero.heroliste.get(1).getkillcount() + 
+					" Tode = " + Hero.heroliste.get(1).getdeathcount() + 
+					" Wände zerstört = " + Hero.heroliste.get(1).gettilecount() + 
+					" Selbstmorde = " + Hero.heroliste.get(1).getSuicidecount());
 			for(Hero hero : Hero.heroliste) {
 				hero.resettilecount();
 				hero.resetkillcount();
@@ -59,30 +85,13 @@ public class Controller extends JFrame {
 			EndGame end = new EndGame();
  		   end.setVisible(true);
 		}
-		if(Hero.heroliste.get(i).getisalive() == false){
-			//Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
-			//Hero.heroliste.get(i).setStartPosition(i);
-			
-			/*for(Bombe bombe : Bombe.bombenliste) {
-				if(bombe.getDroppedby()==i && Hero.heroliste.get(i).getisalive() == false) {
-					 Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
-					 //Hero.heroliste.get(i).setStartPosition(i);
-				 }
-				else{
-					for(int j=0; j<Hero.heroliste.size();j++){
-						if(bombe.getDroppedby()==j && Hero.heroliste.get(i).getisalive()==false) {
-							Hero.heroliste.get(j).setkillcount(j, Hero.heroliste.get(j).getkillcount());
-							//Hero.heroliste.get(i).setStartPosition(i);
-						}
-					}
-				}
-			}*/
-			//Hero.heroliste.get(i).setStartPosition(i);
-		}
 		}
 	/**
 	 * Bewegung nach links.
 	 * @param i
+	 * @throws IOException 
+	 * @throws UnsupportedAudioFileException 
+	 * @throws LineUnavailableException 
 	 */
 	public static void movementLeft(int i){
 		//int i=0;
@@ -98,12 +107,32 @@ public class Controller extends JFrame {
 		}
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
 			for(int n=0; n<Hero.heroliste.size(); n++) {
-				Hero.heroliste.get(n).setStartPosition(n);
-				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
+				try {
+					JukeBox.playSoundeffect("gatewalk");
+				} catch (LineUnavailableException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (UnsupportedAudioFileException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Mainframe.setStartPosition(n);
+				Hero.heroliste.get(n).setscorecount(Hero.heroliste.get(n).getscorecount());
 			}
 			Bombe.bombenliste.clear();
-			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + " Gegner erwischt = " + Hero.heroliste.get(0).getkillcount() + " Tode = " + Hero.heroliste.get(0).getdeathcount() + " Wände zerstört = " + Hero.heroliste.get(0).gettilecount() + " Selbstmorde = " + Hero.heroliste.get(0).getSuicidecount());
-			System.out.println("Spieler 2: Punkte = " + Hero.heroliste.get(1).getscorecount() + " Gegner erwischt = " + Hero.heroliste.get(1).getkillcount() + " Tode = " + Hero.heroliste.get(1).getdeathcount() + " Wände zerstört = " + Hero.heroliste.get(1).gettilecount() + " Selbstmorde = " + Hero.heroliste.get(1).getSuicidecount());
+			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + 
+					" Gegner erwischt = " + Hero.heroliste.get(0).getkillcount() + 
+					" Tode = " + Hero.heroliste.get(0).getdeathcount() + 
+					" Wände zerstört = " + Hero.heroliste.get(0).gettilecount() + 
+					" Selbstmorde = " + Hero.heroliste.get(0).getSuicidecount());
+			System.out.println("Spieler 2: Punkte = " + Hero.heroliste.get(1).getscorecount() + 
+					" Gegner erwischt = " + Hero.heroliste.get(1).getkillcount() + 
+					" Tode = " + Hero.heroliste.get(1).getdeathcount() + 
+					" Wände zerstört = " + Hero.heroliste.get(1).gettilecount() + 
+					" Selbstmorde = " + Hero.heroliste.get(1).getSuicidecount());
 			for(Hero hero : Hero.heroliste) {
 				hero.resettilecount();
 				hero.resetkillcount();
@@ -114,30 +143,13 @@ public class Controller extends JFrame {
 			EndGame end = new EndGame();
 	 		   end.setVisible(true);
 		}
-		if(Hero.heroliste.get(i).getisalive() == false){
-			//Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
-			//Hero.heroliste.get(i).setStartPosition(i);
-			
-			/*for(Bombe bombe : Bombe.bombenliste) {
-			if(bombe.getDroppedby()==i && Hero.heroliste.get(i).getisalive() == false) {
-				 Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
-				 //Hero.heroliste.get(i).setStartPosition(i);
-			 }
-			else{
-				for(int j=0; j<Hero.heroliste.size();j++){
-					if(bombe.getDroppedby()==j && Hero.heroliste.get(i).getisalive()==false) {
-						Hero.heroliste.get(j).setkillcount(j, Hero.heroliste.get(j).getkillcount());
-						//Hero.heroliste.get(i).setStartPosition(i);
-					}
-				}
-			}
-		}*/
-			//Hero.heroliste.get(i).setStartPosition(i);
-		}
 	}
 	/**
 	 * Bewegung nach oben.
 	 * @param i
+	 * @throws IOException 
+	 * @throws UnsupportedAudioFileException 
+	 * @throws LineUnavailableException 
 	 */
 	public static void movementUp(int i){
 		//int i=0;
@@ -153,12 +165,32 @@ public class Controller extends JFrame {
 		}
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
 			for(int n=0; n<Hero.heroliste.size(); n++) {
-				Hero.heroliste.get(n).setStartPosition(n);
-				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
+				try {
+					JukeBox.playSoundeffect("gatewalk");
+				} catch (LineUnavailableException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (UnsupportedAudioFileException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Mainframe.setStartPosition(n);
+				Hero.heroliste.get(n).setscorecount(Hero.heroliste.get(n).getscorecount());
 			}
 			Bombe.bombenliste.clear();
-			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + " Gegner erwischt = " + Hero.heroliste.get(0).getkillcount() + " Tode = " + Hero.heroliste.get(0).getdeathcount() + " Wände zerstört = " + Hero.heroliste.get(0).gettilecount() + " Selbstmorde = " + Hero.heroliste.get(0).getSuicidecount());
-			System.out.println("Spieler 2: Punkte = " + Hero.heroliste.get(1).getscorecount() + " Gegner erwischt = " + Hero.heroliste.get(1).getkillcount() + " Tode = " + Hero.heroliste.get(1).getdeathcount() + " Wände zerstört = " + Hero.heroliste.get(1).gettilecount() + " Selbstmorde = " + Hero.heroliste.get(1).getSuicidecount());
+			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + 
+					" Gegner erwischt = " + Hero.heroliste.get(0).getkillcount() + 
+					" Tode = " + Hero.heroliste.get(0).getdeathcount() + 
+					" Wände zerstört = " + Hero.heroliste.get(0).gettilecount() + 
+					" Selbstmorde = " + Hero.heroliste.get(0).getSuicidecount());
+			System.out.println("Spieler 2: Punkte = " + Hero.heroliste.get(1).getscorecount() + 
+					" Gegner erwischt = " + Hero.heroliste.get(1).getkillcount() + 
+					" Tode = " + Hero.heroliste.get(1).getdeathcount() + 
+					" Wände zerstört = " + Hero.heroliste.get(1).gettilecount() + 
+					" Selbstmorde = " + Hero.heroliste.get(1).getSuicidecount());
 			for(Hero hero : Hero.heroliste) {
 				hero.resettilecount();
 				hero.resetkillcount();
@@ -169,32 +201,15 @@ public class Controller extends JFrame {
 			EndGame end = new EndGame();
 	 		   end.setVisible(true);
 		}	
-		if(Hero.heroliste.get(i).getisalive() == false){
-			//Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
-			//Hero.heroliste.get(i).setStartPosition(i);
-			
-			/*for(Bombe bombe : Bombe.bombenliste) {
-			if(bombe.getDroppedby()==i && Hero.heroliste.get(i).getisalive() == false) {
-				 Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
-				 //Hero.heroliste.get(i).setStartPosition(i);
-			 }
-			else{
-				for(int j=0; j<Hero.heroliste.size();j++){
-					if(bombe.getDroppedby()==j && Hero.heroliste.get(i).getisalive()==false) {
-						Hero.heroliste.get(j).setkillcount(j, Hero.heroliste.get(j).getkillcount());
-						//Hero.heroliste.get(i).setStartPosition(i);
-					}
-				}
-			}
-		}*/
-			//Hero.heroliste.get(i).setStartPosition(i);
-		}
 	}
 	/**
 	 * Bewegung nach unten.
 	 * @param i
+	 * @throws IOException 
+	 * @throws UnsupportedAudioFileException 
+	 * @throws LineUnavailableException 
 	 */
-	public static void movementDown(int i){
+	public static void movementDown(int i) {
 		//int i=0;
 		if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()+1].getTileId()%2 != 0) {
 			Hero.heroliste.get(i).setyPixelPosition(Hero.heroliste.get(i).getyPixelPosition()+Hero.heroliste.get(i).getSpeed());
@@ -210,12 +225,32 @@ public class Controller extends JFrame {
 				}
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
 			for(int n=0; n<Hero.heroliste.size(); n++) {
-				Hero.heroliste.get(n).setStartPosition(n);
-				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
+				try {
+					JukeBox.playSoundeffect("gatewalk");
+				} catch (LineUnavailableException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (UnsupportedAudioFileException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Mainframe.setStartPosition(n);
+				Hero.heroliste.get(n).setscorecount(Hero.heroliste.get(n).getscorecount());
 			}
 			Bombe.bombenliste.clear();
-			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + " Gegner erwischt = " + Hero.heroliste.get(0).getkillcount() + " Tode = " + Hero.heroliste.get(0).getdeathcount() + " Wände zerstört = " + Hero.heroliste.get(0).gettilecount() + " Selbstmorde = " + Hero.heroliste.get(0).getSuicidecount());
-			System.out.println("Spieler 2: Punkte = " + Hero.heroliste.get(1).getscorecount() + " Gegner erwischt = " + Hero.heroliste.get(1).getkillcount() + " Tode = " + Hero.heroliste.get(1).getdeathcount() + " Wände zerstört = " + Hero.heroliste.get(1).gettilecount() + " Selbstmorde = " + Hero.heroliste.get(1).getSuicidecount());
+			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + 
+					" Gegner erwischt = " + Hero.heroliste.get(0).getkillcount() + 
+					" Tode = " + Hero.heroliste.get(0).getdeathcount() + 
+					" Wände zerstört = " + Hero.heroliste.get(0).gettilecount() + 
+					" Selbstmorde = " + Hero.heroliste.get(0).getSuicidecount());
+			System.out.println("Spieler 2: Punkte = " + Hero.heroliste.get(1).getscorecount() + 
+					" Gegner erwischt = " + Hero.heroliste.get(1).getkillcount() + 
+					" Tode = " + Hero.heroliste.get(1).getdeathcount() + 
+					" Wände zerstört = " + Hero.heroliste.get(1).gettilecount() + 
+					" Selbstmorde = " + Hero.heroliste.get(1).getSuicidecount());
 			for(Hero hero : Hero.heroliste) {
 				hero.resettilecount();
 				hero.resetkillcount();
@@ -226,26 +261,5 @@ public class Controller extends JFrame {
 			EndGame end = new EndGame();
 	 		   end.setVisible(true);
 	}
-		if(Hero.heroliste.get(i).getisalive() == false){
-			//Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
-			//Hero.heroliste.get(i).setStartPosition(i);
-			
-			
-			/*for(Bombe bombe : Bombe.bombenliste) {
-			if(bombe.getDroppedby()==i && Hero.heroliste.get(i).getisalive() == false) {
-				 Hero.heroliste.get(i).setSuicidecount(i, Hero.heroliste.get(i).getSuicidecount());
-				 //Hero.heroliste.get(i).setStartPosition(i);
-			 }
-			else{
-				for(int j=0; j<Hero.heroliste.size();j++){
-					if(bombe.getDroppedby()==j && Hero.heroliste.get(i).getisalive()==false) {
-						Hero.heroliste.get(j).setkillcount(j, Hero.heroliste.get(j).getkillcount());
-						//Hero.heroliste.get(i).setStartPosition(i);
-					}
-				}
-			}
-		}*/
-			//Hero.heroliste.get(i).setStartPosition(i);
-		}
 	}
 }

@@ -87,7 +87,7 @@ public void run() {
 	}
 	this.setExplodiert(true);
 	try {
-		JukeBox.playBomb();
+		JukeBox.playSoundeffect("boom");
 	} catch (LineUnavailableException e1) {
 		// TODO Auto-generated catch block
 		e1.printStackTrace();
@@ -132,6 +132,20 @@ public void run() {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex-reichweitel][bombey])
 		 {
 			 Hero.heroliste.get(i).setisalive(false);
+			 Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
+			 try {
+					JukeBox.playSoundeffect("scream");
+				} catch (LineUnavailableException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (UnsupportedAudioFileException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			 Mainframe.setStartPosition(i);
 		 }
 	 }
 	 if (ausbreiten == true)
@@ -145,7 +159,7 @@ public void run() {
 					 Board.map[bombex-(reichweitel+1)][bombey].setImg(Tileset.getTile(2, Tile.getTileset()));
 					 Board.setHasExit(true);
 					 try {
-							JukeBox.playGate();
+							JukeBox.playSoundeffect("door");
 						} catch (LineUnavailableException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -207,6 +221,20 @@ public void run() {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex+reichweiter][bombey])
 		 {
 			 Hero.heroliste.get(i).setisalive(false);
+			 Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
+			 try {
+					JukeBox.playSoundeffect("scream");
+				} catch (LineUnavailableException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (UnsupportedAudioFileException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			 Mainframe.setStartPosition(i);
 		 }
 	 }
 	 if (ausbreiten == true)
@@ -220,7 +248,7 @@ public void run() {
 					 Board.map[bombex+(reichweiter+1)][bombey].setImg(Tileset.getTile(2, Tile.getTileset()));
 					 Board.setHasExit(true);
 					 try {
-							JukeBox.playGate();
+							JukeBox.playSoundeffect("door");
 						} catch (LineUnavailableException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -281,6 +309,20 @@ public void run() {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex][bombey+reichweiteu])
 		 {
 			 Hero.heroliste.get(i).setisalive(false);
+			 Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
+			 try {
+					JukeBox.playSoundeffect("scream");
+				} catch (LineUnavailableException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (UnsupportedAudioFileException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			 Mainframe.setStartPosition(i);
 		 }
 	 }
 	 if (ausbreiten == true)
@@ -294,7 +336,7 @@ public void run() {
 					 Board.map[bombex][bombey+(reichweiteu+1)].setImg(Tileset.getTile(2, Tile.getTileset()));
 					 Board.setHasExit(true);
 					 try {
-							JukeBox.playGate();
+							JukeBox.playSoundeffect("door");
 						} catch (LineUnavailableException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -355,6 +397,20 @@ public void run() {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex][bombey-reichweiteo])
 		 {
 			 Hero.heroliste.get(i).setisalive(false);
+			 Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
+			 try {
+					JukeBox.playSoundeffect("scream");
+				} catch (LineUnavailableException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (UnsupportedAudioFileException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			 Mainframe.setStartPosition(i);
 		 }
 	 }
 	 if (ausbreiten == true)
@@ -368,7 +424,7 @@ public void run() {
 					 Board.map[bombex][bombey-(reichweiteo+1)].setImg(Tileset.getTile(2, Tile.getTileset()));
 					 Board.setHasExit(true);
 					 try {
-						JukeBox.playGate();
+						JukeBox.playSoundeffect("door");
 					} catch (LineUnavailableException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -405,16 +461,16 @@ public void run() {
  this.getExplosionsvektor()[2] = reichweiteu;
  this.getExplosionsvektor()[3] = reichweitel;
  reichweiteo=reichweiter=reichweiteu=reichweitel=0;
- for (i=0; i<Hero.heroliste.size(); i++) {
-	 if(this.getDroppedby()==i && this.isTiledestroyed() == true) {
-		 for(int j=0; j<this.getTiledestroyedscounter();j++) {
-			 Hero.heroliste.get(i).settilecount(i, Hero.heroliste.get(i).gettilecount());
-		 }
-	 }
-	 if(Hero.heroliste.get(i).getisalive() == false){
-		 Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
+ //for (i=0; i<Hero.heroliste.size(); i++) {
+ if(this.isTiledestroyed() == true) {
+	for(int j=0; j<this.getTiledestroyedscounter();j++) {
+		Hero.heroliste.get(this.getDroppedby()).settilecount(Hero.heroliste.get(this.getDroppedby()).gettilecount());
+	}
+ }
+	 /*if(Hero.heroliste.get(n).getisalive() == false){
+		 Hero.heroliste.get(n).setdeathcount(Hero.heroliste.get(n).getdeathcount());
 			try {
-				JukeBox.playScream();
+				JukeBox.playSoundeffect("scream");
 			} catch (LineUnavailableException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -425,9 +481,9 @@ public void run() {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		 Hero.heroliste.get(i).setStartPosition(i);
-	 }
- }
+		 Hero.heroliste.get(n).setStartPosition(n);
+	 }*/
+ //}
  try {
 		Thread.sleep(1000);
 	} catch (InterruptedException e) {

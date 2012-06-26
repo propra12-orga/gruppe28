@@ -1,7 +1,6 @@
 package main;
 import java.util.Vector;
 
-import board.LevelReader;
 
 /**
  * Instanzierbare Klasse um unsere Spielfiguren zu erschaffen.
@@ -69,8 +68,8 @@ public class Hero {
 	 * @param i
 	 * @param j
 	 */
-	public void setkillcount(int i, int killcount) {
-					heroliste.get(i).killcount=++killcount;
+	public void setkillcount(int killcount) {
+		this.killcount=++killcount;
 	}
 	public int getdeathcount() {
 		return deathcount;
@@ -97,8 +96,8 @@ public class Hero {
 	 * @param i
 	 * @param scorecount
 	 */
-	public void setscorecount(int i, int scorecount) {
-		heroliste.get(i).scorecount=heroliste.get(i).gettilecount()+(heroliste.get(i).getkillcount()*5)-(heroliste.get(i).getSuicidecount()*3);
+	public void setscorecount(int scorecount) {
+		this.scorecount=this.gettilecount()+(this.getkillcount()*5)-(this.getSuicidecount()*3);
 	}
 	public int gettilecount() {
 		return tilecount;
@@ -108,68 +107,13 @@ public class Hero {
 	 * @param i
 	 * @param tilecount
 	 */
-	public void settilecount(int i, int tilecount) {
-					heroliste.get(i).tilecount=++tilecount;
+	public void settilecount(int tilecount) {
+		this.tilecount=++tilecount;
 	}
 	public int getStartPosition() {
 		return startPosition;
 	}
-	/**
-	 * Startpositionen der Helden.
-	 * @param n
-	 */
-	public void setStartPosition(int n) {
-		for(Bombe bombe : Bombe.bombenliste) {
-			if(bombe.getDroppedby()==n && Hero.heroliste.get(n).getisalive() == false) {
-				 Hero.heroliste.get(n).setSuicidecount(n, Hero.heroliste.get(n).getSuicidecount());
-				 //Hero.heroliste.get(i).setStartPosition(i);
-			 }
-			else{
-					for(int j=0; j<Hero.heroliste.size();j++){
-						if(bombe.getDroppedby()==j && Hero.heroliste.get(n).getisalive()==false && bombe.doppel==false) {
-							Hero.heroliste.get(j).setkillcount(j, Hero.heroliste.get(j).getkillcount());
-							//Hero.heroliste.get(i).setStartPosition(i);
-						}
-					}
-			}
-		}
-		if(n==0) {
-			//Hero.heroliste.get(0).setdeathcount(Hero.heroliste.get(0).getdeathcount());
-			
-			heroliste.get(0).setxPixelPosition(60);
-			heroliste.get(0).setyPixelPosition(60);
-			heroliste.get(0).setxCoord();
-			heroliste.get(0).setyCoord();
-			heroliste.get(0).setisalive(true);
-		}
-		if(n==1) {
-			//Hero.heroliste.get(1).setdeathcount(Hero.heroliste.get(1).getdeathcount());
-			
-			heroliste.get(1).setxPixelPosition((LevelReader.c*50)-90);
-			heroliste.get(1).setyPixelPosition(60);
-			heroliste.get(1).setxCoord();
-			heroliste.get(1).setyCoord();
-			heroliste.get(1).setisalive(true);
-		}
-		if(n==2) {
-			//Hero.heroliste.get(0).setdeathcount(Hero.heroliste.get(0).getdeathcount());
-			
-			heroliste.get(2).setxPixelPosition(60);
-			heroliste.get(2).setyPixelPosition((LevelReader.r*50)-90);
-			heroliste.get(2).setxCoord();
-			heroliste.get(2).setyCoord();
-			heroliste.get(2).setisalive(true);
-		}
-		if(n==3) {
-			//Hero.heroliste.get(1).setdeathcount(Hero.heroliste.get(1).getdeathcount());
-			
-			heroliste.get(3).setxPixelPosition((LevelReader.c*50)-90);
-			heroliste.get(3).setyPixelPosition((LevelReader.r*50)-90);
-			heroliste.get(3).setxCoord();
-			heroliste.get(3).setyCoord();
-			heroliste.get(3).setisalive(true);
-		}
-	}
+	
 	public int getSuicidecount() {
 		return suicidecount;
 	}
@@ -178,8 +122,8 @@ public class Hero {
 	 * @param i
 	 * @param suicidecount
 	 */
-	public void setSuicidecount(int i, int suicidecount) {
-					heroliste.get(i).suicidecount=++suicidecount;
+	public void setSuicidecount(int suicidecount) {
+		this.suicidecount=++suicidecount;
 	}
 	public int resetdeathcount() {
 		return deathcount=0;

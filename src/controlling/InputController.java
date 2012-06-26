@@ -55,7 +55,7 @@ public class InputController extends Thread implements KeyListener
 		else if (keys.contains(KeyEvent.VK_D)) {
 			Controller.movementRight(0);
 		}
-		if (keys.contains(KeyEvent.VK_X)) {
+		if (keys.contains(KeyEvent.VK_CONTROL)) {
 			boolean blocked=false;
 			
 			

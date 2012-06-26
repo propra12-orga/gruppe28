@@ -39,7 +39,7 @@ public class Tileset {
 	 */
 	public static void initTileset() throws IOException {
 
-		BufferedImage tileImg = ImageIO.read(new File("res/tileset.gif"));
+		BufferedImage tileImg = ImageIO.read(new File("res/Images/tileset.gif"));
 
 		
 		 for (int j = 0; j < y; j++) {
@@ -50,7 +50,7 @@ public class Tileset {
 		 
 	}
 	public static void initBombset() throws IOException {
-		BufferedImage bombImg = ImageIO.read(new File("res/bombset.gif"));
+		BufferedImage bombImg = ImageIO.read(new File("res/Images/bombset.gif"));
 		for (int l = 0; l < n; l++) {
 			 for (int k = 0; k < m; k++)	{
 		        bomb[k][l] = bombImg.getSubimage(k * width, l * height, width, height);
@@ -60,7 +60,7 @@ public class Tileset {
 	}
 	
 	public static void initHeroset() throws IOException {
-		BufferedImage heroImg = ImageIO.read(new File("res/heroset.gif"));
+		BufferedImage heroImg = ImageIO.read(new File("res/Images/heroset.gif"));
 		for (int l = 0; l < b; l++) {
 			 for (int k = 0; k < a; k++)	{
 		        hero[k][l] = heroImg.getSubimage(k * width2, l * height2, width2, height2);
