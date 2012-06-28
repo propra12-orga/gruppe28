@@ -27,6 +27,41 @@ public class Hero {
 	private int suicidecount=0;
 	private int bombcount=0;
 	private boolean isalive;
+	private int reach=0;
+	private boolean armored = false;
+	private int ammo = 0;	
+	private boolean speedupgrade = false;
+	public void setspeed()
+	{
+		if (speedupgrade == false)
+		{ 
+			speed=speed+3;
+		} 
+		else 
+		{
+			speedupgrade = true;
+		}
+		
+	}
+	
+	public int getammo(){
+		return ammo;
+	}
+	public void setammo()	{
+		this.ammo =ammo+1;
+	}
+	public int getreach(){
+		return reach;
+	}
+	public void setreach(){
+		this.reach = reach+1;
+	}
+	public boolean getarmored(){
+		return armored;
+	}
+	public void setarmored(boolean armored){
+	this.armored = armored;
+	}
 	public  int getHp() {
 		return Hp;
 	}

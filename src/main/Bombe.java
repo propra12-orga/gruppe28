@@ -27,6 +27,9 @@ int reichweiter = 0;
 int reichweiteo = 0;
 int reichweiteu = 0;
 int s=0;
+boolean drop = false;
+int upgradex;
+int upgradey;
 boolean ausbreiten = true;
 private boolean wartend = true;
 private int bombex = 0;
@@ -105,7 +108,7 @@ public void run() {
 		}
 	}
 	
- while (ausbreitung <= bombenreichweite && Board.map[bombex-reichweitel][bombey].getTileId() == 1)
+ while (ausbreitung <= bombenreichweite+Hero.heroliste.get(droppedby).getreach() && Board.map[bombex-reichweitel][bombey].getTileId() == 1)
  	{
 	 //ListIterator<Bombe> it = Bombe.bombenliste.listIterator();	
 	 	 if (bombenliste.size()!=0) {
@@ -130,7 +133,9 @@ public void run() {
 	 for (i=0; i<(Hero.heroliste.size()); i++) 
 	 {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex-reichweitel][bombey])
-		 {
+		 {			
+			 if(Hero.heroliste.get(i).getarmored()==false)
+			 {
 			 Hero.heroliste.get(i).setisalive(false);
 			 Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
 			 try {
@@ -146,6 +151,11 @@ public void run() {
 					e.printStackTrace();
 				}
 			 Mainframe.setStartPosition(i);
+			 }
+			 if(Hero.heroliste.get(i).getarmored()==true)
+			 {
+				 Hero.heroliste.get(i).setarmored(false);
+			 }
 		 }
 	 }
 	 if (ausbreiten == true)
@@ -174,11 +184,25 @@ public void run() {
 				 else {
 					 Board.map[bombex-(reichweitel+1)][bombey].setTileId(1);
 					 Board.map[bombex-(reichweitel+1)][bombey].setImg(Tileset.getTile(0, Tile.getTileset()));
+					 double u=Math.random();
+					 if(u<0.1)
+					 {
+							upgradex=bombex-(reichweitel+1);
+							upgradey=bombey;						
+							drop=true;
+					 }
 				 }
 			 }
 			 else {
 				 Board.map[bombex-(reichweitel+1)][bombey].setTileId(1);
 				 Board.map[bombex-(reichweitel+1)][bombey].setImg(Tileset.getTile(0, Tile.getTileset()));
+				 double u=Math.random();
+				 if(u<0.1)
+				 {
+						upgradex=bombex-(reichweitel+1);
+						upgradey=bombey;						
+						drop=true;
+				 }
 			 }
 			 Board.decDestructableCounter();
 			 ausbreiten = false;
@@ -194,7 +218,7 @@ public void run() {
  ausbreitung =0;
  ausbreiten=true;
  
- while (ausbreitung <= bombenreichweite && Board.map[bombex+reichweiter][bombey].getTileId() == 1)
+ while (ausbreitung <= bombenreichweite+Hero.heroliste.get(droppedby).getreach() && Board.map[bombex+reichweiter][bombey].getTileId() == 1)
 	{
 	 //ListIterator<Bombe> it = Bombe.bombenliste.listIterator();	
  	 if (bombenliste.size()!=0) {
@@ -219,7 +243,9 @@ public void run() {
 	 for (i=0; i<(Hero.heroliste.size()); i++)
 	 {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex+reichweiter][bombey])
-		 {
+		 {			 
+			 if(Hero.heroliste.get(i).getarmored()==false)
+			 {
 			 Hero.heroliste.get(i).setisalive(false);
 			 Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
 			 try {
@@ -235,6 +261,11 @@ public void run() {
 					e.printStackTrace();
 				}
 			 Mainframe.setStartPosition(i);
+			 }
+			 if(Hero.heroliste.get(i).getarmored()==true)
+			 {
+				 Hero.heroliste.get(i).setarmored(false);
+			 }
 		 }
 	 }
 	 if (ausbreiten == true)
@@ -263,11 +294,23 @@ public void run() {
 				 else {
 					 Board.map[bombex+(reichweiter+1)][bombey].setTileId(1);
 					 Board.map[bombex+(reichweiter+1)][bombey].setImg(Tileset.getTile(0, Tile.getTileset()));
+					 double u=Math.random();
+					 if(u<0.1)
+					 {
+						upgradex=bombex+(reichweiter+1);
+						drop=true;
+					 }
 				 }
 			 }
 			 else {
 				 Board.map[bombex+(reichweiter+1)][bombey].setTileId(1);
 				 Board.map[bombex+(reichweiter+1)][bombey].setImg(Tileset.getTile(0, Tile.getTileset()));
+				 double u=Math.random();
+				 if(u<0.1)
+				 {
+					upgradex=bombex+(reichweiter+1);
+					drop=true;
+				 }
 			 }
 			 Board.decDestructableCounter();
 			 ausbreiten = false;
@@ -282,7 +325,7 @@ public void run() {
  ausbreitung =0;
  ausbreiten=true;
  
- while (ausbreitung <= bombenreichweite && Board.map[bombex][bombey+reichweiteu].getTileId() == 1)
+ while (ausbreitung <= bombenreichweite+Hero.heroliste.get(droppedby).getreach() && Board.map[bombex][bombey+reichweiteu].getTileId() == 1)
 	{
 	 //ListIterator<Bombe> it = Bombe.bombenliste.listIterator();	
  	 if (bombenliste.size()!=0) {
@@ -308,21 +351,28 @@ public void run() {
 	 {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex][bombey+reichweiteu])
 		 {
-			 Hero.heroliste.get(i).setisalive(false);
-			 Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
-			 try {
-					JukeBox.playSoundeffect("scream");
-				} catch (LineUnavailableException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (UnsupportedAudioFileException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			 Mainframe.setStartPosition(i);
+		 if(Hero.heroliste.get(i).getarmored()==false)
+		 {
+		 Hero.heroliste.get(i).setisalive(false);
+		 Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
+		 try {
+				JukeBox.playSoundeffect("scream");
+			} catch (LineUnavailableException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (UnsupportedAudioFileException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		 Mainframe.setStartPosition(i);
+		 }
+		 if(Hero.heroliste.get(i).getarmored()==true)
+		 {
+			 Hero.heroliste.get(i).setarmored(false);
+		 }
 		 }
 	 }
 	 if (ausbreiten == true)
@@ -351,11 +401,25 @@ public void run() {
 				 else {
 					 Board.map[bombex][bombey+(reichweiteu+1)].setTileId(1);
 					 Board.map[bombex][bombey+(reichweiteu+1)].setImg(Tileset.getTile(0, Tile.getTileset()));
+					 double u = Math.random();
+					 if(u<0.1)
+					 {
+						upgradex=bombex;
+						upgradey=bombey+(reichweiteu+1);						
+						 drop=true;
+					 }
 				 }
 			 }
 			 else {
 				 Board.map[bombex][bombey+(reichweiteu+1)].setTileId(1);
 				 Board.map[bombex][bombey+(reichweiteu+1)].setImg(Tileset.getTile(0, Tile.getTileset()));
+				 double u = Math.random();
+				 if(u<0.1)
+				 {
+					upgradex=bombex;
+					upgradey=bombey+(reichweiteu+1);						
+					 drop=true;
+				 }
 			 }
 			 Board.decDestructableCounter();
 			 ausbreiten=false;
@@ -370,7 +434,7 @@ public void run() {
  ausbreitung=0;
  ausbreiten=true;
  
- while (ausbreitung <= bombenreichweite && Board.map[bombex][bombey-reichweiteo].getTileId() == 1)
+ while (ausbreitung <= bombenreichweite+Hero.heroliste.get(droppedby).getreach() && Board.map[bombex][bombey-reichweiteo].getTileId() == 1)
 	{
 	 //ListIterator<Bombe> it = Bombe.bombenliste.listIterator();	
  	 if (bombenliste.size()!=0) {
@@ -395,7 +459,9 @@ public void run() {
 	 for (i=0; i<(Hero.heroliste.size()); i++)
 	 {
 		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex][bombey-reichweiteo])
-		 {
+		 {			
+			 if(Hero.heroliste.get(i).getarmored()==false)
+			 {
 			 Hero.heroliste.get(i).setisalive(false);
 			 Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
 			 try {
@@ -411,6 +477,11 @@ public void run() {
 					e.printStackTrace();
 				}
 			 Mainframe.setStartPosition(i);
+			 }
+			 if(Hero.heroliste.get(i).getarmored()==true)
+			 {
+				 Hero.heroliste.get(i).setarmored(false);
+			 }
 		 }
 	 }
 	 if (ausbreiten == true)
@@ -439,12 +510,26 @@ public void run() {
 				 else {
 					 Board.map[bombex][bombey-(reichweiteo+1)].setTileId(1);
 					 Board.map[bombex][bombey-(reichweiteo+1)].setImg(Tileset.getTile(0, Tile.getTileset()));
+					 double u=Math.random();
+					 if(u<0.1)
+					 {
+						upgradex=bombex;
+						upgradey=bombey-(reichweiteo+1);						
+						 drop=true;
+					 }
 				 }
 			 }
 			 else {
 
 				 Board.map[bombex][bombey-(reichweiteo+1)].setTileId(1);
 				 Board.map[bombex][bombey-(reichweiteo+1)].setImg(Tileset.getTile(0, Tile.getTileset()));
+				 double u=Math.random();
+				 if(u<0.1)
+				 {
+					upgradex=bombex;
+					upgradey=bombey-(reichweiteo+1);						
+					 drop=true;
+				 }
 			 }
 			 Board.decDestructableCounter();
 			 ausbreiten=false;
@@ -492,6 +577,14 @@ public void run() {
 	}
  if(bombenliste.size()!=0) {
 	 bombenliste.remove(0);
+ }
+ if (drop==true)
+ {
+	 Upgrades g = new Upgrades();
+		g.setupgradex(upgradex);
+		g.setupgradey(upgradey);		 
+		 Upgrades.upgradeliste.add(g);
+		 g.run();		 
  }
  this.resetTiledestroyedscounter(this.getTiledestroyedscounter());
  this.setSichtbar(false);

@@ -2,6 +2,7 @@ package board;
 import main.Bombe;
 import main.Hero;
 import main.Mainframe;
+import main.Upgrades;
 
 import java.awt.*;
 //import java.util.ListIterator;
@@ -123,6 +124,14 @@ public class Board extends JPanel {
 			//i++;
 	        };//while(it.hasNext());
 		}
+		// Upgrades all up in this bitch
+				if (Upgrades.upgradeliste.isEmpty()==false)
+				{
+					for(Upgrades upgrade : Upgrades.upgradeliste)
+					{
+						g2d.drawImage(Tileset.getHero1(), upgrade.getupgradex()*50 , upgrade.getupgradey()*50, null);
+					}
+				}
 		//Heros zeichnen
 		g2d.drawImage(Tileset.getHero1(), Hero.heroliste.get(0).getxPixelPosition()-9, Hero.heroliste.get(0).getyPixelPosition()-9, null);
 		if(Mainframe.twoplayer==true) {
