@@ -53,3 +53,4 @@ public class Spielstart extends JFrame implements ActionListener {
         add(Box.createRigidArea(new Dimension(0, 50)));
         
 	}
+}

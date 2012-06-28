@@ -96,7 +96,7 @@ public class Hero {
 	 * @param i
 	 * @param scorecount
 	 */
-	public void setscorecount(int scorecount) {
+	public void setscorecount() {
 		this.scorecount=this.gettilecount()+(this.getkillcount()*5)-(this.getSuicidecount()*3);
 	}
 	public int gettilecount() {

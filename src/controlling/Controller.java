@@ -61,13 +61,9 @@ public class Controller extends JFrame {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-<<<<<<< HEAD
 				Mainframe.setStartPosition(n);
-				Hero.heroliste.get(n).setscorecount(Hero.heroliste.get(n).getscorecount());
-=======
-				Hero.heroliste.get(n).setStartPosition(n);
-				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
->>>>>>> 61b1ac582c556e7af668f2541789bc231425680b
+				Hero.heroliste.get(n).setscorecount();
+				
 			}
 			Bombe.bombenliste.clear();
 			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + 
@@ -124,13 +120,8 @@ public class Controller extends JFrame {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-<<<<<<< HEAD
 				Mainframe.setStartPosition(n);
-				Hero.heroliste.get(n).setscorecount(Hero.heroliste.get(n).getscorecount());
-=======
-				Hero.heroliste.get(n).setStartPosition(n);
-				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
->>>>>>> 61b1ac582c556e7af668f2541789bc231425680b
+				Hero.heroliste.get(n).setscorecount();
 			}
 			Bombe.bombenliste.clear();
 			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + 
@@ -187,13 +178,8 @@ public class Controller extends JFrame {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-<<<<<<< HEAD
 				Mainframe.setStartPosition(n);
-				Hero.heroliste.get(n).setscorecount(Hero.heroliste.get(n).getscorecount());
-=======
-				Hero.heroliste.get(n).setStartPosition(n);
-				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
->>>>>>> 61b1ac582c556e7af668f2541789bc231425680b
+				Hero.heroliste.get(n).setscorecount();
 			}
 			Bombe.bombenliste.clear();
 			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + 
@@ -252,13 +238,8 @@ public class Controller extends JFrame {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-<<<<<<< HEAD
 				Mainframe.setStartPosition(n);
-				Hero.heroliste.get(n).setscorecount(Hero.heroliste.get(n).getscorecount());
-=======
-				Hero.heroliste.get(n).setStartPosition(n);
-				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
->>>>>>> 61b1ac582c556e7af668f2541789bc231425680b
+				Hero.heroliste.get(n).setscorecount();
 			}
 			Bombe.bombenliste.clear();
 			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + 
