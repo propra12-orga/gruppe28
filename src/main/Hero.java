@@ -36,12 +36,8 @@ public class Hero {
 		if (speedupgrade == false)
 		{ 
 			speed=speed+3;
+			speedupgrade=true;
 		} 
-		else 
-		{
-			speedupgrade = true;
-		}
-		
 	}
 	
 	public int getammo(){

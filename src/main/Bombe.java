@@ -20,13 +20,14 @@ import board.Tileset;
 
 public class Bombe extends TimerTask {
 public static Vector<Bombe> bombenliste = new Vector<Bombe>();
-int bombenreichweite = 3;
+int bombenreichweite;
 int ausbreitung =0;
 int reichweitel = 0;
 int reichweiter = 0;
 int reichweiteo = 0;
 int reichweiteu = 0;
 int s=0;
+int[] blub = new int[2];
 boolean drop = false;
 int upgradex;
 int upgradey;
@@ -78,6 +79,7 @@ public void setExplodiert(boolean explodiert) {
 
 public void run() {
 	int i=0;
+	bombenreichweite= 1+Hero.heroliste.get(droppedby).getreach();
 	while (s <=10 && this.isExplodiert() ==  false)
 	{
 	 try {
@@ -108,7 +110,7 @@ public void run() {
 		}
 	}
 	
- while (ausbreitung <= bombenreichweite+Hero.heroliste.get(droppedby).getreach() && Board.map[bombex-reichweitel][bombey].getTileId() == 1)
+ while (ausbreitung <= bombenreichweite && Board.map[bombex-reichweitel][bombey].getTileId() == 1)
  	{
 	 //ListIterator<Bombe> it = Bombe.bombenliste.listIterator();	
 	 	 if (bombenliste.size()!=0) {
@@ -185,7 +187,7 @@ public void run() {
 					 Board.map[bombex-(reichweitel+1)][bombey].setTileId(1);
 					 Board.map[bombex-(reichweitel+1)][bombey].setImg(Tileset.getTile(0, Tile.getTileset()));
 					 double u=Math.random();
-					 if(u<0.1)
+					 if(u<0.05)
 					 {
 							upgradex=bombex-(reichweitel+1);
 							upgradey=bombey;						
@@ -197,7 +199,7 @@ public void run() {
 				 Board.map[bombex-(reichweitel+1)][bombey].setTileId(1);
 				 Board.map[bombex-(reichweitel+1)][bombey].setImg(Tileset.getTile(0, Tile.getTileset()));
 				 double u=Math.random();
-				 if(u<0.1)
+				 if(u<0.05)
 				 {
 						upgradex=bombex-(reichweitel+1);
 						upgradey=bombey;						
@@ -218,7 +220,7 @@ public void run() {
  ausbreitung =0;
  ausbreiten=true;
  
- while (ausbreitung <= bombenreichweite+Hero.heroliste.get(droppedby).getreach() && Board.map[bombex+reichweiter][bombey].getTileId() == 1)
+ while (ausbreitung <= bombenreichweite && Board.map[bombex+reichweiter][bombey].getTileId() == 1)
 	{
 	 //ListIterator<Bombe> it = Bombe.bombenliste.listIterator();	
  	 if (bombenliste.size()!=0) {
@@ -295,9 +297,10 @@ public void run() {
 					 Board.map[bombex+(reichweiter+1)][bombey].setTileId(1);
 					 Board.map[bombex+(reichweiter+1)][bombey].setImg(Tileset.getTile(0, Tile.getTileset()));
 					 double u=Math.random();
-					 if(u<0.1)
+					 if(u<0.05)
 					 {
 						upgradex=bombex+(reichweiter+1);
+						upgradey=bombey;
 						drop=true;
 					 }
 				 }
@@ -306,9 +309,10 @@ public void run() {
 				 Board.map[bombex+(reichweiter+1)][bombey].setTileId(1);
 				 Board.map[bombex+(reichweiter+1)][bombey].setImg(Tileset.getTile(0, Tile.getTileset()));
 				 double u=Math.random();
-				 if(u<0.1)
+				 if(u<0.05)
 				 {
 					upgradex=bombex+(reichweiter+1);
+					upgradey=bombey;
 					drop=true;
 				 }
 			 }
@@ -325,7 +329,7 @@ public void run() {
  ausbreitung =0;
  ausbreiten=true;
  
- while (ausbreitung <= bombenreichweite+Hero.heroliste.get(droppedby).getreach() && Board.map[bombex][bombey+reichweiteu].getTileId() == 1)
+ while (ausbreitung <= bombenreichweite && Board.map[bombex][bombey+reichweiteu].getTileId() == 1)
 	{
 	 //ListIterator<Bombe> it = Bombe.bombenliste.listIterator();	
  	 if (bombenliste.size()!=0) {
@@ -402,7 +406,7 @@ public void run() {
 					 Board.map[bombex][bombey+(reichweiteu+1)].setTileId(1);
 					 Board.map[bombex][bombey+(reichweiteu+1)].setImg(Tileset.getTile(0, Tile.getTileset()));
 					 double u = Math.random();
-					 if(u<0.1)
+					 if(u<0.05)
 					 {
 						upgradex=bombex;
 						upgradey=bombey+(reichweiteu+1);						
@@ -414,7 +418,7 @@ public void run() {
 				 Board.map[bombex][bombey+(reichweiteu+1)].setTileId(1);
 				 Board.map[bombex][bombey+(reichweiteu+1)].setImg(Tileset.getTile(0, Tile.getTileset()));
 				 double u = Math.random();
-				 if(u<0.1)
+				 if(u<0.05)
 				 {
 					upgradex=bombex;
 					upgradey=bombey+(reichweiteu+1);						
@@ -434,7 +438,7 @@ public void run() {
  ausbreitung=0;
  ausbreiten=true;
  
- while (ausbreitung <= bombenreichweite+Hero.heroliste.get(droppedby).getreach() && Board.map[bombex][bombey-reichweiteo].getTileId() == 1)
+ while (ausbreitung <= bombenreichweite && Board.map[bombex][bombey-reichweiteo].getTileId() == 1)
 	{
 	 //ListIterator<Bombe> it = Bombe.bombenliste.listIterator();	
  	 if (bombenliste.size()!=0) {
@@ -511,7 +515,7 @@ public void run() {
 					 Board.map[bombex][bombey-(reichweiteo+1)].setTileId(1);
 					 Board.map[bombex][bombey-(reichweiteo+1)].setImg(Tileset.getTile(0, Tile.getTileset()));
 					 double u=Math.random();
-					 if(u<0.1)
+					 if(u<0.05)
 					 {
 						upgradex=bombex;
 						upgradey=bombey-(reichweiteo+1);						
@@ -524,7 +528,7 @@ public void run() {
 				 Board.map[bombex][bombey-(reichweiteo+1)].setTileId(1);
 				 Board.map[bombex][bombey-(reichweiteo+1)].setImg(Tileset.getTile(0, Tile.getTileset()));
 				 double u=Math.random();
-				 if(u<0.1)
+				 if(u<0.05)
 				 {
 					upgradex=bombex;
 					upgradey=bombey-(reichweiteo+1);						
