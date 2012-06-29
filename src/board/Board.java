@@ -2,6 +2,7 @@ package board;
 import main.Bombe;
 import main.Hero;
 import main.Mainframe;
+import main.Upgrades;
 
 import java.awt.*;
 //import java.util.ListIterator;
@@ -123,19 +124,27 @@ public class Board extends JPanel {
 			//i++;
 	        };//while(it.hasNext());
 		}
+		// Upgrades all up in this bitch
+				if (Upgrades.upgradeliste.isEmpty()==false)
+				{
+					for(Upgrades upgrade : Upgrades.upgradeliste)
+					{
+						g2d.drawImage(Tileset.getHero1(), upgrade.getupgradex()*50 , upgrade.getupgradey()*50, null);
+					}
+				}
 		//Heros zeichnen
-		g2d.drawImage(Tileset.getHero1(), Hero.heroliste.get(0).getxPixelPosition()-9, Hero.heroliste.get(0).getyPixelPosition()-9, null);
+		g2d.drawImage(Tileset.getHero1(), Hero.heroliste.get(0).getxPixelPosition(), Hero.heroliste.get(0).getyPixelPosition(), null);
 		if(Mainframe.twoplayer==true) {
-			g2d.drawImage(Tileset.getHero2(), Hero.heroliste.get(1).getxPixelPosition()-9, Hero.heroliste.get(1).getyPixelPosition()-9, null);
+			g2d.drawImage(Tileset.getHero2(), Hero.heroliste.get(1).getxPixelPosition(), Hero.heroliste.get(1).getyPixelPosition(), null);
 		}
 		if(Mainframe.threeplayer==true) {
-			g2d.drawImage(Tileset.getHero2(), Hero.heroliste.get(1).getxPixelPosition()-9, Hero.heroliste.get(1).getyPixelPosition()-9, null);
-			g2d.drawImage(Tileset.getHero3(), Hero.heroliste.get(2).getxPixelPosition()-9, Hero.heroliste.get(2).getyPixelPosition()-9, null);
+			g2d.drawImage(Tileset.getHero2(), Hero.heroliste.get(1).getxPixelPosition(), Hero.heroliste.get(1).getyPixelPosition(), null);
+			g2d.drawImage(Tileset.getHero3(), Hero.heroliste.get(2).getxPixelPosition(), Hero.heroliste.get(2).getyPixelPosition(), null);
 		}
 		if(Mainframe.fourplayer==true) {
-			g2d.drawImage(Tileset.getHero2(), Hero.heroliste.get(1).getxPixelPosition()-9, Hero.heroliste.get(1).getyPixelPosition()-9, null);
-			g2d.drawImage(Tileset.getHero3(), Hero.heroliste.get(2).getxPixelPosition()-9, Hero.heroliste.get(2).getyPixelPosition()-9, null);
-			g2d.drawImage(Tileset.getHero4(), Hero.heroliste.get(3).getxPixelPosition()-9, Hero.heroliste.get(3).getyPixelPosition()-9, null);
+			g2d.drawImage(Tileset.getHero2(), Hero.heroliste.get(1).getxPixelPosition(), Hero.heroliste.get(1).getyPixelPosition(), null);
+			g2d.drawImage(Tileset.getHero3(), Hero.heroliste.get(2).getxPixelPosition(), Hero.heroliste.get(2).getyPixelPosition(), null);
+			g2d.drawImage(Tileset.getHero4(), Hero.heroliste.get(3).getxPixelPosition(), Hero.heroliste.get(3).getyPixelPosition(), null);
 		}
 
 		

@@ -42,32 +42,28 @@ public class Controller extends JFrame {
 			Hero.heroliste.get(i).setxCoord();
 		}
 		else if(Board.map[Hero.heroliste.get(i).getxCoord()+1][Hero.heroliste.get(i).getyCoord()].getTileId()%2 == 0) {
-				if (Hero.heroliste.get(i).getxPixelPosition()<(Hero.heroliste.get(i).getxCoord()+1)*50 - (40- Hero.heroliste.get(i).getSpeed())) {
+				if (Hero.heroliste.get(i).getxPixelPosition()<(Hero.heroliste.get(i).getxCoord()+1)*50 - (45- Hero.heroliste.get(i).getSpeed())) {
 					Hero.heroliste.get(i).setxPixelPosition(Hero.heroliste.get(i).getxPixelPosition()+Hero.heroliste.get(i).getSpeed());
 					Hero.heroliste.get(i).setxCoord();
 				}
 			}
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
+			Hero.heroliste.get(i).exitreached=true;
 			for(int n=0; n<Hero.heroliste.size(); n++) {
+				if(Mainframe.sound==true){
 				try {
 					JukeBox.playSoundeffect("gatewalk");
 				} catch (LineUnavailableException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (UnsupportedAudioFileException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-<<<<<<< HEAD
+				}
 				Mainframe.setStartPosition(n);
-				Hero.heroliste.get(n).setscorecount(Hero.heroliste.get(n).getscorecount());
-=======
-				Hero.heroliste.get(n).setStartPosition(n);
-				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
->>>>>>> 61b1ac582c556e7af668f2541789bc231425680b
+				Hero.heroliste.get(n).setscorecount();
+				
 			}
 			Bombe.bombenliste.clear();
 			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + 
@@ -86,7 +82,8 @@ public class Controller extends JFrame {
 				hero.resetscorecount();
 				hero.resetdeathcount();
 				hero.resetsuicidecount();
-			}		
+			}
+			InputController.keys.clear();
 			EndGame end = new EndGame();
  		   end.setVisible(true);
 		}
@@ -111,26 +108,21 @@ public class Controller extends JFrame {
 			}
 		}
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
+			Hero.heroliste.get(i).exitreached=true;
 			for(int n=0; n<Hero.heroliste.size(); n++) {
+				if(Mainframe.sound==true){
 				try {
 					JukeBox.playSoundeffect("gatewalk");
 				} catch (LineUnavailableException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (UnsupportedAudioFileException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-<<<<<<< HEAD
+				}
 				Mainframe.setStartPosition(n);
-				Hero.heroliste.get(n).setscorecount(Hero.heroliste.get(n).getscorecount());
-=======
-				Hero.heroliste.get(n).setStartPosition(n);
-				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
->>>>>>> 61b1ac582c556e7af668f2541789bc231425680b
+				Hero.heroliste.get(n).setscorecount();
 			}
 			Bombe.bombenliste.clear();
 			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + 
@@ -150,6 +142,7 @@ public class Controller extends JFrame {
 				hero.resetdeathcount();
 				hero.resetsuicidecount();
 			}
+			InputController.keys.clear();
 			EndGame end = new EndGame();
 	 		   end.setVisible(true);
 		}
@@ -174,26 +167,21 @@ public class Controller extends JFrame {
 			}
 		}
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
+			Hero.heroliste.get(i).exitreached=true;
 			for(int n=0; n<Hero.heroliste.size(); n++) {
+				if(Mainframe.sound==true){
 				try {
 					JukeBox.playSoundeffect("gatewalk");
 				} catch (LineUnavailableException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (UnsupportedAudioFileException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-<<<<<<< HEAD
+				}
 				Mainframe.setStartPosition(n);
-				Hero.heroliste.get(n).setscorecount(Hero.heroliste.get(n).getscorecount());
-=======
-				Hero.heroliste.get(n).setStartPosition(n);
-				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
->>>>>>> 61b1ac582c556e7af668f2541789bc231425680b
+				Hero.heroliste.get(n).setscorecount();
 			}
 			Bombe.bombenliste.clear();
 			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + 
@@ -213,6 +201,7 @@ public class Controller extends JFrame {
 				hero.resetdeathcount();
 				hero.resetsuicidecount();
 			}
+			InputController.keys.clear();
 			EndGame end = new EndGame();
 	 		   end.setVisible(true);
 		}	
@@ -231,7 +220,7 @@ public class Controller extends JFrame {
 			Hero.heroliste.get(i).setyCoord();
 		}
 		else if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()+1].getTileId()%2 == 0) {
-			if (Hero.heroliste.get(i).getyPixelPosition()<(Hero.heroliste.get(i).getyCoord()+1)*50 - (40- Hero.heroliste.get(i).getSpeed())) {
+			if (Hero.heroliste.get(i).getyPixelPosition()<(Hero.heroliste.get(i).getyCoord()+1)*50 - (45- Hero.heroliste.get(i).getSpeed())) {
 				Hero.heroliste.get(i).setyPixelPosition(Hero.heroliste.get(i).getyPixelPosition()+Hero.heroliste.get(i).getSpeed());
 				Hero.heroliste.get(i).setyCoord();
 			}
@@ -239,26 +228,21 @@ public class Controller extends JFrame {
 		else if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()+1].getTileId() == 0){
 				}
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
+			Hero.heroliste.get(i).exitreached=true;
 			for(int n=0; n<Hero.heroliste.size(); n++) {
+				if(Mainframe.sound==true){
 				try {
 					JukeBox.playSoundeffect("gatewalk");
 				} catch (LineUnavailableException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (UnsupportedAudioFileException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-<<<<<<< HEAD
+				}
 				Mainframe.setStartPosition(n);
-				Hero.heroliste.get(n).setscorecount(Hero.heroliste.get(n).getscorecount());
-=======
-				Hero.heroliste.get(n).setStartPosition(n);
-				Hero.heroliste.get(n).setscorecount(n, Hero.heroliste.get(n).getscorecount());
->>>>>>> 61b1ac582c556e7af668f2541789bc231425680b
+				Hero.heroliste.get(n).setscorecount();
 			}
 			Bombe.bombenliste.clear();
 			System.out.println("Spieler 1: Punkte = " + Hero.heroliste.get(0).getscorecount() + 
@@ -278,6 +262,7 @@ public class Controller extends JFrame {
 				hero.resetdeathcount();
 				hero.resetsuicidecount();
 			}
+			InputController.keys.clear();
 			EndGame end = new EndGame();
 	 		   end.setVisible(true);
 	}

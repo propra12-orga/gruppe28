@@ -11,7 +11,7 @@ public class Tile {
 	
 		private BufferedImage img;
 		private int TileId; 
-		public static int tileset=1;
+		public static int tileset;
 		/* 0=normal
 		 * 1=ice
 		 * 2=space

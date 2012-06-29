@@ -3,12 +3,17 @@ package Menu;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import main.Mainframe;
 
 public class Spielstart extends JFrame implements ActionListener {
 	public Spielstart() {
@@ -25,11 +30,21 @@ public class Spielstart extends JFrame implements ActionListener {
         JButton Singleplayer = new JButton("An einem PC");
         add(Singleplayer);
         Singleplayer.setAlignmentX(0.5f);
-       /* Singleplayer.addActionListener(new ActionListener() {
+        Singleplayer.addActionListener(new ActionListener() {
      	   public void actionPerformed(ActionEvent event){
-     		                                                           HIER MUSS AUF den SP VERLINKT WERDEN!!!!
+     		   try {
+				Mainframe.initGame();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (LineUnavailableException e) {
+				e.printStackTrace();
+			} catch (UnsupportedAudioFileException e) {
+				e.printStackTrace();
+			}
      	   }}
-        ); */
+        ); 
         
         add(Box.createRigidArea(new Dimension (0,50)));
         JButton Multiplayer = new JButton("Netzwerk");
@@ -53,3 +68,4 @@ public class Spielstart extends JFrame implements ActionListener {
         add(Box.createRigidArea(new Dimension(0, 50)));
         
 	}
+}

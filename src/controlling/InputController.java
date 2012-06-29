@@ -17,7 +17,7 @@ import java.util.Vector;
 
 public class InputController extends Thread implements KeyListener
 	{
-	Vector<Integer> keys = new Vector<Integer>();
+	static Vector<Integer> keys = new Vector<Integer>();
 	public static boolean moveUp = false;
 	
 	public void keyPressed(KeyEvent e) {
@@ -65,7 +65,7 @@ public class InputController extends Thread implements KeyListener
 				}
 			}
 			if (blocked!=true) {
-			if(Hero.heroliste.get(0).getBombcount()<=2){
+			if(Hero.heroliste.get(0).getBombcount()<=2+Hero.heroliste.get(0).getammo()){
 				Bombe b = new Bombe();
 				b.setBombex(Hero.heroliste.get(0).getxCoord());
 				b.setBombey(Hero.heroliste.get(0).getyCoord());
@@ -105,7 +105,7 @@ public class InputController extends Thread implements KeyListener
 				}
 			}
 			if (blocked!=true) {
-			if(Hero.heroliste.get(1).getBombcount()<=2){
+			if(Hero.heroliste.get(1).getBombcount()<=2+Hero.heroliste.get(1).getammo()){
 				Bombe b = new Bombe();
 				b.setBombex(Hero.heroliste.get(1).getxCoord());
 				b.setBombey(Hero.heroliste.get(1).getyCoord());

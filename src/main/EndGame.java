@@ -1,34 +1,15 @@
 package main;
 import java.awt.Dimension;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-<<<<<<< HEAD
-//import java.io.File;
-//import java.io.IOException;
 
-//import javax.sound.sampled.LineUnavailableException;
-//import javax.sound.sampled.UnsupportedAudioFileException;
-=======
-import java.io.File;
-import java.io.IOException;
-
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
->>>>>>> 61b1ac582c556e7af668f2541789bc231425680b
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-
-<<<<<<< HEAD
-//import board.Board;
-//import board.LevelReader;
-=======
-import board.Board;
-import board.LevelReader;
->>>>>>> 61b1ac582c556e7af668f2541789bc231425680b
 
 public class EndGame extends JDialog {
 

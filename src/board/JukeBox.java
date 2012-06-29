@@ -25,7 +25,6 @@ public class JukeBox
 	public static void playSoundeffect(String effect) throws LineUnavailableException, UnsupportedAudioFileException, IOException
 	{
 		if(effect=="door"){
-<<<<<<< HEAD
 			sound="./res/Sounds/door.wav";
 		}
 		else if(effect=="scream"){
@@ -36,8 +35,7 @@ public class JukeBox
 		}
 		else if(effect=="gatewalk"){
 			sound="./res/Sounds/gatewalk.wav";
-=======
-			sound="./res/door.wav";
+		sound="./res/door.wav";
 		}
 		else if(effect=="scream"){
 			sound="./res/scream.wav";
@@ -47,7 +45,6 @@ public class JukeBox
 		}
 		else if(effect=="gatewalk"){
 			sound="./res/gatewalk.wav";
->>>>>>> 61b1ac582c556e7af668f2541789bc231425680b
 		}
 			
 		File f = new File(sound);

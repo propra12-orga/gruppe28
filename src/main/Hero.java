@@ -18,21 +18,61 @@ public class Hero {
 	private int yCoord;
 	private int xPixelPosition;
 	private int yPixelPosition;
-	private int speed=10;
+	private int speed=5;
 	private int startPosition;
 	private int killcount=0;
 	private int deathcount=0;
 	private int tilecount=0;
-	private int scorecount=0;
+	public int scorecount;
 	private int suicidecount=0;
+	public boolean exitreached=false;
 	private int bombcount=0;
 	private boolean isalive;
+	private int reach=0;
+	private boolean armored = false;
+	private int ammo = 0;	
+	private boolean speedupgrade = false;
+	/*
+	 * Upgrades
+	 */
+	public int getSpeed() {
+		return speed;
+	}
+	public void setspeed()
+	{
+		if (speedupgrade == false)
+		{ 
+			this.speed=10;
+			this.speedupgrade=true;
+		} 
+	}
+	public int getammo(){
+		return ammo;
+	}
+	public void setammo()	{
+		this.ammo =ammo+1;
+	}
+	public int getreach(){
+		return reach;
+	}
+	public void setreach(){
+		this.reach = reach+1;
+	}
+	public boolean getarmored(){
+		return armored;
+	}
+	public void setarmored(boolean armored){
+		this.armored = armored;
+	}
 	public  int getHp() {
 		return Hp;
 	}
 	public  void setHp(int hp) {
 		Hp = hp;
 	}
+	/*
+	 * Koordinaten
+	 */
 	public int getxCoord() {
 		return xCoord;
 	}
@@ -57,8 +97,14 @@ public class Hero {
 	public void setyPixelPosition(int yPixelPosition) {
 		this.yPixelPosition = yPixelPosition;
 	}
-	public int getSpeed() {
-		return speed;
+	/*
+	 * Statistik Zähler
+	 */
+	public boolean getisalive() {
+		return isalive;
+	}
+	public void setisalive(boolean isalive) {
+		this.isalive = isalive;
 	}
 	public int getkillcount() {
 		return killcount;
@@ -82,23 +128,6 @@ public class Hero {
 	public void setdeathcount(int deathcount) {
 		this.deathcount=++deathcount;
 	}	
-	public boolean getisalive() {
-		return isalive;
-	}
-	public void setisalive(boolean isalive) {
-		this.isalive = isalive;
-	}
-	public int getscorecount() {
-		return scorecount;
-	}
-	/**
-	 * Berechnet die Punkte des Helden für die Statistik.
-	 * @param i
-	 * @param scorecount
-	 */
-	public void setscorecount(int scorecount) {
-		this.scorecount=this.gettilecount()+(this.getkillcount()*5)-(this.getSuicidecount()*3);
-	}
 	public int gettilecount() {
 		return tilecount;
 	}
@@ -124,6 +153,22 @@ public class Hero {
 	 */
 	public void setSuicidecount(int suicidecount) {
 		this.suicidecount=++suicidecount;
+	}
+	public int getscorecount() {
+		return scorecount;
+	}
+	/**
+	 * Berechnet die Punkte des Helden für die Statistik.
+	 * @param i
+	 * @param scorecount
+	 */
+	public void setscorecount() {
+		if(exitreached==false){
+			this.scorecount=this.gettilecount()+(this.getkillcount()*5)-(this.getSuicidecount()*3);
+		}
+		if(exitreached==true){
+			this.scorecount=this.gettilecount()+(this.getkillcount()*5)-(this.getSuicidecount()*3)+20;
+		}
 	}
 	public int resetdeathcount() {
 		return deathcount=0;
