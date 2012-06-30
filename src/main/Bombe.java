@@ -21,7 +21,7 @@ import board.Tileset;
 public class Bombe extends TimerTask {
 public static Vector<Bombe> bombenliste = new Vector<Bombe>();
 int bombenreichweite;
-int ausbreitung =0;
+int ausbreitung = 0;
 int reichweitel = 0;
 int reichweiter = 0;
 int reichweiteo = 0;
@@ -37,9 +37,9 @@ private int bombex = 0;
 private int bombey = 0;
 private boolean sichtbar = false;
 public boolean explodiert = false;
-public boolean doppel =false;
+public boolean doppel = false;
 private int droppedby;
-private int killedplayer;
+private int[] killedplayer = new int[4];
 private boolean tiledestroyed = false;
 private int tiledestroyedscounter = 0;
 private int[] explosionsvektor = new int[4];
@@ -122,6 +122,7 @@ public void run() {
 				 
 				 if(Board.map[this.getBombex()-reichweitel][this.getBombey()] == Board.map[bombe.getBombex()][bombe.getBombey()]) {
 					 bombe.setExplodiert(true);
+					 this.doppel=true;
 					 bombe.doppel=true;
 					 System.out.println("Doppel!");				 
 					 }
@@ -138,8 +139,7 @@ public void run() {
 			 if(Hero.heroliste.get(i).getarmored()==false)
 			 {
 			 Hero.heroliste.get(i).setisalive(false);
-			 Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
-			 this.setKilledplayer(i);
+			 killedplayer[i]=i;
 			 if(Mainframe.sound==true){
 			 try {
 					JukeBox.playSoundeffect("scream");
@@ -151,7 +151,7 @@ public void run() {
 					e.printStackTrace();
 				}
 			 }
-			 Mainframe.setStartPosition(i);
+			 //Mainframe.setStartPosition(i);
 			 }
 			 if(Hero.heroliste.get(i).getarmored()==true)
 			 {
@@ -231,6 +231,7 @@ public void run() {
 			 
 			 if(Board.map[this.getBombex()+reichweiter][this.getBombey()] == Board.map[bombe.getBombex()][bombe.getBombey()]) {
 				 bombe.setExplodiert(true);
+				 this.doppel=true;
 				 bombe.doppel=true;
 				 System.out.println("Doppel!");				 
 				 }
@@ -247,8 +248,7 @@ public void run() {
 			 if(Hero.heroliste.get(i).getarmored()==false)
 			 {
 			 Hero.heroliste.get(i).setisalive(false);
-			 Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
-			 this.setKilledplayer(i);
+			 killedplayer[i]=i;
 			 if(Mainframe.sound==true){
 			 try {
 					JukeBox.playSoundeffect("scream");
@@ -260,7 +260,7 @@ public void run() {
 					e.printStackTrace();
 				}
 			 }
-			 Mainframe.setStartPosition(i);
+			 //Mainframe.setStartPosition(i);
 			 }
 			 if(Hero.heroliste.get(i).getarmored()==true)
 			 {
@@ -339,6 +339,7 @@ public void run() {
 			 
 			 if(Board.map[this.getBombex()][this.getBombey()+reichweiteu] == Board.map[bombe.getBombex()][bombe.getBombey()]) {
 				 bombe.setExplodiert(true);
+				 this.doppel=true;
 				 bombe.doppel=true;
 				 System.out.println("Doppel!");				 
 				 }
@@ -355,8 +356,7 @@ public void run() {
 		 if(Hero.heroliste.get(i).getarmored()==false)
 		 {
 		 Hero.heroliste.get(i).setisalive(false);
-		 Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
-		 this.setKilledplayer(i);
+		 killedplayer[i]=i;
 		 if(Mainframe.sound==true){
 		 try {
 				JukeBox.playSoundeffect("scream");
@@ -368,7 +368,7 @@ public void run() {
 				e.printStackTrace();
 			}
 		 }
-		 Mainframe.setStartPosition(i);
+		 //Mainframe.setStartPosition(i);
 		 }
 		 if(Hero.heroliste.get(i).getarmored()==true)
 		 {
@@ -447,6 +447,7 @@ public void run() {
 			 
 			 if(Board.map[this.getBombex()][this.getBombey()-reichweiteo] == Board.map[bombe.getBombex()][bombe.getBombey()]) {
 				 bombe.setExplodiert(true);
+				 this.doppel=true;
 				 bombe.doppel=true;
 				 System.out.println("Doppel!");				 
 				 }
@@ -463,8 +464,7 @@ public void run() {
 			 if(Hero.heroliste.get(i).getarmored()==false)
 			 {
 			 Hero.heroliste.get(i).setisalive(false);
-			 Hero.heroliste.get(i).setdeathcount(Hero.heroliste.get(i).getdeathcount());
-			 this.setKilledplayer(i);
+			 killedplayer[i]=i;
 			 if(Mainframe.sound==true){
 			 try {
 					JukeBox.playSoundeffect("scream");
@@ -476,7 +476,7 @@ public void run() {
 					e.printStackTrace();
 				}
 			 }
-			 Mainframe.setStartPosition(i);
+			 //Mainframe.setStartPosition(i);
 			 }
 			 if(Hero.heroliste.get(i).getarmored()==true)
 			 {
@@ -545,19 +545,24 @@ public void run() {
  this.getExplosionsvektor()[2] = reichweiteu;
  this.getExplosionsvektor()[3] = reichweitel;
  reichweiteo=reichweiter=reichweiteu=reichweitel=0;
- if(this.isTiledestroyed() == true) {
-	for(int j=0; j<this.getTiledestroyedscounter();j++) {
-		Hero.heroliste.get(this.getDroppedby()).settilecount(Hero.heroliste.get(this.getDroppedby()).gettilecount());
-	}
+ for(int b=0; b<(Hero.heroliste.size()); b++) {
+	 if(Hero.heroliste.get(this.killedplayer[b]).getisalive() == false && Hero.heroliste.get(this.killedplayer[b]).getarmored() == false){
+		 Hero.heroliste.get(this.killedplayer[b]).setdeathcount(Hero.heroliste.get(this.killedplayer[b]).getdeathcount());
+		 if(this.getDroppedby()==this.killedplayer[b]) 
+		 {
+			 Hero.heroliste.get(this.getDroppedby()).setSuicidecount(Hero.heroliste.get(this.getDroppedby()).getSuicidecount());
+		 }else{
+			 Hero.heroliste.get(this.getDroppedby()).setkillcount(Hero.heroliste.get(this.getDroppedby()).getkillcount());
+		 }
+		 Mainframe.setStartPosition(this.killedplayer[b]);
+	 }
  }
- if(this.getDroppedby()==this.killedplayer && Hero.heroliste.get(this.killedplayer).getisalive() == false && this.doppel==false) 
- {
-	 Hero.heroliste.get(this.killedplayer).setSuicidecount(Hero.heroliste.get(this.killedplayer).getSuicidecount());
- }
- else
- {
-	 Hero.heroliste.get(this.getDroppedby()).setkillcount(Hero.heroliste.get(this.getDroppedby()).getkillcount());
- }
+	 if(this.isTiledestroyed() == true) {
+		 for(int j=0; j<this.getTiledestroyedscounter();j++) {
+			 Hero.heroliste.get(this.getDroppedby()).settilecount(Hero.heroliste.get(this.getDroppedby()).gettilecount());
+		 }
+	 }
+
  try {
 		Thread.sleep(1000);
 	} catch (InterruptedException e) {
@@ -606,11 +611,4 @@ public void setTiledestroyedscounter(int tiledestroyedscounter) {
 public void resetTiledestroyedscounter(int tiledestroyedscounter) {
 	this.tiledestroyedscounter = 0;
 }
-public int getKilledplayer() {
-	return killedplayer;
-}
-public void setKilledplayer(int killedplayer) {
-	this.killedplayer = killedplayer;
-}
-
 }  

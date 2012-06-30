@@ -169,6 +169,7 @@ public class Hero {
 		if(exitreached==true){
 			this.scorecount=this.gettilecount()+(this.getkillcount()*5)-(this.getSuicidecount()*3)+20;
 		}
+		exitreached=false;
 	}
 	public int resetdeathcount() {
 		return deathcount=0;

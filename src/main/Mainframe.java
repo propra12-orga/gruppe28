@@ -52,7 +52,8 @@ public class Mainframe extends JFrame{
 		
 	public Mainframe() {
 		initUI();
-		setSize(1065,710);
+		//setSize(1065,710);
+		setSize((LevelReader.c*50)+15,(LevelReader.r*50)+60);
 		setLocationRelativeTo(null);
 		setTitle("Bomberman");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -64,7 +65,7 @@ public class Mainframe extends JFrame{
         menu.setMnemonic(KeyEvent.VK_ESCAPE);
 
         JMenu snd = new JMenu("Ton");
-        snd.setMnemonic(KeyEvent.VK_S);
+        snd.setMnemonic(KeyEvent.VK_T);
         JCheckBox toggle = new JCheckBox("Ton an/aus", true);
         toggle.setFocusable(false);
 		toggle.addActionListener(new ActionListener() {
@@ -134,7 +135,6 @@ public class Mainframe extends JFrame{
         });
         JMenuItem eMenuItem = new JMenuItem("Beenden");
         eMenuItem.setMnemonic(KeyEvent.VK_B);
-        eMenuItem.setToolTipText("Exit application");
         eMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 System.exit(0);
