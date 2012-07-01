@@ -11,6 +11,8 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 
+import controlling.InputController;
+
 public class EndGame extends JDialog {
 
     /**
@@ -37,6 +39,7 @@ public class EndGame extends JDialog {
         again.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent event) {
+            	InputController.keys.clear();
                 dispose();
             }
         });

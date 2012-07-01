@@ -25,11 +25,14 @@ public class Tileset {
 	private final static int y = 5;
 	private final static int m = 10;
 	private final static int n = 1;
+	private final static int p = 3;
+	private final static int q = 1;
 	private final static int a = 4;
 	private final static int b = 5;
 	private static BufferedImage[][] tile = new BufferedImage[x][y];
 	private static BufferedImage[][] bomb = new BufferedImage[m][n];
 	private static BufferedImage[][] hero = new BufferedImage[a][b];
+	private static BufferedImage[][] upgrade = new BufferedImage[p][q];
 
 	
 	/**
@@ -69,6 +72,16 @@ public class Tileset {
 		
 	}
 	
+	public static void initUpgradeset() throws IOException {
+		BufferedImage upgradeImg = ImageIO.read(new File("res/Images/upgradeset.gif"));
+		for (int l = 0; l < q; l++) {
+			 for (int k = 0; k < p; k++)	{
+		        upgrade[k][l] = upgradeImg.getSubimage(k * width2, l * height2, width2, height2);
+		    }
+		}
+		
+	}
+	
 	/**
 	 * Diese Funktionen geben die entsprechenden Bilder zur�ck.
 	 * @param a
@@ -81,6 +94,9 @@ public class Tileset {
 	public static BufferedImage getBomb(int a) {
 		return bomb[a][0];
 	}
+	public static BufferedImage getUpgrade(int a) {
+		return upgrade[a][0];
+	}	
 	public static BufferedImage getHero1() {
 		return hero[0][4];
 	}
@@ -98,8 +114,4 @@ public class Tileset {
 	 * [0,2] James T. Kirk, [1,2] Spock, [2,2] Klingon, [3,2] Gorn
 	 * [0,3] Lucha Libre 1, [1,3] Lucha Libre 2, [2,3] Lucha Libre 3, [3,3] Lucha Libre 4
 	 */
-	
-	/*public static Rectangle getBounds(int i) {
-        return new Rectangle(Hero.heroliste.get(i).getxPixelPosition()-9, Hero.heroliste.get(i).getyPixelPosition()-9, hero.getWidth(null), hero.getHeight(null));
-    }*/
 }

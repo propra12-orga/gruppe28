@@ -185,7 +185,7 @@ public void run() {
 					 Board.map[bombex-(reichweitel+1)][bombey].setTileId(1);
 					 Board.map[bombex-(reichweitel+1)][bombey].setImg(Tileset.getTile(0, Tile.getTileset()));
 					 double u=Math.random();
-					 if(u<0.05)
+					 if(u<0.1)
 					 {
 							upgradex=bombex-(reichweitel+1);
 							upgradey=bombey;						
@@ -197,7 +197,7 @@ public void run() {
 				 Board.map[bombex-(reichweitel+1)][bombey].setTileId(1);
 				 Board.map[bombex-(reichweitel+1)][bombey].setImg(Tileset.getTile(0, Tile.getTileset()));
 				 double u=Math.random();
-				 if(u<0.05)
+				 if(u<0.1)
 				 {
 						upgradex=bombex-(reichweitel+1);
 						upgradey=bombey;						
@@ -294,7 +294,7 @@ public void run() {
 					 Board.map[bombex+(reichweiter+1)][bombey].setTileId(1);
 					 Board.map[bombex+(reichweiter+1)][bombey].setImg(Tileset.getTile(0, Tile.getTileset()));
 					 double u=Math.random();
-					 if(u<0.05)
+					 if(u<0.1)
 					 {
 						upgradex=bombex+(reichweiter+1);
 						upgradey=bombey;
@@ -306,7 +306,7 @@ public void run() {
 				 Board.map[bombex+(reichweiter+1)][bombey].setTileId(1);
 				 Board.map[bombex+(reichweiter+1)][bombey].setImg(Tileset.getTile(0, Tile.getTileset()));
 				 double u=Math.random();
-				 if(u<0.05)
+				 if(u<0.1)
 				 {
 					upgradex=bombex+(reichweiter+1);
 					upgradey=bombey;
@@ -402,7 +402,7 @@ public void run() {
 					 Board.map[bombex][bombey+(reichweiteu+1)].setTileId(1);
 					 Board.map[bombex][bombey+(reichweiteu+1)].setImg(Tileset.getTile(0, Tile.getTileset()));
 					 double u = Math.random();
-					 if(u<0.05)
+					 if(u<0.1)
 					 {
 						upgradex=bombex;
 						upgradey=bombey+(reichweiteu+1);						
@@ -414,7 +414,7 @@ public void run() {
 				 Board.map[bombex][bombey+(reichweiteu+1)].setTileId(1);
 				 Board.map[bombex][bombey+(reichweiteu+1)].setImg(Tileset.getTile(0, Tile.getTileset()));
 				 double u = Math.random();
-				 if(u<0.05)
+				 if(u<0.1)
 				 {
 					upgradex=bombex;
 					upgradey=bombey+(reichweiteu+1);						
@@ -510,7 +510,7 @@ public void run() {
 					 Board.map[bombex][bombey-(reichweiteo+1)].setTileId(1);
 					 Board.map[bombex][bombey-(reichweiteo+1)].setImg(Tileset.getTile(0, Tile.getTileset()));
 					 double u=Math.random();
-					 if(u<0.05)
+					 if(u<0.1)
 					 {
 						upgradex=bombex;
 						upgradey=bombey-(reichweiteo+1);						
@@ -523,7 +523,7 @@ public void run() {
 				 Board.map[bombex][bombey-(reichweiteo+1)].setTileId(1);
 				 Board.map[bombex][bombey-(reichweiteo+1)].setImg(Tileset.getTile(0, Tile.getTileset()));
 				 double u=Math.random();
-				 if(u<0.05)
+				 if(u<0.1)
 				 {
 					upgradex=bombex;
 					upgradey=bombey-(reichweiteo+1);						

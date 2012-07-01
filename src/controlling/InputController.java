@@ -17,7 +17,7 @@ import java.util.Vector;
 
 public class InputController extends Thread implements KeyListener
 	{
-	static Vector<Integer> keys = new Vector<Integer>();
+	public static Vector<Integer> keys = new Vector<Integer>();
 	public static boolean moveUp = false;
 	
 	public void keyPressed(KeyEvent e) {

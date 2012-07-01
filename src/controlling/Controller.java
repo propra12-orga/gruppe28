@@ -31,22 +31,21 @@ public class Controller extends JFrame {
 	 * Bewegung nach rechts.
 	 * @param i
 	 */
-	/*Rectangle h1 = Tileset.getBounds(0);
-	Rectangle h2 = Tileset.getBounds(1);*/
 	
 	private static final long serialVersionUID = 1L;
-	
+
 	public static void movementRight(int i){
-		if (Board.map[(Hero.heroliste.get(i).getxCoord()+1)][Hero.heroliste.get(i).getyCoord()].getTileId()%2 != 0) {
+		if (Board.map[(Hero.heroliste.get(i).getxPixelPosition()+40+Hero.heroliste.get(i).getSpeed())/50][Hero.heroliste.get(i).getyPixelPosition()/50].getTileId()%2 != 0
+				&& Board.map[(Hero.heroliste.get(i).getxPixelPosition()+40+Hero.heroliste.get(i).getSpeed())/50][(Hero.heroliste.get(i).getyPixelPosition()+39)/50].getTileId()%2 != 0) {
 			Hero.heroliste.get(i).setxPixelPosition(Hero.heroliste.get(i).getxPixelPosition()+Hero.heroliste.get(i).getSpeed());
 			Hero.heroliste.get(i).setxCoord();
 		}
-		else if(Board.map[Hero.heroliste.get(i).getxCoord()+1][Hero.heroliste.get(i).getyCoord()].getTileId()%2 == 0) {
-				if (Hero.heroliste.get(i).getxPixelPosition()<(Hero.heroliste.get(i).getxCoord()+1)*50 - (45- Hero.heroliste.get(i).getSpeed())) {
+		/*else if(Board.map[(Hero.heroliste.get(i).getxPixelPosition()+39+Hero.heroliste.get(i).getSpeed())/50][Hero.heroliste.get(i).getyPixelPosition()/50].getTileId()%2 == 0) {
+				if (Hero.heroliste.get(i).getxPixelPosition()<(Hero.heroliste.get(i).getxPixelPosition()) ) {
 					Hero.heroliste.get(i).setxPixelPosition(Hero.heroliste.get(i).getxPixelPosition()+Hero.heroliste.get(i).getSpeed());
 					Hero.heroliste.get(i).setxCoord();
 				}
-			}
+			}*/
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
 			Hero.heroliste.get(i).exitreached=true;
 			for(int n=0; n<Hero.heroliste.size(); n++) {
@@ -97,16 +96,17 @@ public class Controller extends JFrame {
 	 */
 	public static void movementLeft(int i){
 		//int i=0;
-		if (Board.map[(Hero.heroliste.get(i).getxCoord()-1)][Hero.heroliste.get(i).getyCoord()].getTileId()%2 != 0) {
+		if (Board.map[(Hero.heroliste.get(i).getxPixelPosition()-Hero.heroliste.get(i).getSpeed())/50][Hero.heroliste.get(i).getyPixelPosition()/50].getTileId()%2 != 0
+				&& Board.map[(Hero.heroliste.get(i).getxPixelPosition()-Hero.heroliste.get(i).getSpeed())/50][(Hero.heroliste.get(i).getyPixelPosition()+39)/50].getTileId()%2 != 0) {
 			Hero.heroliste.get(i).setxPixelPosition(Hero.heroliste.get(i).getxPixelPosition()-Hero.heroliste.get(i).getSpeed());
 			Hero.heroliste.get(i).setxCoord();
 		}
-		else if(Board.map[Hero.heroliste.get(i).getxCoord()-1][Hero.heroliste.get(i).getyCoord()].getTileId()%2 == 0) {
-			if (Hero.heroliste.get(i).getxPixelPosition()>Hero.heroliste.get(i).getxCoord()*50 + (Hero.heroliste.get(i).getSpeed())) {
+		/*else if(Board.map[(Hero.heroliste.get(i).getxPixelPosition()-Hero.heroliste.get(i).getSpeed())/50][Hero.heroliste.get(i).getyPixelPosition()/50].getTileId()%2 == 0) {
+			if (Hero.heroliste.get(i).getxPixelPosition()>Hero.heroliste.get(i).getxPixelPosition() + (Hero.heroliste.get(i).getSpeed())) {
 				Hero.heroliste.get(i).setxPixelPosition(Hero.heroliste.get(i).getxPixelPosition()-Hero.heroliste.get(i).getSpeed());
 				Hero.heroliste.get(i).setxCoord();
 			}
-		}
+		}*/
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
 			Hero.heroliste.get(i).exitreached=true;
 			for(int n=0; n<Hero.heroliste.size(); n++) {
@@ -156,16 +156,17 @@ public class Controller extends JFrame {
 	 */
 	public static void movementUp(int i){
 		//int i=0;
-		if (Board.map[(Hero.heroliste.get(i).getxCoord())][Hero.heroliste.get(i).getyCoord()-1].getTileId()%2 != 0) {
+		if (Board.map[(Hero.heroliste.get(i).getxPixelPosition())/50][(Hero.heroliste.get(i).getyPixelPosition()-Hero.heroliste.get(i).getSpeed())/50].getTileId()%2 != 0
+				&& Board.map[(Hero.heroliste.get(i).getxPixelPosition()+39)/50][(Hero.heroliste.get(i).getyPixelPosition()-Hero.heroliste.get(i).getSpeed())/50].getTileId()%2 != 0) {
 				Hero.heroliste.get(i).setyPixelPosition(Hero.heroliste.get(i).getyPixelPosition()-Hero.heroliste.get(i).getSpeed());
 				Hero.heroliste.get(i).setyCoord();
 		}
-		else if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()-1].getTileId()%2 == 0) {
+		/*else if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()-1].getTileId()%2 == 0) {
 			if (Hero.heroliste.get(i).getyPixelPosition()>Hero.heroliste.get(i).getyCoord()*50 + (Hero.heroliste.get(i).getSpeed())) {
 				Hero.heroliste.get(i).setyPixelPosition(Hero.heroliste.get(i).getyPixelPosition()-Hero.heroliste.get(i).getSpeed());
 				Hero.heroliste.get(i).setyCoord();
 			}
-		}
+		}*/
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
 			Hero.heroliste.get(i).exitreached=true;
 			for(int n=0; n<Hero.heroliste.size(); n++) {
@@ -215,18 +216,17 @@ public class Controller extends JFrame {
 	 */
 	public static void movementDown(int i) {
 		//int i=0;
-		if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()+1].getTileId()%2 != 0) {
+		if (Board.map[(Hero.heroliste.get(i).getxPixelPosition())/50][(Hero.heroliste.get(i).getyPixelPosition()+39+Hero.heroliste.get(i).getSpeed())/50].getTileId()%2 != 0
+				&& Board.map[(Hero.heroliste.get(i).getxPixelPosition()+39)/50][(Hero.heroliste.get(i).getyPixelPosition()+39+Hero.heroliste.get(i).getSpeed())/50].getTileId()%2 != 0) {
 			Hero.heroliste.get(i).setyPixelPosition(Hero.heroliste.get(i).getyPixelPosition()+Hero.heroliste.get(i).getSpeed());
 			Hero.heroliste.get(i).setyCoord();
 		}
-		else if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()+1].getTileId()%2 == 0) {
+		/*else if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()+1].getTileId()%2 == 0) {
 			if (Hero.heroliste.get(i).getyPixelPosition()<(Hero.heroliste.get(i).getyCoord()+1)*50 - (45- Hero.heroliste.get(i).getSpeed())) {
 				Hero.heroliste.get(i).setyPixelPosition(Hero.heroliste.get(i).getyPixelPosition()+Hero.heroliste.get(i).getSpeed());
 				Hero.heroliste.get(i).setyCoord();
 			}
-		}
-		else if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()+1].getTileId() == 0){
-				}
+		}*/
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
 			Hero.heroliste.get(i).exitreached=true;
 			for(int n=0; n<Hero.heroliste.size(); n++) {
