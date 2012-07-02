@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import controlling.InputController;
 
 import board.Board;
+import board.JukeBox;
 
 
 import java.awt.event.ActionEvent;
@@ -97,7 +98,7 @@ public class Mainframe extends JFrame{
 		File test = new File("res/Maps/1.txt");
 		
 		if(sound==true){
-			//JukeBox.playGamemusic()
+			//JukeBox.playGamemusic();
 		}
 		Hero bm1 = new Hero();
 		Hero.heroliste.add(bm1);

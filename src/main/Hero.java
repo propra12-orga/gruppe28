@@ -29,9 +29,11 @@ public class Hero {
 	private int bombcount=0;
 	private boolean isalive;
 	private int reach=0;
+	private boolean reachupgrade=false;
 	private boolean armored = false;
-	private int ammo = 0;	
-	private boolean speedupgrade = false;
+	private int ammo = 0;
+	private boolean ammoupgrade=false;
+	public boolean speedupgrade = false;
 	/*
 	 * Upgrades
 	 */
@@ -51,12 +53,14 @@ public class Hero {
 	}
 	public void setammo()	{
 		this.ammo =ammo+1;
+		this.setAmmoupgrade(true);
 	}
 	public int getreach(){
 		return reach;
 	}
 	public void setreach(){
 		this.reach = reach+1;
+		this.setReachupgrade(true);
 	}
 	public boolean getarmored(){
 		return armored;
@@ -199,5 +203,17 @@ public class Hero {
 	public int reducebombcount(int bombcount) {
 		this.bombcount=--bombcount;
 		return this.bombcount;
+	}
+	public boolean getAmmoupgrade() {
+		return ammoupgrade;
+	}
+	public void setAmmoupgrade(boolean ammoupgrade) {
+		this.ammoupgrade = ammoupgrade;
+	}
+	public boolean getReachupgrade() {
+		return reachupgrade;
+	}
+	public void setReachupgrade(boolean reachupgrade) {
+		this.reachupgrade = reachupgrade;
 	}
 }

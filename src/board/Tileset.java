@@ -23,9 +23,9 @@ public class Tileset {
 	private final static int height2 = 40;
 	private final static int x = 4;
 	private final static int y = 5;
-	private final static int m = 10;
+	private final static int m = 11;
 	private final static int n = 1;
-	private final static int p = 3;
+	private final static int p = 4;
 	private final static int q = 1;
 	private final static int a = 4;
 	private final static int b = 5;

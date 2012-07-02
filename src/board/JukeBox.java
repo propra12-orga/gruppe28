@@ -35,16 +35,16 @@ public class JukeBox
 		}
 		else if(effect=="gatewalk"){
 			sound="./res/Sounds/gatewalk.wav";
-		sound="./res/door.wav";
+		sound="./res/Sounds/door.wav";
 		}
 		else if(effect=="scream"){
-			sound="./res/scream.wav";
+			sound="./res/Sounds/scream.wav";
 		}
 		else if(effect=="boom"){
-			sound="./res/boom.wav";
+			sound="./res/Sounds/boom.wav";
 		}
 		else if(effect=="gatewalk"){
-			sound="./res/gatewalk.wav";
+			sound="./res/Sounds/gatewalk.wav";
 		}
 			
 		File f = new File(sound);
@@ -59,7 +59,7 @@ public class JukeBox
 	}
 	public static void playGamemusic() throws LineUnavailableException, UnsupportedAudioFileException, IOException
 	{
-		File f = new File("./res/Sounds/duel.wav");
+		File f = new File("./res/Sounds/duel2.wav");
 		
 			AudioInputStream ais = AudioSystem.getAudioInputStream(f);
 			AudioFormat format = ais.getFormat();
