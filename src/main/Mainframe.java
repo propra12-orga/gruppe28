@@ -146,32 +146,32 @@ public class Mainframe extends JFrame{
 	 */
 	public static void setStartPosition(int n) {
 		if(n==0) {
-			Hero.heroliste.get(0).setxPixelPosition(51);
-			Hero.heroliste.get(0).setyPixelPosition(51);
+			Hero.heroliste.get(0).setxPixelPosition(50);
+			Hero.heroliste.get(0).setyPixelPosition(50);
 			Hero.heroliste.get(0).setxCoord();
 			Hero.heroliste.get(0).setyCoord();
 			Hero.heroliste.get(0).setisalive(true);
 		}
-		if(n==1) {
-			Hero.heroliste.get(1).setxPixelPosition((LevelReader.c*50)-99);
-			Hero.heroliste.get(1).setyPixelPosition(51);
-			Hero.heroliste.get(1).setxCoord();
-			Hero.heroliste.get(1).setyCoord();
-			Hero.heroliste.get(1).setisalive(true);
+		if(n==3) {
+			Hero.heroliste.get(3).setxPixelPosition((LevelReader.c*50)-100);
+			Hero.heroliste.get(3).setyPixelPosition(50);
+			Hero.heroliste.get(3).setxCoord();
+			Hero.heroliste.get(3).setyCoord();
+			Hero.heroliste.get(3).setisalive(true);
 		}
 		if(n==2) {
-			Hero.heroliste.get(2).setxPixelPosition(51);
-			Hero.heroliste.get(2).setyPixelPosition((LevelReader.r*50)-99);
+			Hero.heroliste.get(2).setxPixelPosition(50);
+			Hero.heroliste.get(2).setyPixelPosition((LevelReader.r*50)-100);
 			Hero.heroliste.get(2).setxCoord();
 			Hero.heroliste.get(2).setyCoord();
 			Hero.heroliste.get(2).setisalive(true);
 		}
-		if(n==3) {
-			Hero.heroliste.get(3).setxPixelPosition((LevelReader.c*50)-99);
-			Hero.heroliste.get(3).setyPixelPosition((LevelReader.r*50)-99);
-			Hero.heroliste.get(3).setxCoord();
-			Hero.heroliste.get(3).setyCoord();
-			Hero.heroliste.get(3).setisalive(true);
+		if(n==1) {
+			Hero.heroliste.get(1).setxPixelPosition((LevelReader.c*50)-100);
+			Hero.heroliste.get(1).setyPixelPosition((LevelReader.r*50)-100);
+			Hero.heroliste.get(1).setxCoord();
+			Hero.heroliste.get(1).setyCoord();
+			Hero.heroliste.get(1).setisalive(true);
 		}
 	}
 		

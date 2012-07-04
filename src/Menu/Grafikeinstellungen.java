@@ -1,45 +1,110 @@
 package Menu;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
-import javax.swing.JMenu;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 import board.Tile;
 
-public class Grafikeinstellungen {
+public class Grafikeinstellungen extends JFrame{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	static String grasString = "Gras";
 	static String iceString = "Eis";
 	static String spaceString = "Weltraum";
 	static String alphaString = "Alpha";
 	static String desertString = "Wüste";
+	
+	public Grafikeinstellungen() {
+	JPanel panel = new JPanel();
+    getContentPane().add(panel);
+    panel.setLayout(null);	
+	setSize(800, 500);
+	setContentPane(new BackGroundPane("res/Buttonimages/background.gif"));
+	setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    setLocationRelativeTo(null);
+    
 
-	/*
-	 JMenu tset = new JMenu("Grafik");
-        tset.setMnemonic(KeyEvent.VK_G);
-        JRadioButton gras = new JRadioButton(grasString);
+    setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
+
+    Icon icon = new ImageIcon("res/Buttonimages/exploman.gif");
+    JLabel label  = new JLabel(icon);
+    label.setAlignmentX(0.5f);
+    
+    add(Box.createRigidArea(new Dimension (0,25)));
+    add(label);
+    add(Box.createRigidArea(new Dimension (0,50)));
+        JRadioButton gras = new JRadioButton(new ImageIcon("res/Buttonimages/gras.gif"));
+        gras.setAlignmentX(0.5f);
+        gras.setBorderPainted(false);
+		gras.setContentAreaFilled(false);
         gras.setActionCommand(grasString);
         gras.setSelected(true);
+        add(gras);
         
-        JRadioButton ice = new JRadioButton(iceString);
+        //add(Box.createRigidArea(new Dimension (0,10)));
+        JRadioButton ice = new JRadioButton(new ImageIcon("res/Buttonimages/ice.gif"));
+        ice.setAlignmentX(0.5f);
+        ice.setBorderPainted(false);
+		ice.setContentAreaFilled(false);
         ice.setActionCommand(iceString);
         ice.setSelected(true);
+        add(ice);
         
-        JRadioButton space = new JRadioButton(spaceString);
+        //add(Box.createRigidArea(new Dimension (0,10)));
+        JRadioButton space = new JRadioButton(new ImageIcon("res/Buttonimages/space.gif"));
+        space.setAlignmentX(0.5f);
+        space.setBorderPainted(false);
+		space.setContentAreaFilled(false);
         space.setActionCommand(spaceString);
         space.setSelected(true);
+        add(space);
         
-        JRadioButton alpha = new JRadioButton(alphaString);
+        //add(Box.createRigidArea(new Dimension (0,10)));
+        JRadioButton alpha = new JRadioButton(new ImageIcon("res/Buttonimages/alpha.gif"));
+        alpha.setAlignmentX(0.5f);
+        alpha.setBorderPainted(false);
+		alpha.setContentAreaFilled(false);
         alpha.setActionCommand(alphaString);
         alpha.setSelected(true);
+        add(alpha);
         
-        JRadioButton desert = new JRadioButton(desertString);
+        //add(Box.createRigidArea(new Dimension (0,10)));
+        JRadioButton desert = new JRadioButton(new ImageIcon("res/Buttonimages/desert.gif"));
+        desert.setAlignmentX(0.5f);
+        desert.setBorderPainted(false);
+		desert.setContentAreaFilled(false);
         desert.setActionCommand(desertString);
         desert.setSelected(true);
+        add(desert);
+        
+        //add(Box.createRigidArea(new Dimension (0,25)));
+		JButton close = new JButton(new ImageIcon("res/Buttonimages/zuruck.gif"));
+		close.setBorderPainted(false);
+		close.setContentAreaFilled(false);
+	    close.setVisible(true);
+		close.setAlignmentX(0.5f);
+		add(close);
+		/*
+		Icon icon2 = new ImageIcon("res/Images/zuruck.gif");
+	    JLabel label2  = new JLabel(icon2);
+	    label2.setAlignmentX(0.5f);
+	    */
+		add(Box.createRigidArea(new Dimension (0,150)));
         
         ButtonGroup group = new ButtonGroup();
         group.add(gras);
@@ -73,7 +138,13 @@ public class Grafikeinstellungen {
                 Tile.tileset=4;
             }
         });
-        */
+        close.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				dispose();
+				Optionen opt = new Optionen();
+				opt.setVisible(true);
+			}
+		});
 	
-	
+}
 }

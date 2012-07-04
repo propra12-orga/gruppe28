@@ -15,7 +15,7 @@ public class Tile {
 		/* 0=normal
 		 * 1=ice
 		 * 2=space
-		 * 3=lava
+		 * 3=alpha
 		 * 4=sand
 		 */
 		/**

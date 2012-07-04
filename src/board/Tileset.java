@@ -98,10 +98,10 @@ public class Tileset {
 		return upgrade[a][0];
 	}	
 	public static BufferedImage getHero1() {
-		return hero[0][4];
+		return hero[2][1];
 	}
 	public static BufferedImage getHero2() {
-		return hero[2][4];
+		return hero[0][0];
 	}
 	public static BufferedImage getHero3() {
 		return hero[1][1];

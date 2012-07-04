@@ -35,8 +35,8 @@ public class Controller extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	public static void movementRight(int i){
-		if (Board.map[(Hero.heroliste.get(i).getxPixelPosition()+40+Hero.heroliste.get(i).getSpeed())/50][Hero.heroliste.get(i).getyPixelPosition()/50].getTileId()%2 != 0
-				&& Board.map[(Hero.heroliste.get(i).getxPixelPosition()+40+Hero.heroliste.get(i).getSpeed())/50][(Hero.heroliste.get(i).getyPixelPosition()+39)/50].getTileId()%2 != 0) {
+		if (Board.map[(Hero.heroliste.get(i).getxPixelPosition()+39+Hero.heroliste.get(i).getSpeed())/50][Hero.heroliste.get(i).getyPixelPosition()/50].getTileId()%2 != 0
+				&& Board.map[(Hero.heroliste.get(i).getxPixelPosition()+39+Hero.heroliste.get(i).getSpeed())/50][(Hero.heroliste.get(i).getyPixelPosition()+39)/50].getTileId()%2 != 0) {
 			Hero.heroliste.get(i).setxPixelPosition(Hero.heroliste.get(i).getxPixelPosition()+Hero.heroliste.get(i).getSpeed());
 			Hero.heroliste.get(i).setxCoord();
 		}

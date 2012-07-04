@@ -9,19 +9,6 @@ import javax.sound.sampled.*;
 public class JukeBox
 {
 	static String sound;
-	/*public static void playScream() throws LineUnavailableException, UnsupportedAudioFileException, IOException
-	{
-		File f = new File("./res/scream.wav");
-		
-			AudioInputStream ais = AudioSystem.getAudioInputStream(f);
-			AudioFormat format = ais.getFormat();
-			DataLine.Info info = new DataLine.Info(Clip.class, ais.getFormat(), ( (int)ais.getFrameLength() * format.getFrameSize()));
-			Clip cl = (Clip) AudioSystem.getLine(info);
-				cl = (Clip) AudioSystem.getLine(info);
-				cl.open(ais);
-				cl.start();
-		
-	}*/
 	public static void playSoundeffect(String effect) throws LineUnavailableException, UnsupportedAudioFileException, IOException
 	{
 		if(effect=="door"){
@@ -35,18 +22,7 @@ public class JukeBox
 		}
 		else if(effect=="gatewalk"){
 			sound="./res/Sounds/gatewalk.wav";
-		sound="./res/Sounds/door.wav";
 		}
-		else if(effect=="scream"){
-			sound="./res/Sounds/scream.wav";
-		}
-		else if(effect=="boom"){
-			sound="./res/Sounds/boom.wav";
-		}
-		else if(effect=="gatewalk"){
-			sound="./res/Sounds/gatewalk.wav";
-		}
-			
 		File f = new File(sound);
 			AudioInputStream ais = AudioSystem.getAudioInputStream(f);
 			AudioFormat format = ais.getFormat();
@@ -59,7 +35,7 @@ public class JukeBox
 	}
 	public static void playGamemusic() throws LineUnavailableException, UnsupportedAudioFileException, IOException
 	{
-		File f = new File("./res/Sounds/duel2.wav");
+		File f = new File("./res/Sounds/duel.wav");
 		
 			AudioInputStream ais = AudioSystem.getAudioInputStream(f);
 			AudioFormat format = ais.getFormat();
@@ -82,18 +58,5 @@ public class JukeBox
 				cl.start();
 		
 	}
-	/*
-	public static void playBomb() throws LineUnavailableException, UnsupportedAudioFileException, IOException
-	{
-		File f = new File("./res/boom.wav");
-		
-			AudioInputStream ais = AudioSystem.getAudioInputStream(f);
-			AudioFormat format = ais.getFormat();
-			DataLine.Info info = new DataLine.Info(Clip.class, ais.getFormat(), ( (int)ais.getFrameLength() * format.getFrameSize()));
-			Clip cl = (Clip) AudioSystem.getLine(info);
-				cl = (Clip) AudioSystem.getLine(info);
-				cl.open(ais);
-				cl.start();
-		
-	}*/
+	
 }
