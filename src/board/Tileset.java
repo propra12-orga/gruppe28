@@ -8,6 +8,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import Menu.Charactereinstellungen;
+import Menu.Charactereinstellungen2;
 
 
 
@@ -107,8 +108,8 @@ public class Tileset {
 	public static BufferedImage getHero(int i){
 		return Charactereinstellungen.heroes[i];
 	}
-	public static BufferedImage getHero2(){
-		return heroes[1];
+	public static BufferedImage getHero2(int i){
+		return Charactereinstellungen2.heroes[i];
 	}
 	
 	/* [0,0] Bomberman 1, [1,0] Bomberman 2, [2,0] Bomberman 3, [3,0] Bomberman 4 

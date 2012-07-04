@@ -1,8 +1,12 @@
 package Menu;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -15,6 +19,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
+import board.Board;
+import board.LevelReader;
 import board.Tile;
 
 public class Grafikeinstellungen extends JFrame{
@@ -53,7 +59,7 @@ public class Grafikeinstellungen extends JFrame{
         gras.setBorderPainted(false);
 		gras.setContentAreaFilled(false);
         gras.setActionCommand(grasString);
-        gras.setSelected(false);
+        gras.setSelected(true);
         add(gras);
         
         //add(Box.createRigidArea(new Dimension (0,10)));
@@ -116,26 +122,71 @@ public class Grafikeinstellungen extends JFrame{
         gras.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 Tile.tileset=0;
+                File test = new File("res/Maps/1.txt");
+                Board board = new Board();
+                board.setVisible(true);
+                try {
+					board.createLevel(LevelReader.readLevel(test));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
         ice.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 Tile.tileset=1;
+                File test = new File("res/Maps/1.txt");
+                Board board = new Board();
+                board.setVisible(true);
+                try {
+					board.createLevel(LevelReader.readLevel(test));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
         space.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 Tile.tileset=2;
+                File test = new File("res/Maps/1.txt");
+                Board board = new Board();
+                board.setVisible(true);
+                try {
+					board.createLevel(LevelReader.readLevel(test));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
         alpha.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 Tile.tileset=3;
+                File test = new File("res/Maps/1.txt");
+                Board board = new Board();
+                board.setVisible(true);
+                try {
+					board.createLevel(LevelReader.readLevel(test));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
         desert.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 Tile.tileset=4;
+                File test = new File("res/Maps/1.txt");
+                Board board = new Board();
+                board.setVisible(true);
+                try {
+					board.createLevel(LevelReader.readLevel(test));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
         close.addActionListener(new ActionListener() {

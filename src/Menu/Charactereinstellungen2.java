@@ -23,7 +23,7 @@ import javax.swing.JPanel;
 import board.Tileset;
 
 
-public class Charactereinstellungen extends JFrame implements 
+public class Charactereinstellungen2 extends JFrame implements 
 		ActionListener, ItemListener {
 
     /**
@@ -54,7 +54,7 @@ public class Charactereinstellungen extends JFrame implements
 
     ImageIcon icon = new ImageIcon("res/Buttonimages/bm1.gif");
 
-    public Charactereinstellungen() {
+    public Charactereinstellungen2() {
 
     	JPanel panel = new JPanel();
         getContentPane().add(panel);
@@ -73,7 +73,7 @@ public class Charactereinstellungen extends JFrame implements
         add(Box.createRigidArea(new Dimension(0, 50)));
         add(label);
         add(Box.createRigidArea(new Dimension(0, 50)));
-        JLabel player1  = new JLabel("Spieler 1");
+        JLabel player1  = new JLabel("Spieler 2");
         player1.setFont(new Font("Bender", Font.BOLD, 20));
         player1.setAlignmentX(0.5f);
         player1.setForeground(Color.WHITE);
@@ -125,82 +125,82 @@ public class Charactereinstellungen extends JFrame implements
             int index = combo.getSelectedIndex();
             display.setIcon(new ImageIcon(images[index]));
             if(index == 0){
-            	this.setHero(0,0,0);
+            	this.setHero2(0,0,1);
             }
             if(index == 1){
-            	this.setHero(1,0,0);
+            	this.setHero2(1,0,1);
             }
             if(index == 2){
-            	this.setHero(2,0,0);
+            	this.setHero2(2,0,1);
             }
             if(index == 3){
-            	this.setHero(3,0,0);
+            	this.setHero2(3,0,1);
             }
             if(index == 4){
-            	this.setHero(0,1,0);
+            	this.setHero2(0,1,1);
             }
             if(index == 5){
-            	this.setHero(1,1,0);
+            	this.setHero2(1,1,1);
             }
             if(index == 6){
-            	this.setHero(2,1,0);
+            	this.setHero2(2,1,1);
             }
             if(index == 7){
-            	this.setHero(3,1,0);
+            	this.setHero2(3,1,1);
             }
             if(index == 8){
-            	this.setHero(0,2,0);
+            	this.setHero2(0,2,0);
             }
             if(index == 9){
-            	this.setHero(1,2,0);
+            	this.setHero2(1,2,1);
             }
             if(index == 10){
-            	this.setHero(2,2,0);
+            	this.setHero2(2,2,1);
             }
             if(index == 11){
-            	this.setHero(3,2,0);
+            	this.setHero2(3,2,1);
             }
             if(index == 12){
-            	this.setHero(0,3,0);
+            	this.setHero2(0,3,1);
             }
             if(index == 13){
-            	this.setHero(1,3,0);
+            	this.setHero2(1,3,1);
             }
             if(index == 14){
-            	this.setHero(2,3,0);
+            	this.setHero2(2,3,1);
             }
             if(index == 15){
-            	this.setHero(3,3,0);
+            	this.setHero2(3,3,1);
             }
             if(index == 16){
-            	this.setHero(0,4,0);
+            	this.setHero2(0,4,1);
             }
             if(index == 17){
-            	this.setHero(1,4,0);
+            	this.setHero2(1,4,1);
             }
             if(index == 18){
-            	this.setHero(2,4,0);
+            	this.setHero2(2,4,1);
             }
             if(index == 19){
-            	this.setHero(3,4,0);
+            	this.setHero2(3,4,1);
             }
             if(index == 20){
-            	this.setHero(0,5,0);
+            	this.setHero2(0,5,1);
             }
             if(index == 21){
-            	this.setHero(1,5,0);
+            	this.setHero2(1,5,1);
             }
             if(index == 22){
-            	this.setHero(2,5,0);
+            	this.setHero2(2,5,1);
             }
             if(index == 23){
-            	this.setHero(3,5,0);
+            	this.setHero2(3,5,1);
             }
         }
 
     }
-    public BufferedImage setHero(int a, int b, int i) {
-		Charactereinstellungen.heroes[i]=Tileset.hero[a][b];
-		return Charactereinstellungen.heroes[i];
+    public BufferedImage setHero2(int a, int b, int i) {
+		Charactereinstellungen2.heroes[i]=Tileset.hero[a][b];
+		return Charactereinstellungen2.heroes[i];
 	}
 }

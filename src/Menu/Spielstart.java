@@ -41,7 +41,7 @@ public class Spielstart extends JFrame implements ActionListener {
         add(label);
         
         add(Box.createRigidArea(new Dimension (0,50)));
-        JButton Singleplayer = new JButton(new ImageIcon("res/Buttonimages/single.gif"));
+        JButton Singleplayer = new JButton(new ImageIcon("res/Buttonimages/single3.gif"));
         Singleplayer.setBorderPainted(false);
         Singleplayer.setContentAreaFilled(false);
         add(Singleplayer);
@@ -49,13 +49,19 @@ public class Spielstart extends JFrame implements ActionListener {
         Singleplayer.addActionListener(new ActionListener() {
      	   public void actionPerformed(ActionEvent event){
      		   dispose();
-     		  SwingUtilities.invokeLater(new Runnable() {
-     	            public void run() {
-     		   Mainframe.twoplayer=false;
-     		   Mainframe mf = new Mainframe();
-			mf.setVisible(true);
-     		   
-     		   }});
+     		   Mainframe.twoplayer=false;     		   
+     		}}); 
+        
+        add(Box.createRigidArea(new Dimension (0,25)));
+        JButton Singleplayer2 = new JButton(new ImageIcon("res/Buttonimages/single2.gif"));
+        Singleplayer2.setBorderPainted(false);
+        Singleplayer2.setContentAreaFilled(false);
+        add(Singleplayer2);
+        Singleplayer2.setAlignmentX(0.5f);
+        Singleplayer2.addActionListener(new ActionListener() {
+     	   public void actionPerformed(ActionEvent event){
+     		   dispose();
+     		   Mainframe.twoplayer=true;     		   
      		}}); 
      
         add(Box.createRigidArea(new Dimension (0,25)));

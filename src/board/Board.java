@@ -153,7 +153,7 @@ public class Board extends JPanel {
 			g2d.drawImage(Tileset.getUpgrade(2), Hero.heroliste.get(0).getxPixelPosition(), Hero.heroliste.get(0).getyPixelPosition(), null);
 		}
 		if(Mainframe.twoplayer==true) {
-			g2d.drawImage(Tileset.getHero2(), Hero.heroliste.get(1).getxPixelPosition(), Hero.heroliste.get(1).getyPixelPosition(), null);
+			g2d.drawImage(Tileset.getHero2(1), Hero.heroliste.get(1).getxPixelPosition(), Hero.heroliste.get(1).getyPixelPosition(), null);
 			if(Hero.heroliste.get(1).getAmmoupgrade()==true){
 				g2d.drawImage(Tileset.getUpgrade(3), Hero.heroliste.get(1).getxPixelPosition(), Hero.heroliste.get(1).getyPixelPosition(), null);
 			}
@@ -165,25 +165,25 @@ public class Board extends JPanel {
 			}
 		}
 		if(Mainframe.threeplayer==true) {
-			g2d.drawImage(Tileset.getHero2(), Hero.heroliste.get(1).getxPixelPosition(), Hero.heroliste.get(1).getyPixelPosition(), null);
+			g2d.drawImage(Tileset.getHero2(1), Hero.heroliste.get(1).getxPixelPosition(), Hero.heroliste.get(1).getyPixelPosition(), null);
 			if(Hero.heroliste.get(1).getarmored()==true){
 				g2d.drawImage(Tileset.getUpgrade(2), Hero.heroliste.get(0).getxPixelPosition(), Hero.heroliste.get(0).getyPixelPosition(), null);
 			}
-			g2d.drawImage(Tileset.getHero2(), Hero.heroliste.get(2).getxPixelPosition(), Hero.heroliste.get(2).getyPixelPosition(), null);
+			g2d.drawImage(Tileset.getHero2(1), Hero.heroliste.get(2).getxPixelPosition(), Hero.heroliste.get(2).getyPixelPosition(), null);
 			if(Hero.heroliste.get(2).getarmored()==true){
 				g2d.drawImage(Tileset.getUpgrade(2), Hero.heroliste.get(0).getxPixelPosition(), Hero.heroliste.get(0).getyPixelPosition(), null);
 			}
 		}
 		if(Mainframe.fourplayer==true) {
-			g2d.drawImage(Tileset.getHero2(), Hero.heroliste.get(1).getxPixelPosition(), Hero.heroliste.get(1).getyPixelPosition(), null);
+			g2d.drawImage(Tileset.getHero2(1), Hero.heroliste.get(1).getxPixelPosition(), Hero.heroliste.get(1).getyPixelPosition(), null);
 			if(Hero.heroliste.get(1).getarmored()==true){
 				g2d.drawImage(Tileset.getUpgrade(2), Hero.heroliste.get(0).getxPixelPosition(), Hero.heroliste.get(0).getyPixelPosition(), null);
 			}
-			g2d.drawImage(Tileset.getHero2(), Hero.heroliste.get(2).getxPixelPosition(), Hero.heroliste.get(2).getyPixelPosition(), null);
+			g2d.drawImage(Tileset.getHero2(1), Hero.heroliste.get(2).getxPixelPosition(), Hero.heroliste.get(2).getyPixelPosition(), null);
 			if(Hero.heroliste.get(2).getarmored()==true){
 				g2d.drawImage(Tileset.getUpgrade(2), Hero.heroliste.get(0).getxPixelPosition(), Hero.heroliste.get(0).getyPixelPosition(), null);
 			}
-			g2d.drawImage(Tileset.getHero2(), Hero.heroliste.get(3).getxPixelPosition(), Hero.heroliste.get(3).getyPixelPosition(), null);
+			g2d.drawImage(Tileset.getHero2(1), Hero.heroliste.get(3).getxPixelPosition(), Hero.heroliste.get(3).getyPixelPosition(), null);
 			if(Hero.heroliste.get(3).getarmored()==true){
 				g2d.drawImage(Tileset.getUpgrade(2), Hero.heroliste.get(0).getxPixelPosition(), Hero.heroliste.get(0).getyPixelPosition(), null);
 			}

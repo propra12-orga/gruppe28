@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import controlling.InputController;
 
 import Menu.Charactereinstellungen;
+import Menu.Charactereinstellungen2;
 import Menu.Grafikeinstellungen;
 import Menu.Laden;
 import Menu.Sound;
@@ -212,11 +213,17 @@ public class Mainframe extends JFrame{
 		mf.setVisible(true);
 		for(int i=0; i<(Hero.heroliste.size()); i++) {
 			setStartPosition(i);
-			Tileset.getHero(0);
+			Tileset.getHero(i);
 		}
 		LevelReader.ausgabe(LevelReader.readLevel(test));
+		if(twoplayer==true){
+			Charactereinstellungen2 chr2 = new Charactereinstellungen2();
+			chr2.setVisible(true);
+		}
 		Charactereinstellungen chr = new Charactereinstellungen();
 		chr.setVisible(true);
+		Spielstart start = new Spielstart();
+		start.setVisible(true);
 		while(true) {
 			board.repaint();
 			Thread.sleep(45);
