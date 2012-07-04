@@ -7,6 +7,8 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
+import Menu.Charactereinstellungen;
+
 
 
 /**
@@ -31,8 +33,9 @@ public class Tileset {
 	private final static int b = 5;
 	private static BufferedImage[][] tile = new BufferedImage[x][y];
 	private static BufferedImage[][] bomb = new BufferedImage[m][n];
-	private static BufferedImage[][] hero = new BufferedImage[a][b];
+	public static BufferedImage[][] hero = new BufferedImage[a][b];
 	private static BufferedImage[][] upgrade = new BufferedImage[p][q];
+	public static BufferedImage[] heroes = new BufferedImage[4];
 
 	
 	/**
@@ -96,19 +99,18 @@ public class Tileset {
 	}
 	public static BufferedImage getUpgrade(int a) {
 		return upgrade[a][0];
-	}	
-	public static BufferedImage getHero1() {
-		return hero[2][1];
 	}
-	public static BufferedImage getHero2() {
-		return hero[0][0];
+	public static BufferedImage setHero(int a, int b, int i) {
+		heroes[i]=hero[a][b];
+		return heroes[i];
 	}
-	public static BufferedImage getHero3() {
-		return hero[1][1];
+	public static BufferedImage getHero(int i){
+		return Charactereinstellungen.heroes[i];
 	}
-	public static BufferedImage getHero4() {
-		return hero[3][1];
+	public static BufferedImage getHero2(){
+		return heroes[1];
 	}
+	
 	/* [0,0] Bomberman 1, [1,0] Bomberman 2, [2,0] Bomberman 3, [3,0] Bomberman 4 
 	 * [0,1] Darth Vader, [1,1] Yoda, [2,1] Boba Fett, [3,1] Stormtrooper
 	 * [0,2] James T. Kirk, [1,2] Spock, [2,2] Klingon, [3,2] Gorn

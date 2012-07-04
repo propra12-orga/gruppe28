@@ -10,6 +10,8 @@ import java.awt.*;
 
 import javax.swing.JPanel;
 
+import Menu.Charactereinstellungen;
+
 public class Board extends JPanel {
 	/**
 	 * Die Klasse Board stellt das Spielfeld dar. Sie initialisiert es und ist auch f�r das Zeichnen zust�ndig.
@@ -140,7 +142,7 @@ public class Board extends JPanel {
 					}
 				}
 		//Heros zeichnen
-		g2d.drawImage(Tileset.getHero1(), Hero.heroliste.get(0).getxPixelPosition(), Hero.heroliste.get(0).getyPixelPosition(), null);
+		g2d.drawImage(Tileset.getHero(0), Hero.heroliste.get(0).getxPixelPosition(), Hero.heroliste.get(0).getyPixelPosition(), null);
 		if(Hero.heroliste.get(0).getAmmoupgrade()==true){
 			g2d.drawImage(Tileset.getUpgrade(3), Hero.heroliste.get(0).getxPixelPosition(), Hero.heroliste.get(0).getyPixelPosition(), null);
 		}
@@ -167,7 +169,7 @@ public class Board extends JPanel {
 			if(Hero.heroliste.get(1).getarmored()==true){
 				g2d.drawImage(Tileset.getUpgrade(2), Hero.heroliste.get(0).getxPixelPosition(), Hero.heroliste.get(0).getyPixelPosition(), null);
 			}
-			g2d.drawImage(Tileset.getHero3(), Hero.heroliste.get(2).getxPixelPosition(), Hero.heroliste.get(2).getyPixelPosition(), null);
+			g2d.drawImage(Tileset.getHero2(), Hero.heroliste.get(2).getxPixelPosition(), Hero.heroliste.get(2).getyPixelPosition(), null);
 			if(Hero.heroliste.get(2).getarmored()==true){
 				g2d.drawImage(Tileset.getUpgrade(2), Hero.heroliste.get(0).getxPixelPosition(), Hero.heroliste.get(0).getyPixelPosition(), null);
 			}
@@ -177,11 +179,11 @@ public class Board extends JPanel {
 			if(Hero.heroliste.get(1).getarmored()==true){
 				g2d.drawImage(Tileset.getUpgrade(2), Hero.heroliste.get(0).getxPixelPosition(), Hero.heroliste.get(0).getyPixelPosition(), null);
 			}
-			g2d.drawImage(Tileset.getHero3(), Hero.heroliste.get(2).getxPixelPosition(), Hero.heroliste.get(2).getyPixelPosition(), null);
+			g2d.drawImage(Tileset.getHero2(), Hero.heroliste.get(2).getxPixelPosition(), Hero.heroliste.get(2).getyPixelPosition(), null);
 			if(Hero.heroliste.get(2).getarmored()==true){
 				g2d.drawImage(Tileset.getUpgrade(2), Hero.heroliste.get(0).getxPixelPosition(), Hero.heroliste.get(0).getyPixelPosition(), null);
 			}
-			g2d.drawImage(Tileset.getHero4(), Hero.heroliste.get(3).getxPixelPosition(), Hero.heroliste.get(3).getyPixelPosition(), null);
+			g2d.drawImage(Tileset.getHero2(), Hero.heroliste.get(3).getxPixelPosition(), Hero.heroliste.get(3).getyPixelPosition(), null);
 			if(Hero.heroliste.get(3).getarmored()==true){
 				g2d.drawImage(Tileset.getUpgrade(2), Hero.heroliste.get(0).getxPixelPosition(), Hero.heroliste.get(0).getyPixelPosition(), null);
 			}

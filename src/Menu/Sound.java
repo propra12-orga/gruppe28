@@ -52,6 +52,9 @@ public class Sound extends JFrame implements ActionListener {
         soundOn.addActionListener(this);
         soundOn.setBorderPainted(false);
         soundOn.setContentAreaFilled(false);
+        if(Mainframe.sound==true){
+        	soundOn.setSelected(true);
+        }
         soundOn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				Mainframe.sound=true;
@@ -69,6 +72,9 @@ public class Sound extends JFrame implements ActionListener {
         soundOff.addActionListener(this);
         soundOff.setBorderPainted(false);
         soundOff.setContentAreaFilled(false);
+        if(Mainframe.sound==false){
+        	soundOff.setSelected(true);
+        }
         soundOff.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				Mainframe.sound=false;
@@ -102,15 +108,7 @@ public class Sound extends JFrame implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-
-		JCheckBox source = (JCheckBox) e.getSource();
-        boolean state = source.isSelected();
-
-        if(state){
-			Mainframe.sound=true;
-		}else{
-			Mainframe.sound=false;
-        }
+		
     }
 
 }

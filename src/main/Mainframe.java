@@ -20,6 +20,7 @@ import Menu.Sound;
 import Menu.Spielstart;
 import Menu.Statistik;
 import board.Board;
+import board.Tileset;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -201,6 +202,7 @@ public class Mainframe extends JFrame{
 			Hero bm4 = new Hero();
 			Hero.heroliste.add(bm4);
 		}
+		
 		InputController ic = new controlling.InputController();
 		ic.start();
 		
@@ -210,9 +212,11 @@ public class Mainframe extends JFrame{
 		mf.setVisible(true);
 		for(int i=0; i<(Hero.heroliste.size()); i++) {
 			setStartPosition(i);
+			Tileset.getHero(0);
 		}
 		LevelReader.ausgabe(LevelReader.readLevel(test));
-		
+		Charactereinstellungen chr = new Charactereinstellungen();
+		chr.setVisible(true);
 		while(true) {
 			board.repaint();
 			Thread.sleep(45);
