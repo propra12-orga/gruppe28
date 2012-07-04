@@ -14,6 +14,7 @@ import board.Board;
 import board.JukeBox;
 
 import main.Bombe;
+import main.EditorHero;
 import main.EndGame;
 import main.Hero;
 import main.Mainframe;
@@ -33,7 +34,14 @@ public class Controller extends JFrame {
 	 */
 	
 	private static final long serialVersionUID = 1L;
-
+	public static void movementEditorRight(int i) {
+		//int i=0;
+		if(EditorHero.heroliste.get(0).getxCoord()!=20)
+		{
+		EditorHero.heroliste.get(i).setxPixelPosition(EditorHero.heroliste.get(i).getxPixelPosition()+50);
+		EditorHero.heroliste.get(i).setxCoord();
+		}
+	}
 	public static void movementRight(int i){
 		if (Board.map[(Hero.heroliste.get(i).getxPixelPosition()+39+Hero.heroliste.get(i).getSpeed())/50][Hero.heroliste.get(i).getyPixelPosition()/50].getTileId()%2 != 0
 				&& Board.map[(Hero.heroliste.get(i).getxPixelPosition()+39+Hero.heroliste.get(i).getSpeed())/50][(Hero.heroliste.get(i).getyPixelPosition()+39)/50].getTileId()%2 != 0) {
@@ -94,6 +102,14 @@ public class Controller extends JFrame {
 	 * @throws UnsupportedAudioFileException 
 	 * @throws LineUnavailableException 
 	 */
+	public static void movementEditorLeft(int i) {
+		//int i=0;
+		if(EditorHero.heroliste.get(0).getxCoord()!=0)
+		{
+		EditorHero.heroliste.get(i).setxPixelPosition(EditorHero.heroliste.get(i).getxPixelPosition()-50);
+		EditorHero.heroliste.get(i).setxCoord();
+		}
+	}
 	public static void movementLeft(int i){
 		//int i=0;
 		if (Board.map[(Hero.heroliste.get(i).getxPixelPosition()-Hero.heroliste.get(i).getSpeed())/50][Hero.heroliste.get(i).getyPixelPosition()/50].getTileId()%2 != 0
@@ -154,6 +170,14 @@ public class Controller extends JFrame {
 	 * @throws UnsupportedAudioFileException 
 	 * @throws LineUnavailableException 
 	 */
+	public static void movementEditorUp(int i) {
+		//int i=0;
+		if(EditorHero.heroliste.get(0).getyCoord()!=0)
+		{
+		EditorHero.heroliste.get(i).setyPixelPosition(EditorHero.heroliste.get(i).getyPixelPosition()-50);
+		EditorHero.heroliste.get(i).setyCoord();
+		}
+	}
 	public static void movementUp(int i){
 		//int i=0;
 		if (Board.map[(Hero.heroliste.get(i).getxPixelPosition())/50][(Hero.heroliste.get(i).getyPixelPosition()-Hero.heroliste.get(i).getSpeed())/50].getTileId()%2 != 0
@@ -214,6 +238,14 @@ public class Controller extends JFrame {
 	 * @throws UnsupportedAudioFileException 
 	 * @throws LineUnavailableException 
 	 */
+	public static void movementEditorDown(int i) {
+		//int i=0;
+		if(EditorHero.heroliste.get(0).getyCoord()!=12)
+		{
+		EditorHero.heroliste.get(i).setyPixelPosition(EditorHero.heroliste.get(i).getyPixelPosition()+50);
+		EditorHero.heroliste.get(i).setyCoord();
+		}
+	}
 	public static void movementDown(int i) {
 		//int i=0;
 		if (Board.map[(Hero.heroliste.get(i).getxPixelPosition())/50][(Hero.heroliste.get(i).getyPixelPosition()+39+Hero.heroliste.get(i).getSpeed())/50].getTileId()%2 != 0
