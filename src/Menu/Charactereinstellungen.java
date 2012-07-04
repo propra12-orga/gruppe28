@@ -94,8 +94,7 @@ public class Charactereinstellungen extends JFrame implements
         close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				dispose();
-				Optionen opt = new Optionen();
-				opt.setVisible(true);
+
 			}
 		});
         add(close);

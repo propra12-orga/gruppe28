@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -13,6 +14,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 
 import main.Mainframe;
 
@@ -39,19 +41,47 @@ public class Sound extends JFrame implements ActionListener {
         
         add(Box.createRigidArea(new Dimension (0,25)));
         add(label);
+        add(Box.createRigidArea(new Dimension (0,50)));
+        JPanel sound = new JPanel();
+        sound.setAlignmentX(1f);
+        sound.setLayout(new BoxLayout(sound, BoxLayout.Y_AXIS));
         
-        JCheckBox hintergrundmusikButton = new JCheckBox("Hintergrundmusik an");
-        hintergrundmusikButton.setFocusable(false);
-        hintergrundmusikButton.addActionListener(this);
-        //add(hintergrundmusikButton);
+        Icon onon = new ImageIcon("res/Buttonimages/soundon.gif");
+        JRadioButton soundOn = new JRadioButton();
+        soundOn.setFocusable(false);
+        soundOn.addActionListener(this);
+        soundOn.setBorderPainted(false);
+        soundOn.setContentAreaFilled(false);
+        soundOn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				Mainframe.sound=true;
+			}
+		});
+
+        sound.add(soundOn);
+        sound.add(Box.createRigidArea(new Dimension (5,0)));
+        JLabel on  = new JLabel(onon);
+        sound.add(on);
         
-        JCheckBox EffektsoundButton = new JCheckBox("Ton an/aus");
-        EffektsoundButton.setFocusable(false);
-        EffektsoundButton.addActionListener(this);
-        EffektsoundButton.setAlignmentX(0.5f);
-        EffektsoundButton.setBorderPainted(false);
-        EffektsoundButton.setContentAreaFilled(false);
-        add(EffektsoundButton);
+        Icon offoff = new ImageIcon("res/Buttonimages/soundoff.gif");
+        JRadioButton soundOff = new JRadioButton();
+        soundOff.setFocusable(false);
+        soundOff.addActionListener(this);
+        soundOff.setBorderPainted(false);
+        soundOff.setContentAreaFilled(false);
+        soundOff.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				Mainframe.sound=false;
+			}
+		});
+        sound.add(soundOff);
+        JLabel off  = new JLabel(offoff);
+        sound.add(off);
+        
+        ButtonGroup group = new ButtonGroup();
+        group.add(soundOn);
+        group.add(soundOff);
+
         
         add(Box.createRigidArea(new Dimension (0,50)));
         JButton close = new JButton(new ImageIcon("res/Buttonimages/zuruck.gif"));
@@ -61,11 +91,10 @@ public class Sound extends JFrame implements ActionListener {
 		close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				dispose();
-				Optionen opt = new Optionen();
-				opt.setVisible(true);
 			}
 		});
 		close.setAlignmentX(0.5f);
+		add(sound);
 		add(close);
 		
 		add(Box.createRigidArea(new Dimension (0,150)));

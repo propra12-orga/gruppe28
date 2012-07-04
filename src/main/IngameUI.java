@@ -49,7 +49,7 @@ public class IngameUI extends JFrame{
         
         JRadioButton ice = new JRadioButton(iceString);
         ice.setActionCommand(iceString);
-        ice.setSelected(true);
+        ice.setSelected();
         
         JRadioButton space = new JRadioButton(spaceString);
         space.setActionCommand(spaceString);

@@ -3,10 +3,7 @@ package Menu;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.Icon;
@@ -15,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 import main.Mainframe;
 
@@ -50,21 +48,16 @@ public class Spielstart extends JFrame implements ActionListener {
         Singleplayer.setAlignmentX(0.5f);
         Singleplayer.addActionListener(new ActionListener() {
      	   public void actionPerformed(ActionEvent event){
-     		   try {
-				Mainframe.initGame();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			} catch (LineUnavailableException e) {
-				e.printStackTrace();
-			} catch (UnsupportedAudioFileException e) {
-				e.printStackTrace();
-			}
-    		   dispose();
-     	   }}
-        ); 
-        
+     		   dispose();
+     		  SwingUtilities.invokeLater(new Runnable() {
+     	            public void run() {
+     		   Mainframe.twoplayer=false;
+     		   Mainframe mf = new Mainframe();
+			mf.setVisible(true);
+     		   
+     		   }});
+     		}}); 
+     
         add(Box.createRigidArea(new Dimension (0,25)));
         JButton Multiplayer = new JButton(new ImageIcon("res/Buttonimages/net.gif"));
         Multiplayer.setBorderPainted(false);
@@ -79,10 +72,10 @@ public class Spielstart extends JFrame implements ActionListener {
         
         add(Box.createRigidArea(new Dimension (0,25)));
         
-        JButton ladenButton = new JButton(new ImageIcon("res/Buttonimages/start.gif"));
+        JButton ladenButton = new JButton(new ImageIcon("res/Buttonimages/load.gif"));
         ladenButton.setBorderPainted(false);
         ladenButton.setContentAreaFilled(false);
-        add(ladenButton);
+        //add(ladenButton);
         ladenButton.setVisible(true);
         ladenButton.setAlignmentX(0.5f);
         ladenButton.addActionListener(new ActionListener(){
@@ -102,8 +95,6 @@ public class Spielstart extends JFrame implements ActionListener {
         close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				dispose();
-				Menu menu = new Menu();
-				menu.setVisible(true);
 			}
 		});
         add(Box.createRigidArea(new Dimension(0, 150)));

@@ -13,17 +13,20 @@ import javax.swing.JFrame;
 
 import controlling.InputController;
 
+import Menu.Charactereinstellungen;
+import Menu.Grafikeinstellungen;
+import Menu.Laden;
+import Menu.Sound;
+import Menu.Spielstart;
+import Menu.Statistik;
 import board.Board;
-import board.JukeBox;
-
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
-//import javax.swing.ImageIcon;
 //import javax.swing.JFrame;
-import javax.swing.JCheckBox;
+import javax.swing.ImageIcon;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -40,6 +43,11 @@ public class Mainframe extends JFrame{
 	public static boolean threeplayer=false;
 	public static boolean fourplayer=false;
 	public static boolean sound=true;
+	static String grasString = "Gras";
+	static String iceString = "Eis";
+	static String spaceString = "Weltraum";
+	static String alphaString = "Alpha";
+	static String desertString = "Wüste";
 	
 	
 	private static final long serialVersionUID = 1L;
@@ -50,39 +58,112 @@ public class Mainframe extends JFrame{
 		setSize((LevelReader.c*50)+15,(LevelReader.r*50)+60);
 		setLocationRelativeTo(null);
 		setTitle("Exploman");
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
+		setDefaultCloseOperation(EXIT_ON_CLOSE);		
 	}
 	public final void initUI() {
 		JMenuBar menubar = new JMenuBar();
 		JMenu menu = new JMenu("Menü");
-        menu.setMnemonic(KeyEvent.VK_ESCAPE);
+        menu.setMnemonic(KeyEvent.VK_M);
+        
+        JMenuItem main = new JMenuItem(new ImageIcon("res/Buttonimages/restart.gif"));
+        main.setBorderPainted(false);
+        main.setContentAreaFilled(false);
+        main.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e){
+        		Spielstart me = new Spielstart();
+        		me.setVisible(true);
+        	}
+        });
+        
+        JMenuItem save = new JMenuItem(new ImageIcon("res/Buttonimages/save.gif"));
+        save.setBorderPainted(false);
+        save.setContentAreaFilled(false);
+        save.setMnemonic(KeyEvent.VK_G);
+        save.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e){
+        		
+        	}
+        });
+        JMenuItem load = new JMenuItem(new ImageIcon("res/Buttonimages/load.gif"));
+        load.setBorderPainted(false);
+        load.setContentAreaFilled(false);
+        load.setMnemonic(KeyEvent.VK_G);
+        load.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e){
+        		Laden load = new Laden();
+        		load.setVisible(true);
+        	}
+        });
 
-        JMenu snd = new JMenu("Ton");
-        snd.setMnemonic(KeyEvent.VK_T);
-        JCheckBox toggle = new JCheckBox("Ton an/aus", true);
-        toggle.setFocusable(false);
-		toggle.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e){
-				JCheckBox source =(JCheckBox) e.getSource();
-				boolean state = source.isSelected();
-				if(state){
-					sound=true;
-				}else{
-					sound=false;
-				}}});
-        add(toggle);
+        JMenuItem ch = new JMenuItem(new ImageIcon("res/Buttonimages/char.gif"));
+        ch.setBorderPainted(false);
+        ch.setContentAreaFilled(false);
+        ch.setMnemonic(KeyEvent.VK_G);
+        ch.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e){
+        		Charactereinstellungen chr = new Charactereinstellungen();
+        		chr.setVisible(true);
+        	}
+        });
         
+        JMenuItem grafik = new JMenuItem(new ImageIcon("res/Buttonimages/grafik.gif"));
+        grafik.setBorderPainted(false);
+        grafik.setContentAreaFilled(false);
+        grafik.setMnemonic(KeyEvent.VK_G);
+        grafik.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e){
+        		Grafikeinstellungen gr = new Grafikeinstellungen();
+        		gr.setVisible(true);
+        	}
+        });
         
-        JMenuItem eMenuItem = new JMenuItem("Beenden");
+        JMenuItem ton = new JMenuItem(new ImageIcon("res/Buttonimages/ton.gif"));
+        ton.setBorderPainted(false);
+        ton.setContentAreaFilled(false);
+        ton.setMnemonic(KeyEvent.VK_G);
+        ton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e){
+        		Sound snd = new Sound();
+        		snd.setVisible(true);
+        	}
+        });
+        
+        JMenuItem editor = new JMenuItem(new ImageIcon("res/Buttonimages/editor.gif"));
+        editor.setBorderPainted(false);
+        editor.setContentAreaFilled(false);
+        editor.setMnemonic(KeyEvent.VK_G);
+        editor.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e){
+        		
+        	}
+        });
+        
+        JMenuItem stat = new JMenuItem(new ImageIcon("res/Buttonimages/stat.gif"));
+        stat.setBorderPainted(false);
+        stat.setContentAreaFilled(false);
+        stat.setMnemonic(KeyEvent.VK_G);
+        stat.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e){
+        		Statistik snd = new Statistik();
+        		snd.setVisible(true);
+        	}
+        });
+        
+        JMenuItem eMenuItem = new JMenuItem(new ImageIcon("res/Buttonimages/close.gif"));
         eMenuItem.setMnemonic(KeyEvent.VK_B);
         eMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 System.exit(0);
             }
         });
-        menu.add(snd);
-        snd.add(toggle);
+        menu.add(main);
+        menu.add(save);
+        menu.add(load);
+        menu.add(ch);
+        menu.add(grafik);
+        menu.add(ton);
+        menu.add(stat);
+        menu.add(editor);
         menu.add(eMenuItem);
         menubar.add(menu);
         setJMenuBar(menubar);
@@ -137,6 +218,7 @@ public class Mainframe extends JFrame{
 			Thread.sleep(45);
 			}
 		}
+	
 	public static void main (String[] args) throws InterruptedException, IOException, LineUnavailableException, UnsupportedAudioFileException{
 		initGame();
 	}

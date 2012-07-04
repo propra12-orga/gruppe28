@@ -2,6 +2,8 @@ package controlling;
 
 import main.Bombe;
 import main.Hero;
+import main.Mainframe;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Timer;
@@ -85,6 +87,7 @@ public class InputController extends Thread implements KeyListener
 		/**
 		 * Tastenbelegung für Spieler 2.
 		 */
+		if(Mainframe.twoplayer==true){
 		if (keys.contains(KeyEvent.VK_UP)) {
 			Controller.movementUp(1);
 		}
@@ -123,6 +126,7 @@ public class InputController extends Thread implements KeyListener
 			}
 		}
 	}
+		}
 		}
 	
 }

@@ -53,7 +53,7 @@ public class Grafikeinstellungen extends JFrame{
         gras.setBorderPainted(false);
 		gras.setContentAreaFilled(false);
         gras.setActionCommand(grasString);
-        gras.setSelected(true);
+        gras.setSelected(false);
         add(gras);
         
         //add(Box.createRigidArea(new Dimension (0,10)));
@@ -141,8 +141,6 @@ public class Grafikeinstellungen extends JFrame{
         close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				dispose();
-				Optionen opt = new Optionen();
-				opt.setVisible(true);
 			}
 		});
 	

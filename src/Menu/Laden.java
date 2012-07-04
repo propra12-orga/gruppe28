@@ -57,8 +57,6 @@ public class Laden extends JFrame implements ActionListener {
 		close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				dispose();
-				Spielstart start = new Spielstart();
-				start.setVisible(true);
 				}
 		});
 		add(Box.createRigidArea(new Dimension (0,150)));

@@ -44,8 +44,6 @@ public class Statistik extends JFrame implements ActionListener {
 		close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				dispose();
-				Extras ex = new Extras();
-				ex.setVisible(true);
 			}
 		});
 		close.setAlignmentX(0.5f);
