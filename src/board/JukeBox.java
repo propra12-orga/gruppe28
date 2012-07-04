@@ -35,7 +35,7 @@ public class JukeBox
 	}
 	public static void playGamemusic() throws LineUnavailableException, UnsupportedAudioFileException, IOException
 	{
-		File f = new File("./res/Sounds/duel.wav");
+		File f = new File("./res/Sounds/duel2.wav");
 		
 			AudioInputStream ais = AudioSystem.getAudioInputStream(f);
 			AudioFormat format = ais.getFormat();
