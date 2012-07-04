@@ -4,7 +4,7 @@ import java.util.Vector;
 
 public class Upgrades {
 	public static Vector<Upgrades> upgradeliste = new Vector<Upgrades>();
-	boolean rüstung = false;
+	boolean ruestung = false;
 	boolean reichweite = false;
 	boolean munition = false;
 	private int upgradex = 0;
@@ -28,8 +28,8 @@ public class Upgrades {
 	{
 		this.upgradey=upgradey;				
 	}	
-	public boolean getrüstung() {
-		return rüstung;
+	public boolean getruestung() {
+		return ruestung;
 	}
 	public boolean getreichweite() {
 		return reichweite;
@@ -37,8 +37,8 @@ public class Upgrades {
 	public boolean getmunition() {
 		return munition;
 	}
-	public void setrüstung(boolean rüstung) {
-		this.rüstung = rüstung;
+	public void setruestung(boolean ruestung) {
+		this.ruestung = ruestung;
 	}
 	public void setreichweite(boolean reichweite) {
 		this.reichweite = reichweite;
@@ -51,7 +51,7 @@ public class Upgrades {
 		double w=Math.random();
 		 if(w<0.25)
 		 {
-			 rüstung=true;							 
+			 ruestung=true;							 
 		 }
 		 if(w>0.25 &&w<0.5)
 		 {
@@ -65,7 +65,7 @@ public class Upgrades {
 		 {
 			 geschwindigkeit=true;
 		 }
-		System.out.println("Upgrade wurde gelegt "+upgradex+ " , "+ upgradey +" "+munition+" "+rüstung+" "+reichweite+" "+geschwindigkeit);
+		System.out.println("Upgrade wurde gelegt "+upgradex+ " , "+ upgradey +" "+munition+" "+ruestung+" "+reichweite+" "+geschwindigkeit);
 		while(gedropt==true)
 		{
 			for (int i=0; i<Hero.heroliste.size(); i++)
@@ -77,10 +77,10 @@ public class Upgrades {
 						Hero.heroliste.get(i).setammo();
 						System.out.println("muni aufgenommen");
 					}				
-					if(rüstung == true)
+					if(ruestung == true)
 					{
 						Hero.heroliste.get(i).setarmored(true);
-						System.out.println(" rüstung aufgenommen");
+						System.out.println(" rï¿½stung aufgenommen");
 					}
 					if(reichweite ==true)
 					{
