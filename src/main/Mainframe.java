@@ -23,6 +23,7 @@ import Menu.Statistik;
 import board.Board;
 import board.Editorboard;
 import board.GameSaver;
+import board.JukeBox;
 import board.Tileset;
 
 import java.awt.event.ActionEvent;
@@ -51,7 +52,7 @@ public class Mainframe extends JFrame{
 	static String iceString = "Eis";
 	static String spaceString = "Weltraum";
 	static String alphaString = "Alpha";
-	static String desertString = "Wüste";
+	static String desertString = "Wï¿½ste";
 	
 	
 	private static final long serialVersionUID = 1L;
@@ -66,7 +67,7 @@ public class Mainframe extends JFrame{
 	}
 	public final void initUI() {
 		JMenuBar menubar = new JMenuBar();
-		JMenu menu = new JMenu("Menü");
+		JMenu menu = new JMenu("Menï¿½");
         menu.setMnemonic(KeyEvent.VK_M);
         
         JMenuItem main = new JMenuItem(new ImageIcon("res/Buttonimages/restart.gif"));
@@ -217,7 +218,7 @@ public class Mainframe extends JFrame{
 		File test = new File("res/Maps/1.txt");
 		
 		if(sound==true){
-			//JukeBox.playGamemusic();
+			JukeBox.playGamemusic();
 		}
 		Hero bm1 = new Hero();
 		Hero.heroliste.add(bm1);

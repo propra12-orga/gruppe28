@@ -8,13 +8,15 @@ import java.net.Socket;
 import java.util.concurrent.locks.Lock;
 
 public class ClientThread extends Thread {
+	int playerCount;
 	Server server;
 	Socket client;
 	DataOutputStream os;
 	DataInputStream is;
 	Lock lock;
 	String inc;
-	public ClientThread(Server server, Socket client) {
+	public ClientThread(int pC, Server server, Socket client) {
+		this.playerCount=pC;
 		this.server=server;
 		this.client=client;
 		try {

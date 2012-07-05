@@ -25,7 +25,7 @@ public class Server extends Thread {
 		while(true) {			//Clients werden angenommen
 			try {
 				client=server.accept();
-				clientThreadslist.add(new ClientThread(this, server.accept()));
+				clientThreadslist.add(new ClientThread(playerCount, this, server.accept()));
 				playerCount++;
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

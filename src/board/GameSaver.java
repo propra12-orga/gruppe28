@@ -15,23 +15,23 @@ public class GameSaver {
 	public static int c=21;
 	
 	public static void saveGame() throws IOException {
-		int[][] level = new int[c][r];
 		int x=0;
 		int y=0;
 		File save = new File("save/save.txt");
 		FileWriter writer = new FileWriter(save);
-		writer.write((int)Board.map[y][x].getTileId());
-		for(y=0; y<c; y++){
-			for(x=0; x<r; x++){
+		for(y=0; y<r; y++){
+			for(x=0; x<c; x++){
+				writer.write(Board.map[x][y].getTileId());
 				writer.write(',');
-				writer.write((int)Board.map[y][x].getTileId());
-				
 			}
 			writer.write("\n");
 		}
 		writer.write(Hero.heroliste.get(0).getxPixelPosition());
+		writer.write(',');
 		writer.write(Hero.heroliste.get(0).getyPixelPosition());
+		writer.write(',');
 		writer.write(Hero.heroliste.get(1).getxPixelPosition());
+		writer.write(',');
 		writer.write(Hero.heroliste.get(1).getyPixelPosition());
 		writer.close();
 	}
