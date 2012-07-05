@@ -4,12 +4,19 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+
+import board.Board;
+import board.LevelReader;
+
+import Menu.Spielstart;
 
 import controlling.InputController;
 
@@ -41,6 +48,17 @@ public class EndGame extends JDialog {
             public void actionPerformed(ActionEvent event) {
             	InputController.keys.clear();
                 dispose();
+                Spielstart start = new Spielstart();
+                start.setVisible(true);
+                File test = new File("res/Maps/1.txt");
+                Board board = new Board();
+                board.setVisible(true);
+                try {
+					board.createLevel(LevelReader.readLevel(test));
+				} catch (IOException c) {
+					// TODO Auto-generated catch block
+					c.printStackTrace();
+				}
             }
         });
         
