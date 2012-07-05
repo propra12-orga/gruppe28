@@ -74,6 +74,19 @@ public class Mainframe extends JFrame{
         	public void actionPerformed(ActionEvent e){
         		Spielstart me = new Spielstart();
         		me.setVisible(true);
+        		File test = new File("res/Maps/1.txt");
+                Board board = new Board();
+                board.setVisible(true);
+                try {
+					board.createLevel(LevelReader.readLevel(test));
+				} catch (IOException c) {
+					// TODO Auto-generated catch block
+					c.printStackTrace();
+				}
+                Upgrades.upgradeliste.removeAllElements();
+                for(int i=0; i<(Hero.heroliste.size()); i++) {
+        			Mainframe.setStartPosition(i);
+        		}
         	}
         });
         
@@ -216,12 +229,6 @@ public class Mainframe extends JFrame{
 			Tileset.getHero(i);
 		}
 		LevelReader.ausgabe(LevelReader.readLevel(test));
-		if(twoplayer==true){
-			Charactereinstellungen2 chr2 = new Charactereinstellungen2();
-			chr2.setVisible(true);
-		}
-		Charactereinstellungen chr = new Charactereinstellungen();
-		chr.setVisible(true);
 		Spielstart start = new Spielstart();
 		start.setVisible(true);
 		while(true) {

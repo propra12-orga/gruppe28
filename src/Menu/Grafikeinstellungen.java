@@ -19,9 +19,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
+import main.Hero;
+import main.Mainframe;
+import main.Upgrades;
+
 import board.Board;
 import board.LevelReader;
 import board.Tile;
+import board.Tileset;
 
 public class Grafikeinstellungen extends JFrame{
 	
@@ -131,6 +136,10 @@ public class Grafikeinstellungen extends JFrame{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+                Upgrades.upgradeliste.removeAllElements();
+                for(int i=0; i<(Hero.heroliste.size()); i++) {
+        			Mainframe.setStartPosition(i);
+        		}
             }
         });
         ice.addActionListener(new ActionListener() {
@@ -145,6 +154,10 @@ public class Grafikeinstellungen extends JFrame{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+                Upgrades.upgradeliste.removeAllElements();
+                for(int i=0; i<(Hero.heroliste.size()); i++) {
+        			Mainframe.setStartPosition(i);
+        		}
             }
         });
         space.addActionListener(new ActionListener() {
@@ -159,6 +172,10 @@ public class Grafikeinstellungen extends JFrame{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+                Upgrades.upgradeliste.removeAllElements();
+                for(int i=0; i<(Hero.heroliste.size()); i++) {
+        			Mainframe.setStartPosition(i);
+        		}
             }
         });
         alpha.addActionListener(new ActionListener() {
@@ -173,6 +190,10 @@ public class Grafikeinstellungen extends JFrame{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+                Upgrades.upgradeliste.removeAllElements();
+                for(int i=0; i<(Hero.heroliste.size()); i++) {
+        			Mainframe.setStartPosition(i);
+        		}
             }
         });
         desert.addActionListener(new ActionListener() {
@@ -187,6 +208,10 @@ public class Grafikeinstellungen extends JFrame{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+                Upgrades.upgradeliste.removeAllElements();
+                for(int i=0; i<(Hero.heroliste.size()); i++) {
+        			Mainframe.setStartPosition(i);
+        		}
             }
         });
         close.addActionListener(new ActionListener() {

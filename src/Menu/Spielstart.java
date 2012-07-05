@@ -49,7 +49,9 @@ public class Spielstart extends JFrame implements ActionListener {
         Singleplayer.addActionListener(new ActionListener() {
      	   public void actionPerformed(ActionEvent event){
      		   dispose();
-     		   Mainframe.twoplayer=false;     		   
+     		   Mainframe.twoplayer=false;
+     		  Charactereinstellungen chr = new Charactereinstellungen();
+				chr.setVisible(true);
      		}}); 
         
         add(Box.createRigidArea(new Dimension (0,25)));
@@ -61,7 +63,9 @@ public class Spielstart extends JFrame implements ActionListener {
         Singleplayer2.addActionListener(new ActionListener() {
      	   public void actionPerformed(ActionEvent event){
      		   dispose();
-     		   Mainframe.twoplayer=true;     		   
+     		   Mainframe.twoplayer=true;
+     		  Charactereinstellungen chr = new Charactereinstellungen();
+				chr.setVisible(true);
      		}}); 
      
         add(Box.createRigidArea(new Dimension (0,25)));
@@ -93,14 +97,16 @@ public class Spielstart extends JFrame implements ActionListener {
         });
         
         add(Box.createRigidArea(new Dimension(0, 50)));
-        JButton close = new JButton(new ImageIcon("res/Buttonimages/zuruck.gif"));
+        JButton close = new JButton(new ImageIcon("res/Buttonimages/next.gif"));
 		close.setBorderPainted(false);
 		close.setContentAreaFilled(false);
-        add(close);
+        //add(close);
         close.setAlignmentX(0.5f);
         close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				dispose();
+				Charactereinstellungen chr = new Charactereinstellungen();
+				chr.setVisible(true);
 			}
 		});
         add(Box.createRigidArea(new Dimension(0, 150)));

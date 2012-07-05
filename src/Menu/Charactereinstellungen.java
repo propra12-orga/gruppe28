@@ -96,8 +96,24 @@ public class Charactereinstellungen extends JFrame implements
         add(combobox);
 
         add(Box.createRigidArea(new Dimension(0, 50)));
+        
+        JButton change = new JButton(new ImageIcon("res/Buttonimages/change.gif"));
+        change.setBorderPainted(false);
+        change.setContentAreaFilled(false);
+		change.setVisible(true);
+		change.setAlignmentX(0.5f);
+		change.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				dispose();
+				Charactereinstellungen2 chr2 = new Charactereinstellungen2();
+				chr2.setVisible(true);
+			}
+		});
+        add(change);
+        
+        add(Box.createRigidArea(new Dimension(0, 25)));
 
-        JButton close = new JButton(new ImageIcon("res/Buttonimages/zuruck.gif"));
+        JButton close = new JButton(new ImageIcon("res/Buttonimages/next.gif"));
 		close.setBorderPainted(false);
 		close.setContentAreaFilled(false);
 	    close.setVisible(true);
