@@ -21,6 +21,8 @@ import Menu.Sound;
 import Menu.Spielstart;
 import Menu.Statistik;
 import board.Board;
+import board.Editorboard;
+import board.GameSaver;
 import board.Tileset;
 
 import java.awt.event.ActionEvent;
@@ -96,7 +98,12 @@ public class Mainframe extends JFrame{
         save.setMnemonic(KeyEvent.VK_G);
         save.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e){
-        		
+        		try {
+					GameSaver.saveGame();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
         	}
         });
         JMenuItem load = new JMenuItem(new ImageIcon("res/Buttonimages/load.gif"));
@@ -105,8 +112,15 @@ public class Mainframe extends JFrame{
         load.setMnemonic(KeyEvent.VK_G);
         load.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e){
-        		Laden load = new Laden();
-        		load.setVisible(true);
+        		try {
+					GameSaver.loadGame();
+				} catch (NumberFormatException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
         	}
         });
 
@@ -149,6 +163,15 @@ public class Mainframe extends JFrame{
         editor.setMnemonic(KeyEvent.VK_G);
         editor.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e){
+        		Editorboard board = new Editorboard();
+        		File test = new File("res/Maps/kartenedit.txt");
+        		try {
+					board.createLevel(LevelReader.readLevel(test));
+					LevelReader.ausgabe(LevelReader.readLevel(test));
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
         		
         	}
         });

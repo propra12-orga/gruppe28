@@ -18,13 +18,13 @@ public class GameSaver {
 		int[][] level = new int[c][r];
 		int x=0;
 		int y=0;
-		File save = new File("/save/save.txt");
+		File save = new File("save/save.txt");
 		FileWriter writer = new FileWriter(save);
+		writer.write((int)Board.map[y][x].getTileId());
 		for(y=0; y<c; y++){
-			writer.write(level[x][y]);
 			for(x=0; x<r; x++){
 				writer.write(',');
-				writer.write(level[x][y]);
+				writer.write((int)Board.map[y][x].getTileId());
 				
 			}
 			writer.write("\n");
@@ -36,7 +36,7 @@ public class GameSaver {
 		writer.close();
 	}
 	public static void loadGame() throws NumberFormatException, IOException {
-		File save = new File("/save/save.txt");
+		File save = new File("save/save.txt");
 		BufferedReader in = new BufferedReader(new FileReader(save));
 		String line;
 		Pattern p = Pattern.compile("(\\d)");
