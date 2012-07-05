@@ -1,10 +1,14 @@
 package board;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Writer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import main.Hero;
 
 public class GameSaver {
 	public static int r=13;
@@ -12,14 +16,10 @@ public class GameSaver {
 	
 	public static void saveGame() throws IOException {
 		int[][] level = new int[c][r];
-		String line;
-		Pattern p = Pattern.compile("(\\d)");
-		Matcher m; 
 		int x=0;
 		int y=0;
 		File save = new File("/save/save.txt");
-		Writer writer;
-		//writer = new Writer(save);
+		FileWriter writer = new FileWriter(save);
 		for(y=0; y<c; y++){
 			writer.write(level[x][y]);
 			for(x=0; x<r; x++){
@@ -29,5 +29,32 @@ public class GameSaver {
 			}
 			writer.write("\n");
 		}
+		writer.write(Hero.heroliste.get(0).getxPixelPosition());
+		writer.write(Hero.heroliste.get(0).getyPixelPosition());
+		writer.write(Hero.heroliste.get(1).getxPixelPosition());
+		writer.write(Hero.heroliste.get(1).getyPixelPosition());
+		writer.close();
+	}
+	public static void loadGame() throws NumberFormatException, IOException {
+		File save = new File("/save/save.txt");
+		BufferedReader in = new BufferedReader(new FileReader(save));
+		String line;
+		Pattern p = Pattern.compile("(\\d)");
+		Matcher m; 
+			for(int y=0;(line = in.readLine()) != null; y++){
+				m = p.matcher(line);
+				for(int x=0; m.find(); x++){
+					Board.map[x][y].setTileId(Integer.parseInt(m.group()));
+					
+				}
+			}
+			line = in.readLine();
+			m = p.matcher(line);
+			for(int i=0; i<4; i++) {
+				Hero.heroliste.get(0).setxPixelPosition(Integer.parseInt(m.group()));
+				Hero.heroliste.get(0).setyPixelPosition(Integer.parseInt(m.group()));
+				Hero.heroliste.get(1).setxPixelPosition(Integer.parseInt(m.group()));
+				Hero.heroliste.get(1).setyPixelPosition(Integer.parseInt(m.group()));
+			}
 	}
 }
