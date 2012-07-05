@@ -104,7 +104,7 @@ public class Grafikeinstellungen extends JFrame{
         add(desert);
         
         //add(Box.createRigidArea(new Dimension (0,25)));
-		JButton close = new JButton(new ImageIcon("res/Buttonimages/zuruck.gif"));
+		JButton close = new JButton(new ImageIcon("res/Buttonimages/next.gif"));
 		close.setBorderPainted(false);
 		close.setContentAreaFilled(false);
 	    close.setVisible(true);

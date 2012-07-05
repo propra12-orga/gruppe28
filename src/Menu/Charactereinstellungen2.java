@@ -121,7 +121,8 @@ public class Charactereinstellungen2 extends JFrame implements
         close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				dispose();
-
+				Grafikeinstellungen gr = new Grafikeinstellungen();
+				gr.setVisible(true);
 			}
 		});
         add(close);
