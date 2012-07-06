@@ -24,6 +24,7 @@ import main.Mainframe;
 import main.Upgrades;
 
 import board.Board;
+import board.GameSaver;
 import board.LevelReader;
 import board.Tile;
 import board.Tileset;
@@ -127,52 +128,61 @@ public class Grafikeinstellungen extends JFrame{
         gras.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 Tile.tileset=0;
-                Mainframe.beard.createLevel(LevelReader.level);
-                Upgrades.upgradeliste.removeAllElements();
-                for(int i=0; i<(Hero.heroliste.size()); i++) {
-        			Mainframe.setStartPosition(i);
-        		}
+                try {
+					GameSaver.saveGame(new File("save/save.txt"));
+					GameSaver.loadGame(new File("save/save.txt"));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+                Mainframe.beard.createLevel(GameSaver.loadlevel);
             }
         });
         ice.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 Tile.tileset=1;
-                Mainframe.beard.createLevel(LevelReader.level);
-                Upgrades.upgradeliste.removeAllElements();
-                for(int i=0; i<(Hero.heroliste.size()); i++) {
-        			Mainframe.setStartPosition(i);
-        		}
+                try {
+					GameSaver.saveGame(new File("save/save.txt"));
+					GameSaver.loadGame(new File("save/save.txt"));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+                Mainframe.beard.createLevel(GameSaver.loadlevel);
             }
         });
         space.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 Tile.tileset=2;
-                Mainframe.beard.createLevel(LevelReader.level);
-                Upgrades.upgradeliste.removeAllElements();
-                for(int i=0; i<(Hero.heroliste.size()); i++) {
-        			Mainframe.setStartPosition(i);
-        		}
+                try {
+					GameSaver.saveGame(new File("save/save.txt"));
+					GameSaver.loadGame(new File("save/save.txt"));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+                Mainframe.beard.createLevel(GameSaver.loadlevel);
             }
         });
         alpha.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 Tile.tileset=3;
-                Mainframe.beard.createLevel(LevelReader.level);
-                Upgrades.upgradeliste.removeAllElements();
-                for(int i=0; i<(Hero.heroliste.size()); i++) {
-        			Mainframe.setStartPosition(i);
-        		}
+                try {
+					GameSaver.saveGame(new File("save/save.txt"));
+					GameSaver.loadGame(new File("save/save.txt"));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+                Mainframe.beard.createLevel(GameSaver.loadlevel);
             }
         });
         desert.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 Tile.tileset=4;
-					Mainframe.beard.createLevel(LevelReader.level);
-				
-                Upgrades.upgradeliste.removeAllElements();
-                for(int i=0; i<(Hero.heroliste.size()); i++) {
-        			Mainframe.setStartPosition(i);
-        		}
+                try {
+					GameSaver.saveGame(new File("save/save.txt"));
+					GameSaver.loadGame(new File("save/save.txt"));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+                Mainframe.beard.createLevel(GameSaver.loadlevel);
             }
         });
         close.addActionListener(new ActionListener() {

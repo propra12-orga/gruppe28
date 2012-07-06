@@ -32,6 +32,7 @@ import java.awt.event.KeyEvent;
 
 //import javax.swing.JFrame;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -88,18 +89,24 @@ public class Mainframe extends JFrame{
         	}
         });
         
-        JMenuItem save = new JMenuItem(new ImageIcon("res/Buttonimages/save.gif"));
-        save.setBorderPainted(false);
-        save.setContentAreaFilled(false);
-        save.setMnemonic(KeyEvent.VK_G);
-        save.addActionListener(new ActionListener() {
+        JMenuItem sve = new JMenuItem(new ImageIcon("res/Buttonimages/save.gif"));
+        sve.setBorderPainted(false);
+        sve.setContentAreaFilled(false);
+        sve.setMnemonic(KeyEvent.VK_G);
+        sve.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e){
-        		try {
-					GameSaver.saveGame();
+        		JFileChooser chooser = new JFileChooser();
+        		int re = chooser.showSaveDialog(null);       		
+        		if(re == JFileChooser.APPROVE_OPTION){
+        			try {
+					GameSaver.saveGame(chooser.getSelectedFile().getCanonicalFile());
+				} catch (NumberFormatException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
-				}
+				}}
         	}
         });
         JMenuItem load = new JMenuItem(new ImageIcon("res/Buttonimages/load.gif"));
@@ -108,8 +115,11 @@ public class Mainframe extends JFrame{
         load.setMnemonic(KeyEvent.VK_G);
         load.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e){
-        		try {
-					GameSaver.loadGame();
+        		JFileChooser chooser = new JFileChooser();
+        		int re = chooser.showOpenDialog(null);
+        		if(re == JFileChooser.APPROVE_OPTION){
+        			try {
+					GameSaver.loadGame(chooser.getSelectedFile().getCanonicalFile());
 				} catch (NumberFormatException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -117,7 +127,10 @@ public class Mainframe extends JFrame{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+        		Bombe.bombenliste.clear();
+        		Upgrades.upgradeliste.clear();
         		beard.createLevel(GameSaver.loadlevel);
+        		}
         	}
         });
 
@@ -192,7 +205,7 @@ public class Mainframe extends JFrame{
             }
         });
         menu.add(main);
-        menu.add(save);
+        menu.add(sve);
         menu.add(load);
         menu.add(ch);
         menu.add(grafik);
@@ -239,7 +252,6 @@ public class Mainframe extends JFrame{
 		
 		InputController ic = new controlling.InputController();
 		ic.start();
-		
 		beard.createLevel(LevelReader.readLevel(test));
 		mf.add(beard);
 		mf.addKeyListener(ic);
@@ -248,7 +260,7 @@ public class Mainframe extends JFrame{
 			setStartPosition(i);
 			Tileset.getHero(i);
 		}
-		LevelReader.ausgabe(LevelReader.readLevel(test));
+		LevelReader.ausgabe(LevelReader.level);
 		Spielstart start = new Spielstart();
 		start.setVisible(true);
 		while(true) {

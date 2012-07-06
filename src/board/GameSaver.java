@@ -18,11 +18,11 @@ public class GameSaver {
 	private static int co=21;
 	public static int loadlevel[][] = new int[co][ro];
 	
-	public static void saveGame() throws IOException {
+	public static void saveGame(File file) throws IOException {
 		int x=0;
 		int y=0;
-		File save = new File("save/save.txt");
-		FileWriter writer = new FileWriter(save);
+		//File save = new File("save/save.txt");
+		FileWriter writer = new FileWriter(file);
 		for(y=0; y<(ro-1); y++){
 			for(x=0; x<co; x++){
 				writer.write(""+Board.map[x][y].getTileId());
@@ -40,9 +40,9 @@ public class GameSaver {
 		writer.flush();
 		writer.close();
 	}
-	public static int[][] loadGame() throws NumberFormatException, IOException {
-		File save = new File("save/save.txt");
-		BufferedReader in = new BufferedReader(new FileReader(save));
+	public static int[][] loadGame(File file) throws NumberFormatException, IOException {
+		//File save = new File("save/save.txt");
+		BufferedReader in = new BufferedReader(new FileReader(file));
 		String line;
 		Pattern p = Pattern.compile("(\\d+)");
 		Matcher m; 
