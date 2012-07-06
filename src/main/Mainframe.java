@@ -11,19 +11,17 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JFrame;
 
+import controlling.EditorInputController;
 import controlling.InputController;
 
 import Menu.Charactereinstellungen;
-import Menu.Charactereinstellungen2;
 import Menu.Grafikeinstellungen;
-import Menu.Laden;
 import Menu.Sound;
 import Menu.Spielstart;
 import Menu.Statistik;
 import board.Board;
 import board.Editorboard;
 import board.GameSaver;
-import board.JukeBox;
 import board.Tileset;
 
 import java.awt.event.ActionEvent;
@@ -57,6 +55,8 @@ public class Mainframe extends JFrame{
 	public static Board beard = new Board();
 	public static Mainframe mf = new Mainframe();
 	public static File test = new File("res/Maps/1.txt");
+	public static Editorboard board1 = new Editorboard();
+	public static boolean mapeditor =false;
 	
 	
 	private static final long serialVersionUID = 1L;
@@ -96,7 +96,25 @@ public class Mainframe extends JFrame{
         sve.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e){
         		JFileChooser chooser = new JFileChooser();
-        		int re = chooser.showSaveDialog(null);       		
+        		if(mapeditor==false){
+        			try {
+        				File f = new File(new File("save").getCanonicalPath());
+        				chooser.setCurrentDirectory(f);
+        			} catch (IOException e2) {
+        				e2.printStackTrace();
+        			}
+        		}
+        			if(mapeditor==true){
+            			try {
+            				File f = new File(new File("res/Maps").getCanonicalPath());
+            				chooser.setCurrentDirectory(f);
+            			} catch (IOException e2) {
+            				e2.printStackTrace();
+            			}
+        			}
+        		int re = chooser.showSaveDialog(null); 
+				
+
         		if(re == JFileChooser.APPROVE_OPTION){
         			try {
 					GameSaver.saveGame(chooser.getSelectedFile().getCanonicalFile());
@@ -116,6 +134,22 @@ public class Mainframe extends JFrame{
         load.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e){
         		JFileChooser chooser = new JFileChooser();
+        		if(mapeditor==false){
+        			try {
+        				File f = new File(new File("save").getCanonicalPath());
+        				chooser.setCurrentDirectory(f);
+        			} catch (IOException e2) {
+        				e2.printStackTrace();
+        			}
+        		}
+        			if(mapeditor==true){
+            			try {
+            				File f = new File(new File("res/Maps").getCanonicalPath());
+            				chooser.setCurrentDirectory(f);
+            			} catch (IOException e2) {
+            				e2.printStackTrace();
+            			}
+        			}
         		int re = chooser.showOpenDialog(null);
         		if(re == JFileChooser.APPROVE_OPTION){
         			try {
@@ -129,7 +163,12 @@ public class Mainframe extends JFrame{
 				}
         		Bombe.bombenliste.clear();
         		Upgrades.upgradeliste.clear();
-        		beard.createLevel(GameSaver.loadlevel);
+        		if(mapeditor==false){
+        			beard.createLevel(GameSaver.loadlevel);
+        		}
+        		if(mapeditor==true){
+        			board1.createLevel(GameSaver.loadlevel);
+        		}
         		}
         	}
         });
@@ -173,15 +212,36 @@ public class Mainframe extends JFrame{
         editor.setMnemonic(KeyEvent.VK_G);
         editor.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e){
-        		Editorboard board = new Editorboard();
+        		beard.setVisible(false);
+        		mapeditor=true;
+        		//Editorboard board = new Editorboard();
         		File test = new File("res/Maps/kartenedit.txt");
+        		EditorInputController ic = new controlling.EditorInputController();
+        		ic.start();
         		try {
-					board.createLevel(LevelReader.readLevel(test));
+					board1.createLevel(LevelReader.readLevel(test));
 					LevelReader.ausgabe(LevelReader.readLevel(test));
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+        		mf.addKeyListener(ic);
+        		mf.add(board1);
+        		try {
+					Karteneditor.initGame();
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (LineUnavailableException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (UnsupportedAudioFileException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}    
         		
         	}
         });
@@ -264,7 +324,12 @@ public class Mainframe extends JFrame{
 		Spielstart start = new Spielstart();
 		start.setVisible(true);
 		while(true) {
-			beard.repaint();
+			if(mapeditor==false){
+				beard.repaint();
+			}
+			if(mapeditor==true){
+				board1.repaint();
+			}
 			Thread.sleep(45);
 			}
 		}

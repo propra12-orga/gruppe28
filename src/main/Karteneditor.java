@@ -1,6 +1,5 @@
 package main;
 
-import java.io.File;
 //import java.io.FileWriter;
 //import java.io.Writer;
 
@@ -11,8 +10,6 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JFrame;
 
-import controlling.EditorInputController;
-import board.Editorboard;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -74,27 +71,27 @@ public class Karteneditor extends JFrame{
 		board.Tileset.initBombset();
 		board.Tileset.initHeroset();
 		board.Tileset.initUpgradeset();
-		Karteneditor mf = new Karteneditor();
-		Editorboard board = new Editorboard();
-		File test = new File("res/Maps/kartenedit.txt");
+		//Karteneditor mf = new Karteneditor();
+		//Editorboard board = new Editorboard();
+		//File test = new File("res/Maps/kartenedit.txt");
 		EditorHero bm1 = new EditorHero();
 		EditorHero.heroliste.add(bm1);		
-		EditorInputController ic = new controlling.EditorInputController();
-		ic.start();
+		//EditorInputController ic = new controlling.EditorInputController();
+		//ic.start();
 		
-		board.createLevel(LevelReader.readLevel(test));
-		mf.add(board);
-		mf.addKeyListener(ic);
-		mf.setVisible(true);
+		//board.createLevel(LevelReader.readLevel(test));
+		//mf.add(board);
+		//mf.addKeyListener(ic);
+		//mf.setVisible(true);
 		for(int i=0; i<(EditorHero.heroliste.size()); i++) {
 			setStartPosition(i);
 		}
-		LevelReader.ausgabe(LevelReader.readLevel(test));
+		//LevelReader.ausgabe(LevelReader.readLevel(test));
 		
-		while(true) {
-			board.repaint();
+		/*while(true) {
+			Mainframe.board1.repaint();
 			Thread.sleep(45);
-			}
+			}*/
 		}
 	public static void main (String[] args) throws InterruptedException, IOException, LineUnavailableException, UnsupportedAudioFileException{
 		initGame();

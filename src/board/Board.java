@@ -10,7 +10,6 @@ import java.awt.*;
 
 import javax.swing.JPanel;
 
-import Menu.Charactereinstellungen;
 
 public class Board extends JPanel {
 	/**

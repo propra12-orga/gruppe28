@@ -1,8 +1,6 @@
 package Menu;
 
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -19,15 +17,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
-import main.Hero;
 import main.Mainframe;
-import main.Upgrades;
 
-import board.Board;
 import board.GameSaver;
-import board.LevelReader;
 import board.Tile;
-import board.Tileset;
 
 public class Grafikeinstellungen extends JFrame{
 	

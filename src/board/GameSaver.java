@@ -1,12 +1,10 @@
 package board;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Writer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -23,22 +21,44 @@ public class GameSaver {
 		int y=0;
 		//File save = new File("save/save.txt");
 		FileWriter writer = new FileWriter(file);
-		for(y=0; y<(ro-1); y++){
-			for(x=0; x<co; x++){
-				writer.write(""+Board.map[x][y].getTileId());
-				writer.write(',');
+		if(Mainframe.mapeditor==false){
+			for(y=0; y<(ro-1); y++){
+				for(x=0; x<co; x++){
+					writer.write(""+Board.map[x][y].getTileId());
+					writer.write(',');
+				}
+				writer.write("\n");
 			}
-			writer.write("\n");
-		}
-		writer.write(""+(Hero.heroliste.get(0).getxPixelPosition()+10000));
-		writer.write(',');
-		writer.write(""+(Hero.heroliste.get(0).getyPixelPosition()+20000));
-		writer.write(',');
-		writer.write(""+(Hero.heroliste.get(1).getxPixelPosition()+30000));
-		writer.write(',');
-		writer.write(""+(Hero.heroliste.get(1).getyPixelPosition()+40000));
-		writer.flush();
-		writer.close();
+			writer.write(""+(Hero.heroliste.get(0).getxPixelPosition()+10000));
+			writer.write(',');
+			writer.write(""+(Hero.heroliste.get(0).getyPixelPosition()+20000));
+			writer.write(',');
+			writer.write(""+(Hero.heroliste.get(1).getxPixelPosition()+30000));
+			writer.write(',');
+			writer.write(""+(Hero.heroliste.get(1).getyPixelPosition()+40000));
+			writer.flush();
+			writer.close();
+			}
+		if(Mainframe.mapeditor==true){
+			for(y=0; y<(ro-1); y++){
+				for(x=0; x<co; x++){
+					writer.write(""+Editorboard.map[x][y].getTileId());
+					writer.write(',');
+				}
+				writer.write("\n");
+			}
+			Mainframe.setStartPosition(0);
+			Mainframe.setStartPosition(1);
+			writer.write(""+(Hero.heroliste.get(0).getxPixelPosition()+10000));
+			writer.write(',');
+			writer.write(""+(Hero.heroliste.get(0).getyPixelPosition()+20000));
+			writer.write(',');
+			writer.write(""+(Hero.heroliste.get(1).getxPixelPosition()+30000));
+			writer.write(',');
+			writer.write(""+(Hero.heroliste.get(1).getyPixelPosition()+40000));
+			writer.flush();
+			writer.close();
+			}
 	}
 	public static int[][] loadGame(File file) throws NumberFormatException, IOException {
 		//File save = new File("save/save.txt");
@@ -68,6 +88,6 @@ public class GameSaver {
 			}
 			//line = in.readLine();
 			//m = p.matcher(line);
-			return LevelReader.level;
+			return loadlevel;
 	}
 }
