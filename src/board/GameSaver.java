@@ -44,7 +44,7 @@ public class GameSaver {
 		File save = new File("save/save.txt");
 		BufferedReader in = new BufferedReader(new FileReader(save));
 		String line;
-		Pattern p = Pattern.compile("(\\d)");
+		Pattern p = Pattern.compile("(\\d+)");
 		Matcher m; 
 			for(int y=0;(line = in.readLine()) != null; y++){
 				m = p.matcher(line);
