@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 
 import board.Board;
 import board.JukeBox;
+import board.LevelReader;
 
 import main.Bombe;
 import main.EditorHero;
@@ -36,7 +37,7 @@ public class Controller extends JFrame {
 	private static final long serialVersionUID = 1L;
 	public static void movementEditorRight(int i) {
 		//int i=0;
-		if(EditorHero.heroliste.get(0).getxCoord()!=20)
+		if(EditorHero.heroliste.get(0).getxCoord()!=LevelReader.c-1)
 		{
 		EditorHero.heroliste.get(i).setxPixelPosition(EditorHero.heroliste.get(i).getxPixelPosition()+50);
 		EditorHero.heroliste.get(i).setxCoord();
@@ -240,7 +241,7 @@ public class Controller extends JFrame {
 	 */
 	public static void movementEditorDown(int i) {
 		//int i=0;
-		if(EditorHero.heroliste.get(0).getyCoord()!=12)
+		if(EditorHero.heroliste.get(0).getyCoord()!= LevelReader.r-1)
 		{
 		EditorHero.heroliste.get(i).setyPixelPosition(EditorHero.heroliste.get(i).getyPixelPosition()+50);
 		EditorHero.heroliste.get(i).setyCoord();

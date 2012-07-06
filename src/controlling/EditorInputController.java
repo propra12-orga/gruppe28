@@ -21,6 +21,7 @@ public class EditorInputController extends Thread implements KeyListener
 	{
 	public static Vector<Integer> keys = new Vector<Integer>();
 	public static boolean moveUp = false;
+	public static int auswahl=1; 
 	public void keyPressed(KeyEvent e) {
 		if (!keys.contains(e.getKeyCode()))
 			keys.add(e.getKeyCode());		
@@ -80,19 +81,21 @@ public class EditorInputController extends Thread implements KeyListener
 				
 			}
 		}
+		if (keys.contains(KeyEvent.VK_1)) {
+			auswahl=1;
+		}
+		else if (keys.contains(KeyEvent.VK_2)) {
+			auswahl=2;
+		}
+		else if (keys.contains(KeyEvent.VK_3)) {
+			auswahl=4;
+		}
+
 		if (keys.contains(KeyEvent.VK_SPACE)) {
-			Editorboard.map[EditorHero.heroliste.get(0).getxCoord()][EditorHero.heroliste.get(0).getyCoord()].setTileId(2);
-			Editorboard.map[EditorHero.heroliste.get(0).getxCoord()][EditorHero.heroliste.get(0).getyCoord()].setImg(Tileset.getTile(1, Tile.getTileset()));
+			Editorboard.map[EditorHero.heroliste.get(0).getxCoord()][EditorHero.heroliste.get(0).getyCoord()].setTileId(auswahl);
+			Editorboard.map[EditorHero.heroliste.get(0).getxCoord()][EditorHero.heroliste.get(0).getyCoord()].setImg(Tileset.getTile(auswahl-1, Tile.getTileset()));
 		}
-		else if (keys.contains(KeyEvent.VK_CONTROL)) {
-			Editorboard.map[EditorHero.heroliste.get(0).getxCoord()][EditorHero.heroliste.get(0).getyCoord()].setTileId(1);
-			Editorboard.map[EditorHero.heroliste.get(0).getxCoord()][EditorHero.heroliste.get(0).getyCoord()].setImg(Tileset.getTile(0, Tile.getTileset()));
 		}
-		else if (keys.contains(KeyEvent.VK_ALT)) {
-			Editorboard.map[EditorHero.heroliste.get(0).getxCoord()][EditorHero.heroliste.get(0).getyCoord()].setTileId(4);
-			Editorboard.map[EditorHero.heroliste.get(0).getxCoord()][EditorHero.heroliste.get(0).getyCoord()].setImg(Tileset.getTile(3, Tile.getTileset()));
-		}
-	}
 	}
 	
 }

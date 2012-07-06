@@ -1,16 +1,12 @@
 package board;
-import main.Bombe;
-import main.EditorHero;
-import main.Hero;
-import main.Karteneditor;
-import main.Mainframe;
-import main.Upgrades;
 
+import main.EditorHero;
 import java.awt.*;
-import java.awt.geom.Rectangle2D;
 //import java.util.ListIterator;
 
 import javax.swing.JPanel;
+
+import controlling.EditorInputController;
 
 public class Editorboard extends JPanel {
 	/**
@@ -19,30 +15,6 @@ public class Editorboard extends JPanel {
 	 */
 
 
-	
-	private static int destructableCounter=0;
-	private static boolean hasExit=false;
-	static int gelegtebomben =0;
-	
-	public static void setHasExit(boolean b) {
-		hasExit=b;
-	}
-	public static boolean getHasExit() {
-		return hasExit;
-	}
-	public static void incDestructableCounter() {
-		destructableCounter++;
-	}
-	public static void decDestructableCounter() {
-		destructableCounter--;
-	}
-	public static int getDestructableCounter() {
-		return destructableCounter;
-	}
-	private void clearDestructableCounter() {
-		destructableCounter=0;
-	}
-	
 	private static final long serialVersionUID = 1L;
 	
 	
@@ -72,22 +44,15 @@ public class Editorboard extends JPanel {
 			}
 		}
 		
-
-		g2d.draw(new Rectangle2D.Double(EditorHero.heroliste.get(0).getxPixelPosition(), EditorHero.heroliste.get(0).getyPixelPosition(), 50, 50));
-			
+		g2d.drawImage(Tileset.getTile(EditorInputController.auswahl-1, 0), EditorHero.heroliste.get(0).getxPixelPosition()-1, EditorHero.heroliste.get(0).getyPixelPosition()-1, null);
+		g2d.drawRect(EditorHero.heroliste.get(0).getxPixelPosition()-1, EditorHero.heroliste.get(0).getyPixelPosition()-1, 50, 50);
+		
 	}
 	public void createLevel(int[][] level) {
 		
-		clearDestructableCounter();
-		for (int j=0; j<LevelReader.r; j++) {
+				for (int j=0; j<LevelReader.r; j++) {
 			for (int i=0; i<LevelReader.c; i++) {
 				map[i][j]= new Tile(level[i][j]);
-				if (level[i][j] == 4) {
-					Board.incDestructableCounter();
-				}
-				if (level[i][j] == 3) {
-					setHasExit(true);
-				}
 			}
 		}
 	}
