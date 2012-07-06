@@ -23,18 +23,18 @@ public class GameSaver {
 		FileWriter writer = new FileWriter(save);
 		for(y=0; y<r; y++){
 			for(x=0; x<c; x++){
-				writer.write(Board.map[x][y].getTileId());
+				writer.write(""+Board.map[x][y].getTileId());
 				writer.write(',');
 			}
 			writer.write("\n");
 		}
-		writer.write(Hero.heroliste.get(0).getxPixelPosition());
+		writer.write(""+Hero.heroliste.get(0).getxPixelPosition());
 		writer.write(',');
-		writer.write(Hero.heroliste.get(0).getyPixelPosition());
+		writer.write(""+Hero.heroliste.get(0).getyPixelPosition());
 		writer.write(',');
-		writer.write(Hero.heroliste.get(1).getxPixelPosition());
+		writer.write(""+Hero.heroliste.get(1).getxPixelPosition());
 		writer.write(',');
-		writer.write(Hero.heroliste.get(1).getyPixelPosition());
+		writer.write(""+Hero.heroliste.get(1).getyPixelPosition());
 		writer.flush();
 		writer.close();
 	}

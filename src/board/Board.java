@@ -49,7 +49,7 @@ public class Board extends JPanel {
 	
 	public static Tile[][] map;
 	public Board() {
-		map = new Tile[21][13];
+		map = new Tile[LevelReader.c][LevelReader.r];
 		for (int row=0; row <LevelReader.r; row++) {
 			for (int col=0; col <LevelReader.c; col++) {
 				map[col][row]=new Tile(1);

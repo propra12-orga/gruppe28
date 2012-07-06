@@ -127,11 +127,8 @@ public class Grafikeinstellungen extends JFrame{
         gras.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 Tile.tileset=0;
-                File test = new File("res/Maps/1.txt");
-                Board board = new Board();
-                board.setVisible(true);
                 try {
-					board.createLevel(LevelReader.readLevel(test));
+                	Mainframe.beard.createLevel(LevelReader.readLevel(Mainframe.test));
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -145,11 +142,8 @@ public class Grafikeinstellungen extends JFrame{
         ice.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 Tile.tileset=1;
-                File test = new File("res/Maps/1.txt");
-                Board board = new Board();
-                board.setVisible(true);
                 try {
-					board.createLevel(LevelReader.readLevel(test));
+                	Mainframe.beard.createLevel(LevelReader.readLevel(Mainframe.test));
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -163,11 +157,8 @@ public class Grafikeinstellungen extends JFrame{
         space.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 Tile.tileset=2;
-                File test = new File("res/Maps/1.txt");
-                Board board = new Board();
-                board.setVisible(true);
                 try {
-					board.createLevel(LevelReader.readLevel(test));
+                	Mainframe.beard.createLevel(LevelReader.readLevel(Mainframe.test));
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -181,11 +172,8 @@ public class Grafikeinstellungen extends JFrame{
         alpha.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 Tile.tileset=3;
-                File test = new File("res/Maps/1.txt");
-                Board board = new Board();
-                board.setVisible(true);
                 try {
-					board.createLevel(LevelReader.readLevel(test));
+                	Mainframe.beard.createLevel(LevelReader.readLevel(Mainframe.test));
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -199,15 +187,13 @@ public class Grafikeinstellungen extends JFrame{
         desert.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 Tile.tileset=4;
-                File test = new File("res/Maps/1.txt");
-                Board board = new Board();
-                board.setVisible(true);
-                try {
-					board.createLevel(LevelReader.readLevel(test));
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+					try {
+						Mainframe.beard.createLevel(LevelReader.readLevel(Mainframe.test));
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				
                 Upgrades.upgradeliste.removeAllElements();
                 for(int i=0; i<(Hero.heroliste.size()); i++) {
         			Mainframe.setStartPosition(i);

@@ -53,6 +53,9 @@ public class Mainframe extends JFrame{
 	static String spaceString = "Weltraum";
 	static String alphaString = "Alpha";
 	static String desertString = "W�ste";
+	public static Board beard = new Board();
+	public static Mainframe mf = new Mainframe();
+	public static File test = new File("res/Maps/1.txt");
 	
 	
 	private static final long serialVersionUID = 1L;
@@ -77,11 +80,8 @@ public class Mainframe extends JFrame{
         	public void actionPerformed(ActionEvent e){
         		Spielstart me = new Spielstart();
         		me.setVisible(true);
-        		File test = new File("res/Maps/1.txt");
-                Board board = new Board();
-                board.setVisible(true);
                 try {
-					board.createLevel(LevelReader.readLevel(test));
+					beard.createLevel(LevelReader.readLevel(test));
 				} catch (IOException c) {
 					// TODO Auto-generated catch block
 					c.printStackTrace();
@@ -213,9 +213,9 @@ public class Mainframe extends JFrame{
 		board.Tileset.initBombset();
 		board.Tileset.initHeroset();
 		board.Tileset.initUpgradeset();
-		Mainframe mf = new Mainframe();
-		Board board = new Board();
-		File test = new File("res/Maps/1.txt");
+		//Mainframe mf = new Mainframe();
+		//Board board = new Board();
+		//File test = new File("res/Maps/1.txt");
 		
 		if(sound==true){
 			//JukeBox.playGamemusic();
@@ -244,8 +244,8 @@ public class Mainframe extends JFrame{
 		InputController ic = new controlling.InputController();
 		ic.start();
 		
-		board.createLevel(LevelReader.readLevel(test));
-		mf.add(board);
+		beard.createLevel(LevelReader.readLevel(test));
+		mf.add(beard);
 		mf.addKeyListener(ic);
 		mf.setVisible(true);
 		for(int i=0; i<(Hero.heroliste.size()); i++) {
@@ -256,7 +256,7 @@ public class Mainframe extends JFrame{
 		Spielstart start = new Spielstart();
 		start.setVisible(true);
 		while(true) {
-			board.repaint();
+			beard.repaint();
 			Thread.sleep(45);
 			}
 		}
