@@ -1,10 +1,12 @@
 package board;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -33,6 +35,7 @@ public class GameSaver {
 		writer.write(Hero.heroliste.get(1).getxPixelPosition());
 		writer.write(',');
 		writer.write(Hero.heroliste.get(1).getyPixelPosition());
+		writer.flush();
 		writer.close();
 	}
 	public static void loadGame() throws NumberFormatException, IOException {
