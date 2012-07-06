@@ -127,12 +127,7 @@ public class Grafikeinstellungen extends JFrame{
         gras.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 Tile.tileset=0;
-                try {
-                	Mainframe.beard.createLevel(LevelReader.readLevel(Mainframe.test));
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+                Mainframe.beard.createLevel(LevelReader.level);
                 Upgrades.upgradeliste.removeAllElements();
                 for(int i=0; i<(Hero.heroliste.size()); i++) {
         			Mainframe.setStartPosition(i);
@@ -142,12 +137,7 @@ public class Grafikeinstellungen extends JFrame{
         ice.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 Tile.tileset=1;
-                try {
-                	Mainframe.beard.createLevel(LevelReader.readLevel(Mainframe.test));
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+                Mainframe.beard.createLevel(LevelReader.level);
                 Upgrades.upgradeliste.removeAllElements();
                 for(int i=0; i<(Hero.heroliste.size()); i++) {
         			Mainframe.setStartPosition(i);
@@ -157,12 +147,7 @@ public class Grafikeinstellungen extends JFrame{
         space.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 Tile.tileset=2;
-                try {
-                	Mainframe.beard.createLevel(LevelReader.readLevel(Mainframe.test));
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+                Mainframe.beard.createLevel(LevelReader.level);
                 Upgrades.upgradeliste.removeAllElements();
                 for(int i=0; i<(Hero.heroliste.size()); i++) {
         			Mainframe.setStartPosition(i);
@@ -172,12 +157,7 @@ public class Grafikeinstellungen extends JFrame{
         alpha.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 Tile.tileset=3;
-                try {
-                	Mainframe.beard.createLevel(LevelReader.readLevel(Mainframe.test));
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+                Mainframe.beard.createLevel(LevelReader.level);
                 Upgrades.upgradeliste.removeAllElements();
                 for(int i=0; i<(Hero.heroliste.size()); i++) {
         			Mainframe.setStartPosition(i);
@@ -187,12 +167,7 @@ public class Grafikeinstellungen extends JFrame{
         desert.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 Tile.tileset=4;
-					try {
-						Mainframe.beard.createLevel(LevelReader.readLevel(Mainframe.test));
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+					Mainframe.beard.createLevel(LevelReader.level);
 				
                 Upgrades.upgradeliste.removeAllElements();
                 for(int i=0; i<(Hero.heroliste.size()); i++) {

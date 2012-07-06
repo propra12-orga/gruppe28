@@ -25,11 +25,13 @@ public class LevelReader {
 	
 	public static int r=13;
 	public static int c=21;
+	public static int level[][] = new int[c][r];
+	
 	
 	public static int[][] readLevel(File file) throws IOException {
 		
 		BufferedReader in = new BufferedReader(new FileReader(file));
-		int level[][] = new int[c][r];
+		
 		String line;
 		Pattern p = Pattern.compile("(\\d)");
 		Matcher m; 

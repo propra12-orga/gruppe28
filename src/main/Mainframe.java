@@ -80,12 +80,7 @@ public class Mainframe extends JFrame{
         	public void actionPerformed(ActionEvent e){
         		Spielstart me = new Spielstart();
         		me.setVisible(true);
-                try {
-					beard.createLevel(LevelReader.readLevel(test));
-				} catch (IOException c) {
-					// TODO Auto-generated catch block
-					c.printStackTrace();
-				}
+                beard.createLevel(LevelReader.level);
                 Upgrades.upgradeliste.removeAllElements();
                 for(int i=0; i<(Hero.heroliste.size()); i++) {
         			Mainframe.setStartPosition(i);
@@ -122,6 +117,7 @@ public class Mainframe extends JFrame{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+        		beard.createLevel(GameSaver.loadlevel);
         	}
         });
 
