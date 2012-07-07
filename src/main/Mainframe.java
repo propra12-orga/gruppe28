@@ -79,6 +79,7 @@ public class Mainframe extends JFrame{
         main.setContentAreaFilled(false);
         main.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e){
+        		mapeditor=false;
         		Spielstart me = new Spielstart();
         		me.setVisible(true);
                 beard.createLevel(LevelReader.level);
@@ -119,10 +120,8 @@ public class Mainframe extends JFrame{
         			try {
 					GameSaver.saveGame(chooser.getSelectedFile().getCanonicalFile());
 				} catch (NumberFormatException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}}
         	}
@@ -155,10 +154,8 @@ public class Mainframe extends JFrame{
         			try {
 					GameSaver.loadGame(chooser.getSelectedFile().getCanonicalFile());
 				} catch (NumberFormatException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
         		Bombe.bombenliste.clear();
@@ -222,7 +219,6 @@ public class Mainframe extends JFrame{
 					board1.createLevel(LevelReader.readLevel(test));
 					LevelReader.ausgabe(LevelReader.readLevel(test));
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
         		mf.addKeyListener(ic);
@@ -230,16 +226,12 @@ public class Mainframe extends JFrame{
         		try {
 					Karteneditor.initGame();
 				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} catch (LineUnavailableException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} catch (UnsupportedAudioFileException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}    
         		

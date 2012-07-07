@@ -53,9 +53,11 @@ public class GameSaver {
 			writer.write(',');
 			writer.write(""+(Hero.heroliste.get(0).getyPixelPosition()+20000));
 			writer.write(',');
-			writer.write(""+(Hero.heroliste.get(1).getxPixelPosition()+30000));
-			writer.write(',');
-			writer.write(""+(Hero.heroliste.get(1).getyPixelPosition()+40000));
+			if(Mainframe.twoplayer==true){
+				writer.write(""+(Hero.heroliste.get(1).getxPixelPosition()+30000));
+				writer.write(',');
+				writer.write(""+(Hero.heroliste.get(1).getyPixelPosition()+40000));
+			}
 			writer.flush();
 			writer.close();
 			}
@@ -77,10 +79,10 @@ public class GameSaver {
 					}else if(Integer.parseInt(m.group())>20000 && Integer.parseInt(m.group())<=30000){
 						Hero.heroliste.get(0).setyPixelPosition((Integer.parseInt(m.group())));
 						Hero.heroliste.get(0).setyPixelPosition(Hero.heroliste.get(0).getyPixelPosition()-20000);						
-					}else if(Integer.parseInt(m.group())>30000 && Integer.parseInt(m.group())<=40000){
+					}else if(Integer.parseInt(m.group())>30000 && Integer.parseInt(m.group())<=40000 && Mainframe.twoplayer==true){
 						Hero.heroliste.get(1).setxPixelPosition((Integer.parseInt(m.group())));
 						Hero.heroliste.get(1).setxPixelPosition(Hero.heroliste.get(1).getxPixelPosition()-30000);
-					}else if(Integer.parseInt(m.group())>40000){
+					}else if(Integer.parseInt(m.group())>40000 && Mainframe.twoplayer==true){
 						Hero.heroliste.get(1).setyPixelPosition((Integer.parseInt(m.group())));
 						Hero.heroliste.get(1).setyPixelPosition(Hero.heroliste.get(1).getyPixelPosition()-40000);
 					}
