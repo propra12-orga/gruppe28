@@ -24,6 +24,7 @@ import board.Editorboard;
 import board.GameSaver;
 import board.Tileset;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -31,9 +32,12 @@ import java.awt.event.KeyEvent;
 //import javax.swing.JFrame;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 //import javax.swing.SwingUtilities;
 import board.LevelReader;
 //import board.Tileset;
@@ -57,6 +61,9 @@ public class Mainframe extends JFrame{
 	public static File test = new File("res/Maps/1.txt");
 	public static Editorboard board1 = new Editorboard();
 	public static boolean mapeditor =false;
+	static int score = 0;
+	static int score2 = 0;
+	static JLabel statusbar;
 	
 	
 	private static final long serialVersionUID = 1L;
@@ -71,7 +78,8 @@ public class Mainframe extends JFrame{
 	}
 	public final void initUI() {
 		JMenuBar menubar = new JMenuBar();
-		JMenu menu = new JMenu("Men�");
+		statusbar = new JLabel();
+		JMenu menu = new JMenu("Menue");
         menu.setMnemonic(KeyEvent.VK_M);
         
         JMenuItem main = new JMenuItem(new ImageIcon("res/Buttonimages/restart.gif"));
@@ -266,7 +274,10 @@ public class Mainframe extends JFrame{
         menu.add(editor);
         menu.add(eMenuItem);
         menubar.add(menu);
+        menubar.add(statusbar, BorderLayout.SOUTH);
         setJMenuBar(menubar);
+        
+        
         
 	}
 	public final static void initGame() throws InterruptedException, IOException, LineUnavailableException, UnsupportedAudioFileException{
@@ -315,7 +326,20 @@ public class Mainframe extends JFrame{
 		LevelReader.ausgabe(LevelReader.level);
 		Spielstart start = new Spielstart();
 		start.setVisible(true);
+		
+        
+       // mf.add(statusbar, BorderLayout.SOUTH);
 		while(true) {
+			statusbar.setText(" <<<|| Spieler 1: "+score+" || Spieler 2: " +score2+" ||>>>");
+			if(Hero.heroliste.size() != 0){
+	            Hero.heroliste.get(0).setscorecount();
+	            score = Hero.heroliste.get(0).getscorecount();
+	            Hero.heroliste.get(1).setscorecount();
+	            score2 = Hero.heroliste.get(1).getscorecount();
+	            }
+
+			//menubar.add(statusbar, BorderLayout.SOUTH);
+
 			if(mapeditor==false){
 				beard.repaint();
 			}
@@ -323,6 +347,7 @@ public class Mainframe extends JFrame{
 				board1.repaint();
 			}
 			Thread.sleep(45);
+			
 			}
 		}
 	
