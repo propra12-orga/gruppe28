@@ -36,8 +36,6 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 //import javax.swing.SwingUtilities;
 import board.LevelReader;
 //import board.Tileset;
@@ -64,6 +62,8 @@ public class Mainframe extends JFrame{
 	static int score = 0;
 	static int score2 = 0;
 	static JLabel statusbar;
+	InputController ic = new controlling.InputController();
+	EditorInputController eic = new controlling.EditorInputController();
 	
 	
 	private static final long serialVersionUID = 1L;
@@ -88,9 +88,18 @@ public class Mainframe extends JFrame{
         main.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e){
         		mapeditor=false;
+        		mf.removeKeyListener(eic);
+        		mf.remove(board1);
+        		mf.addKeyListener(ic);
+        		mf.add(beard);
         		Spielstart me = new Spielstart();
         		me.setVisible(true);
-                beard.createLevel(LevelReader.level);
+        		File test = new File("res/Maps/1.txt");
+                try {
+					beard.createLevel(LevelReader.readLevel(test));
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
                 Upgrades.upgradeliste.removeAllElements();
                 for(int i=0; i<(Hero.heroliste.size()); i++) {
         			Mainframe.setStartPosition(i);
@@ -221,15 +230,15 @@ public class Mainframe extends JFrame{
         		mapeditor=true;
         		//Editorboard board = new Editorboard();
         		File test = new File("res/Maps/kartenedit.txt");
-        		EditorInputController ic = new controlling.EditorInputController();
-        		ic.start();
+        		
+        		eic.start();
         		try {
 					board1.createLevel(LevelReader.readLevel(test));
 					LevelReader.ausgabe(LevelReader.readLevel(test));
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
-        		mf.addKeyListener(ic);
+        		mf.addKeyListener(eic);
         		mf.add(board1);
         		try {
 					Karteneditor.initGame();

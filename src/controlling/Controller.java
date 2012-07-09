@@ -19,6 +19,7 @@ import main.EditorHero;
 import main.EndGame;
 import main.Hero;
 import main.Mainframe;
+import main.SortArray;
 
 /**
  * Die Controller-Klasse enthält den Bewegungslogarithmus der Spielfigur.
@@ -49,12 +50,6 @@ public class Controller extends JFrame {
 			Hero.heroliste.get(i).setxPixelPosition(Hero.heroliste.get(i).getxPixelPosition()+Hero.heroliste.get(i).getSpeed());
 			Hero.heroliste.get(i).setxCoord();
 		}
-		/*else if(Board.map[(Hero.heroliste.get(i).getxPixelPosition()+39+Hero.heroliste.get(i).getSpeed())/50][Hero.heroliste.get(i).getyPixelPosition()/50].getTileId()%2 == 0) {
-				if (Hero.heroliste.get(i).getxPixelPosition()<(Hero.heroliste.get(i).getxPixelPosition()) ) {
-					Hero.heroliste.get(i).setxPixelPosition(Hero.heroliste.get(i).getxPixelPosition()+Hero.heroliste.get(i).getSpeed());
-					Hero.heroliste.get(i).setxCoord();
-				}
-			}*/
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
 			Hero.heroliste.get(i).exitreached=true;
 			for(int n=0; n<Hero.heroliste.size(); n++) {
@@ -84,6 +79,8 @@ public class Controller extends JFrame {
 					" Tode = " + Hero.heroliste.get(1).getdeathcount() + 
 					" Wände zerstört = " + Hero.heroliste.get(1).gettilecount() + 
 					" Selbstmorde = " + Hero.heroliste.get(1).getSuicidecount());
+			new SortArray();
+			
 			for(Hero hero : Hero.heroliste) {
 				hero.resettilecount();
 				hero.resetkillcount();
@@ -118,12 +115,6 @@ public class Controller extends JFrame {
 			Hero.heroliste.get(i).setxPixelPosition(Hero.heroliste.get(i).getxPixelPosition()-Hero.heroliste.get(i).getSpeed());
 			Hero.heroliste.get(i).setxCoord();
 		}
-		/*else if(Board.map[(Hero.heroliste.get(i).getxPixelPosition()-Hero.heroliste.get(i).getSpeed())/50][Hero.heroliste.get(i).getyPixelPosition()/50].getTileId()%2 == 0) {
-			if (Hero.heroliste.get(i).getxPixelPosition()>Hero.heroliste.get(i).getxPixelPosition() + (Hero.heroliste.get(i).getSpeed())) {
-				Hero.heroliste.get(i).setxPixelPosition(Hero.heroliste.get(i).getxPixelPosition()-Hero.heroliste.get(i).getSpeed());
-				Hero.heroliste.get(i).setxCoord();
-			}
-		}*/
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
 			Hero.heroliste.get(i).exitreached=true;
 			for(int n=0; n<Hero.heroliste.size(); n++) {
@@ -152,6 +143,7 @@ public class Controller extends JFrame {
 					" Tode = " + Hero.heroliste.get(1).getdeathcount() + 
 					" Wände zerstört = " + Hero.heroliste.get(1).gettilecount() + 
 					" Selbstmorde = " + Hero.heroliste.get(1).getSuicidecount());
+			new SortArray();
 			for(Hero hero : Hero.heroliste) {
 				hero.resettilecount();
 				hero.resetkillcount();
@@ -186,12 +178,6 @@ public class Controller extends JFrame {
 				Hero.heroliste.get(i).setyPixelPosition(Hero.heroliste.get(i).getyPixelPosition()-Hero.heroliste.get(i).getSpeed());
 				Hero.heroliste.get(i).setyCoord();
 		}
-		/*else if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()-1].getTileId()%2 == 0) {
-			if (Hero.heroliste.get(i).getyPixelPosition()>Hero.heroliste.get(i).getyCoord()*50 + (Hero.heroliste.get(i).getSpeed())) {
-				Hero.heroliste.get(i).setyPixelPosition(Hero.heroliste.get(i).getyPixelPosition()-Hero.heroliste.get(i).getSpeed());
-				Hero.heroliste.get(i).setyCoord();
-			}
-		}*/
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
 			Hero.heroliste.get(i).exitreached=true;
 			for(int n=0; n<Hero.heroliste.size(); n++) {
@@ -220,6 +206,7 @@ public class Controller extends JFrame {
 					" Tode = " + Hero.heroliste.get(1).getdeathcount() + 
 					" Wände zerstört = " + Hero.heroliste.get(1).gettilecount() + 
 					" Selbstmorde = " + Hero.heroliste.get(1).getSuicidecount());
+			new SortArray();
 			for(Hero hero : Hero.heroliste) {
 				hero.resettilecount();
 				hero.resetkillcount();
@@ -254,12 +241,6 @@ public class Controller extends JFrame {
 			Hero.heroliste.get(i).setyPixelPosition(Hero.heroliste.get(i).getyPixelPosition()+Hero.heroliste.get(i).getSpeed());
 			Hero.heroliste.get(i).setyCoord();
 		}
-		/*else if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()+1].getTileId()%2 == 0) {
-			if (Hero.heroliste.get(i).getyPixelPosition()<(Hero.heroliste.get(i).getyCoord()+1)*50 - (45- Hero.heroliste.get(i).getSpeed())) {
-				Hero.heroliste.get(i).setyPixelPosition(Hero.heroliste.get(i).getyPixelPosition()+Hero.heroliste.get(i).getSpeed());
-				Hero.heroliste.get(i).setyCoord();
-			}
-		}*/
 		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
 			Hero.heroliste.get(i).exitreached=true;
 			for(int n=0; n<Hero.heroliste.size(); n++) {
@@ -288,6 +269,7 @@ public class Controller extends JFrame {
 					" Tode = " + Hero.heroliste.get(1).getdeathcount() + 
 					" Wände zerstört = " + Hero.heroliste.get(1).gettilecount() + 
 					" Selbstmorde = " + Hero.heroliste.get(1).getSuicidecount());
+			new SortArray();
 			for(Hero hero : Hero.heroliste) {
 				hero.resettilecount();
 				hero.resetkillcount();

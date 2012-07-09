@@ -44,7 +44,7 @@ public class Editorboard extends JPanel {
 			}
 		}
 		
-		g2d.drawImage(Tileset.getTile(EditorInputController.auswahl-1, 0), EditorHero.heroliste.get(0).getxPixelPosition()-1, EditorHero.heroliste.get(0).getyPixelPosition()-1, null);
+		g2d.drawImage(Tileset.getTile(EditorInputController.auswahl-1, Tile.tileset), EditorHero.heroliste.get(0).getxPixelPosition()-1, EditorHero.heroliste.get(0).getyPixelPosition()-1, null);
 		g2d.drawRect(EditorHero.heroliste.get(0).getxPixelPosition()-1, EditorHero.heroliste.get(0).getyPixelPosition()-1, 50, 50);
 		
 	}
