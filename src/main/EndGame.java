@@ -13,7 +13,6 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 
-import board.Board;
 import board.LevelReader;
 
 import Menu.Spielstart;
@@ -38,7 +37,7 @@ public class EndGame extends JDialog {
 
         add(Box.createRigidArea(new Dimension(0, 50)));
         JLabel name1 = new JLabel("Wollen Sie erneut spielen?");
-        name1.setFont(new Font("Serif", Font.BOLD, 13));
+        name1.setFont(new Font("Bender", Font.BOLD, 13));
         name1.setAlignmentX(0.5f);
         add(name1);
 
@@ -51,13 +50,10 @@ public class EndGame extends JDialog {
                 Spielstart start = new Spielstart();
                 start.setVisible(true);
                 File test = new File("res/Maps/1.txt");
-                Board board = new Board();
-                board.setVisible(true);
                 try {
-					board.createLevel(LevelReader.readLevel(test));
-				} catch (IOException c) {
-					// TODO Auto-generated catch block
-					c.printStackTrace();
+					Mainframe.beard.createLevel(LevelReader.readLevel(test));
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
             }
         });
@@ -78,7 +74,7 @@ public class EndGame extends JDialog {
 
         setModalityType(ModalityType.APPLICATION_MODAL);
 
-        setTitle("Game over.");
+        setTitle("Spiel vorbei.");
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setSize(250, 200);

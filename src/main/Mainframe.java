@@ -15,6 +15,7 @@ import controlling.EditorInputController;
 import controlling.InputController;
 
 import Menu.Charactereinstellungen;
+import Menu.Charactereinstellungen2;
 import Menu.Grafikeinstellungen;
 import Menu.Sound;
 import Menu.Spielstart;
@@ -25,11 +26,13 @@ import board.GameSaver;
 import board.Tileset;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 //import javax.swing.JFrame;
+import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
@@ -131,9 +134,7 @@ public class Mainframe extends JFrame{
             			}
         			}
         		int re = chooser.showSaveDialog(null); 
-				
-
-        		if(re == JFileChooser.APPROVE_OPTION){
+				if(re == JFileChooser.APPROVE_OPTION){
         			try {
 					GameSaver.saveGame(chooser.getSelectedFile().getCanonicalFile());
 				} catch (NumberFormatException e1) {
@@ -283,6 +284,7 @@ public class Mainframe extends JFrame{
         menu.add(editor);
         menu.add(eMenuItem);
         menubar.add(menu);
+        menubar.add(Box.createRigidArea(new Dimension(((LevelReader.c)*50)/2, 0)));
         menubar.add(statusbar, BorderLayout.SOUTH);
         setJMenuBar(menubar);
         
@@ -294,9 +296,6 @@ public class Mainframe extends JFrame{
 		board.Tileset.initBombset();
 		board.Tileset.initHeroset();
 		board.Tileset.initUpgradeset();
-		//Mainframe mf = new Mainframe();
-		//Board board = new Board();
-		//File test = new File("res/Maps/1.txt");
 		
 		if(sound==true){
 			//JukeBox.playGamemusic();
@@ -335,20 +334,20 @@ public class Mainframe extends JFrame{
 		LevelReader.ausgabe(LevelReader.level);
 		Spielstart start = new Spielstart();
 		start.setVisible(true);
-		
-        
-       // mf.add(statusbar, BorderLayout.SOUTH);
 		while(true) {
-			statusbar.setText(" <<<|| Spieler 1: "+score+" || Spieler 2: " +score2+" ||>>>");
+			if(twoplayer==true){
+				statusbar.setText(Charactereinstellungen.name1.getText()+": " +score+
+						" || "+Charactereinstellungen2.name2.getText()+": " +score2);
+			}
+			if(twoplayer==false){
+				statusbar.setText(Charactereinstellungen.name1.getText()+": " +score);
+			}
 			if(Hero.heroliste.size() != 0){
 	            Hero.heroliste.get(0).setscorecount();
 	            score = Hero.heroliste.get(0).getscorecount();
 	            Hero.heroliste.get(1).setscorecount();
 	            score2 = Hero.heroliste.get(1).getscorecount();
 	            }
-
-			//menubar.add(statusbar, BorderLayout.SOUTH);
-
 			if(mapeditor==false){
 				beard.repaint();
 			}

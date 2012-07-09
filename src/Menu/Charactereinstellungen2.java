@@ -19,6 +19,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import board.Tileset;
 
@@ -53,6 +54,7 @@ public class Charactereinstellungen2 extends JFrame implements
     private JComboBox combobox = null;
 
     ImageIcon icon = new ImageIcon("res/Buttonimages/bm1.gif");
+    public static JTextField name2 = new JTextField();
 
     public Charactereinstellungen2() {
 
@@ -72,12 +74,14 @@ public class Charactereinstellungen2 extends JFrame implements
         label.setAlignmentX(0.5f);
         add(Box.createRigidArea(new Dimension(0, 50)));
         add(label);
-        add(Box.createRigidArea(new Dimension(0, 50)));
-        JLabel player1  = new JLabel("Spieler 2");
+        add(Box.createRigidArea(new Dimension(0, 25)));
+        JLabel player1  = new JLabel("Spieler 2 Name:");
         player1.setFont(new Font("Bender", Font.BOLD, 20));
         player1.setAlignmentX(0.5f);
         player1.setForeground(Color.WHITE);
         add(player1);
+        name2.setMaximumSize(new Dimension(200,20));
+        add(name2);
         add(Box.createRigidArea(new Dimension(0, 25)));
         display = new JLabel();
         display.setPreferredSize(new Dimension(40, 40));

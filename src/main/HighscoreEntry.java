@@ -13,7 +13,7 @@ public class HighscoreEntry implements Comparable<Object> {
 
     public int compareTo(Object o) {
         HighscoreEntry hE = (HighscoreEntry) o;
-        if (this.points > hE.getPoints()) {
+        if (this.points >= hE.getPoints()) {
             return -1;
         } else if (this.points < hE.getPoints()) {
             return 1;
@@ -30,6 +30,6 @@ public class HighscoreEntry implements Comparable<Object> {
     }
 
     public String toString() {
-        return this.name + ": " + this.points;
+        return this.name + ":" + this.points;
     }
 }
