@@ -49,11 +49,11 @@ public class Statistik extends JFrame implements ActionListener {
         HighscoreEntry frth = Mainframe.highscore[3];
         HighscoreEntry ffth = Mainframe.highscore[4];
         
-        JLabel first = new JLabel("1."+ frst);
-        JLabel second = new JLabel("2."+ scnd);
-        JLabel third = new JLabel("3."+ thrd);
-        JLabel fourth = new JLabel("4."+ frth);
-        JLabel fifth = new JLabel("5."+ ffth);
+        JLabel first = new JLabel("1. "+ frst.getName()+" "+frst.getPoints()+" Punkte");
+        JLabel second = new JLabel("2. "+ scnd.getName()+" "+scnd.getPoints()+" Punkte");
+        JLabel third = new JLabel("3. "+ thrd.getName()+" "+thrd.getPoints()+" Punkte");
+        JLabel fourth = new JLabel("4. "+ frth.getName()+" "+frth.getPoints()+" Punkte");
+        JLabel fifth = new JLabel("5. "+ ffth.getName()+" "+ffth.getPoints()+" Punkte");
         
         first.setFont(new Font("Bender", Font.BOLD, 20));
         first.setAlignmentX(0.5f);

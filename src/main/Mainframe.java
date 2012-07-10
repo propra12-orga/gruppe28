@@ -352,7 +352,7 @@ public class Mainframe extends JFrame{
 		ic.start();
 		
 		beard.createLevel(LevelReader.readLevel(test));
-		mf.add(beard);
+		//mf.add(beard);
 		mf.addKeyListener(ic);
 		mf.setVisible(true);
 		for(int i=0; i<(Hero.heroliste.size()); i++) {
