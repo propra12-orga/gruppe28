@@ -19,7 +19,7 @@ public class Client {
 		try {
 			zumServer = new Socket("localhost", 4711);
 			for (int i=0; i<8; i++) {
-				ct.getOutputStream().writeUTF(InputController.getKeysNetwork(i));
+				zumServer.getOutputStream().write(InputController.getKeysNetwork(i).getBytes());
 			}
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
