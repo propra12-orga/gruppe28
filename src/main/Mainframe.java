@@ -284,8 +284,8 @@ public class Mainframe extends JFrame{
         menu.add(editor);
         menu.add(eMenuItem);
         menubar.add(menu);
-        menubar.add(Box.createRigidArea(new Dimension(((LevelReader.c)*50)/2, 0)));
-        menubar.add(statusbar, BorderLayout.SOUTH);
+        menubar.add(Box.createRigidArea(new Dimension(((LevelReader.c-1)*50)/2, 0)));
+        menubar.add(statusbar);
         setJMenuBar(menubar);
         
         

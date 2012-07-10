@@ -15,7 +15,7 @@ public class BackGroundPane extends JPanel {
 	private static final long serialVersionUID = 1L;
 	Image img = null;
 	
-BackGroundPane(String imagefile) {
+public BackGroundPane(String imagefile) {
 	if(imagefile != null) {
 		MediaTracker mt =new MediaTracker(this);
 		img=Toolkit.getDefaultToolkit().getImage(imagefile);

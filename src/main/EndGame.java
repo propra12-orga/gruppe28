@@ -1,4 +1,5 @@
 package main;
+import java.awt.Color;
 import java.awt.Dimension;
 
 import java.awt.Font;
@@ -15,6 +16,7 @@ import javax.swing.JLabel;
 
 import board.LevelReader;
 
+import Menu.BackGroundPane;
 import Menu.Spielstart;
 
 import controlling.InputController;
@@ -34,14 +36,16 @@ public class EndGame extends JDialog {
     public final void initUI() {
 
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
-
+        setContentPane(new BackGroundPane("res/Buttonimages/background.gif"));
         add(Box.createRigidArea(new Dimension(0, 50)));
         JLabel name1 = new JLabel("Wollen Sie erneut spielen?");
+        name1.setForeground(Color.WHITE);
         name1.setFont(new Font("Bender", Font.BOLD, 13));
         name1.setAlignmentX(0.5f);
         add(name1);
 
         JButton again = new JButton("Ja");
+        again.setForeground(Color.WHITE);
         again.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent event) {
@@ -62,6 +66,7 @@ public class EndGame extends JDialog {
         add(again);
         
         JButton close = new JButton("Nein");
+        close.setForeground(Color.WHITE);
         close.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent event) {

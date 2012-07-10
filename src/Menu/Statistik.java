@@ -1,6 +1,8 @@
 package Menu;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,6 +14,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import main.HighscoreEntry;
+import main.SortArray;
 
 public class Statistik extends JFrame implements ActionListener {
 	/**
@@ -36,6 +41,45 @@ public class Statistik extends JFrame implements ActionListener {
         
         add(Box.createRigidArea(new Dimension (0,50)));
         add(label);
+        add(Box.createRigidArea(new Dimension (0,25)));
+        HighscoreEntry frst = SortArray.highscore[0];
+        HighscoreEntry scnd = SortArray.highscore[1];
+        HighscoreEntry thrd = SortArray.highscore[2];
+        HighscoreEntry frth = SortArray.highscore[3];
+        HighscoreEntry ffth = SortArray.highscore[4];
+        
+        JLabel first = new JLabel("1."+ frst);
+        JLabel second = new JLabel("2."+ scnd);
+        JLabel third = new JLabel("3."+ thrd);
+        JLabel fourth = new JLabel("4."+ frth);
+        JLabel fifth = new JLabel("5."+ ffth);
+        
+        first.setFont(new Font("Bender", Font.BOLD, 20));
+        first.setAlignmentX(0.5f);
+        first.setForeground(Color.WHITE);
+        second.setFont(new Font("Bender", Font.BOLD, 20));
+        second.setAlignmentX(0.5f);
+        second.setForeground(Color.WHITE);
+        third.setFont(new Font("Bender", Font.BOLD, 20));
+        third.setAlignmentX(0.5f);
+        third.setForeground(Color.WHITE);
+        fourth.setFont(new Font("Bender", Font.BOLD, 20));
+        fourth.setAlignmentX(0.5f);
+        fourth.setForeground(Color.WHITE);
+        fifth.setFont(new Font("Bender", Font.BOLD, 20));
+        fifth.setAlignmentX(0.5f);
+        fifth.setForeground(Color.WHITE);
+        
+        add(first);
+        add(Box.createRigidArea(new Dimension (0,10)));
+        add(second);
+        add(Box.createRigidArea(new Dimension (0,10)));
+        add(third);
+        add(Box.createRigidArea(new Dimension (0,10)));
+        add(fourth);
+        add(Box.createRigidArea(new Dimension (0,10)));
+        add(fifth);
+        add(Box.createRigidArea(new Dimension (0,10)));
         
         JButton close = new JButton(new ImageIcon("res/Buttonimages/zuruck.gif"));
 		close.setBorderPainted(false);
