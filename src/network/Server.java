@@ -8,7 +8,7 @@ import java.util.concurrent.locks.Lock;
 
 public class Server extends Thread {
 	
-	static private ArrayList<ClientThread> clientThreadslist = new ArrayList<ClientThread>();
+	static ArrayList<ClientThread> clientThreadslist = new ArrayList<ClientThread>();
 	ServerSocket server;
 	Socket client;
 	private int playerCount;

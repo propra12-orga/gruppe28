@@ -13,6 +13,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import controlling.InputController;
+
 import main.Mainframe;
 
 public class Spielstart extends JFrame implements ActionListener {
@@ -73,11 +75,11 @@ public class Spielstart extends JFrame implements ActionListener {
         Multiplayer.setContentAreaFilled(false);
         add(Multiplayer);
         Multiplayer.setAlignmentX(0.5f);
-        /*Multiplayer.addActionListener(new ActionListener() {
+        Multiplayer.addActionListener(new ActionListener() {
       	   public void actionPerformed(ActionEvent event){
-      		                                                           HIER MUSS AUF den MP VERLINKT WERDEN!!!!
+				InputController.setNetwork(true);
       	   }}
-         );*/
+         );
         
         add(Box.createRigidArea(new Dimension (0,25)));
         
