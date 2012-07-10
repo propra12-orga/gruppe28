@@ -80,14 +80,6 @@ public class Controller extends JFrame {
 					" Wände zerstört = " + Hero.heroliste.get(1).gettilecount() + 
 					" Selbstmorde = " + Hero.heroliste.get(1).getSuicidecount());
 			new SortArray();
-			
-			for(Hero hero : Hero.heroliste) {
-				hero.resettilecount();
-				hero.resetkillcount();
-				hero.resetscorecount();
-				hero.resetdeathcount();
-				hero.resetsuicidecount();
-			}
 			InputController.keys.clear();
 			EndGame end = new EndGame();
  		   end.setVisible(true);
@@ -144,13 +136,6 @@ public class Controller extends JFrame {
 					" Wände zerstört = " + Hero.heroliste.get(1).gettilecount() + 
 					" Selbstmorde = " + Hero.heroliste.get(1).getSuicidecount());
 			new SortArray();
-			for(Hero hero : Hero.heroliste) {
-				hero.resettilecount();
-				hero.resetkillcount();
-				hero.resetscorecount();
-				hero.resetdeathcount();
-				hero.resetsuicidecount();
-			}
 			InputController.keys.clear();
 			EndGame end = new EndGame();
 	 		   end.setVisible(true);
@@ -207,13 +192,6 @@ public class Controller extends JFrame {
 					" Wände zerstört = " + Hero.heroliste.get(1).gettilecount() + 
 					" Selbstmorde = " + Hero.heroliste.get(1).getSuicidecount());
 			new SortArray();
-			for(Hero hero : Hero.heroliste) {
-				hero.resettilecount();
-				hero.resetkillcount();
-				hero.resetscorecount();
-				hero.resetdeathcount();
-				hero.resetsuicidecount();
-			}
 			InputController.keys.clear();
 			EndGame end = new EndGame();
 	 		   end.setVisible(true);
@@ -270,13 +248,6 @@ public class Controller extends JFrame {
 					" Wände zerstört = " + Hero.heroliste.get(1).gettilecount() + 
 					" Selbstmorde = " + Hero.heroliste.get(1).getSuicidecount());
 			new SortArray();
-			for(Hero hero : Hero.heroliste) {
-				hero.resettilecount();
-				hero.resetkillcount();
-				hero.resetscorecount();
-				hero.resetdeathcount();
-				hero.resetsuicidecount();
-			}
 			InputController.keys.clear();
 			EndGame end = new EndGame();
 	 		   end.setVisible(true);

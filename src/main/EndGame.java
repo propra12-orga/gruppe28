@@ -43,12 +43,18 @@ public class EndGame extends JDialog {
         name1.setFont(new Font("Bender", Font.BOLD, 13));
         name1.setAlignmentX(0.5f);
         add(name1);
-
+        add(Box.createRigidArea(new Dimension(0, 10)));
         JButton again = new JButton("Ja");
-        again.setForeground(Color.WHITE);
         again.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent event) {
+            	for(Hero hero : Hero.heroliste) {
+    				hero.resettilecount();
+    				hero.resetkillcount();
+    				hero.resetscorecount();
+    				hero.resetdeathcount();
+    				hero.resetsuicidecount();
+    			}
             	InputController.keys.clear();
                 dispose();
                 Spielstart start = new Spielstart();
@@ -66,7 +72,6 @@ public class EndGame extends JDialog {
         add(again);
         
         JButton close = new JButton("Nein");
-        close.setForeground(Color.WHITE);
         close.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent event) {

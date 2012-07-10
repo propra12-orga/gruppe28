@@ -54,7 +54,7 @@ public class Charactereinstellungen extends JFrame implements
     private JComboBox combobox = null;
 
     ImageIcon icon = new ImageIcon("res/Buttonimages/bm1.gif");
-    public static JTextField name1 = new JTextField();
+    public static JTextField name1 = new JTextField("Spieler 1");
 
     public Charactereinstellungen() {
 

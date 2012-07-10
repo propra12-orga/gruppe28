@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import main.HighscoreEntry;
+import main.Mainframe;
 import main.SortArray;
 
 public class Statistik extends JFrame implements ActionListener {
@@ -42,11 +43,11 @@ public class Statistik extends JFrame implements ActionListener {
         add(Box.createRigidArea(new Dimension (0,50)));
         add(label);
         add(Box.createRigidArea(new Dimension (0,25)));
-        HighscoreEntry frst = SortArray.highscore[0];
-        HighscoreEntry scnd = SortArray.highscore[1];
-        HighscoreEntry thrd = SortArray.highscore[2];
-        HighscoreEntry frth = SortArray.highscore[3];
-        HighscoreEntry ffth = SortArray.highscore[4];
+        HighscoreEntry frst = Mainframe.highscore[0];
+        HighscoreEntry scnd = Mainframe.highscore[1];
+        HighscoreEntry thrd = Mainframe.highscore[2];
+        HighscoreEntry frth = Mainframe.highscore[3];
+        HighscoreEntry ffth = Mainframe.highscore[4];
         
         JLabel first = new JLabel("1."+ frst);
         JLabel second = new JLabel("2."+ scnd);

@@ -1,6 +1,8 @@
 package main;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 //import java.io.FileWriter;
 //import java.io.Writer;
 
@@ -48,6 +50,7 @@ public class Mainframe extends JFrame{
 	/**
 	 * 
 	 */
+	public static Mainframe mf = new Mainframe();
 	public static boolean twoplayer=true;
 	public static boolean threeplayer=false;
 	public static boolean fourplayer=false;
@@ -56,11 +59,10 @@ public class Mainframe extends JFrame{
 	static String iceString = "Eis";
 	static String spaceString = "Weltraum";
 	static String alphaString = "Alpha";
-	static String desertString = "W�ste";
-	public static Board beard = new Board();
-	public static Mainframe mf = new Mainframe();
+	static String desertString = "W�ste";	
 	public static File test = new File("res/Maps/1.txt");
-	public static Editorboard board1 = new Editorboard();
+	public static HighscoreEntry[] highscore = new HighscoreEntry[5];
+	
 	public static boolean mapeditor =false;
 	static int score = 0;
 	static int score2 = 0;
@@ -68,6 +70,8 @@ public class Mainframe extends JFrame{
 	InputController ic = new controlling.InputController();
 	EditorInputController eic = new controlling.EditorInputController();
 	
+	public static Editorboard board1 = new Editorboard();
+	public static Board beard = new Board();
 	
 	private static final long serialVersionUID = 1L;
 		
@@ -262,6 +266,29 @@ public class Mainframe extends JFrame{
         stat.setMnemonic(KeyEvent.VK_G);
         stat.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e){
+        		File f = new File("res/hs.txt");
+        		try {
+                    FileReader fR = new FileReader(f);
+                    char[] c = new char[(int) f.length()];
+                    fR.read(c);
+     
+                    String s = new String(c);
+                    String[] entrys = s.split("\n");
+     
+                    for (int i = 0; i < entrys.length; i++) 
+                    {
+                        if (i < 5) {
+                            String[] entry = entrys[i].split(":");
+                            highscore[i] = new HighscoreEntry(entry[0], Integer.parseInt(entry[1]));
+                        }
+                    }
+                    fR.close();
+                    
+                } catch (FileNotFoundException e1) {
+                    e1.printStackTrace();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
         		Statistik snd = new Statistik();
         		snd.setVisible(true);
         	}
@@ -323,6 +350,7 @@ public class Mainframe extends JFrame{
 		
 		InputController ic = new controlling.InputController();
 		ic.start();
+		
 		beard.createLevel(LevelReader.readLevel(test));
 		mf.add(beard);
 		mf.addKeyListener(ic);
