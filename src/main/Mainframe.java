@@ -69,8 +69,8 @@ public class Mainframe extends JFrame{
 	static int score = 0;
 	static int score2 = 0;
 	static JLabel statusbar;
-	InputController ic = new controlling.InputController();
-	EditorInputController eic = new controlling.EditorInputController();
+	static InputController ic = new controlling.InputController();
+	static EditorInputController eic = new controlling.EditorInputController();
 	
 	public static Editorboard board1 = new Editorboard();
 	public static Board beard = new Board();
@@ -97,8 +97,9 @@ public class Mainframe extends JFrame{
         main.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e){
         		mapeditor=false;
+        		board1.setVisible(false);
+        		beard.setVisible(true);
         		mf.removeKeyListener(eic);
-        		mf.remove(board1);
         		mf.addKeyListener(ic);
         		mf.add(beard);
         		Spielstart me = new Spielstart();
@@ -233,12 +234,12 @@ public class Mainframe extends JFrame{
         editor.setMnemonic(KeyEvent.VK_G);
         editor.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e){
-        		beard.setVisible(false);
         		mapeditor=true;
+        		beard.setVisible(false);
         		//Editorboard board = new Editorboard();
         		File test = new File("res/Maps/kartenedit.txt");
-        		
-        		eic.start();
+        		board1.setVisible(true);
+
         		try {
 					board1.createLevel(LevelReader.readLevel(test));
 					LevelReader.ausgabe(LevelReader.readLevel(test));
@@ -313,7 +314,7 @@ public class Mainframe extends JFrame{
         menu.add(editor);
         menu.add(eMenuItem);
         menubar.add(menu);
-        menubar.add(Box.createRigidArea(new Dimension(((LevelReader.c-1)*50)/2, 0)));
+        menubar.add(Box.createRigidArea(new Dimension(((LevelReader.c-5)*50)/2, 0)));
         menubar.add(statusbar);
         setJMenuBar(menubar);
         
@@ -349,26 +350,46 @@ public class Mainframe extends JFrame{
 			Hero bm4 = new Hero();
 			Hero.heroliste.add(bm4);
 		}
-		
-		InputController ic = new controlling.InputController();
-		if(InputController.network==false) ic.start();
+		if(InputController.network==false){
+			ic.start();
+    		eic.start();
+		}
 		if(InputController.network==true) {
 			
 			Server s = new Server();
 			s.start();
 		}
-		
-		beard.createLevel(LevelReader.readLevel(test));
-		mf.add(beard);
-		mf.addKeyListener(ic);
 		mf.setVisible(true);
+		mapeditor=false;
+		mf.addKeyListener(ic);
+		mf.add(beard);
+		Spielstart me = new Spielstart();
+		me.setVisible(true);
+		File test = new File("res/Maps/1.txt");
+        try {
+			beard.createLevel(LevelReader.readLevel(test));
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		
+		
+		
+		
+		
+		
+		//File test = new File("res/Maps/1.txt");
+		//mf.add(beard);
+		//mf.addKeyListener(ic);
+		//beard.createLevel(LevelReader.readLevel(test));
+		
+
 		for(int i=0; i<(Hero.heroliste.size()); i++) {
 			setStartPosition(i);
 			Tileset.getHero(i);
 		}
 		LevelReader.ausgabe(LevelReader.level);
-		Spielstart start = new Spielstart();
-		start.setVisible(true);
+		//Spielstart start = new Spielstart();
+		//start.setVisible(true);
 		while(true) {
 			if(twoplayer==true){
 				statusbar.setText(Charactereinstellungen.name1.getText()+": " +score+
@@ -380,9 +401,11 @@ public class Mainframe extends JFrame{
 			if(Hero.heroliste.size() != 0){
 	            Hero.heroliste.get(0).setscorecount();
 	            score = Hero.heroliste.get(0).getscorecount();
-	            Hero.heroliste.get(1).setscorecount();
-	            score2 = Hero.heroliste.get(1).getscorecount();
+	            if(Hero.heroliste.size() > 1){
+	            	Hero.heroliste.get(1).setscorecount();
+	            	score2 = Hero.heroliste.get(1).getscorecount();
 	            }
+			}
 			if(mapeditor==false){
 				beard.repaint();
 			}

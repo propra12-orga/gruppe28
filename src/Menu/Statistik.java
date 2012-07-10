@@ -17,7 +17,6 @@ import javax.swing.JPanel;
 
 import main.HighscoreEntry;
 import main.Mainframe;
-import main.SortArray;
 
 public class Statistik extends JFrame implements ActionListener {
 	/**
