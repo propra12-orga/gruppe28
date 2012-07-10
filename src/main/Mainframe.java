@@ -1,6 +1,7 @@
 package main;
 
 import java.io.File;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 //import java.io.FileWriter;
@@ -27,7 +28,6 @@ import board.Editorboard;
 import board.GameSaver;
 import board.Tileset;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -41,6 +41,8 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+
+import network.Server;
 //import javax.swing.SwingUtilities;
 import board.LevelReader;
 //import board.Tileset;
@@ -349,10 +351,15 @@ public class Mainframe extends JFrame{
 		}
 		
 		InputController ic = new controlling.InputController();
-		ic.start();
+		if(InputController.network==false) ic.start();
+		if(InputController.network==true) {
+			
+			Server s = new Server();
+			s.start();
+		}
 		
 		beard.createLevel(LevelReader.readLevel(test));
-		//mf.add(beard);
+		mf.add(beard);
 		mf.addKeyListener(ic);
 		mf.setVisible(true);
 		for(int i=0; i<(Hero.heroliste.size()); i++) {

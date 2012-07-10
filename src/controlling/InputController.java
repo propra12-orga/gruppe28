@@ -22,7 +22,7 @@ public class InputController extends Thread implements KeyListener
 	{
 	public static Vector<Integer> keys = new Vector<Integer>();
 	public static boolean network = false;
-	String[] keysNetwork = new String[8];
+	private static String[] keysNetwork = new String[8];
 	
 	public void keyPressed(KeyEvent e) {
 		if (network == false) {
@@ -32,61 +32,75 @@ public class InputController extends Thread implements KeyListener
 		else {
 			if(e.equals(KeyEvent.VK_W)) {
 				for (int i=0; i<8; i++) {
-					if(!keysNetwork[i].equals("0up")){
-						keysNetwork[i]="0up";
+					if(!getKeysNetwork(i).equals("0up")){
+						setKeysNetwork("0up", i);
 					}
 				}
 			}
 			else if (e.equals(KeyEvent.VK_D)) {
 				for (int i=0; i<8; i++) {
-					if(!keysNetwork[i].equals("0right")){
-						keysNetwork[i]="0right";
+					if(!getKeysNetwork(i).equals("0right")){
+						setKeysNetwork("0right",i);
 					}
 				}
 			}
 			else if (e.equals(KeyEvent.VK_S)) {
 				for (int i=0; i<8; i++) {
-					if(!keysNetwork[i].equals("0down")){
-						keysNetwork[i]="0down";
+					if(!getKeysNetwork(i).equals("0down")){
+						setKeysNetwork("0down", i);
 					}
 				}
 			}
 			else if (e.equals(KeyEvent.VK_A)) {
 				for (int i=0; i<8; i++) {
-					if(!keysNetwork[i].equals("0left")){
-						keysNetwork[i]="0left";
+					if(!getKeysNetwork(i).equals("0left")){
+						setKeysNetwork("0left", i);
 					}
 				}
 			}
+			else if (e.equals(KeyEvent.VK_CONTROL)) {
+				for (int i=0; i<8; i++) {
+					if(!getKeysNetwork(i).equals("0bomb")){
+						setKeysNetwork("0bomb",i);
+				}
+			}
+			}
 			else if (e.equals(KeyEvent.VK_UP)) {
 				for (int i=0; i<8; i++) {
-					if(!keysNetwork[i].equals("1up")){
-						keysNetwork[i]="1up";
+					if(!getKeysNetwork(i).equals("1up")){
+						setKeysNetwork("1up",i);
 					}
 				}
 			}
 			else if (e.equals(KeyEvent.VK_RIGHT)) {
 				for (int i=0; i<8; i++) {
-					if(!keysNetwork[i].equals("1right")){
-						keysNetwork[i]="1right";
+					if(!getKeysNetwork(i).equals("1right")){
+						setKeysNetwork("1right",i);
 					}
 				}
 			}
 			else if (e.equals(KeyEvent.VK_DOWN)) {
 				for (int i=0; i<8; i++) {
-					if(!keysNetwork[i].equals("1down")){
-						keysNetwork[i]="1down";
+					if(!getKeysNetwork(i).equals("1down")){
+						setKeysNetwork("1down",i);
 					}
 				}
 			}
 			else if (e.equals(KeyEvent.VK_LEFT)) {
 				for (int i=0; i<8; i++) {
-					if(!keysNetwork[i].equals("1left")){
-						keysNetwork[i]="1left";
+					if(!getKeysNetwork(i).equals("1left")){
+						setKeysNetwork("1left", i);
 					}
 				}
 			}
+			else if (e.equals(KeyEvent.VK_SPACE)) {
+				for (int i=0; i<8; i++) {
+					if(!getKeysNetwork(i).equals("1bomb")){
+						setKeysNetwork("1bomb",i);
+				}
+			}
 		}
+	}
 	}
 	public void keyReleased(KeyEvent e)	{
 		keys.removeElement(e.getKeyCode());
@@ -119,6 +133,7 @@ public class InputController extends Thread implements KeyListener
 			Controller.movementRight(0);
 		}
 		if (keys.contains(KeyEvent.VK_CONTROL)) {
+			
 			boolean blocked=false;
 			
 			
@@ -191,6 +206,12 @@ public class InputController extends Thread implements KeyListener
 		}
 	public static void setNetwork(boolean b) {
 		network = true;
+	}
+	public static String getKeysNetwork(int i) {
+		return keysNetwork[i];
+	}
+	public void setKeysNetwork(String a, int i) {
+		this.keysNetwork[i] = a;
 	}
 	
 }
