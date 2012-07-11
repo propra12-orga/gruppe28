@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import main.Mainframe;
+
 /**
  * Die Klasse liest mittels regul�ren Ausdrucks ein Textdokument ein, extrahiert die durch Kommate getrennten Zahlen
  * und speichert die Zahlen als int-Array. Aus diesem Array wird dann in Board das Spielfeld erzeugt.
@@ -54,6 +56,6 @@ public class LevelReader {
 			}
 			System.out.println();
 		}
-		System.out.println("Number of destructables: " + Board.getDestructableCounter());
+		System.out.println("Number of destructables: " + Mainframe.beard.getDestructableCounter());
 	}
 }

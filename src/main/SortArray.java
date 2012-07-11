@@ -120,7 +120,6 @@ public class SortArray {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }
- 
+        } 
     }
 }

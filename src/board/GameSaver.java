@@ -24,7 +24,7 @@ public class GameSaver {
 		if(Mainframe.mapeditor==false){
 			for(y=0; y<(ro-1); y++){
 				for(x=0; x<co; x++){
-					writer.write(""+Board.map[x][y].getTileId());
+					writer.write(""+Mainframe.beard.map[x][y].getTileId());
 					writer.write(',');
 				}
 				writer.write("\n");

@@ -23,19 +23,19 @@ public class Board extends JPanel {
 	private static boolean hasExit=false;
 	static int gelegtebomben =0;
 	
-	public static void setHasExit(boolean b) {
+	public void setHasExit(boolean b) {
 		hasExit=b;
 	}
-	public static boolean getHasExit() {
+	public boolean getHasExit() {
 		return hasExit;
 	}
 	public static void incDestructableCounter() {
 		destructableCounter++;
 	}
-	public static void decDestructableCounter() {
+	public void decDestructableCounter() {
 		destructableCounter--;
 	}
-	public static int getDestructableCounter() {
+	public int getDestructableCounter() {
 		return destructableCounter;
 	}
 	private void clearDestructableCounter() {
@@ -46,7 +46,7 @@ public class Board extends JPanel {
 	
 	
 	
-	public static Tile[][] map;
+	public Tile[][] map;
 	public Board() {
 		map = new Tile[LevelReader.c][LevelReader.r];
 		for (int row=0; row <LevelReader.r; row++) {

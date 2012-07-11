@@ -48,6 +48,7 @@ public class EndGame extends JDialog {
         again.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent event) {
+            	Mainframe.beard.setHasExit(false);
             	for(Hero hero : Hero.heroliste) {
     				hero.resettilecount();
     				hero.resetkillcount();

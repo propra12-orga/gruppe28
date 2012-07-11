@@ -12,7 +12,6 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 //import controlling.InputController;
 
 //import controlling.InputController;
-import board.Board;
 import board.JukeBox;
 import board.Tile;
 import board.Tileset;
@@ -109,7 +108,7 @@ public void run() {
 		}
 	}
 	
- while (ausbreitung <= bombenreichweite && Board.map[bombex-reichweitel][bombey].getTileId() == 1)
+ while (ausbreitung <= bombenreichweite && Mainframe.beard.map[bombex-reichweitel][bombey].getTileId() == 1)
  	{
 	 //ListIterator<Bombe> it = Bombe.bombenliste.listIterator();	
 	 	 if (bombenliste.size()!=0) {
@@ -120,7 +119,7 @@ public void run() {
 				 {
 			 if(bombe.isExplodiert()==false){
 				 
-				 if(Board.map[this.getBombex()-reichweitel][this.getBombey()] == Board.map[bombe.getBombex()][bombe.getBombey()]) {
+				 if(Mainframe.beard.map[this.getBombex()-reichweitel][this.getBombey()] == Mainframe.beard.map[bombe.getBombex()][bombe.getBombey()]) {
 					 bombe.setExplodiert(true);
 					 this.doppel=true;
 					 bombe.doppel=true;
@@ -134,7 +133,7 @@ public void run() {
 	 }
 	 for (i=0; i<(Hero.heroliste.size()); i++) 
 	 {
-		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex-reichweitel][bombey])
+		 if (Mainframe.beard.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Mainframe.beard.map[bombex-reichweitel][bombey])
 		 {			
 			 if(Hero.heroliste.get(i).getarmored()==false)
 			 {
@@ -161,14 +160,14 @@ public void run() {
 	 }
 	 if (ausbreiten == true)
 	 {
-		 if (Board.map[bombex-(reichweitel+1)][bombey].getTileId() ==4)
+		 if (Mainframe.beard.map[bombex-(reichweitel+1)][bombey].getTileId() ==4)
 		 {
-			 if (Board.getHasExit()==false) {
+			 if (Mainframe.beard.getHasExit()==false) {
 				 double z=Math.random();
-				 if (z<(double)1/Board.getDestructableCounter()) {
-					 Board.map[bombex-(reichweitel+1)][bombey].setTileId(3);
-					 Board.map[bombex-(reichweitel+1)][bombey].setImg(Tileset.getTile(2, Tile.getTileset()));
-					 Board.setHasExit(true);
+				 if (z<=(double)1/Mainframe.beard.getDestructableCounter()) {
+					 Mainframe.beard.map[bombex-(reichweitel+1)][bombey].setTileId(3);
+					 Mainframe.beard.map[bombex-(reichweitel+1)][bombey].setImg(Tileset.getTile(2, Tile.getTileset()));
+					 Mainframe.beard.setHasExit(true);
 					 if(Mainframe.sound==true){
 					 try {
 							JukeBox.playSoundeffect("door");
@@ -182,8 +181,8 @@ public void run() {
 					 }
 				 }
 				 else {
-					 Board.map[bombex-(reichweitel+1)][bombey].setTileId(1);
-					 Board.map[bombex-(reichweitel+1)][bombey].setImg(Tileset.getTile(0, Tile.getTileset()));
+					 Mainframe.beard.map[bombex-(reichweitel+1)][bombey].setTileId(1);
+					 Mainframe.beard.map[bombex-(reichweitel+1)][bombey].setImg(Tileset.getTile(0, Tile.getTileset()));
 					 double u=Math.random();
 					 if(u<0.1)
 					 {
@@ -194,8 +193,8 @@ public void run() {
 				 }
 			 }
 			 else {
-				 Board.map[bombex-(reichweitel+1)][bombey].setTileId(1);
-				 Board.map[bombex-(reichweitel+1)][bombey].setImg(Tileset.getTile(0, Tile.getTileset()));
+				 Mainframe.beard.map[bombex-(reichweitel+1)][bombey].setTileId(1);
+				 Mainframe.beard.map[bombex-(reichweitel+1)][bombey].setImg(Tileset.getTile(0, Tile.getTileset()));
 				 double u=Math.random();
 				 if(u<0.1)
 				 {
@@ -204,7 +203,7 @@ public void run() {
 						drop=true;
 				 }
 			 }
-			 Board.decDestructableCounter();
+			 Mainframe.beard.decDestructableCounter();
 			 ausbreiten = false;
 			 tiledestroyed=true;
 			 this.setTiledestroyedscounter(this.getTiledestroyedscounter());
@@ -218,7 +217,7 @@ public void run() {
  ausbreitung =0;
  ausbreiten=true;
  
- while (ausbreitung <= bombenreichweite && Board.map[bombex+reichweiter][bombey].getTileId() == 1)
+ while (ausbreitung <= bombenreichweite && Mainframe.beard.map[bombex+reichweiter][bombey].getTileId() == 1)
 	{
 	 //ListIterator<Bombe> it = Bombe.bombenliste.listIterator();	
  	 if (bombenliste.size()!=0) {
@@ -229,7 +228,7 @@ public void run() {
 			 {
 		 if(bombe.isExplodiert()==false){
 			 
-			 if(Board.map[this.getBombex()+reichweiter][this.getBombey()] == Board.map[bombe.getBombex()][bombe.getBombey()]) {
+			 if(Mainframe.beard.map[this.getBombex()+reichweiter][this.getBombey()] == Mainframe.beard.map[bombe.getBombex()][bombe.getBombey()]) {
 				 bombe.setExplodiert(true);
 				 this.doppel=true;
 				 bombe.doppel=true;
@@ -243,7 +242,7 @@ public void run() {
  }
 	 for (i=0; i<(Hero.heroliste.size()); i++)
 	 {
-		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex+reichweiter][bombey])
+		 if (Mainframe.beard.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Mainframe.beard.map[bombex+reichweiter][bombey])
 		 {			 
 			 if(Hero.heroliste.get(i).getarmored()==false)
 			 {
@@ -270,14 +269,14 @@ public void run() {
 	 }
 	 if (ausbreiten == true)
 	 {
-		 if (Board.map[bombex+(reichweiter+1)][bombey].getTileId() ==4)
+		 if (Mainframe.beard.map[bombex+(reichweiter+1)][bombey].getTileId() ==4)
 		 {
-			 if (Board.getHasExit()==false) {
+			 if (Mainframe.beard.getHasExit()==false) {
 				 double z=Math.random();
-				 if (z<(double)1/Board.getDestructableCounter()) {
-					 Board.map[bombex+(reichweiter+1)][bombey].setTileId(3);
-					 Board.map[bombex+(reichweiter+1)][bombey].setImg(Tileset.getTile(2, Tile.getTileset()));
-					 Board.setHasExit(true);
+				 if (z<=(double)1/Mainframe.beard.getDestructableCounter()) {
+					 Mainframe.beard.map[bombex+(reichweiter+1)][bombey].setTileId(3);
+					 Mainframe.beard.map[bombex+(reichweiter+1)][bombey].setImg(Tileset.getTile(2, Tile.getTileset()));
+					 Mainframe.beard.setHasExit(true);
 					 if(Mainframe.sound==true){
 					 try {
 							JukeBox.playSoundeffect("door");
@@ -291,8 +290,8 @@ public void run() {
 					 }
 				 }
 				 else {
-					 Board.map[bombex+(reichweiter+1)][bombey].setTileId(1);
-					 Board.map[bombex+(reichweiter+1)][bombey].setImg(Tileset.getTile(0, Tile.getTileset()));
+					 Mainframe.beard.map[bombex+(reichweiter+1)][bombey].setTileId(1);
+					 Mainframe.beard.map[bombex+(reichweiter+1)][bombey].setImg(Tileset.getTile(0, Tile.getTileset()));
 					 double u=Math.random();
 					 if(u<0.1)
 					 {
@@ -303,8 +302,8 @@ public void run() {
 				 }
 			 }
 			 else {
-				 Board.map[bombex+(reichweiter+1)][bombey].setTileId(1);
-				 Board.map[bombex+(reichweiter+1)][bombey].setImg(Tileset.getTile(0, Tile.getTileset()));
+				 Mainframe.beard.map[bombex+(reichweiter+1)][bombey].setTileId(1);
+				 Mainframe.beard.map[bombex+(reichweiter+1)][bombey].setImg(Tileset.getTile(0, Tile.getTileset()));
 				 double u=Math.random();
 				 if(u<0.1)
 				 {
@@ -313,7 +312,7 @@ public void run() {
 					drop=true;
 				 }
 			 }
-			 Board.decDestructableCounter();
+			 Mainframe.beard.decDestructableCounter();
 			 ausbreiten = false;
 			 tiledestroyed=true;
 			 this.setTiledestroyedscounter(this.getTiledestroyedscounter());
@@ -326,7 +325,7 @@ public void run() {
  ausbreitung =0;
  ausbreiten=true;
  
- while (ausbreitung <= bombenreichweite && Board.map[bombex][bombey+reichweiteu].getTileId() == 1)
+ while (ausbreitung <= bombenreichweite && Mainframe.beard.map[bombex][bombey+reichweiteu].getTileId() == 1)
 	{
 	 //ListIterator<Bombe> it = Bombe.bombenliste.listIterator();	
  	 if (bombenliste.size()!=0) {
@@ -337,7 +336,7 @@ public void run() {
 			 {
 		 if(bombe.isExplodiert()==false){
 			 
-			 if(Board.map[this.getBombex()][this.getBombey()+reichweiteu] == Board.map[bombe.getBombex()][bombe.getBombey()]) {
+			 if(Mainframe.beard.map[this.getBombex()][this.getBombey()+reichweiteu] == Mainframe.beard.map[bombe.getBombex()][bombe.getBombey()]) {
 				 bombe.setExplodiert(true);
 				 this.doppel=true;
 				 bombe.doppel=true;
@@ -351,7 +350,7 @@ public void run() {
  }
 	 for (i=0; i<(Hero.heroliste.size()); i++)
 	 {
-		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex][bombey+reichweiteu])
+		 if (Mainframe.beard.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Mainframe.beard.map[bombex][bombey+reichweiteu])
 		 {
 		 if(Hero.heroliste.get(i).getarmored()==false)
 		 {
@@ -378,14 +377,14 @@ public void run() {
 	 }
 	 if (ausbreiten == true)
 	 {
-		 if (Board.map[bombex][bombey+(reichweiteu+1)].getTileId() == 4)
+		 if (Mainframe.beard.map[bombex][bombey+(reichweiteu+1)].getTileId() == 4)
 		 {
-			 if (Board.getHasExit()==false) {
+			 if (Mainframe.beard.getHasExit()==false) {
 				 double z=Math.random();
-				 if (z<(double)1/Board.getDestructableCounter()) {
-					 Board.map[bombex][bombey+(reichweiteu+1)].setTileId(3);
-					 Board.map[bombex][bombey+(reichweiteu+1)].setImg(Tileset.getTile(2, Tile.getTileset()));
-					 Board.setHasExit(true);
+				 if (z<=(double)1/Mainframe.beard.getDestructableCounter()) {
+					 Mainframe.beard.map[bombex][bombey+(reichweiteu+1)].setTileId(3);
+					 Mainframe.beard.map[bombex][bombey+(reichweiteu+1)].setImg(Tileset.getTile(2, Tile.getTileset()));
+					 Mainframe.beard.setHasExit(true);
 					 if(Mainframe.sound==true){
 					 try {
 							JukeBox.playSoundeffect("door");
@@ -399,8 +398,8 @@ public void run() {
 					 }
 				 }
 				 else {
-					 Board.map[bombex][bombey+(reichweiteu+1)].setTileId(1);
-					 Board.map[bombex][bombey+(reichweiteu+1)].setImg(Tileset.getTile(0, Tile.getTileset()));
+					 Mainframe.beard.map[bombex][bombey+(reichweiteu+1)].setTileId(1);
+					 Mainframe.beard.map[bombex][bombey+(reichweiteu+1)].setImg(Tileset.getTile(0, Tile.getTileset()));
 					 double u = Math.random();
 					 if(u<0.1)
 					 {
@@ -411,8 +410,8 @@ public void run() {
 				 }
 			 }
 			 else {
-				 Board.map[bombex][bombey+(reichweiteu+1)].setTileId(1);
-				 Board.map[bombex][bombey+(reichweiteu+1)].setImg(Tileset.getTile(0, Tile.getTileset()));
+				 Mainframe.beard.map[bombex][bombey+(reichweiteu+1)].setTileId(1);
+				 Mainframe.beard.map[bombex][bombey+(reichweiteu+1)].setImg(Tileset.getTile(0, Tile.getTileset()));
 				 double u = Math.random();
 				 if(u<0.1)
 				 {
@@ -421,7 +420,7 @@ public void run() {
 					 drop=true;
 				 }
 			 }
-			 Board.decDestructableCounter();
+			 Mainframe.beard.decDestructableCounter();
 			 ausbreiten=false;
 			 tiledestroyed=true;
 			 this.setTiledestroyedscounter(this.getTiledestroyedscounter());
@@ -434,7 +433,7 @@ public void run() {
  ausbreitung=0;
  ausbreiten=true;
  
- while (ausbreitung <= bombenreichweite && Board.map[bombex][bombey-reichweiteo].getTileId() == 1)
+ while (ausbreitung <= bombenreichweite && Mainframe.beard.map[bombex][bombey-reichweiteo].getTileId() == 1)
 	{
 	 //ListIterator<Bombe> it = Bombe.bombenliste.listIterator();	
  	 if (bombenliste.size()!=0) {
@@ -445,7 +444,7 @@ public void run() {
 			 {
 		 if(bombe.isExplodiert()==false){
 			 
-			 if(Board.map[this.getBombex()][this.getBombey()-reichweiteo] == Board.map[bombe.getBombex()][bombe.getBombey()]) {
+			 if(Mainframe.beard.map[this.getBombex()][this.getBombey()-reichweiteo] == Mainframe.beard.map[bombe.getBombex()][bombe.getBombey()]) {
 				 bombe.setExplodiert(true);
 				 this.doppel=true;
 				 bombe.doppel=true;
@@ -459,7 +458,7 @@ public void run() {
  }
 	 for (i=0; i<(Hero.heroliste.size()); i++)
 	 {
-		 if (Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Board.map[bombex][bombey-reichweiteo])
+		 if (Mainframe.beard.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()] == Mainframe.beard.map[bombex][bombey-reichweiteo])
 		 {			
 			 if(Hero.heroliste.get(i).getarmored()==false)
 			 {
@@ -486,14 +485,14 @@ public void run() {
 	 }
 	 if (ausbreiten == true)
 	 {
-		 if (Board.map[bombex][bombey-(reichweiteo+1)].getTileId() == 4)
+		 if (Mainframe.beard.map[bombex][bombey-(reichweiteo+1)].getTileId() == 4)
 		 {
-			 if (Board.getHasExit()==false) {
+			 if (Mainframe.beard.getHasExit()==false) {
 				 double z=Math.random();
-				 if (z<(double)1/Board.getDestructableCounter()) {
-					 Board.map[bombex][bombey-(reichweiteo+1)].setTileId(3);
-					 Board.map[bombex][bombey-(reichweiteo+1)].setImg(Tileset.getTile(2, Tile.getTileset()));
-					 Board.setHasExit(true);
+				 if (z<=(double)1/Mainframe.beard.getDestructableCounter()) {
+					 Mainframe.beard.map[bombex][bombey-(reichweiteo+1)].setTileId(3);
+					 Mainframe.beard.map[bombex][bombey-(reichweiteo+1)].setImg(Tileset.getTile(2, Tile.getTileset()));
+					 Mainframe.beard.setHasExit(true);
 					 if(Mainframe.sound==true){
 					 try {
 						JukeBox.playSoundeffect("door");
@@ -507,8 +506,8 @@ public void run() {
 					 }
 				 }
 				 else {
-					 Board.map[bombex][bombey-(reichweiteo+1)].setTileId(1);
-					 Board.map[bombex][bombey-(reichweiteo+1)].setImg(Tileset.getTile(0, Tile.getTileset()));
+					 Mainframe.beard.map[bombex][bombey-(reichweiteo+1)].setTileId(1);
+					 Mainframe.beard.map[bombex][bombey-(reichweiteo+1)].setImg(Tileset.getTile(0, Tile.getTileset()));
 					 double u=Math.random();
 					 if(u<0.1)
 					 {
@@ -520,8 +519,8 @@ public void run() {
 			 }
 			 else {
 
-				 Board.map[bombex][bombey-(reichweiteo+1)].setTileId(1);
-				 Board.map[bombex][bombey-(reichweiteo+1)].setImg(Tileset.getTile(0, Tile.getTileset()));
+				 Mainframe.beard.map[bombex][bombey-(reichweiteo+1)].setTileId(1);
+				 Mainframe.beard.map[bombex][bombey-(reichweiteo+1)].setImg(Tileset.getTile(0, Tile.getTileset()));
 				 double u=Math.random();
 				 if(u<0.1)
 				 {
@@ -530,7 +529,7 @@ public void run() {
 					 drop=true;
 				 }
 			 }
-			 Board.decDestructableCounter();
+			 Mainframe.beard.decDestructableCounter();
 			 ausbreiten=false;
 			 tiledestroyed=true;
 			 this.setTiledestroyedscounter(this.getTiledestroyedscounter());

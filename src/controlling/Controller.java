@@ -45,12 +45,12 @@ public class Controller extends JFrame {
 		}
 	}
 	public static void movementRight(int i){
-		if (Board.map[(Hero.heroliste.get(i).getxPixelPosition()+39+Hero.heroliste.get(i).getSpeed())/50][Hero.heroliste.get(i).getyPixelPosition()/50].getTileId()%2 != 0
-				&& Board.map[(Hero.heroliste.get(i).getxPixelPosition()+39+Hero.heroliste.get(i).getSpeed())/50][(Hero.heroliste.get(i).getyPixelPosition()+39)/50].getTileId()%2 != 0) {
+		if (Mainframe.beard.map[(Hero.heroliste.get(i).getxPixelPosition()+39+Hero.heroliste.get(i).getSpeed())/50][Hero.heroliste.get(i).getyPixelPosition()/50].getTileId()%2 != 0
+				&& Mainframe.beard.map[(Hero.heroliste.get(i).getxPixelPosition()+39+Hero.heroliste.get(i).getSpeed())/50][(Hero.heroliste.get(i).getyPixelPosition()+39)/50].getTileId()%2 != 0) {
 			Hero.heroliste.get(i).setxPixelPosition(Hero.heroliste.get(i).getxPixelPosition()+Hero.heroliste.get(i).getSpeed());
 			Hero.heroliste.get(i).setxCoord();
 		}
-		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
+		if(Mainframe.beard.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
 			Hero.heroliste.get(i).exitreached=true;
 			for(int n=0; n<Hero.heroliste.size(); n++) {
 				if(Mainframe.sound==true){
@@ -80,6 +80,13 @@ public class Controller extends JFrame {
 					" Wände zerstört = " + Hero.heroliste.get(1).gettilecount() + 
 					" Selbstmorde = " + Hero.heroliste.get(1).getSuicidecount());
 			new SortArray();
+			for(Hero hero : Hero.heroliste){
+		    	  hero.resetdeathcount();
+		    	  hero.resetkillcount();
+		    	  hero.resetscorecount();
+		    	  hero.resetsuicidecount();
+		    	  hero.resettilecount();
+		      }
 			InputController.keys.clear();
 			EndGame end = new EndGame();
  		   end.setVisible(true);
@@ -102,12 +109,12 @@ public class Controller extends JFrame {
 	}
 	public static void movementLeft(int i){
 		//int i=0;
-		if (Board.map[(Hero.heroliste.get(i).getxPixelPosition()-Hero.heroliste.get(i).getSpeed())/50][Hero.heroliste.get(i).getyPixelPosition()/50].getTileId()%2 != 0
-				&& Board.map[(Hero.heroliste.get(i).getxPixelPosition()-Hero.heroliste.get(i).getSpeed())/50][(Hero.heroliste.get(i).getyPixelPosition()+39)/50].getTileId()%2 != 0) {
+		if (Mainframe.beard.map[(Hero.heroliste.get(i).getxPixelPosition()-Hero.heroliste.get(i).getSpeed())/50][Hero.heroliste.get(i).getyPixelPosition()/50].getTileId()%2 != 0
+				&& Mainframe.beard.map[(Hero.heroliste.get(i).getxPixelPosition()-Hero.heroliste.get(i).getSpeed())/50][(Hero.heroliste.get(i).getyPixelPosition()+39)/50].getTileId()%2 != 0) {
 			Hero.heroliste.get(i).setxPixelPosition(Hero.heroliste.get(i).getxPixelPosition()-Hero.heroliste.get(i).getSpeed());
 			Hero.heroliste.get(i).setxCoord();
 		}
-		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
+		if(Mainframe.beard.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
 			Hero.heroliste.get(i).exitreached=true;
 			for(int n=0; n<Hero.heroliste.size(); n++) {
 				if(Mainframe.sound==true){
@@ -136,6 +143,13 @@ public class Controller extends JFrame {
 					" Wände zerstört = " + Hero.heroliste.get(1).gettilecount() + 
 					" Selbstmorde = " + Hero.heroliste.get(1).getSuicidecount());
 			new SortArray();
+			for(Hero hero : Hero.heroliste){
+		    	  hero.resetdeathcount();
+		    	  hero.resetkillcount();
+		    	  hero.resetscorecount();
+		    	  hero.resetsuicidecount();
+		    	  hero.resettilecount();
+		      }
 			InputController.keys.clear();
 			EndGame end = new EndGame();
 	 		   end.setVisible(true);
@@ -158,12 +172,12 @@ public class Controller extends JFrame {
 	}
 	public static void movementUp(int i){
 		//int i=0;
-		if (Board.map[(Hero.heroliste.get(i).getxPixelPosition())/50][(Hero.heroliste.get(i).getyPixelPosition()-Hero.heroliste.get(i).getSpeed())/50].getTileId()%2 != 0
-				&& Board.map[(Hero.heroliste.get(i).getxPixelPosition()+39)/50][(Hero.heroliste.get(i).getyPixelPosition()-Hero.heroliste.get(i).getSpeed())/50].getTileId()%2 != 0) {
+		if (Mainframe.beard.map[(Hero.heroliste.get(i).getxPixelPosition())/50][(Hero.heroliste.get(i).getyPixelPosition()-Hero.heroliste.get(i).getSpeed())/50].getTileId()%2 != 0
+				&& Mainframe.beard.map[(Hero.heroliste.get(i).getxPixelPosition()+39)/50][(Hero.heroliste.get(i).getyPixelPosition()-Hero.heroliste.get(i).getSpeed())/50].getTileId()%2 != 0) {
 				Hero.heroliste.get(i).setyPixelPosition(Hero.heroliste.get(i).getyPixelPosition()-Hero.heroliste.get(i).getSpeed());
 				Hero.heroliste.get(i).setyCoord();
 		}
-		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
+		if(Mainframe.beard.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
 			Hero.heroliste.get(i).exitreached=true;
 			for(int n=0; n<Hero.heroliste.size(); n++) {
 				if(Mainframe.sound==true){
@@ -192,6 +206,13 @@ public class Controller extends JFrame {
 					" Wände zerstört = " + Hero.heroliste.get(1).gettilecount() + 
 					" Selbstmorde = " + Hero.heroliste.get(1).getSuicidecount());
 			new SortArray();
+			for(Hero hero : Hero.heroliste){
+		    	  hero.resetdeathcount();
+		    	  hero.resetkillcount();
+		    	  hero.resetscorecount();
+		    	  hero.resetsuicidecount();
+		    	  hero.resettilecount();
+		      }
 			InputController.keys.clear();
 			EndGame end = new EndGame();
 	 		   end.setVisible(true);
@@ -214,12 +235,12 @@ public class Controller extends JFrame {
 	}
 	public static void movementDown(int i) {
 		//int i=0;
-		if (Board.map[(Hero.heroliste.get(i).getxPixelPosition())/50][(Hero.heroliste.get(i).getyPixelPosition()+39+Hero.heroliste.get(i).getSpeed())/50].getTileId()%2 != 0
-				&& Board.map[(Hero.heroliste.get(i).getxPixelPosition()+39)/50][(Hero.heroliste.get(i).getyPixelPosition()+39+Hero.heroliste.get(i).getSpeed())/50].getTileId()%2 != 0) {
+		if (Mainframe.beard.map[(Hero.heroliste.get(i).getxPixelPosition())/50][(Hero.heroliste.get(i).getyPixelPosition()+39+Hero.heroliste.get(i).getSpeed())/50].getTileId()%2 != 0
+				&& Mainframe.beard.map[(Hero.heroliste.get(i).getxPixelPosition()+39)/50][(Hero.heroliste.get(i).getyPixelPosition()+39+Hero.heroliste.get(i).getSpeed())/50].getTileId()%2 != 0) {
 			Hero.heroliste.get(i).setyPixelPosition(Hero.heroliste.get(i).getyPixelPosition()+Hero.heroliste.get(i).getSpeed());
 			Hero.heroliste.get(i).setyCoord();
 		}
-		if(Board.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
+		if(Mainframe.beard.map[Hero.heroliste.get(i).getxCoord()][Hero.heroliste.get(i).getyCoord()].getTileId() == 3){
 			Hero.heroliste.get(i).exitreached=true;
 			for(int n=0; n<Hero.heroliste.size(); n++) {
 				if(Mainframe.sound==true){
@@ -248,6 +269,13 @@ public class Controller extends JFrame {
 					" Wände zerstört = " + Hero.heroliste.get(1).gettilecount() + 
 					" Selbstmorde = " + Hero.heroliste.get(1).getSuicidecount());
 			new SortArray();
+			for(Hero hero : Hero.heroliste){
+		    	  hero.resetdeathcount();
+		    	  hero.resetkillcount();
+		    	  hero.resetscorecount();
+		    	  hero.resetsuicidecount();
+		    	  hero.resettilecount();
+		      }
 			InputController.keys.clear();
 			EndGame end = new EndGame();
 	 		   end.setVisible(true);

@@ -18,7 +18,7 @@ public class Hero {
 	private int yCoord;
 	private int xPixelPosition;
 	private int yPixelPosition;
-	private int speed=5;
+	int speed=5;
 	private int startPosition;
 	private int killcount=0;
 	private int deathcount=0;
@@ -28,10 +28,10 @@ public class Hero {
 	public boolean exitreached=false;
 	private int bombcount=0;
 	private boolean isalive;
-	private int reach=0;
+	int reach=0;
 	private boolean reachupgrade=false;
 	private boolean armored = false;
-	private int ammo = 0;
+	int ammo = 0;
 	private boolean ammoupgrade=false;
 	public boolean speedupgrade = false;
 	/*

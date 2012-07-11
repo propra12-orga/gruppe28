@@ -96,6 +96,7 @@ public class Mainframe extends JFrame{
         main.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e){
         		mapeditor=false;
+        		beard.setHasExit(false);
         		board1.setVisible(false);
         		beard.setVisible(true);
         		mf.removeKeyListener(eic);
@@ -417,6 +418,14 @@ public class Mainframe extends JFrame{
 	 * @param n
 	 */
 	public static void setStartPosition(int n) {
+		Hero.heroliste.get(n).speedupgrade=false;
+		Hero.heroliste.get(n).speed=5;
+		Hero.heroliste.get(n).setarmored(false);
+		Hero.heroliste.get(n).setReachupgrade(false);
+		Hero.heroliste.get(n).reach=0;
+		Hero.heroliste.get(n).ammo=0;
+		Hero.heroliste.get(n).setAmmoupgrade(false);
+		
 		if(n==0) {
 			Hero.heroliste.get(0).setxPixelPosition(50);
 			Hero.heroliste.get(0).setyPixelPosition(50);
