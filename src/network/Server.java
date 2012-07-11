@@ -28,6 +28,7 @@ public class Server extends Thread {
 				client=server.accept();
 				clientThreadslist.add(new ClientThread(playerCount, this, server.accept()));
 				playerCount++;
+				System.out.println("Hello Client "+playerCount);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -38,6 +39,7 @@ public class Server extends Thread {
 		}
 		try {
 			server.close();
+			System.out.println("Server closed");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

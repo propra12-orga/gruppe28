@@ -1,17 +1,24 @@
 package Menu;
 
+import java.awt.Button;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.UnknownHostException;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import network.Client;
+import network.Server;
 
 import controlling.InputController;
 
@@ -78,6 +85,45 @@ public class Spielstart extends JFrame implements ActionListener {
         Multiplayer.addActionListener(new ActionListener() {
       	   public void actionPerformed(ActionEvent event){
 				InputController.setNetwork(true);
+				Button host = new Button("Host");
+				host.setSize(50, 50);
+				host.setLocation(50, 100);
+				host.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent event) {
+						try {
+							Server s = new Server();
+							s.start();
+							Client c = new Client();
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				});
+				Button client = new Button("Client");
+				client.setSize(50, 50);
+				client.setLocation(200, 100);
+				client.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent event) {
+						try {
+							Client c = new Client();
+							c.start();
+						} catch (UnknownHostException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				});
+				JDialog hostOrClient = new JDialog();
+				hostOrClient.setSize(300,200);
+				hostOrClient.add(host);
+				hostOrClient.add(client);
+				hostOrClient.setVisible(true);
+				
+				
       	   }}
          );
         
