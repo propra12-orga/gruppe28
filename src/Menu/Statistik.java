@@ -41,7 +41,7 @@ public class Statistik extends JFrame implements ActionListener {
         
         add(Box.createRigidArea(new Dimension (0,50)));
         add(label);
-        add(Box.createRigidArea(new Dimension (0,25)));
+        add(Box.createRigidArea(new Dimension (0,50)));
         HighscoreEntry frst = Mainframe.highscore[0];
         HighscoreEntry scnd = Mainframe.highscore[1];
         HighscoreEntry thrd = Mainframe.highscore[2];
@@ -79,7 +79,7 @@ public class Statistik extends JFrame implements ActionListener {
         add(fourth);
         add(Box.createRigidArea(new Dimension (0,10)));
         add(fifth);
-        add(Box.createRigidArea(new Dimension (0,10)));
+        add(Box.createRigidArea(new Dimension (0,50)));
         
         JButton close = new JButton(new ImageIcon("res/Buttonimages/zuruck.gif"));
 		close.setBorderPainted(false);

@@ -26,7 +26,6 @@ import Menu.Statistik;
 import board.Board;
 import board.Editorboard;
 import board.GameSaver;
-import board.Tileset;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -371,26 +370,15 @@ public class Mainframe extends JFrame{
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		
-		
-		
-		
-		
-		
-		//File test = new File("res/Maps/1.txt");
-		//mf.add(beard);
-		//mf.addKeyListener(ic);
-		//beard.createLevel(LevelReader.readLevel(test));
-		
 
 		for(int i=0; i<(Hero.heroliste.size()); i++) {
 			setStartPosition(i);
-			Tileset.getHero(i);
 		}
+		Charactereinstellungen.setHero(0,0,0);
+		Charactereinstellungen2.setHero2(1,0,1);
 		LevelReader.ausgabe(LevelReader.level);
-		//Spielstart start = new Spielstart();
-		//start.setVisible(true);
 		while(true) {
+			if(mapeditor==false){
 			if(twoplayer==true){
 				statusbar.setText(Charactereinstellungen.name1.getText()+": " +score+
 						" || "+Charactereinstellungen2.name2.getText()+": " +score2);
@@ -405,6 +393,10 @@ public class Mainframe extends JFrame{
 	            	Hero.heroliste.get(1).setscorecount();
 	            	score2 = Hero.heroliste.get(1).getscorecount();
 	            }
+			}
+			}
+			if(mapeditor==true){
+				statusbar.setText("Taste <1> = begehbares Feld, Taste <2> = unzerstörbares Feld, Taste <3> = zerstörbares Feld");
 			}
 			if(mapeditor==false){
 				beard.repaint();

@@ -146,81 +146,81 @@ public class Charactereinstellungen extends JFrame implements
             int index = combo.getSelectedIndex();
             display.setIcon(new ImageIcon(images[index]));
             if(index == 0){
-            	this.setHero(0,0,0);
+            	Charactereinstellungen.setHero(0,0,0);
             }
             if(index == 1){
-            	this.setHero(1,0,0);
+            	Charactereinstellungen.setHero(1,0,0);
             }
             if(index == 2){
-            	this.setHero(2,0,0);
+            	Charactereinstellungen.setHero(2,0,0);
             }
             if(index == 3){
-            	this.setHero(3,0,0);
+            	Charactereinstellungen.setHero(3,0,0);
             }
             if(index == 4){
-            	this.setHero(0,1,0);
+            	Charactereinstellungen.setHero(0,1,0);
             }
             if(index == 5){
-            	this.setHero(1,1,0);
+            	Charactereinstellungen.setHero(1,1,0);
             }
             if(index == 6){
-            	this.setHero(2,1,0);
+            	Charactereinstellungen.setHero(2,1,0);
             }
             if(index == 7){
-            	this.setHero(3,1,0);
+            	Charactereinstellungen.setHero(3,1,0);
             }
             if(index == 8){
-            	this.setHero(0,2,0);
+            	Charactereinstellungen.setHero(0,2,0);
             }
             if(index == 9){
-            	this.setHero(1,2,0);
+            	Charactereinstellungen.setHero(1,2,0);
             }
             if(index == 10){
-            	this.setHero(2,2,0);
+            	Charactereinstellungen.setHero(2,2,0);
             }
             if(index == 11){
-            	this.setHero(3,2,0);
+            	Charactereinstellungen.setHero(3,2,0);
             }
             if(index == 12){
-            	this.setHero(0,3,0);
+            	Charactereinstellungen.setHero(0,3,0);
             }
             if(index == 13){
-            	this.setHero(1,3,0);
+            	Charactereinstellungen.setHero(1,3,0);
             }
             if(index == 14){
-            	this.setHero(2,3,0);
+            	Charactereinstellungen.setHero(2,3,0);
             }
             if(index == 15){
-            	this.setHero(3,3,0);
+            	Charactereinstellungen.setHero(3,3,0);
             }
             if(index == 16){
-            	this.setHero(0,4,0);
+            	Charactereinstellungen.setHero(0,4,0);
             }
             if(index == 17){
-            	this.setHero(1,4,0);
+            	Charactereinstellungen.setHero(1,4,0);
             }
             if(index == 18){
-            	this.setHero(2,4,0);
+            	Charactereinstellungen.setHero(2,4,0);
             }
             if(index == 19){
-            	this.setHero(3,4,0);
+            	Charactereinstellungen.setHero(3,4,0);
             }
             if(index == 20){
-            	this.setHero(0,5,0);
+            	Charactereinstellungen.setHero(0,5,0);
             }
             if(index == 21){
-            	this.setHero(1,5,0);
+            	Charactereinstellungen.setHero(1,5,0);
             }
             if(index == 22){
-            	this.setHero(2,5,0);
+            	Charactereinstellungen.setHero(2,5,0);
             }
             if(index == 23){
-            	this.setHero(3,5,0);
+            	Charactereinstellungen.setHero(3,5,0);
             }
         }
 
     }
-    public BufferedImage setHero(int a, int b, int i) {
+    public static BufferedImage setHero(int a, int b, int i) {
 		Charactereinstellungen.heroes[i]=Tileset.hero[a][b];
 		return Charactereinstellungen.heroes[i];
 	}
