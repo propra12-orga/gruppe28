@@ -68,7 +68,7 @@ public class Mainframe extends JFrame{
 	static int score = 0;
 	static int score2 = 0;
 	static JLabel statusbar;
-	static InputController ic = new controlling.InputController();
+	public static InputController ic = new controlling.InputController();
 	static EditorInputController eic = new controlling.EditorInputController();
 	
 	public static Editorboard board1 = new Editorboard();
