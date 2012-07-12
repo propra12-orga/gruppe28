@@ -22,7 +22,7 @@ public class InputController extends Thread implements KeyListener
 	{
 	public static Vector<Integer> keys = new Vector<Integer>();
 	public static boolean network = false;
-	private static String[] keysNetwork = new String[8];
+	String[] keysNetwork = new String[8];
 	
 	public void keyPressed(KeyEvent e) {
 		if (network == false) {
@@ -32,75 +32,61 @@ public class InputController extends Thread implements KeyListener
 		else {
 			if(e.equals(KeyEvent.VK_W)) {
 				for (int i=0; i<8; i++) {
-					if(!getKeysNetwork(i).equals("0up")){
-						setKeysNetwork("0up", i);
+					if(!keysNetwork[i].equals("0up")){
+						keysNetwork[i]="0up";
 					}
 				}
 			}
 			else if (e.equals(KeyEvent.VK_D)) {
 				for (int i=0; i<8; i++) {
-					if(!getKeysNetwork(i).equals("0right")){
-						setKeysNetwork("0right",i);
+					if(!keysNetwork[i].equals("0right")){
+						keysNetwork[i]="0right";
 					}
 				}
 			}
 			else if (e.equals(KeyEvent.VK_S)) {
 				for (int i=0; i<8; i++) {
-					if(!getKeysNetwork(i).equals("0down")){
-						setKeysNetwork("0down", i);
+					if(!keysNetwork[i].equals("0down")){
+						keysNetwork[i]="0down";
 					}
 				}
 			}
 			else if (e.equals(KeyEvent.VK_A)) {
 				for (int i=0; i<8; i++) {
-					if(!getKeysNetwork(i).equals("0left")){
-						setKeysNetwork("0left", i);
+					if(!keysNetwork[i].equals("0left")){
+						keysNetwork[i]="0left";
 					}
 				}
 			}
-			else if (e.equals(KeyEvent.VK_CONTROL)) {
-				for (int i=0; i<8; i++) {
-					if(!getKeysNetwork(i).equals("0bomb")){
-						setKeysNetwork("0bomb",i);
-				}
-			}
-			}
 			else if (e.equals(KeyEvent.VK_UP)) {
 				for (int i=0; i<8; i++) {
-					if(!getKeysNetwork(i).equals("1up")){
-						setKeysNetwork("1up",i);
+					if(!keysNetwork[i].equals("1up")){
+						keysNetwork[i]="1up";
 					}
 				}
 			}
 			else if (e.equals(KeyEvent.VK_RIGHT)) {
 				for (int i=0; i<8; i++) {
-					if(!getKeysNetwork(i).equals("1right")){
-						setKeysNetwork("1right",i);
+					if(!keysNetwork[i].equals("1right")){
+						keysNetwork[i]="1right";
 					}
 				}
 			}
 			else if (e.equals(KeyEvent.VK_DOWN)) {
 				for (int i=0; i<8; i++) {
-					if(!getKeysNetwork(i).equals("1down")){
-						setKeysNetwork("1down",i);
+					if(!keysNetwork[i].equals("1down")){
+						keysNetwork[i]="1down";
 					}
 				}
 			}
 			else if (e.equals(KeyEvent.VK_LEFT)) {
 				for (int i=0; i<8; i++) {
-					if(!getKeysNetwork(i).equals("1left")){
-						setKeysNetwork("1left", i);
+					if(!keysNetwork[i].equals("1left")){
+						keysNetwork[i]="1left";
 					}
 				}
 			}
-			else if (e.equals(KeyEvent.VK_SPACE)) {
-				for (int i=0; i<8; i++) {
-					if(!getKeysNetwork(i).equals("1bomb")){
-						setKeysNetwork("1bomb",i);
-				}
-			}
 		}
-	}
 	}
 	public void keyReleased(KeyEvent e)	{
 		keys.removeElement(e.getKeyCode());
@@ -121,19 +107,22 @@ public class InputController extends Thread implements KeyListener
 		 * Tastenbelegung f�r Spieler 1.
 		 */
 		if (keys.contains(KeyEvent.VK_W)) {
-			Controller.movementUp(0);
+			Controller.movement(0, -1, ((Hero.heroliste.get(0).getxPixelPosition())/50), ((Hero.heroliste.get(0).getyPixelPosition()-Hero.heroliste.get(0).getSpeed())/50),
+					((Hero.heroliste.get(0).getxPixelPosition()+39)/50), ((Hero.heroliste.get(0).getyPixelPosition()-Hero.heroliste.get(0).getSpeed())/50), "y");
 		}
 		else if (keys.contains(KeyEvent.VK_S)) {
-			Controller.movementDown(0);
+			Controller.movement(0, 1, ((Hero.heroliste.get(0).getxPixelPosition())/50), ((Hero.heroliste.get(0).getyPixelPosition()+39+Hero.heroliste.get(0).getSpeed())/50),
+					((Hero.heroliste.get(0).getxPixelPosition()+39)/50), ((Hero.heroliste.get(0).getyPixelPosition()+39+Hero.heroliste.get(0).getSpeed())/50), "y");
 		}
 		if (keys.contains(KeyEvent.VK_A)) {
-			Controller.movementLeft(0);
+			Controller.movement(0, -1, ((Hero.heroliste.get(0).getxPixelPosition()-Hero.heroliste.get(0).getSpeed())/50), (Hero.heroliste.get(0).getyPixelPosition()/50), 
+					((Hero.heroliste.get(0).getxPixelPosition()-Hero.heroliste.get(0).getSpeed())/50), ((Hero.heroliste.get(0).getyPixelPosition()+39)/50), "x");
 		}
 		else if (keys.contains(KeyEvent.VK_D)) {
-			Controller.movementRight(0);
+			Controller.movement(0, 1, ((Hero.heroliste.get(0).getxPixelPosition()+39+Hero.heroliste.get(0).getSpeed())/50), (Hero.heroliste.get(0).getyPixelPosition()/50), 
+					((Hero.heroliste.get(0).getxPixelPosition()+39+Hero.heroliste.get(0).getSpeed())/50), ((Hero.heroliste.get(0).getyPixelPosition()+39)/50), "x");
 		}
 		if (keys.contains(KeyEvent.VK_CONTROL)) {
-			
 			boolean blocked=false;
 			
 			
@@ -165,16 +154,20 @@ public class InputController extends Thread implements KeyListener
 		 */
 		if(Mainframe.twoplayer==true){
 		if (keys.contains(KeyEvent.VK_UP)) {
-			Controller.movementUp(1);
+			Controller.movement(1, -1, ((Hero.heroliste.get(1).getxPixelPosition())/50), ((Hero.heroliste.get(1).getyPixelPosition()-Hero.heroliste.get(1).getSpeed())/50),
+					((Hero.heroliste.get(1).getxPixelPosition()+39)/50), ((Hero.heroliste.get(1).getyPixelPosition()-Hero.heroliste.get(1).getSpeed())/50), "y");
 		}
 		else if (keys.contains(KeyEvent.VK_DOWN)) {
-			Controller.movementDown(1);
+			Controller.movement(1, 1, ((Hero.heroliste.get(1).getxPixelPosition())/50), ((Hero.heroliste.get(1).getyPixelPosition()+39+Hero.heroliste.get(1).getSpeed())/50),
+					((Hero.heroliste.get(1).getxPixelPosition()+39)/50), ((Hero.heroliste.get(1).getyPixelPosition()+39+Hero.heroliste.get(1).getSpeed())/50), "y");
 		}
 		if (keys.contains(KeyEvent.VK_LEFT)) {
-			Controller.movementLeft(1);
+			Controller.movement(1, -1, ((Hero.heroliste.get(1).getxPixelPosition()-Hero.heroliste.get(1).getSpeed())/50), (Hero.heroliste.get(1).getyPixelPosition()/50), 
+					((Hero.heroliste.get(1).getxPixelPosition()-Hero.heroliste.get(1).getSpeed())/50), ((Hero.heroliste.get(1).getyPixelPosition()+39)/50), "x");
 		}
 		else if (keys.contains(KeyEvent.VK_RIGHT)) {
-			Controller.movementRight(1);
+			Controller.movement(1, 1, ((Hero.heroliste.get(1).getxPixelPosition()+39+Hero.heroliste.get(1).getSpeed())/50), (Hero.heroliste.get(1).getyPixelPosition()/50), 
+					((Hero.heroliste.get(1).getxPixelPosition()+39+Hero.heroliste.get(1).getSpeed())/50), ((Hero.heroliste.get(1).getyPixelPosition()+39)/50), "x");
 		}
 		if (keys.contains(KeyEvent.VK_SPACE)) {
 			boolean blocked=false;
@@ -206,12 +199,6 @@ public class InputController extends Thread implements KeyListener
 		}
 	public static void setNetwork(boolean b) {
 		network = true;
-	}
-	public static String getKeysNetwork(int i) {
-		return keysNetwork[i];
-	}
-	public void setKeysNetwork(String a, int i) {
-		this.keysNetwork[i] = a;
 	}
 	
 }

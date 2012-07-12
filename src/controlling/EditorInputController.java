@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Vector;
 import board.Editorboard;
+import board.LevelReader;
 import board.Tile;
 import board.Tileset;
 
@@ -41,12 +42,9 @@ public class EditorInputController extends Thread implements KeyListener
 			catch(InterruptedException e) {
 				
 			}
-		
-		/**
-		 * Tastenbelegung für Spieler 2.
-		 */
+
 		if (keys.contains(KeyEvent.VK_UP)) {
-			Controller.movementEditorUp(0);
+			Controller.movementEditor(0, -1, EditorHero.heroliste.get(0).getyCoord(), 1, "y");
 			try{
 				sleep(100);
 			}
@@ -55,7 +53,7 @@ public class EditorInputController extends Thread implements KeyListener
 			}
 		}
 		else if (keys.contains(KeyEvent.VK_DOWN)) {
-			Controller.movementEditorDown(0);
+			Controller.movementEditor(0, 1, EditorHero.heroliste.get(0).getyCoord(), LevelReader.r-2, "y");
 			try{
 				sleep(100);
 			}
@@ -64,7 +62,7 @@ public class EditorInputController extends Thread implements KeyListener
 			}
 		}
 		if (keys.contains(KeyEvent.VK_LEFT)) {
-			Controller.movementEditorLeft(0);
+			Controller.movementEditor(0, -1, EditorHero.heroliste.get(0).getxCoord(), 1, "x");
 			try{
 				sleep(100);
 			}
@@ -73,7 +71,7 @@ public class EditorInputController extends Thread implements KeyListener
 			}
 		}
 		else if (keys.contains(KeyEvent.VK_RIGHT)) {
-			Controller.movementEditorRight(0);
+			Controller.movementEditor(0, 1, EditorHero.heroliste.get(0).getxCoord(), LevelReader.c-2, "x");
 			try{
 				sleep(100);
 			}
